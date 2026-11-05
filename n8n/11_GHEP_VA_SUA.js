@@ -5,8 +5,11 @@ const d = $('09_CHUAN_BI_AI').first().json;
 // Giáo án: từ nhánh .zip (07C, có hình) hoặc nhánh .tex (07_DOC_TEX)
 let tuZip = null;
 try { tuZip = $('07C_LAY_TEX_TU_ZIP').first().json; } catch (e) {}
+const loiZip = tuZip?.loi_zip || null;
 if (!tuZip?.giao_an_tex) tuZip = null;
-const goc = tuZip ? tuZip.giao_an_tex : ($('07_DOC_TEX').first().json.giao_an_tex || "");
+let goc = tuZip ? tuZip.giao_an_tex : "";
+if (!goc) { try { goc = $('07_DOC_TEX').first().json.giao_an_tex || ""; } catch (e) {} }
+if (!goc) throw new Error(loiZip || "Không đọc được giáo án. Kiểm tra node IF 07A_LA_ZIP: ô thứ hai phải ghi .zip (file .tex phải đi nhánh false → 07_DOC_TEX).");
 const meta = $('04_LAY_YCCD').first().json;
 const cache = $getWorkflowStaticData("global");
 const NLS = d.nls_map || cache.nls_nc1 || {};   // lấy từ node 09 (static data không chia sẻ giữa các node khi chạy thử)
