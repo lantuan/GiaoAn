@@ -1,0 +1,48 @@
+{
+  "nguon": "Công văn 5512/BGDĐT-GDTrH ngày 18/12/2020, Phụ lục IV – Khung kế hoạch bài dạy; thuật ngữ năng lực, phẩm chất theo Chương trình GDPT 2018 (TT 32/2018) và Chương trình môn Toán",
+  "cau_truc": [
+    {
+      "ma": "muc_tieu",
+      "ten": "I. Mục tiêu",
+      "thanh_phan": [
+        { "ma": "kien_thuc", "ten": "1. Kiến thức", "ghi_chu": "Bám sát yêu cầu cần đạt (YCCĐ) của bài" },
+        { "ma": "nang_luc", "ten": "2. Năng lực", "gom": ["nang_luc_chung", "nang_luc_dac_thu", "nang_luc_so"] },
+        { "ma": "pham_chat", "ten": "3. Phẩm chất" }
+      ]
+    },
+    { "ma": "thiet_bi", "ten": "II. Thiết bị dạy học và học liệu" },
+    {
+      "ma": "tien_trinh",
+      "ten": "III. Tiến trình dạy học",
+      "hoat_dong": [
+        { "ma": "hd_mo_dau", "ten": "Hoạt động 1: Mở đầu (Xác định vấn đề/nhiệm vụ học tập)", "ten_khac": ["Khởi động"] },
+        { "ma": "hd_hinh_thanh", "ten": "Hoạt động 2: Hình thành kiến thức mới", "co_the_chia_nho": true },
+        { "ma": "hd_luyen_tap", "ten": "Hoạt động 3: Luyện tập" },
+        { "ma": "hd_van_dung", "ten": "Hoạt động 4: Vận dụng" }
+      ],
+      "moi_hoat_dong_gom": ["a) Mục tiêu", "b) Nội dung", "c) Sản phẩm", "d) Tổ chức thực hiện"],
+      "to_chuc_thuc_hien_4_buoc": [
+        "Bước 1: Chuyển giao nhiệm vụ",
+        "Bước 2: Thực hiện nhiệm vụ",
+        "Bước 3: Báo cáo, thảo luận",
+        "Bước 4: Kết luận, nhận định"
+      ]
+    }
+  ],
+  "nang_luc_chung": [
+    "Năng lực tự chủ và tự học",
+    "Năng lực giao tiếp và hợp tác",
+    "Năng lực giải quyết vấn đề và sáng tạo"
+  ],
+  "nang_luc_dac_thu_toan": [
+    "Năng lực tư duy và lập luận toán học",
+    "Năng lực mô hình hoá toán học",
+    "Năng lực giải quyết vấn đề toán học",
+    "Năng lực giao tiếp toán học",
+    "Năng lực sử dụng công cụ, phương tiện học toán"
+  ],
+  "pham_chat_chu_yeu": ["Yêu nước", "Nhân ái", "Chăm chỉ", "Trung thực", "Trách nhiệm"],
+  "thuat_ngu_nen_sua": {
+    "Năng lực riêng": "Năng lực đặc thù"
+  }
+}
