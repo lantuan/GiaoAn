@@ -316,8 +316,9 @@ if (tuZip) {
 }
 
 // ===== 3. Xuất file =====
-const tenGoc = ((tuZip && tuZip.ten_tex) || meta.file_name || `Bai_${meta.lesson?.bai_so || ""}.tex`).normalize("NFC");
-const goc_ten = tenGoc.replace(/\.(tex|zip)$/i, "");
+// Tên lấy từ file gửi qua Telegram (đúng dấu tiếng Việt); tên file bên trong .zip có thể bị lỗi mã hoá khi giải nén
+const tenGoc = (meta.file_name || (tuZip && tuZip.ten_tex) || `Bai_${meta.lesson?.bai_so || ""}.tex`).normalize("NFC");
+const goc_ten = tenGoc.replace(/\.(tex|zip)$/i, "").replace(/_extest$/i, "");
 const fileName = goc_ten + "_CV5512.tex";
 const binary = { data: await this.helpers.prepareBinaryData(Buffer.from(tex, "utf8"), fileName, "application/x-tex") };
 // Nhánh .zip: thêm hình + .sty để node "12A_NEN_ZIP" nén lại
