@@ -99,4 +99,4 @@ const ai_body = {
   ]
 };
 
-return [{ json: { ...d, can_ai, viec, ai_body } }];
+return [{ json: { ...d, can_ai, viec, ai_body, nls_map: NLS } }];

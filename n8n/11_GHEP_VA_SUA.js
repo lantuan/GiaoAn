@@ -5,7 +5,7 @@ const d = $('09_CHUAN_BI_AI').first().json;
 const goc = $('07_DOC_TEX').first().json.giao_an_tex || "";
 const meta = $('04_LAY_YCCD').first().json;
 const cache = $getWorkflowStaticData("global");
-const NLS = cache.nls_nc1 || {};
+const NLS = d.nls_map || cache.nls_nc1 || {};   // lấy từ node 09 (static data không chia sẻ giữa các node khi chạy thử)
 
 let tex = goc.normalize("NFC");
 const da_sua = [];
@@ -26,6 +26,14 @@ if (inp.choices) {
 }
 const S = d.sections_tex || {};
 const nlsDuocPhep = new Set((d.viec?.nls_can_gan || []).map(x => x.ma));
+// Chỉ nhận những việc ĐÃ GIAO cho AI (AI viết thừa thì bỏ)
+const hdMoiDuocPhep = new Set((d.viec?.hoat_dong_moi || []).map(x => x.key));
+const boSungDuocPhep = new Set((d.viec?.bo_sung_hoat_dong || []).map(x => x.key));
+if (ai) {
+  ai.hoat_dong_moi = (ai.hoat_dong_moi || []).filter(x => hdMoiDuocPhep.has(x.key) || (canh_bao.push(`Bỏ qua ${x.key}: AI viết thừa (hoạt động đã có)`), false));
+  ai.bo_sung_hoat_dong = (ai.bo_sung_hoat_dong || []).filter(x => boSungDuocPhep.has(x.key) || (canh_bao.push(`Bỏ qua bổ sung ${x.key}: không được yêu cầu`), false));
+  if (!d.viec?.yccd_thieu?.length) ai.them_muc_tieu_kien_thuc = [];
+}
 
 if (ai) {
   // 1a. Thêm YCCĐ vào Mục tiêu – Kiến thức
@@ -81,23 +89,36 @@ if (ai) {
 if (/Năng lực riêng/.test(tex)) { tex = tex.replace(/Năng lực riêng/g, "Năng lực đặc thù"); da_sua.push('Đổi "Năng lực riêng" → "Năng lực đặc thù"'); }
 
 // 2b. Dòng tiến trình lọt vào câu trắc nghiệm \begin{ex}
-let soEx = 0;
+// Lỗi Word2Tex: (1) dòng "Bước…" lọt giữa đề và \choice; (2) \loigiai{...} của câu cuối "nuốt" phần
+// tiến trình phía sau (Đáp án bài tập, Bước 4, cả Hoạt động Vận dụng). Đưa tất cả ra sau \end{ex}, đúng thứ tự.
+let soEx = 0, soNuot = 0;
+const LAC_RX = /Bước\s*\d|HOẠT ĐỘNG|\\textbf\{\s*[a-d]\)/;
 tex = tex.replace(/\\begin\{ex\}([\s\S]*?)\\end\{ex\}/g, (blk, inner) => {
-  if (!/Bước\s*\d/.test(inner)) return blk;
-  const L = inner.split("\n");
-  const iChoice = L.findIndex(l => /^\s*\\choice/.test(l));
-  if (iChoice < 0) return blk;
-  const iDe = L.findIndex((l, i) => i > 0 && l.trim() && !/^%/.test(l.trim()));   // dòng đề bài
+  if (!LAC_RX.test(inner)) return blk;
+  const iChoiceTxt = inner.search(/\n\s*\\choice/);
+  if (iChoiceTxt < 0) return blk;
+  // (1) dòng lạc giữa đề và \choice
+  const dau = inner.slice(0, iChoiceTxt).split("\n");
+  const iDe = dau.findIndex((l, i) => i > 0 && l.trim() && !/^%/.test(l.trim()));
   const giu = [], lac = [];
-  L.forEach((l, i) => {
-    if (i > iDe && i < iChoice && l.trim() && (/Bước\s*\d/.test(l) || /^\s*(\\textcolor\[HTML\]\{[0-9A-Fa-f]{6}\}\{)?\s*-\s/.test(l))) lac.push(l);
+  dau.forEach((l, i) => {
+    if (i > iDe && l.trim() && (/Bước\s*\d/.test(l) || /^\s*(\\textcolor\[HTML\]\{[0-9A-Fa-f]{6}\}\{)?\s*-\s/.test(l))) lac.push(l);
     else giu.push(l);
   });
-  if (!lac.length) return blk;
+  // (2) lời giải bị nuốt
+  let duoi = inner.slice(iChoiceTxt), nuot = "";
+  const iL = duoi.indexOf("\\loigiai{");
+  if (iL >= 0) {
+    const iEnd = duoi.lastIndexOf("}");
+    const lg = duoi.slice(iL + 9, iEnd);
+    if (LAC_RX.test(lg)) { nuot = lg.trim(); duoi = duoi.slice(0, iL) + "\\loigiai{\n}\n"; soNuot++; }
+  }
+  if (!lac.length && !nuot) return blk;
   soEx++;
-  return "\\begin{ex}" + giu.join("\n") + "\\end{ex}\n\n" + lac.join("\n\n") + "\n";
+  return "\\begin{ex}" + giu.join("\n") + duoi + "\\end{ex}\n\n" +
+    (lac.length ? lac.join("\n\n") + "\n\n" : "") + (nuot ? nuot + "\n" : "");
 });
-if (soEx) da_sua.push(`Chuyển các dòng "Bước…" ra khỏi ${soEx} câu trắc nghiệm`);
+if (soEx) da_sua.push(`Gỡ ${soEx} câu trắc nghiệm bị lẫn tiến trình (lỗi Word2Tex)` + (soNuot ? `, trả ${soNuot} phần bị \\loigiai "nuốt" về đúng chỗ` : ""));
 
 // 2c. Năng lực số ở Mục tiêu: đúng nguyên văn CV 3456 + bổ sung mã đang dùng ở hoạt động
 const iMT = tex.search(/I\.\s*MỤC TIÊU/), iTB = tex.search(/II\.\s*THIẾT BỊ/);
