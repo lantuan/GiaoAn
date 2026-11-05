@@ -78,9 +78,12 @@ try { pp = $('04_LAY_YCCD').first().json.ppct || {}; } catch (e) {}
 const nlsSoan = (pp.nls || []).filter(c => NLS[c]);
 if (soanMoi) {
   for (const k of Object.keys(viec)) delete viec[k];
+  const dy = d.dan_y || {};
   viec.soan_khbd_tu_tai_lieu = {
     so_tiet: d.lesson?.so_tiet || null,
-    dan_y_tai_lieu: d.dan_y,
+    ten_tai_lieu: dy.tieu_de || null,
+    cac_phan: dy.muc || [],          // M0, M1… = lý thuyết + ví dụ của từng phần
+    bai_tap: dy.bai_tap || [],        // BT1, BT2… = bài tập (có lời giải)
     nls_duoc_dung: nlsSoan.map(c => ({ ma: c, mo_ta: NLS[c] })),
     hs_khuyet_tat: hskt?.mo_ta || null
   };
@@ -103,17 +106,22 @@ Quy tắc:
 Mảng nào không có việc thì để [], "ca_nhan_hoa" không có việc thì để "".`;
 
 const SYSTEM_SOAN = `Bạn là giáo viên chuyên Toán giỏi, soạn kế hoạch bài dạy (KHBD) theo Công văn 5512/BGDĐT-GDTrH cho lớp chuyên.
-Đầu vào: dàn ý một tài liệu chuyên đề (các phần, ví dụ, bài tập đánh số 1..n). Tài liệu gốc sẽ được in nguyên văn ở PHỤ LỤC, nên khi cần chỉ ghi "Ví dụ ... phần ...", "Bài tập k (Phụ lục)", KHÔNG chép lại đề.
+Đầu vào: tài liệu chuyên đề đã được tách thành các KHỐI: "cac_phan" (M0, M1…: lý thuyết + ví dụ của từng phần) và "bai_tap" (BT1, BT2…: bài tập có lời giải). Nội dung các khối sẽ được chương trình chèn NGUYÊN VĂN vào hoạt động nào có id của khối đó trong "dung", nên bạn KHÔNG chép lại lý thuyết hay đề bài.
 Yêu cầu:
-- Chia ${d.lesson?.so_tiet || "các"} tiết hợp lý theo các phần của tài liệu ("phan_bo").
-- Hoạt động: hd_mo_dau (1 cái); hd_hinh_thanh_1, hd_hinh_thanh_2… (mỗi phần lớn của tài liệu 1 hoạt động); hd_luyen_tap (chọn bài tập theo mức tăng dần); hd_van_dung (bài khó/thi HSG, dự án nhỏ hoặc tìm hiểu thêm có dùng công cụ số).
-- Mỗi hoạt động đủ: a) Mục tiêu; b) Nội dung; c) Sản phẩm; d) Tổ chức thực hiện gồm Bước 1: Chuyển giao nhiệm vụ; Bước 2: Thực hiện nhiệm vụ; Bước 3: Báo cáo, thảo luận; Bước 4: Kết luận, nhận định. Ghi rõ tiết ở trường "tiet".
-- "muc_tieu_kien_thuc": 4–8 ý, bám YCCĐ trong PPCT và nội dung tài liệu.
+- Chia ${d.lesson?.so_tiet || "các"} tiết hợp lý ("phan_bo").
+- hd_mo_dau: TỰ NGHĨ một tình huống/bài toán cụ thể, gần gũi (không lấy từ tài liệu) dẫn dắt tới khái niệm đầu tiên, viết đầy đủ vào "tinh_huong" (có câu hỏi gợi mở cho HS). "dung" để [].
+- hd_hinh_thanh_1, hd_hinh_thanh_2…: MỖI khối M (trừ M0 nếu chỉ là lời dẫn) vào ĐÚNG MỘT hoạt động hình thành, theo thứ tự; có thể thêm 1–2 bài tập dễ của phần đó làm ví dụ mẫu.
+- hd_luyen_tap (có thể hd_luyen_tap_1, _2… theo tiết): chọn bài tập vừa sức, tăng dần.
+- hd_van_dung: bài khó/thi HSG (có nguồn), kèm nhiệm vụ tìm hiểu ứng dụng thực tế hoặc dùng công cụ số.
+- Mỗi id khối dùng tối đa MỘT lần. Bài tập không chọn sẽ được giao về nhà.
+- Mỗi hoạt động: "muc_tieu", "san_pham" và 4 bước "b1" Chuyển giao nhiệm vụ, "b2" Thực hiện nhiệm vụ, "b3" Báo cáo, thảo luận, "b4" Kết luận, nhận định – viết CỤ THỂ theo nội dung khối (nêu tên khái niệm, định lí, bài tập), không viết chung chung.
+- "muc_tieu_kien_thuc": 4–8 ý, bám YCCĐ trong PPCT và các khái niệm trong tài liệu.
+- "nang_luc_chung" (3 năng lực: tự chủ và tự học; giao tiếp và hợp tác; giải quyết vấn đề và sáng tạo), "nang_luc_dac_thu" (tư duy và lập luận; mô hình hoá; giải quyết vấn đề; giao tiếp; sử dụng công cụ, phương tiện học toán), "pham_chat" (chăm chỉ; trung thực; trách nhiệm): mỗi mục 1–2 câu biểu hiện CỤ THỂ gắn với nội dung bài (ví dụ: "chuyển bài toán bắt tay về đếm cạnh của graph đầy đủ $K_n$").
 - "nls_trong_hoat_dong": mỗi mã trong "nls_duoc_dung" gắn vào ĐÚNG MỘT hoạt động phù hợp, 1 câu mô tả việc HS làm. Không dùng mã khác.
 - Nếu có "hs_khuyet_tat": thêm "ca_nhan_hoa" (gọi là "HS A"), không thì để "".
-- Mã LaTeX dùng được ngay: công thức trong $...$, in đậm \\textbf{...}, xuống dòng bằng dòng trống; không dùng \\section, không dùng gói lạ.
+- Văn bản là mã LaTeX: công thức trong $...$, in đậm \\textbf{...}, xuống dòng bằng dòng trống; không dùng \\section, không dùng gói lạ. Trong JSON phải viết dấu \\ thành \\\\.
 - Chỉ trả về MỘT đối tượng JSON, không giải thích, không markdown:
-{"muc_tieu_kien_thuc":["..."],"phan_bo":[{"tiet":"1-2","noi_dung":"..."}],"hoat_dong":[{"key":"hd_mo_dau","ten":"...","tiet":"1","tex":"..."}],"nls_trong_hoat_dong":[{"key":"...","ma":"...","tex":"..."}],"ca_nhan_hoa":""}`;
+{"muc_tieu_kien_thuc":["..."],"nang_luc_chung":[{"ten":"...","bieu_hien":"..."}],"nang_luc_dac_thu":[{"ten":"...","bieu_hien":"..."}],"pham_chat":[{"ten":"...","bieu_hien":"..."}],"phan_bo":[{"tiet":"1-2","noi_dung":"..."}],"hoat_dong":[{"key":"hd_mo_dau","ten":"...","tiet":"1","muc_tieu":"...","tinh_huong":"...","dung":[],"san_pham":"...","b1":"...","b2":"...","b3":"...","b4":"..."}],"nls_trong_hoat_dong":[{"key":"...","ma":"...","tex":"..."}],"ca_nhan_hoa":""}`;
 
 const L = d.lesson || {};
 const user = {
@@ -126,7 +134,7 @@ const user = {
 const ai_body = {
   models,                               // OpenRouter tự chuyển model sau nếu model trước lỗi/hết lượt
   temperature: 0.3,
-  max_tokens: soanMoi ? 9000 : (hskt?.mo_ta ? 4000 : 3000),
+  max_tokens: soanMoi ? 10000 : (hskt?.mo_ta ? 4000 : 3000),
   messages: [
     { role: "system", content: soanMoi ? SYSTEM_SOAN : SYSTEM },
     { role: "user", content: JSON.stringify(user) }

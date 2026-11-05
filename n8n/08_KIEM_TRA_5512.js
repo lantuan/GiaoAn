@@ -177,43 +177,65 @@ const exBlocks = body.match(/\\begin\{ex\}[\s\S]*?\\end\{ex\}/g) || [];
 const exLoi = exBlocks.filter(b => /Bước\s*\d/.test(b)).length;
 if (exLoi) van_de.push(`Có ${exLoi} câu trắc nghiệm (\\begin{ex}) bị lẫn các dòng "Bước ..." của tiến trình – có thể do lỗi chuyển Word → TeX`);
 
-// ===== 9b. File gửi lên là TÀI LIỆU (chưa phải KHBD) → lập dàn ý gọn cho AI soạn KHBD mới =====
+// ===== 9b. File gửi lên là TÀI LIỆU (chưa phải KHBD) → tách thành các KHỐI để đặt vào từng hoạt động =====
+// khoi_tai_lieu: { M1: lý thuyết + ví dụ phần 1, ..., BT1: bài tập 1, ... } – giữ NGUYÊN VĂN, không gửi cho AI
+// dan_y: bản tóm tắt rất gọn của các khối – gửi cho AI để AI chọn khối nào vào hoạt động nào
 const la_tai_lieu = !sec.muc_tieu && !sec.tien_trinh && hoat_dong.length === 0;
-let dan_y = null;
+let dan_y = null, khoi_tai_lieu = null;
 if (la_tai_lieu) {
   van_de.length = 0;
-  van_de.push("File là tài liệu chuyên đề, chưa phải kế hoạch bài dạy → soạn KHBD mới theo CV 5512, tài liệu gốc đưa vào Phụ lục");
+  van_de.push("File là tài liệu chuyên đề, chưa phải kế hoạch bài dạy → soạn KHBD mới theo CV 5512, nội dung tài liệu được chia vào từng hoạt động");
   const ngan = (s, n) => { const t = plain(s).replace(/\\[a-zA-Z]+skip=[\d.]+cm/g, "").replace(/\s+/g, " ").trim(); return t.length > n ? t.slice(0, n) + "…" : t; };
-  const muc = [];           // các phần lớn của tài liệu
-  let hien = { ten: "Mở đầu", vi_du: [], bai_tap: [] };
-  let soBT = 0;
+  const RX_H = [/^\s*\\item\s*\\textbf\{([^}]{4,120})\}\s*$/, /^\s*\\(?:sub)*section\*?\{(.{4,120})\}\s*$/,
+                /^\s*\{?\\textbf\{\s*((?:[IVX]+|\d+)\.\s[^}]{3,120})\}\s*\}?\s*$/, /^\s*(?:[IVX]+|\d+)\.\s*\\textbf\{([^}]{4,120})\}\s*$/];
+  const laTieuDe = l => { for (const r of RX_H) { const m = l.match(r); if (m) return m[1]; } return null; };
+  khoi_tai_lieu = {};
+  const muc = [], bai_tap = [];
+  let cur = { id: "M0", ten: "Phần mở đầu", lines: [] };
+  const xong = () => {
+    const tex = cur.lines.join("\n").replace(/(\\mbox\{\}\s*){2,}/g, "").replace(/\n{3,}/g, "\n\n").trim();
+    const p = plain(tex).replace(/\s+/g, " ").trim();
+    if (cur.id === "M0" && p.length < 120) return;   // trang bìa
+    khoi_tai_lieu[cur.id] = tex;
+    const vi_du = [...tex.matchAll(/\\textbf\{\s*\*?\s*Ví dụ\s*\d*\s*\.?\s*\}?\.?([^\n]{0,200})/g)].map(m => ngan(m[1], 70)).slice(0, 8);
+    const khai_niem = [...new Set([...tex.matchAll(/\\textit\{([^{}]{2,40})\}/g)].map(m => m[1].trim().replace(/[.,:]$/, "")))].slice(0, 15);
+    muc.push({ id: cur.id, ten: cur.ten, tom_tat: ngan(tex.replace(/\\textbf\{\s*\*?\s*Ví dụ[\s\S]*$/, ""), 300), khai_niem, vi_du });
+  };
   const lines = body.split("\n");
   for (let i = 0; i < lines.length; i++) {
     const l = lines[i];
-    // Tiêu đề phần: \item \textbf{...} trong enumerate cấp ngoài, \section, hoặc dòng in đậm dạng "1. ...", "I. ..."
-    const mH = l.match(/^\s*\\item\s*\\textbf\{([^}]{4,120})\}/) || l.match(/\\(?:sub)*section\*?\{(.{4,120})\}\s*$/) ||
-               l.match(/^\s*\{?\\textbf\{\s*((?:[IVX]+|\d+)\.\s[^}]{3,120})\}\s*\}?\s*$/) ||
-               l.match(/^\s*((?:[IVX]+|\d+)\.\s*\\textbf\{[^}]{4,120})\}\s*$/);
-    if (mH) {
-      if (hien.vi_du.length || hien.bai_tap.length) muc.push(hien);
-      hien = { ten: ngan(mH[1], 120), vi_du: [], bai_tap: [] };
+    if (/\\fontsize\{(?:2\d|1[6-9])\}/.test(l)) continue;                 // dòng tên tài liệu (chữ to)
+    const ten = laTieuDe(l);
+    if (ten) {
+      // tiêu đề nằm trong enumerate một mục: bỏ \begin{enumerate} vừa thêm và \end{enumerate} ngay sau
+      if (/\\item/.test(l)) {
+        for (let k = cur.lines.length - 1; k >= 0; k--) { if (!cur.lines[k].trim()) continue; if (/^\s*\\begin\{enumerate\}/.test(cur.lines[k])) cur.lines.splice(k, 1); break; }
+        let k = i + 1; while (k < lines.length && !lines[k].trim()) k++;
+        if (/^\s*\\end\{enumerate\}/.test(lines[k] || "")) lines[k] = "";
+      }
+      xong();
+      cur = { id: "M" + (muc.length + 1), ten: ngan(ten, 120), lines: [] };
       continue;
     }
-    if (/\\textbf\{\s*\*?\s*(Ví dụ|Định lí|Định lý|Bổ đề|Tính chất|Nhận xét)/.test(l) && hien.vi_du.length < 8) hien.vi_du.push(ngan(l, 140));
-    if (/\\begin\{(bt|ex)\}/.test(l)) {
-      soBT++;
-      let k = i + 1, de = "";
-      while (k < lines.length && !/\\loigiai\{|\\end\{(bt|ex)\}/.test(lines[k]) && de.length < 400) de += " " + lines[k++];
-      const nguon = (de.match(/\[([^\]]{3,60})\]/) || [])[1] || "";
-      hien.bai_tap.push({ so: soBT, nguon: nguon.trim(), de: ngan(de.replace(/\\textbf\{\s*\[[^\]]*\]\s*\}/, ""), 160) });
+    if (/^\s*\\begin\{(bt|ex)\}/.test(l)) {
+      const env = l.match(/\\begin\{(bt|ex)\}/)[1];
+      let k = i; const buf = [];
+      while (k < lines.length) { buf.push(lines[k]); if (new RegExp(`\\\\end\\{${env}\\}`).test(lines[k])) break; k++; }
+      i = k;
+      const id = "BT" + (bai_tap.length + 1);
+      khoi_tai_lieu[id] = buf.join("\n");
+      const de = buf.slice(1).join(" ").split(/\\loigiai\{/)[0];
+      const nguon = ngan((de.match(/^\s*(?:\\textbf\{\s*)?\[([^\]?]{3,80})\]/) || [])[1] || "", 60);   // [IMO 2007] ở đầu đề
+      bai_tap.push({ id, muc: cur.id, nguon: nguon.trim(), de: ngan(de.replace(/\\textbf\{\s*\[[^\]]*\]\s*\}/, ""), 150) });
+      continue;
     }
+    cur.lines.push(l);
   }
-  muc.push(hien);
-  // dòng tiêu đề lớn (chữ to) của tài liệu
+  xong();
   const mTitle = body.match(/\\fontsize\{(?:2\d|1[6-9])\}[^\n]*?\\textbf\{([^}]{4,120})\}/);
   const soHinhChuaChuyen = (body.match(/\\texttt\{image\d+\.(emf|wmf)\}/gi) || []).length;
-  dan_y = { tieu_de: mTitle ? ngan(mTitle[1], 120) : null, so_bai_tap: soBT, so_hinh_chua_chuyen: soHinhChuaChuyen,
-            muc };
+  dan_y = { tieu_de: mTitle ? ngan(mTitle[1], 120) : null, so_bai_tap: bai_tap.length, so_hinh_chua_chuyen: soHinhChuaChuyen,
+            muc, bai_tap };
 }
 
 // ===== 10. Báo cáo ngắn gửi Telegram (Parse Mode: HTML) =====
@@ -245,6 +267,7 @@ return [{
     bao_cao,
     sections_tex,
     la_tai_lieu,
-    dan_y
+    dan_y,
+    khoi_tai_lieu
   }
 }];

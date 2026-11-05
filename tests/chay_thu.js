@@ -1,5 +1,5 @@
 // Chạy thử chuỗi node 08 → 09 → 11 trên máy Mac (không cần n8n):
-// osascript -l JavaScript tests/chay_thu.js <file.tex | thư mục bài (giả lập gửi .zip)> <lớp> <bài> <file_ra.tex> ["chú thích Telegram"]
+// osascript -l JavaScript tests/chay_thu.js <file.tex | thư mục bài (giả lập gửi .zip)> <lớp> <bài> <file_ra.tex> ["chú thích Telegram"] [file_ghi_yeu_cau_AI.txt]
 ObjC.import('Foundation');
 function rd(p){return ObjC.unwrap($.NSString.stringWithContentsOfFileEncodingError(p,4,null));}
 function wr(p,s){$.NSString.alloc.initWithUTF8String(s).writeToFileAtomicallyEncodingError(p,true,4,null);}
@@ -42,6 +42,7 @@ function run(argv){
   }
   out['08']=step('08_KIEM_TRA_5512.js',{giao_an_tex:tex}).json;
   out['09_CHUAN_BI_AI']=step('09_CHUAN_BI_AI.js',out['08']).json;
+  if(argv[5]) wr(argv[5],out['09_CHUAN_BI_AI'].ai_body.messages.map(m=>m.content).join('\n\n=====\n\n'));  // xem yêu cầu gửi AI
   const r=step('11_GHEP_VA_SUA.js',JSON.parse(rd(G+(out['09_CHUAN_BI_AI'].soan_moi?'tests/fake_ai_soan.json':'tests/fake_ai.json'))));
   if(argv[3]) wr(argv[3],r.binary.data._s);
   return 'BINARY: '+r.json.ds_binary+' | zip: '+r.json.zip_name+'\n'+r.json.caption+"\n\nVIỆC GỬI AI: "+JSON.stringify(out['09_CHUAN_BI_AI'].viec).slice(0,600);
