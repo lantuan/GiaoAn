@@ -1,0 +1,87 @@
+{
+ "nguon": "Danh mục thiết bị tổ Toán – mã theo trang mượn thiết bị của trường",
+ "thiet_bi": {
+  "PTTH2034": {
+   "ten": "Bộ thiết bị để vẽ trên bảng trong dạy học toán (thước thẳng, compa)",
+   "loai": "Dụng cụ",
+   "khoi": [
+    10,
+    11,
+    12
+   ],
+   "so_luong": 4
+  },
+  "PTTH3001": {
+   "ten": "Phần mềm toán học - Đại số và Giải tích",
+   "loai": "Phần mềm",
+   "khoi": [
+    10,
+    11,
+    12
+   ],
+   "so_luong": 1
+  },
+  "PTTH3002": {
+   "ten": "Phần mềm toán học - Hình học và đo lường",
+   "loai": "Phần mềm",
+   "khoi": [
+    10,
+    11,
+    12
+   ],
+   "so_luong": 1
+  },
+  "PTTH3003": {
+   "ten": "Phần mềm toán học - Thống kê và xác suất",
+   "loai": "Phần mềm",
+   "khoi": [
+    10,
+    11,
+    12
+   ],
+   "so_luong": 1
+  },
+  "TOAN001": {
+   "ten": "Bộ dụng cụ vẽ kỹ thuật (thước T, compa, thước dài, eke, thước cong)",
+   "loai": "Dụng cụ",
+   "khoi": [],
+   "so_luong": 4
+  },
+  "PTTH2037": {
+   "ten": "Bộ thiết bị dạy học về Thống kê và Xác suất",
+   "loai": "Dụng cụ",
+   "khoi": [
+    10
+   ],
+   "so_luong": 8
+  },
+  "PTTH2035": {
+   "ten": "Bộ thiết bị dạy học về các đường cônic",
+   "loai": "Dụng cụ",
+   "khoi": [
+    10
+   ],
+   "so_luong": 8
+  },
+  "PTTH2036": {
+   "ten": "Bộ thiết bị dạy học về hình chóp, hình chóp cụt, hình lăng trụ",
+   "loai": "Dụng cụ",
+   "khoi": [
+    11
+   ],
+   "so_luong": 32
+  },
+  "TOAN002": {
+   "ten": "Máy tính Acer",
+   "loai": "",
+   "khoi": [],
+   "so_luong": 3
+  },
+  "PTTHTA1001": {
+   "ten": "Tranh điện tử",
+   "loai": "",
+   "khoi": [],
+   "so_luong": null
+  }
+ }
+}

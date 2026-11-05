@@ -1,0 +1,3438 @@
+[
+ {
+  "lop": 12,
+  "hoc_ky": 1,
+  "tuan": 1,
+  "tiet": "1-3",
+  "so_tiet": 3,
+  "loai": "co_ban",
+  "ten": "Bài 1: Tính đơn điệu và cực trị của hàm số",
+  "bai_so": 1,
+  "ten_bai": "Tính đơn điệu và cực trị của hàm số",
+  "chuyen_de": null,
+  "yccd": "- Nhận biết được khái niệm tính đồng biến, nghịch biến của hàm số và mối liên hệ giữa tính đơn điệu và dấu của đạo hàm.\n- HS thể hiện được tính đồng biến, nghịch biến của hàm số trong bảng biến thiên.\n- Nhận biết được điểm cực trị, giá trị cực trị của hàm số thông qua bảng biến thiên hoặc thông qua hình ảnh hình học của đồ thị hàm số.",
+  "nls": [
+   "1.1.NC1b",
+   "5.2.NC1b",
+   "6.2.NC1b"
+  ],
+  "nls_loi": [],
+  "ghi_chu": "(T1,2,3/6)",
+  "thiet_bi": [
+   {
+    "ma": "PTTH2034",
+    "ten": "Bộ thiết bị để vẽ trên bảng trong dạy học toán (thước thẳng, compa)"
+   },
+   {
+    "ma": "TOAN001",
+    "ten": "Bộ dụng cụ vẽ kỹ thuật (thước T, compa, thước dài, eke, thước cong)"
+   }
+  ]
+ },
+ {
+  "lop": 12,
+  "hoc_ky": 1,
+  "tuan": 1,
+  "tiet": "1",
+  "so_tiet": 1,
+  "loai": "chuyen_de_hoc_tap",
+  "ten": "CĐ1 - Bài 1: Biến ngẫu nhiên rời rạc và các số đặc trưng",
+  "bai_so": null,
+  "ten_bai": "Biến ngẫu nhiên rời rạc và các số đặc trưng",
+  "chuyen_de": "CĐ1.B1",
+  "yccd": "– Nhận biết khái niệm biến ngẫu nhiên rời rạc.\n– Biết lập bảng phân phối xác suất của biến ngẫu nhiên rời rạc.",
+  "nls": [
+   "1.1.NC1b",
+   "5.2.NC1b",
+   "6.2.NC1b"
+  ],
+  "nls_loi": [],
+  "ghi_chu": "T1/5",
+  "thiet_bi": [
+   {
+    "ma": "PTTH2034",
+    "ten": "Bộ thiết bị để vẽ trên bảng trong dạy học toán (thước thẳng, compa)"
+   }
+  ]
+ },
+ {
+  "lop": 12,
+  "hoc_ky": 1,
+  "tuan": 1,
+  "tiet": "1-2",
+  "so_tiet": 2,
+  "loai": "chuyen_sau",
+  "ten": "Chuyên đề nâng cao: Các phương pháp giải tích chứng minh BĐT",
+  "bai_so": null,
+  "ten_bai": "Chuyên đề nâng cao: Các phương pháp giải tích chứng minh BĐT",
+  "chuyen_de": null,
+  "yccd": "- Phân loại được lớp các hàm đơn điệu (đơn điệu, đơn điệu tuyệt đối, đơn điệu có tính tuần hoàn, đơn điệu từng khúc,…). Vận dụng trong chứng minh bất đẳng thức.\n- Nhận biết được khái niệm hàm lồi, hàm lồi khả vi và bất đẳng thức Jensen, bất đẳng thức Karamata",
+  "nls": [
+   "1.1.NC1b",
+   "5.2.NC1b",
+   "6.2.NC1b"
+  ],
+  "nls_loi": [],
+  "ghi_chu": null,
+  "thiet_bi": [
+   {
+    "ma": "PTTH2034",
+    "ten": "Bộ thiết bị để vẽ trên bảng trong dạy học toán (thước thẳng, compa)"
+   }
+  ]
+ },
+ {
+  "lop": 12,
+  "hoc_ky": 1,
+  "tuan": 2,
+  "tiet": "4-6",
+  "so_tiet": 3,
+  "loai": "co_ban",
+  "ten": "Bài 1: Tính đơn điệu và cực trị của hàm số",
+  "bai_so": 1,
+  "ten_bai": "Tính đơn điệu và cực trị của hàm số",
+  "chuyen_de": null,
+  "yccd": "- HS biết cách tìm cực trị của hàm số.\n- Nhận biết tính đồng biến, nghịch biến của hàm số dựa vào dấu của đạo hàm cấp 1 và củng cố lại cách xét tính đơn điệu của hàm số.\n- Nhắc lại cách tìm điểm cực trị, giá trị cực trị của hàm số thông qua bảng biến thiên hoặc thông qua hình ảnh hình học của đồ thị hàm số và cách tìm cực trị hàm số.",
+  "nls": [
+   "1.1.NC1b",
+   "5.2.NC1b",
+   "6.2.NC1b"
+  ],
+  "nls_loi": [],
+  "ghi_chu": "(T4,5,6/6)",
+  "thiet_bi": [
+   {
+    "ma": "PTTH2034",
+    "ten": "Bộ thiết bị để vẽ trên bảng trong dạy học toán (thước thẳng, compa)"
+   },
+   {
+    "ma": "TOAN001",
+    "ten": "Bộ dụng cụ vẽ kỹ thuật (thước T, compa, thước dài, eke, thước cong)"
+   }
+  ]
+ },
+ {
+  "lop": 12,
+  "hoc_ky": 1,
+  "tuan": 2,
+  "tiet": "2",
+  "so_tiet": 1,
+  "loai": "chuyen_de_hoc_tap",
+  "ten": "CĐ1 - Bài 1: Biến ngẫu nhiên rời rạc và các số đặc trưng",
+  "bai_so": null,
+  "ten_bai": "Biến ngẫu nhiên rời rạc và các số đặc trưng",
+  "chuyen_de": "CĐ1.B1",
+  "yccd": "– Nhận biết khái niệm biến ngẫu nhiên rời rạc.\n– Biết lập bảng phân phối xác suất của biến ngẫu nhiên rời rạc.",
+  "nls": [
+   "1.1.NC1b",
+   "5.2.NC1b",
+   "6.2.NC1b"
+  ],
+  "nls_loi": [],
+  "ghi_chu": "T2/5",
+  "thiet_bi": [
+   {
+    "ma": "PTTH2034",
+    "ten": "Bộ thiết bị để vẽ trên bảng trong dạy học toán (thước thẳng, compa)"
+   }
+  ]
+ },
+ {
+  "lop": 12,
+  "hoc_ky": 1,
+  "tuan": 2,
+  "tiet": "3-4",
+  "so_tiet": 2,
+  "loai": "chuyen_sau",
+  "ten": "Chuyên đề nâng cao: Các phương pháp giải tích chứng minh BĐT",
+  "bai_so": null,
+  "ten_bai": "Chuyên đề nâng cao: Các phương pháp giải tích chứng minh BĐT",
+  "chuyen_de": null,
+  "yccd": "- Phân loại được lớp các hàm đơn điệu (đơn điệu, đơn điệu tuyệt đối, đơn điệu có tính tuần hoàn, đơn điệu từng khúc,…). Vận dụng trong chứng minh bất đẳng thức.\n- Nhận biết được khái niệm hàm lồi, hàm lồi khả vi và bất đẳng thức Jensen, bất đẳng thức Karamata",
+  "nls": [
+   "1.1.NC1b",
+   "5.2.NC1b",
+   "6.2.NC1b"
+  ],
+  "nls_loi": [],
+  "ghi_chu": null,
+  "thiet_bi": [
+   {
+    "ma": "PTTH2034",
+    "ten": "Bộ thiết bị để vẽ trên bảng trong dạy học toán (thước thẳng, compa)"
+   }
+  ]
+ },
+ {
+  "lop": 12,
+  "hoc_ky": 1,
+  "tuan": 3,
+  "tiet": "7-9",
+  "so_tiet": 3,
+  "loai": "co_ban",
+  "ten": "Bài 2: GTLN-GTNN của hàm số",
+  "bai_so": 2,
+  "ten_bai": "GTLN-GTNN của hàm số",
+  "chuyen_de": null,
+  "yccd": "- Nhận biết được khái niệm GTLN, GTNN của hàm số.\n- Tìm GTLN, GTNN của hàm số.\n- Xác định GTLN và GTNN của hàm số trên một đoạn.\n- Củng cố lại khái niệm và các bước tìm GTLN, GTNN của hàm số.\nSTEM:\n– Nhận biết được giá trị lớn nhất, giá trị nhỏ nhất của hàm số trên một tập xác định cho trước.\n– Xác định được giá trị lớn nhất, giá trị nhỏ nhất của hàm số bằng đạo hàm.\n– Biết cách thức sử dụng cảm biến khoảng cách.\nSẢN PHẨM: Thùng rác thông minh.",
+  "nls": [
+   "1.1.NC1b",
+   "5.2.NC1b",
+   "6.2.NC1b"
+  ],
+  "nls_loi": [],
+  "ghi_chu": "(T1,2,3/3)",
+  "thiet_bi": [
+   {
+    "ma": "PTTH2034",
+    "ten": "Bộ thiết bị để vẽ trên bảng trong dạy học toán (thước thẳng, compa)"
+   },
+   {
+    "ma": "TOAN001",
+    "ten": "Bộ dụng cụ vẽ kỹ thuật (thước T, compa, thước dài, eke, thước cong)"
+   }
+  ]
+ },
+ {
+  "lop": 12,
+  "hoc_ky": 1,
+  "tuan": 3,
+  "tiet": "3",
+  "so_tiet": 1,
+  "loai": "chuyen_de_hoc_tap",
+  "ten": "CĐ1 - Bài 1: Biến ngẫu nhiên rời rạc và các số đặc trưng",
+  "bai_so": null,
+  "ten_bai": "Biến ngẫu nhiên rời rạc và các số đặc trưng",
+  "chuyen_de": "CĐ1.B1",
+  "yccd": "– Biết tính kì vọng, phương sai và độ lệch chuẩn của biến ngẫu nhiên rời rạc và giải thích ý nghĩa.",
+  "nls": [
+   "1.1.NC1b",
+   "5.2.NC1b",
+   "6.2.NC1b"
+  ],
+  "nls_loi": [],
+  "ghi_chu": "T3/5",
+  "thiet_bi": [
+   {
+    "ma": "PTTH2034",
+    "ten": "Bộ thiết bị để vẽ trên bảng trong dạy học toán (thước thẳng, compa)"
+   }
+  ]
+ },
+ {
+  "lop": 12,
+  "hoc_ky": 1,
+  "tuan": 3,
+  "tiet": "5-6",
+  "so_tiet": 2,
+  "loai": "chuyen_sau",
+  "ten": "Chuyên đề nâng cao: Các phương pháp giải tích chứng minh BĐT",
+  "bai_so": null,
+  "ten_bai": "Chuyên đề nâng cao: Các phương pháp giải tích chứng minh BĐT",
+  "chuyen_de": null,
+  "yccd": "- Phân loại được lớp các hàm đơn điệu (đơn điệu, đơn điệu tuyệt đối, đơn điệu có tính tuần hoàn, đơn điệu từng khúc,…). Vận dụng trong chứng minh bất đẳng thức.\n- Nhận biết được khái niệm hàm lồi, hàm lồi khả vi và bất đẳng thức Jensen, bất đẳng thức Karamata",
+  "nls": [
+   "1.1.NC1b",
+   "5.2.NC1b",
+   "6.2.NC1b"
+  ],
+  "nls_loi": [],
+  "ghi_chu": null,
+  "thiet_bi": [
+   {
+    "ma": "PTTH2034",
+    "ten": "Bộ thiết bị để vẽ trên bảng trong dạy học toán (thước thẳng, compa)"
+   }
+  ]
+ },
+ {
+  "lop": 12,
+  "hoc_ky": 1,
+  "tuan": 4,
+  "tiet": "10-12",
+  "so_tiet": 3,
+  "loai": "co_ban",
+  "ten": "Bài 3: Đường tiệm cận của đồ thị hàm số",
+  "bai_so": 3,
+  "ten_bai": "Đường tiệm cận của đồ thị hàm số",
+  "chuyen_de": null,
+  "yccd": "- Hình thành khái niệm và tìm được đường tiện cận ngang của đồ thị hàm số. \n- HS nhận biết được khái niệm đường tiệm cận đứng của đồ thị hàm số.\n- Nhận biết được khái niệm, hình ảnh hình học của đường tiệm cận xiên của đồ thị hàm số.",
+  "nls": [
+   "1.1.NC1b",
+   "5.2.NC1b",
+   "6.2.NC1b"
+  ],
+  "nls_loi": [],
+  "ghi_chu": "(T1,2,3/4)",
+  "thiet_bi": [
+   {
+    "ma": "PTTH2034",
+    "ten": "Bộ thiết bị để vẽ trên bảng trong dạy học toán (thước thẳng, compa)"
+   },
+   {
+    "ma": "TOAN001",
+    "ten": "Bộ dụng cụ vẽ kỹ thuật (thước T, compa, thước dài, eke, thước cong)"
+   }
+  ]
+ },
+ {
+  "lop": 12,
+  "hoc_ky": 1,
+  "tuan": 4,
+  "tiet": "4",
+  "so_tiet": 1,
+  "loai": "chuyen_de_hoc_tap",
+  "ten": "CĐ1 - Bài 1: Biến ngẫu nhiên rời rạc và các số đặc trưng",
+  "bai_so": null,
+  "ten_bai": "Biến ngẫu nhiên rời rạc và các số đặc trưng",
+  "chuyen_de": "CĐ1.B1",
+  "yccd": "– Biết tính kì vọng, phương sai và độ lệch chuẩn của biến ngẫu nhiên rời rạc và giải thích ý nghĩa.",
+  "nls": [
+   "1.1.NC1b",
+   "5.2.NC1b",
+   "6.2.NC1b"
+  ],
+  "nls_loi": [],
+  "ghi_chu": "T4/5",
+  "thiet_bi": [
+   {
+    "ma": "PTTH2034",
+    "ten": "Bộ thiết bị để vẽ trên bảng trong dạy học toán (thước thẳng, compa)"
+   }
+  ]
+ },
+ {
+  "lop": 12,
+  "hoc_ky": 1,
+  "tuan": 4,
+  "tiet": "7-8",
+  "so_tiet": 2,
+  "loai": "chuyen_sau",
+  "ten": "Chuyên đề nâng cao: Các phương pháp giải tích chứng minh BĐT",
+  "bai_so": null,
+  "ten_bai": "Chuyên đề nâng cao: Các phương pháp giải tích chứng minh BĐT",
+  "chuyen_de": null,
+  "yccd": "- Phân loại được lớp các hàm đơn điệu (đơn điệu, đơn điệu tuyệt đối, đơn điệu có tính tuần hoàn, đơn điệu từng khúc,…). Vận dụng trong chứng minh bất đẳng thức.\n- Nhận biết được khái niệm hàm lồi, hàm lồi khả vi và bất đẳng thức Jensen, bất đẳng thức Karamata",
+  "nls": [
+   "1.1.NC1b",
+   "5.2.NC1b",
+   "6.2.NC1b"
+  ],
+  "nls_loi": [],
+  "ghi_chu": null,
+  "thiet_bi": [
+   {
+    "ma": "PTTH2034",
+    "ten": "Bộ thiết bị để vẽ trên bảng trong dạy học toán (thước thẳng, compa)"
+   }
+  ]
+ },
+ {
+  "lop": 12,
+  "hoc_ky": 1,
+  "tuan": 5,
+  "tiet": "13",
+  "so_tiet": 1,
+  "loai": "co_ban",
+  "ten": "Bài 3: Đường tiệm cận của đồ thị hàm số",
+  "bai_so": 3,
+  "ten_bai": "Đường tiệm cận của đồ thị hàm số",
+  "chuyen_de": null,
+  "yccd": "- Nhớ lại khái niệm các đường tiệm cận của đồ thị hàm số.\n- HS thấy được ý nghĩa của các đường tiệm cận của đồ thị hàm số trong các bài toán thực tế.",
+  "nls": [
+   "1.1.NC1b",
+   "5.2.NC1b",
+   "6.2.NC1b"
+  ],
+  "nls_loi": [],
+  "ghi_chu": "(T4/4)",
+  "thiet_bi": [
+   {
+    "ma": "PTTH2034",
+    "ten": "Bộ thiết bị để vẽ trên bảng trong dạy học toán (thước thẳng, compa)"
+   },
+   {
+    "ma": "TOAN001",
+    "ten": "Bộ dụng cụ vẽ kỹ thuật (thước T, compa, thước dài, eke, thước cong)"
+   }
+  ]
+ },
+ {
+  "lop": 12,
+  "hoc_ky": 1,
+  "tuan": 5,
+  "tiet": "14-15",
+  "so_tiet": 2,
+  "loai": "co_ban",
+  "ten": "Bài 4: Khảo sát sự biến thiên và vẽ đồ thị của hàm số",
+  "bai_so": 4,
+  "ten_bai": "Khảo sát sự biến thiên và vẽ đồ thị của hàm số",
+  "chuyen_de": null,
+  "yccd": "- Mô tả sơ đồ tổng quát để khảo sát hàm số (tìm tập xác định, xét chiều biến thiên, tìm cực trị, tìm tiệm cận, lập bảng biến thiên, vẽ đồ thị).\n- Khảo sát tập xác định, chiều biến thiên, cực trị, tiệm cận, bảng biến thiên và vẽ đồ thị của các hàm số: hàm bậc ba, hàm phân thức hữu tỉ đơn giản.",
+  "nls": [
+   "1.1.NC1b",
+   "5.2.NC1b",
+   "6.2.NC1b"
+  ],
+  "nls_loi": [],
+  "ghi_chu": "(T1,2/5)",
+  "thiet_bi": [
+   {
+    "ma": "PTTH2034",
+    "ten": "Bộ thiết bị để vẽ trên bảng trong dạy học toán (thước thẳng, compa)"
+   },
+   {
+    "ma": "TOAN001",
+    "ten": "Bộ dụng cụ vẽ kỹ thuật (thước T, compa, thước dài, eke, thước cong)"
+   }
+  ]
+ },
+ {
+  "lop": 12,
+  "hoc_ky": 1,
+  "tuan": 5,
+  "tiet": "5",
+  "so_tiet": 1,
+  "loai": "chuyen_de_hoc_tap",
+  "ten": "CĐ1 - Bài 1: Biến ngẫu nhiên rời rạc và các số đặc trưng",
+  "bai_so": null,
+  "ten_bai": "Biến ngẫu nhiên rời rạc và các số đặc trưng",
+  "chuyen_de": "CĐ1.B1",
+  "yccd": "- Nhắc lại kiến thức về biến ngẫu nhiên rời rạc; bảng phân phối xác suất và các số đặc trưng của biến ngẫu nhiên rời rạc.",
+  "nls": [
+   "1.1.NC1b",
+   "5.2.NC1b",
+   "6.2.NC1b"
+  ],
+  "nls_loi": [],
+  "ghi_chu": "T5/5",
+  "thiet_bi": [
+   {
+    "ma": "PTTH2034",
+    "ten": "Bộ thiết bị để vẽ trên bảng trong dạy học toán (thước thẳng, compa)"
+   }
+  ]
+ },
+ {
+  "lop": 12,
+  "hoc_ky": 1,
+  "tuan": 5,
+  "tiet": "9-10",
+  "so_tiet": 2,
+  "loai": "chuyen_sau",
+  "ten": "Chuyên đề nâng cao: Các phương pháp giải tích chứng minh BĐT",
+  "bai_so": null,
+  "ten_bai": "Chuyên đề nâng cao: Các phương pháp giải tích chứng minh BĐT",
+  "chuyen_de": null,
+  "yccd": "- Phân loại được lớp các hàm đơn điệu (đơn điệu, đơn điệu tuyệt đối, đơn điệu có tính tuần hoàn, đơn điệu từng khúc,…). Vận dụng trong chứng minh bất đẳng thức.\n- Nhận biết được khái niệm hàm lồi, hàm lồi khả vi và bất đẳng thức Jensen, bất đẳng thức Karamata",
+  "nls": [
+   "1.1.NC1b",
+   "5.2.NC1b",
+   "6.2.NC1b"
+  ],
+  "nls_loi": [],
+  "ghi_chu": null,
+  "thiet_bi": [
+   {
+    "ma": "PTTH2034",
+    "ten": "Bộ thiết bị để vẽ trên bảng trong dạy học toán (thước thẳng, compa)"
+   }
+  ]
+ },
+ {
+  "lop": 12,
+  "hoc_ky": 1,
+  "tuan": 6,
+  "tiet": "16-18",
+  "so_tiet": 3,
+  "loai": "co_ban",
+  "ten": "Bài 4: Khảo sát sự biến thiên và vẽ đồ thị của hàm số",
+  "bai_so": 4,
+  "ten_bai": "Khảo sát sự biến thiên và vẽ đồ thị của hàm số",
+  "chuyen_de": null,
+  "yccd": "- Khảo sát hàm số phân thức hữu tỉ bậc nhất/bậc nhất.\n- Khảo sát và vẽ đồ thị hàm số phân thức hữu tỉ bậc hai/bậc nhất.\n- Củng cố lại sơ đồ khảo sát hàm số, ôn tập lại các bước khảo sát hàm số và một số dạng đồ thị hàm số thường gặp.",
+  "nls": [
+   "1.1.NC1b",
+   "5.2.NC1b",
+   "6.2.NC1b"
+  ],
+  "nls_loi": [],
+  "ghi_chu": "(T3,4,5/5)",
+  "thiet_bi": [
+   {
+    "ma": "PTTH2034",
+    "ten": "Bộ thiết bị để vẽ trên bảng trong dạy học toán (thước thẳng, compa)"
+   },
+   {
+    "ma": "TOAN001",
+    "ten": "Bộ dụng cụ vẽ kỹ thuật (thước T, compa, thước dài, eke, thước cong)"
+   }
+  ]
+ },
+ {
+  "lop": 12,
+  "hoc_ky": 1,
+  "tuan": 6,
+  "tiet": "6",
+  "so_tiet": 1,
+  "loai": "chuyen_de_hoc_tap",
+  "ten": "CĐ1 - Bài 2: Biến ngẫu nhiên có phân bố nhị thức và áp dụng",
+  "bai_so": null,
+  "ten_bai": "Biến ngẫu nhiên có phân bố nhị thức và áp dụng",
+  "chuyen_de": "CĐ1.B2",
+  "yccd": "– Nhận biết khái niệm phép thử lặp.\n– Nhận biết công thức Bernoulli.\n– Vận dụng công thức Bernoulli trong một số tình huống đơn giản.",
+  "nls": [
+   "1.1.NC1b",
+   "5.2.NC1b",
+   "6.2.NC1b"
+  ],
+  "nls_loi": [],
+  "ghi_chu": "T1/5",
+  "thiet_bi": [
+   {
+    "ma": "PTTH2034",
+    "ten": "Bộ thiết bị để vẽ trên bảng trong dạy học toán (thước thẳng, compa)"
+   },
+   {
+    "ma": "TOAN002",
+    "ten": "Máy tính Acer"
+   },
+   {
+    "ma": "PTTH3003",
+    "ten": "Phần mềm toán học - Thống kê và xác suất"
+   }
+  ]
+ },
+ {
+  "lop": 12,
+  "hoc_ky": 1,
+  "tuan": 6,
+  "tiet": "11-12",
+  "so_tiet": 2,
+  "loai": "chuyen_sau",
+  "ten": "Chuyên đề nâng cao: Các phương pháp giải tích chứng minh BĐT",
+  "bai_so": null,
+  "ten_bai": "Chuyên đề nâng cao: Các phương pháp giải tích chứng minh BĐT",
+  "chuyen_de": null,
+  "yccd": "- Phân loại được lớp các hàm đơn điệu (đơn điệu, đơn điệu tuyệt đối, đơn điệu có tính tuần hoàn, đơn điệu từng khúc,…). Vận dụng trong chứng minh bất đẳng thức.\n- Nhận biết được khái niệm hàm lồi, hàm lồi khả vi và bất đẳng thức Jensen, bất đẳng thức Karamata",
+  "nls": [
+   "1.1.NC1b",
+   "5.2.NC1b",
+   "6.2.NC1b"
+  ],
+  "nls_loi": [],
+  "ghi_chu": null,
+  "thiet_bi": [
+   {
+    "ma": "PTTH2034",
+    "ten": "Bộ thiết bị để vẽ trên bảng trong dạy học toán (thước thẳng, compa)"
+   }
+  ]
+ },
+ {
+  "lop": 12,
+  "hoc_ky": 1,
+  "tuan": 7,
+  "tiet": "19-21",
+  "so_tiet": 3,
+  "loai": "co_ban",
+  "ten": "Bài 5: Ứng dụng đạo hàm để giải quyết một số vấn đề liên quan đến thực tiễn",
+  "bai_so": 5,
+  "ten_bai": "Ứng dụng đạo hàm để giải quyết một số vấn đề liên quan đến thực tiễn",
+  "chuyen_de": null,
+  "yccd": "- Vận dụng đạo hàm và khảo sát hàm số để giải quyết một số vấn đề liên quan đến thực tiễn như tính tốc độ tức thời của một đại lượng, giải một số bài toán tối ưu hoá đơn giản trong thực tế.\n- Vận dụng được đạo hàm để giải bài toán liên quan tới tốc độ thay đổi của một đại lượng.\n- Nắm được quy trình giải một bài toán tối ưu hoá.",
+  "nls": [
+   "1.1.NC1b",
+   "5.2.NC1b",
+   "6.2.NC1b"
+  ],
+  "nls_loi": [],
+  "ghi_chu": "(T1,2,3/4)",
+  "thiet_bi": [
+   {
+    "ma": "PTTH2034",
+    "ten": "Bộ thiết bị để vẽ trên bảng trong dạy học toán (thước thẳng, compa)"
+   }
+  ]
+ },
+ {
+  "lop": 12,
+  "hoc_ky": 1,
+  "tuan": 7,
+  "tiet": "7",
+  "so_tiet": 1,
+  "loai": "chuyen_de_hoc_tap",
+  "ten": "CĐ1 - Bài 2: Biến ngẫu nhiên có phân bố nhị thức và áp dụng",
+  "bai_so": null,
+  "ten_bai": "Biến ngẫu nhiên có phân bố nhị thức và áp dụng",
+  "chuyen_de": "CĐ1.B2",
+  "yccd": "– Nhận biết khái niệm phép thử lặp.\n– Nhận biết công thức Bernoulli.\n– Vận dụng công thức Bernoulli trong một số tình huống đơn giản.",
+  "nls": [
+   "1.1.NC1b",
+   "5.2.NC1b",
+   "6.2.NC1b"
+  ],
+  "nls_loi": [],
+  "ghi_chu": "T2/5",
+  "thiet_bi": [
+   {
+    "ma": "PTTH2034",
+    "ten": "Bộ thiết bị để vẽ trên bảng trong dạy học toán (thước thẳng, compa)"
+   },
+   {
+    "ma": "TOAN002",
+    "ten": "Máy tính Acer"
+   },
+   {
+    "ma": "PTTH3003",
+    "ten": "Phần mềm toán học - Thống kê và xác suất"
+   }
+  ]
+ },
+ {
+  "lop": 12,
+  "hoc_ky": 1,
+  "tuan": 7,
+  "tiet": "13-14",
+  "so_tiet": 2,
+  "loai": "chuyen_sau",
+  "ten": "Chuyên đề nâng cao: Các phương pháp giải tích chứng minh BĐT",
+  "bai_so": null,
+  "ten_bai": "Chuyên đề nâng cao: Các phương pháp giải tích chứng minh BĐT",
+  "chuyen_de": null,
+  "yccd": "- Phân loại được lớp các hàm đơn điệu (đơn điệu, đơn điệu tuyệt đối, đơn điệu có tính tuần hoàn, đơn điệu từng khúc,…). Vận dụng trong chứng minh bất đẳng thức.\n- Nhận biết được khái niệm hàm lồi, hàm lồi khả vi và bất đẳng thức Jensen, bất đẳng thức Karamata",
+  "nls": [
+   "1.1.NC1b",
+   "5.2.NC1b",
+   "6.2.NC1b"
+  ],
+  "nls_loi": [],
+  "ghi_chu": null,
+  "thiet_bi": [
+   {
+    "ma": "PTTH2034",
+    "ten": "Bộ thiết bị để vẽ trên bảng trong dạy học toán (thước thẳng, compa)"
+   }
+  ]
+ },
+ {
+  "lop": 12,
+  "hoc_ky": 1,
+  "tuan": 8,
+  "tiet": "22",
+  "so_tiet": 1,
+  "loai": "co_ban",
+  "ten": "Bài 5: Ứng dụng đạo hàm để giải quyết một số vấn đề liên quan đến thực tiễn",
+  "bai_so": 5,
+  "ten_bai": "Ứng dụng đạo hàm để giải quyết một số vấn đề liên quan đến thực tiễn",
+  "chuyen_de": null,
+  "yccd": "- Biết cách giải một bài toán tối ưu hoá liên quan tới kinh tế.",
+  "nls": [
+   "1.1.NC1b",
+   "5.2.NC1b",
+   "6.2.NC1b"
+  ],
+  "nls_loi": [],
+  "ghi_chu": "(T4/4)",
+  "thiet_bi": [
+   {
+    "ma": "PTTH2034",
+    "ten": "Bộ thiết bị để vẽ trên bảng trong dạy học toán (thước thẳng, compa)"
+   }
+  ]
+ },
+ {
+  "lop": 12,
+  "hoc_ky": 1,
+  "tuan": 8,
+  "tiet": "23-24",
+  "so_tiet": 2,
+  "loai": "co_ban",
+  "ten": "Bài tập cuối chương 1",
+  "bai_so": null,
+  "ten_bai": "Bài tập cuối chương 1",
+  "chuyen_de": null,
+  "yccd": "- Rèn luyện kĩ năng xác định chiều biến thiên, tìm được cực trị của hàm số, tìm được giá trị lớn nhất và giá trị nhỏ nhất của hàm số trên một đoạn, tìm được đường tiệm cận của đồ thị hàm số.\n- Vận dụng đạo hàm và khảo sát hàm số để giải quyết một số vấn đề liên quan đến thực tiễn như tính tốc độ tức thời của một đại lượng, giải một số bài toán tối ưu hoá đơn giản trong thực tế.",
+  "nls": [
+   "1.1.NC1b",
+   "5.2.NC1b",
+   "6.2.NC1b"
+  ],
+  "nls_loi": [],
+  "ghi_chu": "(T1,2/2)",
+  "thiet_bi": [
+   {
+    "ma": "PTTH2034",
+    "ten": "Bộ thiết bị để vẽ trên bảng trong dạy học toán (thước thẳng, compa)"
+   },
+   {
+    "ma": "PTTHTA1001",
+    "ten": "Tranh điện tử"
+   }
+  ]
+ },
+ {
+  "lop": 12,
+  "hoc_ky": 1,
+  "tuan": 8,
+  "tiet": "8",
+  "so_tiet": 1,
+  "loai": "chuyen_de_hoc_tap",
+  "ten": "CĐ1 - Bài 2: Biến ngẫu nhiên có phân bố nhị thức và áp dụng",
+  "bai_so": null,
+  "ten_bai": "Biến ngẫu nhiên có phân bố nhị thức và áp dụng",
+  "chuyen_de": "CĐ1.B2",
+  "yccd": "– Nhận biết khái niệm biến ngẫu nhiên có phân bố nhị thức với tham số (n,p).\n– Vận dụng phân bố nhị thức để giải quyết một số bài toán có nội dung thực tiễn.",
+  "nls": [
+   "1.1.NC1b",
+   "5.2.NC1b",
+   "6.2.NC1b"
+  ],
+  "nls_loi": [],
+  "ghi_chu": "T3/5",
+  "thiet_bi": [
+   {
+    "ma": "PTTH2034",
+    "ten": "Bộ thiết bị để vẽ trên bảng trong dạy học toán (thước thẳng, compa)"
+   },
+   {
+    "ma": "TOAN002",
+    "ten": "Máy tính Acer"
+   },
+   {
+    "ma": "PTTH3003",
+    "ten": "Phần mềm toán học - Thống kê và xác suất"
+   }
+  ]
+ },
+ {
+  "lop": 12,
+  "hoc_ky": 1,
+  "tuan": 8,
+  "tiet": "15-16",
+  "so_tiet": 2,
+  "loai": "chuyen_sau",
+  "ten": "Chuyên đề nâng cao: Các phương pháp giải tích chứng minh BĐT",
+  "bai_so": null,
+  "ten_bai": "Chuyên đề nâng cao: Các phương pháp giải tích chứng minh BĐT",
+  "chuyen_de": null,
+  "yccd": "- Phân loại được lớp các hàm đơn điệu (đơn điệu, đơn điệu tuyệt đối, đơn điệu có tính tuần hoàn, đơn điệu từng khúc,…). Vận dụng trong chứng minh bất đẳng thức.\n- Nhận biết được khái niệm hàm lồi, hàm lồi khả vi và bất đẳng thức Jensen, bất đẳng thức Karamata",
+  "nls": [
+   "1.1.NC1b",
+   "5.2.NC1b",
+   "6.2.NC1b"
+  ],
+  "nls_loi": [],
+  "ghi_chu": null,
+  "thiet_bi": [
+   {
+    "ma": "PTTH2034",
+    "ten": "Bộ thiết bị để vẽ trên bảng trong dạy học toán (thước thẳng, compa)"
+   }
+  ]
+ },
+ {
+  "lop": 12,
+  "hoc_ky": 1,
+  "tuan": 9,
+  "tiet": "25",
+  "so_tiet": 1,
+  "loai": "on_tap_kiem_tra",
+  "ten": "Ôn tập giữa học kỳ 1",
+  "bai_so": null,
+  "ten_bai": "Ôn tập giữa học kỳ 1",
+  "chuyen_de": null,
+  "yccd": "- Hệ thống kiến thức lý thuyết.\n- Hệ thống các dạng toán cơ bản và phương pháp giải (chú ý các lưu ý cần thiết khi giải toán).\n- Kiểm tra đánh giá việc lĩnh hội kiến thức và liên hệ thực tiễn của HS.",
+  "nls": [
+   "1.1.NC1b",
+   "5.2.NC1b",
+   "6.2.NC1b"
+  ],
+  "nls_loi": [],
+  "ghi_chu": "(T1/1)",
+  "thiet_bi": [
+   {
+    "ma": "PTTH2034",
+    "ten": "Bộ thiết bị để vẽ trên bảng trong dạy học toán (thước thẳng, compa)"
+   },
+   {
+    "ma": "PTTHTA1001",
+    "ten": "Tranh điện tử"
+   }
+  ]
+ },
+ {
+  "lop": 12,
+  "hoc_ky": 1,
+  "tuan": 9,
+  "tiet": "9",
+  "so_tiet": 1,
+  "loai": "chuyen_de_hoc_tap",
+  "ten": "CĐ1 - Bài 2: Biến ngẫu nhiên có phân bố nhị thức và áp dụng",
+  "bai_so": null,
+  "ten_bai": "Biến ngẫu nhiên có phân bố nhị thức và áp dụng",
+  "chuyen_de": "CĐ1.B2",
+  "yccd": "– Nhận biết khái niệm biến ngẫu nhiên có phân bố nhị thức với tham số (n,p).\n– Vận dụng phân bố nhị thức để giải quyết một số bài toán có nội dung thực tiễn.",
+  "nls": [
+   "1.1.NC1b",
+   "5.2.NC1b",
+   "6.2.NC1b"
+  ],
+  "nls_loi": [],
+  "ghi_chu": "T4/5",
+  "thiet_bi": [
+   {
+    "ma": "PTTH2034",
+    "ten": "Bộ thiết bị để vẽ trên bảng trong dạy học toán (thước thẳng, compa)"
+   },
+   {
+    "ma": "TOAN002",
+    "ten": "Máy tính Acer"
+   },
+   {
+    "ma": "PTTH3003",
+    "ten": "Phần mềm toán học - Thống kê và xác suất"
+   }
+  ]
+ },
+ {
+  "lop": 12,
+  "hoc_ky": 1,
+  "tuan": 9,
+  "tiet": "26-27",
+  "so_tiet": 2,
+  "loai": "on_tap_kiem_tra",
+  "ten": "KIỂM TRA GIỮA HỌC KỲ 1",
+  "bai_so": null,
+  "ten_bai": "KIỂM TRA GIỮA HỌC KỲ 1",
+  "chuyen_de": null,
+  "yccd": "Kĩ năng:  Rèn luyện kĩ năng vận dụng kiến thức đã học, giải bài tập, phân tích, tư duy của học sinh.\nNăng lực:  Năng lực tự học, sáng tạo, giải quyết vấn đề, tính toán và sử dụng ngôn ngữ.\nPhẩm chất: Trung thực nghiêm túc trong kiểm tra.",
+  "nls": [],
+  "nls_loi": [],
+  "ghi_chu": "(T1,2/2)",
+  "thiet_bi": [
+   {
+    "ma": "PTTH2034",
+    "ten": "Bộ thiết bị để vẽ trên bảng trong dạy học toán (thước thẳng, compa)"
+   }
+  ]
+ },
+ {
+  "lop": 12,
+  "hoc_ky": 1,
+  "tuan": 9,
+  "tiet": "17-18",
+  "so_tiet": 2,
+  "loai": "chuyen_sau",
+  "ten": "Chuyên đề nâng cao: Các bài toán cực trị",
+  "bai_so": null,
+  "ten_bai": "Chuyên đề nâng cao: Các bài toán cực trị",
+  "chuyen_de": null,
+  "yccd": "- Giải được các bài toán cực trị hàm một biến bằng đại số (phân tích ra thừa số) và giải tích (khảo sát hàm số).\n- Áp dụng được bất đẳng thức vào bài toán cực trị \n- Vận dụng phương pháp giảm dần các biến số.",
+  "nls": [
+   "1.1.NC1b",
+   "5.2.NC1b",
+   "6.2.NC1b"
+  ],
+  "nls_loi": [],
+  "ghi_chu": null,
+  "thiet_bi": [
+   {
+    "ma": "PTTH2034",
+    "ten": "Bộ thiết bị để vẽ trên bảng trong dạy học toán (thước thẳng, compa)"
+   }
+  ]
+ },
+ {
+  "lop": 12,
+  "hoc_ky": 1,
+  "tuan": 10,
+  "tiet": "28-30",
+  "so_tiet": 3,
+  "loai": "co_ban",
+  "ten": "Bài 6: Vectơ trong không gian",
+  "bai_so": 6,
+  "ten_bai": "Vectơ trong không gian",
+  "chuyen_de": null,
+  "yccd": "- Nhận biết được vectơ trong không gian: hai vectơ cùng phương, hai vectơ cùng hướng/ngược hướng, hai vectơ bằng nhau.\n- Nhận biết và thực hiện được các phép toán vectơ trong không gian.\n- Khái niệm tổng của hai vectơ trong không gian, thiết lập được quy tắc hình hộp.\n- Nhận biết được hai vectơ đối nhau trong không gian, hiệu của hai vectơ và các tính chất của phép trừ hai vectơ.",
+  "nls": [
+   "1.1.NC1b",
+   "5.2.NC1b",
+   "6.2.NC1b"
+  ],
+  "nls_loi": [],
+  "ghi_chu": "(T1,2,3/6)",
+  "thiet_bi": [
+   {
+    "ma": "PTTH2034",
+    "ten": "Bộ thiết bị để vẽ trên bảng trong dạy học toán (thước thẳng, compa)"
+   }
+  ]
+ },
+ {
+  "lop": 12,
+  "hoc_ky": 1,
+  "tuan": 10,
+  "tiet": "10",
+  "so_tiet": 1,
+  "loai": "chuyen_de_hoc_tap",
+  "ten": "CĐ1 - Bài 2: Biến ngẫu nhiên có phân bố nhị thức và áp dụng",
+  "bai_so": null,
+  "ten_bai": "Biến ngẫu nhiên có phân bố nhị thức và áp dụng",
+  "chuyen_de": "CĐ1.B2",
+  "yccd": "Củng cố khái niệm biến ngẫu nhiên có phân bố nhị thức, biến ngẫu nhiên có phân bố Bernoulli và các tính chất liên quan.",
+  "nls": [
+   "1.1.NC1b",
+   "5.2.NC1b",
+   "6.2.NC1b"
+  ],
+  "nls_loi": [],
+  "ghi_chu": "T5/5",
+  "thiet_bi": [
+   {
+    "ma": "PTTH2034",
+    "ten": "Bộ thiết bị để vẽ trên bảng trong dạy học toán (thước thẳng, compa)"
+   },
+   {
+    "ma": "TOAN002",
+    "ten": "Máy tính Acer"
+   },
+   {
+    "ma": "PTTH3003",
+    "ten": "Phần mềm toán học - Thống kê và xác suất"
+   }
+  ]
+ },
+ {
+  "lop": 12,
+  "hoc_ky": 1,
+  "tuan": 10,
+  "tiet": "19-20",
+  "so_tiet": 2,
+  "loai": "chuyen_sau",
+  "ten": "Chuyên đề nâng cao: Các bài toán cực trị",
+  "bai_so": null,
+  "ten_bai": "Chuyên đề nâng cao: Các bài toán cực trị",
+  "chuyen_de": null,
+  "yccd": "- Giải được các bài toán cực trị hàm một biến bằng đại số (phân tích ra thừa số) và giải tích (khảo sát hàm số).\n- Áp dụng được bất đẳng thức vào bài toán cực trị \n- Vận dụng phương pháp giảm dần các biến số.",
+  "nls": [
+   "1.1.NC1b",
+   "5.2.NC1b",
+   "6.2.NC1b"
+  ],
+  "nls_loi": [],
+  "ghi_chu": null,
+  "thiet_bi": [
+   {
+    "ma": "PTTH2034",
+    "ten": "Bộ thiết bị để vẽ trên bảng trong dạy học toán (thước thẳng, compa)"
+   }
+  ]
+ },
+ {
+  "lop": 12,
+  "hoc_ky": 1,
+  "tuan": 11,
+  "tiet": "31-33",
+  "so_tiet": 3,
+  "loai": "co_ban",
+  "ten": "Bài 6: Vectơ trong không gian",
+  "bai_so": 6,
+  "ten_bai": "Vectơ trong không gian",
+  "chuyen_de": null,
+  "yccd": "- Khái niệm tích của một số với một vectơ trong không gian.\n- Sử dụng các tính chất của phép nhân một số với một vectơ.\n- Khái niệm góc giữa hai vectơ trong không gian.\n- Khái niệm tích vô hướng của hai vectơ trong không gian.\n- Vận dụng được tích vô hướng của hai vectơ trong không gian trong một số tình huống thực tiễn.",
+  "nls": [
+   "1.1.NC1b",
+   "5.2.NC1b",
+   "6.2.NC1b"
+  ],
+  "nls_loi": [],
+  "ghi_chu": "(T4,5,6/6) Dạy học online tuỳ theo tình hình thực tế",
+  "thiet_bi": [
+   {
+    "ma": "PTTH2034",
+    "ten": "Bộ thiết bị để vẽ trên bảng trong dạy học toán (thước thẳng, compa)"
+   }
+  ]
+ },
+ {
+  "lop": 12,
+  "hoc_ky": 1,
+  "tuan": 11,
+  "tiet": "11",
+  "so_tiet": 1,
+  "loai": "chuyen_de_hoc_tap",
+  "ten": "Bài tập cuối chuyên đề 1",
+  "bai_so": null,
+  "ten_bai": "Bài tập cuối chuyên đề 1",
+  "chuyen_de": null,
+  "yccd": "– Ôn tập kĩ năng vận dụng các kiến thức về biến ngẫu nhiên rời rạc, các số đặc trưng để giải quyết các bài toán thực tế.\n– Ôn tập kĩ năng vận dụng các kiến thức về công thức Bernoulli, biến ngẫu nhiên có phân bố nhị thức, biến ngẫu nhiên có phân bố Bernoulli để giải quyết các bài toán trong thực tế.",
+  "nls": [
+   "1.1.NC1b",
+   "5.2.NC1b",
+   "6.2.NC1b"
+  ],
+  "nls_loi": [],
+  "ghi_chu": "T1/2 Dạy học online tuỳ theo tình hình thực tế",
+  "thiet_bi": [
+   {
+    "ma": "PTTH2034",
+    "ten": "Bộ thiết bị để vẽ trên bảng trong dạy học toán (thước thẳng, compa)"
+   }
+  ]
+ },
+ {
+  "lop": 12,
+  "hoc_ky": 1,
+  "tuan": 11,
+  "tiet": "21-22",
+  "so_tiet": 2,
+  "loai": "chuyen_sau",
+  "ten": "Chuyên đề nâng cao: Các bài toán cực trị",
+  "bai_so": null,
+  "ten_bai": "Chuyên đề nâng cao: Các bài toán cực trị",
+  "chuyen_de": null,
+  "yccd": "- Giải được các bài toán cực trị hàm một biến bằng đại số (phân tích ra thừa số) và giải tích (khảo sát hàm số).\n- Áp dụng được bất đẳng thức vào bài toán cực trị \n- Vận dụng phương pháp giảm dần các biến số.",
+  "nls": [
+   "1.1.NC1b",
+   "5.2.NC1b",
+   "6.2.NC1b"
+  ],
+  "nls_loi": [],
+  "ghi_chu": "Dạy học online tuỳ theo tình hình thực tế",
+  "thiet_bi": [
+   {
+    "ma": "PTTH2034",
+    "ten": "Bộ thiết bị để vẽ trên bảng trong dạy học toán (thước thẳng, compa)"
+   }
+  ]
+ },
+ {
+  "lop": 12,
+  "hoc_ky": 1,
+  "tuan": 12,
+  "tiet": "34-36",
+  "so_tiet": 3,
+  "loai": "co_ban",
+  "ten": "Bài 7: Hệ trục tọa độ trong không gian",
+  "bai_so": 7,
+  "ten_bai": "Hệ trục tọa độ trong không gian",
+  "chuyen_de": null,
+  "yccd": "- Nhận biết toạ độ của điểm, của vectơ đối với hệ trục toạ độ.\n- Vận dụng toạ độ của vectơ để giải một số bài toán có liên quan đến thực tiễn.\n- Định nghĩa hệ trục toạ độ trong không gian và một số khái niệm liên quan, khái niệm toạ độ của một điểm trong không gian.\n- Xác định vectơ bằng vectơ cho trước.",
+  "nls": [
+   "1.1.NC1b",
+   "5.2.NC1b",
+   "6.2.NC1b"
+  ],
+  "nls_loi": [],
+  "ghi_chu": "(T1,2,3/3)",
+  "thiet_bi": [
+   {
+    "ma": "PTTH2034",
+    "ten": "Bộ thiết bị để vẽ trên bảng trong dạy học toán (thước thẳng, compa)"
+   }
+  ]
+ },
+ {
+  "lop": 12,
+  "hoc_ky": 1,
+  "tuan": 12,
+  "tiet": "12",
+  "so_tiet": 1,
+  "loai": "chuyen_de_hoc_tap",
+  "ten": "Bài tập cuối chuyên đề 1",
+  "bai_so": null,
+  "ten_bai": "Bài tập cuối chuyên đề 1",
+  "chuyen_de": null,
+  "yccd": "– Ôn tập kĩ năng vận dụng các kiến thức về biến ngẫu nhiên rời rạc, các số đặc trưng để giải quyết các bài toán thực tế.\n– Ôn tập kĩ năng vận dụng các kiến thức về công thức Bernoulli, biến ngẫu nhiên có phân bố nhị thức, biến ngẫu nhiên có phân bố Bernoulli để giải quyết các bài toán trong thực tế.",
+  "nls": [
+   "1.1.NC1b",
+   "5.2.NC1b",
+   "6.2.NC1b"
+  ],
+  "nls_loi": [],
+  "ghi_chu": "T2/2",
+  "thiet_bi": [
+   {
+    "ma": "PTTH2034",
+    "ten": "Bộ thiết bị để vẽ trên bảng trong dạy học toán (thước thẳng, compa)"
+   }
+  ]
+ },
+ {
+  "lop": 12,
+  "hoc_ky": 1,
+  "tuan": 12,
+  "tiet": "23-24",
+  "so_tiet": 2,
+  "loai": "chuyen_sau",
+  "ten": "Chuyên đề nâng cao: Các bài toán cực trị",
+  "bai_so": null,
+  "ten_bai": "Chuyên đề nâng cao: Các bài toán cực trị",
+  "chuyen_de": null,
+  "yccd": "- Giải được các bài toán cực trị hàm một biến bằng đại số (phân tích ra thừa số) và giải tích (khảo sát hàm số).\n- Áp dụng được bất đẳng thức vào bài toán cực trị \n- Vận dụng phương pháp giảm dần các biến số.",
+  "nls": [
+   "1.1.NC1b",
+   "5.2.NC1b",
+   "6.2.NC1b"
+  ],
+  "nls_loi": [],
+  "ghi_chu": null,
+  "thiet_bi": [
+   {
+    "ma": "PTTH2034",
+    "ten": "Bộ thiết bị để vẽ trên bảng trong dạy học toán (thước thẳng, compa)"
+   }
+  ]
+ },
+ {
+  "lop": 12,
+  "hoc_ky": 1,
+  "tuan": 13,
+  "tiet": "37-39",
+  "so_tiet": 3,
+  "loai": "co_ban",
+  "ten": "Bài 8: Biểu thức tọa độ của các phép toán vectơ",
+  "bai_so": 8,
+  "ten_bai": "Biểu thức tọa độ của các phép toán vectơ",
+  "chuyen_de": null,
+  "yccd": "- Nhận biết được biểu thức toạ độ của các phép toán vectơ trong không gian, thể hiện được các phép toán vectơ theo toạ độ.\n- Xác định được độ dài của vectơ khi biết toạ độ của hai đầu mút.\n- Vận dụng được biểu thức toạ độ của các phép toán vectơ để giải một số bài toán có liên quan đến thực tiễn.\n- Nhận biết được các biểu thức toạ độ của phép cộng, phép trừ hai vectơ, phép nhân vectơ với một số.\n- Nhận biết được biểu thức toạ độ của tích vô hướng của hai vectơ.\n- Sử dụng được biểu thức toạ độ của tích vô hướng trong không gian để giải tam giác.",
+  "nls": [
+   "1.1.NC1b",
+   "5.2.NC1b",
+   "6.2.NC1b"
+  ],
+  "nls_loi": [],
+  "ghi_chu": "(T1,2,3/3)",
+  "thiet_bi": [
+   {
+    "ma": "PTTH2034",
+    "ten": "Bộ thiết bị để vẽ trên bảng trong dạy học toán (thước thẳng, compa)"
+   }
+  ]
+ },
+ {
+  "lop": 12,
+  "hoc_ky": 1,
+  "tuan": 13,
+  "tiet": "13",
+  "so_tiet": 1,
+  "loai": "chuyen_de_hoc_tap",
+  "ten": "CĐ2 - Bài 3: Vận dụng hệ bất phương trình bậc nhất để giải quyết một số bài toán quy hoạch tuyến tính",
+  "bai_so": null,
+  "ten_bai": "Vận dụng hệ bất phương trình bậc nhất để giải quyết một số bài toán quy hoạch tuyến tính",
+  "chuyen_de": "CĐ2.B3",
+  "yccd": "– Phát biểu được bài toán quy hoạch tuyến tính hai biến. Nhận biết được các khái niệm liên quan đến bài toán quy hoạch tuyến tính và các bước giải bài toán quy hoạch tuyến tính.\n– Vận dụng các kiến thức về hệ bất phương trình bậc nhất hai ẩn để giải quyết một số bài toán quy hoạch tuyến tính.",
+  "nls": [
+   "1.1.NC1b",
+   "5.2.NC1b",
+   "6.2.NC1b"
+  ],
+  "nls_loi": [],
+  "ghi_chu": "T1/5",
+  "thiet_bi": [
+   {
+    "ma": "PTTH2034",
+    "ten": "Bộ thiết bị để vẽ trên bảng trong dạy học toán (thước thẳng, compa)"
+   }
+  ]
+ },
+ {
+  "lop": 12,
+  "hoc_ky": 1,
+  "tuan": 13,
+  "tiet": "25-26",
+  "so_tiet": 2,
+  "loai": "chuyen_sau",
+  "ten": "Chuyên đề nâng cao: Các bài toán cực trị",
+  "bai_so": null,
+  "ten_bai": "Chuyên đề nâng cao: Các bài toán cực trị",
+  "chuyen_de": null,
+  "yccd": "- Giải được các bài toán cực trị hàm một biến bằng đại số (phân tích ra thừa số) và giải tích (khảo sát hàm số).\n- Áp dụng được bất đẳng thức vào bài toán cực trị \n- Vận dụng phương pháp giảm dần các biến số.",
+  "nls": [
+   "1.1.NC1b",
+   "5.2.NC1b",
+   "6.2.NC1b"
+  ],
+  "nls_loi": [],
+  "ghi_chu": null,
+  "thiet_bi": [
+   {
+    "ma": "PTTH2034",
+    "ten": "Bộ thiết bị để vẽ trên bảng trong dạy học toán (thước thẳng, compa)"
+   }
+  ]
+ },
+ {
+  "lop": 12,
+  "hoc_ky": 1,
+  "tuan": 14,
+  "tiet": "40-41",
+  "so_tiet": 2,
+  "loai": "co_ban",
+  "ten": "Bài tập cuối chương 2",
+  "bai_so": null,
+  "ten_bai": "Bài tập cuối chương 2",
+  "chuyen_de": null,
+  "yccd": "- Hệ thống lại kiến thức về hệ toạ độ trong không gian, toạ độ điểm và vectơ trong không gian.\n- Ôn tập lại các phép toán vectơ trong không gian.\n- Vận dụng được biểu thức toạ độ của các phép toán vectơ để giải một số bài toán có liên quan đến thực tiễn.",
+  "nls": [
+   "1.1.NC1b",
+   "5.2.NC1b",
+   "6.2.NC1b"
+  ],
+  "nls_loi": [],
+  "ghi_chu": "(T1,2/2)",
+  "thiet_bi": [
+   {
+    "ma": "PTTH2034",
+    "ten": "Bộ thiết bị để vẽ trên bảng trong dạy học toán (thước thẳng, compa)"
+   }
+  ]
+ },
+ {
+  "lop": 12,
+  "hoc_ky": 1,
+  "tuan": 14,
+  "tiet": "42",
+  "so_tiet": 1,
+  "loai": "co_ban",
+  "ten": "Bài 9: Khoảng biến thiên và khoảng tứ phân vị",
+  "bai_so": 9,
+  "ten_bai": "Khoảng biến thiên và khoảng tứ phân vị",
+  "chuyen_de": null,
+  "yccd": "- Tính được khoảng biến thiên, khoảng tứ phân vị của mẫu số liệu ghép nhóm.\n- Hiểu ý nghĩa, vai trò của khoảng biến thiên, khoảng tứ phân vị trong việc đo mức độ phân tán. \n- Vận dụng được công thức tính khoảng biến thiên, khoảng tứ phân vị để đo mức độ phân tán của mẫu số liệu ghép nhóm trong thực tế.",
+  "nls": [
+   "1.1.NC1b",
+   "5.2.NC1b",
+   "6.2.NC1b"
+  ],
+  "nls_loi": [],
+  "ghi_chu": "(T1/1)",
+  "thiet_bi": [
+   {
+    "ma": "PTTH2034",
+    "ten": "Bộ thiết bị để vẽ trên bảng trong dạy học toán (thước thẳng, compa)"
+   },
+   {
+    "ma": "TOAN002",
+    "ten": "Máy tính Acer"
+   },
+   {
+    "ma": "PTTH3003",
+    "ten": "Phần mềm toán học - Thống kê và xác suất"
+   }
+  ]
+ },
+ {
+  "lop": 12,
+  "hoc_ky": 1,
+  "tuan": 14,
+  "tiet": "14",
+  "so_tiet": 1,
+  "loai": "chuyen_de_hoc_tap",
+  "ten": "CĐ2 - Bài 3: Vận dụng hệ bất phương trình bậc nhất để giải quyết một số bài toán quy hoạch tuyến tính",
+  "bai_so": null,
+  "ten_bai": "Vận dụng hệ bất phương trình bậc nhất để giải quyết một số bài toán quy hoạch tuyến tính",
+  "chuyen_de": "CĐ2.B3",
+  "yccd": "– Phát biểu được bài toán quy hoạch tuyến tính hai biến. Nhận biết được các khái niệm liên quan đến bài toán quy hoạch tuyến tính và các bước giải bài toán quy hoạch tuyến tính.\n– Vận dụng các kiến thức về hệ bất phương trình bậc nhất hai ẩn để giải quyết một số bài toán quy hoạch tuyến tính.",
+  "nls": [
+   "1.1.NC1b",
+   "5.2.NC1b",
+   "6.2.NC1b"
+  ],
+  "nls_loi": [],
+  "ghi_chu": "T2/5",
+  "thiet_bi": [
+   {
+    "ma": "PTTH2034",
+    "ten": "Bộ thiết bị để vẽ trên bảng trong dạy học toán (thước thẳng, compa)"
+   }
+  ]
+ },
+ {
+  "lop": 12,
+  "hoc_ky": 1,
+  "tuan": 14,
+  "tiet": "27-28",
+  "so_tiet": 2,
+  "loai": "chuyen_sau",
+  "ten": "Chuyên đề nâng cao: Các bài toán cực trị",
+  "bai_so": null,
+  "ten_bai": "Chuyên đề nâng cao: Các bài toán cực trị",
+  "chuyen_de": null,
+  "yccd": "- Giải được các bài toán cực trị hàm một biến bằng đại số (phân tích ra thừa số) và giải tích (khảo sát hàm số).\n- Áp dụng được bất đẳng thức vào bài toán cực trị \n- Vận dụng phương pháp giảm dần các biến số.",
+  "nls": [
+   "1.1.NC1b",
+   "5.2.NC1b",
+   "6.2.NC1b"
+  ],
+  "nls_loi": [],
+  "ghi_chu": null,
+  "thiet_bi": [
+   {
+    "ma": "PTTH2034",
+    "ten": "Bộ thiết bị để vẽ trên bảng trong dạy học toán (thước thẳng, compa)"
+   }
+  ]
+ },
+ {
+  "lop": 12,
+  "hoc_ky": 1,
+  "tuan": 15,
+  "tiet": "43-44",
+  "so_tiet": 2,
+  "loai": "co_ban",
+  "ten": "Bài 10: Phương sai và độ lệch chuẩn",
+  "bai_so": 10,
+  "ten_bai": "Phương sai và độ lệch chuẩn",
+  "chuyen_de": null,
+  "yccd": "- Tính được phương sai, độ lệch chuẩn của mẫu số liệu ghép nhóm.\n- Hiểu ý nghĩa, vai trò của phương sai, độ lệch chuẩn trong việc đo mức độ phân tán của mẫu số liệu ghép nhóm và áp dụng vào các bài toán thực tế.\n-Vận dụng được công thức tính các số đặc trưng phương sai, độ lệch chuẩn của mẫu số liệu ghép nhóm vào tình huống thực tế.",
+  "nls": [
+   "1.1.NC1b",
+   "5.2.NC1b",
+   "6.2.NC1b"
+  ],
+  "nls_loi": [],
+  "ghi_chu": "(T1,2/2)",
+  "thiet_bi": [
+   {
+    "ma": "PTTH2034",
+    "ten": "Bộ thiết bị để vẽ trên bảng trong dạy học toán (thước thẳng, compa)"
+   },
+   {
+    "ma": "TOAN002",
+    "ten": "Máy tính Acer"
+   },
+   {
+    "ma": "PTTH3003",
+    "ten": "Phần mềm toán học - Thống kê và xác suất"
+   }
+  ]
+ },
+ {
+  "lop": 12,
+  "hoc_ky": 1,
+  "tuan": 15,
+  "tiet": "45",
+  "so_tiet": 1,
+  "loai": "co_ban",
+  "ten": "Bài tập cuối chương III",
+  "bai_so": null,
+  "ten_bai": "Bài tập cuối chương III",
+  "chuyen_de": null,
+  "yccd": "- Ôn tập về các số đặc trưng đo độ phân tán của mẫu số liệu ghép nhóm bao gồm khoảng biến thiên, khoảng tứ phân vị, phương sai và độ lệch chuẩn.\n- Hiểu ý nghĩa, vai trò của khoảng biến thiên, khoảng tứ phân vị, phương sai và độ lêch chuẩn trong việc đo mức độ phân tán.",
+  "nls": [
+   "1.1.NC1b",
+   "5.2.NC1b",
+   "6.2.NC1b"
+  ],
+  "nls_loi": [],
+  "ghi_chu": "(T1/1)",
+  "thiet_bi": [
+   {
+    "ma": "PTTH2034",
+    "ten": "Bộ thiết bị để vẽ trên bảng trong dạy học toán (thước thẳng, compa)"
+   }
+  ]
+ },
+ {
+  "lop": 12,
+  "hoc_ky": 1,
+  "tuan": 15,
+  "tiet": "15",
+  "so_tiet": 1,
+  "loai": "chuyen_de_hoc_tap",
+  "ten": "CĐ2 - Bài 3: Vận dụng hệ bất phương trình bậc nhất để giải quyết một số bài toán quy hoạch tuyến tính",
+  "bai_so": null,
+  "ten_bai": "Vận dụng hệ bất phương trình bậc nhất để giải quyết một số bài toán quy hoạch tuyến tính",
+  "chuyen_de": "CĐ2.B3",
+  "yccd": "- Nắm được cách giải bài toán quy hoạch tuyến tính trong trường hợp miền chấp nhận được không là miền đa giác.\n- Kĩ năng giải bài toán quy hoạch tuyến tính hai biến trong trường hợp miền chấp nhận được là miền đa giác.",
+  "nls": [
+   "1.1.NC1b",
+   "5.2.NC1b",
+   "6.2.NC1b"
+  ],
+  "nls_loi": [],
+  "ghi_chu": "T3/5",
+  "thiet_bi": [
+   {
+    "ma": "PTTH2034",
+    "ten": "Bộ thiết bị để vẽ trên bảng trong dạy học toán (thước thẳng, compa)"
+   }
+  ]
+ },
+ {
+  "lop": 12,
+  "hoc_ky": 1,
+  "tuan": 15,
+  "tiet": "29-30",
+  "so_tiet": 2,
+  "loai": "chuyen_sau",
+  "ten": "Chuyên đề nâng cao: Các bài toán cực trị",
+  "bai_so": null,
+  "ten_bai": "Chuyên đề nâng cao: Các bài toán cực trị",
+  "chuyen_de": null,
+  "yccd": "- Giải được các bài toán cực trị hàm một biến bằng đại số (phân tích ra thừa số) và giải tích (khảo sát hàm số).\n- Áp dụng được bất đẳng thức vào bài toán cực trị \n- Vận dụng phương pháp giảm dần các biến số.",
+  "nls": [
+   "1.1.NC1b",
+   "5.2.NC1b",
+   "6.2.NC1b"
+  ],
+  "nls_loi": [],
+  "ghi_chu": null,
+  "thiet_bi": [
+   {
+    "ma": "PTTH2034",
+    "ten": "Bộ thiết bị để vẽ trên bảng trong dạy học toán (thước thẳng, compa)"
+   }
+  ]
+ },
+ {
+  "lop": 12,
+  "hoc_ky": 1,
+  "tuan": 16,
+  "tiet": "46-47",
+  "so_tiet": 2,
+  "loai": "trai_nghiem",
+  "ten": "Khảo sát và vẽ đồ thị hàm số với phần mềm GeoGebra",
+  "bai_so": null,
+  "ten_bai": "Khảo sát và vẽ đồ thị hàm số với phần mềm GeoGebra",
+  "chuyen_de": null,
+  "yccd": "- Sử dụng phần mềm GeoGebra để khảo sát và vẽ đồ thị hàm số, đặc biệt đối với những hàm số phức tạp.\n- Nhận biết được các câu lệnh trên GeoGebra để khảo sát hàm số.\n- Sử dụng phần mềm GeoGebra để tìm đạo hàm, cực trị, GTLN, GTNN, các đường tiệm cận của hàm số.",
+  "nls": [
+   "1.1.NC1b",
+   "5.2.NC1b",
+   "6.2.NC1b"
+  ],
+  "nls_loi": [],
+  "ghi_chu": "(T1,2/2)",
+  "thiet_bi": [
+   {
+    "ma": "PTTH2034",
+    "ten": "Bộ thiết bị để vẽ trên bảng trong dạy học toán (thước thẳng, compa)"
+   }
+  ]
+ },
+ {
+  "lop": 12,
+  "hoc_ky": 1,
+  "tuan": 16,
+  "tiet": "48",
+  "so_tiet": 1,
+  "loai": "trai_nghiem",
+  "ten": "Vẽ vecto tổng của ba vecto trong không gian bằng phần mềm GeoGebra",
+  "bai_so": null,
+  "ten_bai": "Vẽ vecto tổng của ba vecto trong không gian bằng phần mềm GeoGebra",
+  "chuyen_de": null,
+  "yccd": "- Sử dụng phần mềm GeoGebra để vẽ vectơ tổng của ba vectơ cho trước.\n- Vận dụng quy trình vẽ vectơ tổng của ba vectơ cho trước để kiểm tra một số tính chất của vectơ trong không gian.",
+  "nls": [
+   "1.1.NC1b",
+   "5.2.NC1b",
+   "6.2.NC1b"
+  ],
+  "nls_loi": [],
+  "ghi_chu": "(T1/1)",
+  "thiet_bi": [
+   {
+    "ma": "PTTH2034",
+    "ten": "Bộ thiết bị để vẽ trên bảng trong dạy học toán (thước thẳng, compa)"
+   }
+  ]
+ },
+ {
+  "lop": 12,
+  "hoc_ky": 1,
+  "tuan": 16,
+  "tiet": "16",
+  "so_tiet": 1,
+  "loai": "chuyen_de_hoc_tap",
+  "ten": "CĐ2 - Bài 3: Vận dụng hệ bất phương trình bậc nhất để giải quyết một số bài toán quy hoạch tuyến tính",
+  "bai_so": null,
+  "ten_bai": "Vận dụng hệ bất phương trình bậc nhất để giải quyết một số bài toán quy hoạch tuyến tính",
+  "chuyen_de": "CĐ2.B3",
+  "yccd": "- Nắm được cách giải bài toán quy hoạch tuyến tính trong trường hợp miền chấp nhận được không là miền đa giác.\n- Kĩ năng giải bài toán quy hoạch tuyến tính hai biến trong trường hợp miền chấp nhận được là miền đa giác.",
+  "nls": [
+   "1.1.NC1b",
+   "5.2.NC1b",
+   "6.2.NC1b"
+  ],
+  "nls_loi": [],
+  "ghi_chu": "T4/5",
+  "thiet_bi": [
+   {
+    "ma": "PTTH2034",
+    "ten": "Bộ thiết bị để vẽ trên bảng trong dạy học toán (thước thẳng, compa)"
+   }
+  ]
+ },
+ {
+  "lop": 12,
+  "hoc_ky": 1,
+  "tuan": 16,
+  "tiet": "31-32",
+  "so_tiet": 2,
+  "loai": "chuyen_sau",
+  "ten": "Chuyên đề nâng cao: Các bài toán cực trị",
+  "bai_so": null,
+  "ten_bai": "Chuyên đề nâng cao: Các bài toán cực trị",
+  "chuyen_de": null,
+  "yccd": "- Giải được các bài toán cực trị hàm một biến bằng đại số (phân tích ra thừa số) và giải tích (khảo sát hàm số).\n- Áp dụng được bất đẳng thức vào bài toán cực trị \n- Vận dụng phương pháp giảm dần các biến số.",
+  "nls": [
+   "1.1.NC1b",
+   "5.2.NC1b",
+   "6.2.NC1b"
+  ],
+  "nls_loi": [],
+  "ghi_chu": null,
+  "thiet_bi": [
+   {
+    "ma": "PTTH2034",
+    "ten": "Bộ thiết bị để vẽ trên bảng trong dạy học toán (thước thẳng, compa)"
+   }
+  ]
+ },
+ {
+  "lop": 12,
+  "hoc_ky": 1,
+  "tuan": 17,
+  "tiet": "49-50",
+  "so_tiet": 2,
+  "loai": "trai_nghiem",
+  "ten": "Độ dài gang tay (gang tay của bạn dài bao nhiêu?)",
+  "bai_so": null,
+  "ten_bai": "Độ dài gang tay (gang tay của bạn dài bao nhiêu?)",
+  "chuyen_de": null,
+  "yccd": "- Thực hiện thu thập và phân tích dữ liệu để so sánh độ dài gang tay của hai nhóm HS nam và HS nữ trong lớp học.\n- Thực hành thu thập dữ liệu để tóm tắt và phân tích dữ liệu thu được.\n- Sử dụng được bảng tính Excel để phân tích dữ liệu.\n- Sử dụng các câu lệnh trong phần mềm bảng tính Excel để phân tích dữ liệu vừa thu thập được.\nSTEM:\n– Thực hiện được hoạt động thu thập số liệu ghép nhóm khi việc thu thấp chính xác số liệu có thể gặp khó khăn.\n- So sánh số trung bình, độ lệch chuẩn của hai mẫu số liệu ghép nhóm để rút ra một số kết luận.\nSẢN PHẨM: Sử dụng excel hoặc ngôn ngữ lập trình tính toán được các số đặc trưng trong thống kê. Từ đó đưa ra kết luận đánh giá mẫu số liệu.",
+  "nls": [
+   "1.1.NC1b",
+   "5.2.NC1b",
+   "6.2.NC1b"
+  ],
+  "nls_loi": [],
+  "ghi_chu": "(T1,2,2) Dạy học online tuỳ theo tình hình thực tế",
+  "thiet_bi": [
+   {
+    "ma": "PTTH2034",
+    "ten": "Bộ thiết bị để vẽ trên bảng trong dạy học toán (thước thẳng, compa)"
+   }
+  ]
+ },
+ {
+  "lop": 12,
+  "hoc_ky": 1,
+  "tuan": 17,
+  "tiet": "51",
+  "so_tiet": 1,
+  "loai": "on_tap_kiem_tra",
+  "ten": "Ôn tập cuối học kỳ I",
+  "bai_so": null,
+  "ten_bai": "Ôn tập cuối học kỳ I",
+  "chuyen_de": null,
+  "yccd": "- Hệ thống kiến thức lý thuyết.\n- Hệ thống các dạng toán cơ bản và phương pháp giải.\n- Kiểm tra đánh giá việc lĩnh hội kiến thức và liên hệ thực tiễn của HS.",
+  "nls": [
+   "1.1.NC1b",
+   "5.2.NC1b",
+   "6.2.NC1b"
+  ],
+  "nls_loi": [],
+  "ghi_chu": "(T1/2) Dạy học online tuỳ theo tình hình thực tế",
+  "thiet_bi": [
+   {
+    "ma": "PTTH2034",
+    "ten": "Bộ thiết bị để vẽ trên bảng trong dạy học toán (thước thẳng, compa)"
+   }
+  ]
+ },
+ {
+  "lop": 12,
+  "hoc_ky": 1,
+  "tuan": 17,
+  "tiet": "17",
+  "so_tiet": 1,
+  "loai": "chuyen_de_hoc_tap",
+  "ten": "CĐ2 - Bài 3: Vận dụng hệ bất phương trình bậc nhất để giải quyết một số bài toán quy hoạch tuyến tính",
+  "bai_so": null,
+  "ten_bai": "Vận dụng hệ bất phương trình bậc nhất để giải quyết một số bài toán quy hoạch tuyến tính",
+  "chuyen_de": "CĐ2.B3",
+  "yccd": "- Nắm được cách giải bài toán quy hoạch tuyến tính trong trường hợp miền chấp nhận được không là miền đa giác.\n- Kĩ năng giải bài toán quy hoạch tuyến tính hai biến trong trường hợp miền chấp nhận được là miền đa giác; không là miền đa giác.",
+  "nls": [
+   "1.1.NC1b",
+   "5.2.NC1b",
+   "6.2.NC1b"
+  ],
+  "nls_loi": [],
+  "ghi_chu": "T5/5 Dạy học online tuỳ theo tình hình thực tế",
+  "thiet_bi": [
+   {
+    "ma": "PTTH2034",
+    "ten": "Bộ thiết bị để vẽ trên bảng trong dạy học toán (thước thẳng, compa)"
+   }
+  ]
+ },
+ {
+  "lop": 12,
+  "hoc_ky": 1,
+  "tuan": 17,
+  "tiet": "33-34",
+  "so_tiet": 2,
+  "loai": "chuyen_sau",
+  "ten": "Chuyên đề nâng cao: Các bài toán cực trị",
+  "bai_so": null,
+  "ten_bai": "Chuyên đề nâng cao: Các bài toán cực trị",
+  "chuyen_de": null,
+  "yccd": "- Giải được các bài toán cực trị hàm một biến bằng đại số (phân tích ra thừa số) và giải tích (khảo sát hàm số).\n- Áp dụng được bất đẳng thức vào bài toán cực trị \n- Vận dụng phương pháp giảm dần các biến số.",
+  "nls": [
+   "1.1.NC1b",
+   "5.2.NC1b",
+   "6.2.NC1b"
+  ],
+  "nls_loi": [],
+  "ghi_chu": "Dạy học online tuỳ theo tình hình thực tế",
+  "thiet_bi": [
+   {
+    "ma": "PTTH2034",
+    "ten": "Bộ thiết bị để vẽ trên bảng trong dạy học toán (thước thẳng, compa)"
+   }
+  ]
+ },
+ {
+  "lop": 12,
+  "hoc_ky": 1,
+  "tuan": 18,
+  "tiet": "52",
+  "so_tiet": 1,
+  "loai": "on_tap_kiem_tra",
+  "ten": "Ôn tập cuối học kỳ I (tiếp theo)",
+  "bai_so": null,
+  "ten_bai": "Ôn tập cuối học kỳ I (tiếp theo)",
+  "chuyen_de": null,
+  "yccd": "-Hệ thống kiến thức lý thuyết.\n- Hệ thống các dạng toán cơ bản và phương pháp giải (chú ý các lưu ý cần thiết khi giải toán).\n- Kiểm tra đánh giá việc lĩnh hội kiến thức và liên hệ thực tiễn của HS.",
+  "nls": [
+   "1.1.NC1b",
+   "5.2.NC1b",
+   "6.2.NC1b"
+  ],
+  "nls_loi": [],
+  "ghi_chu": "(T2/2)",
+  "thiet_bi": [
+   {
+    "ma": "PTTH2034",
+    "ten": "Bộ thiết bị để vẽ trên bảng trong dạy học toán (thước thẳng, compa)"
+   }
+  ]
+ },
+ {
+  "lop": 12,
+  "hoc_ky": 1,
+  "tuan": 18,
+  "tiet": "18",
+  "so_tiet": 1,
+  "loai": "chuyen_de_hoc_tap",
+  "ten": "CĐ2 - Bài 4: Vận dụng đạo hàm để giải quyết một số bài toán tối ưu",
+  "bai_so": null,
+  "ten_bai": "Vận dụng đạo hàm để giải quyết một số bài toán tối ưu",
+  "chuyen_de": "CĐ2.B4",
+  "yccd": "– Vận dụng được các kiến thức về đạo hàm để giải quyết một số bài toán tối ưu xuất hiện trong thực tiễn.",
+  "nls": [
+   "1.1.NC1b",
+   "5.2.NC1b",
+   "6.2.NC1b"
+  ],
+  "nls_loi": [],
+  "ghi_chu": "T1/5",
+  "thiet_bi": [
+   {
+    "ma": "PTTH2034",
+    "ten": "Bộ thiết bị để vẽ trên bảng trong dạy học toán (thước thẳng, compa)"
+   }
+  ]
+ },
+ {
+  "lop": 12,
+  "hoc_ky": 1,
+  "tuan": 18,
+  "tiet": "53-54",
+  "so_tiet": 2,
+  "loai": "on_tap_kiem_tra",
+  "ten": "KIỂM TRA CUỐI HỌC KỲ 1",
+  "bai_so": null,
+  "ten_bai": "KIỂM TRA CUỐI HỌC KỲ 1",
+  "chuyen_de": null,
+  "yccd": "Kĩ năng:  Rèn luyện kĩ năng vận dụng kiến thức đã học, giải bài tập, phân tích, tư duy của học sinh.\nNăng lực:  Năng lực tự học, sáng tạo, giải quyết vấn đề, tính toán và sử dụng ngôn ngữ.\nPhẩm chất: Trung thực nghiêm túc trong kiểm tra.",
+  "nls": [],
+  "nls_loi": [],
+  "ghi_chu": "(T1,2,2)",
+  "thiet_bi": [
+   {
+    "ma": "PTTH2034",
+    "ten": "Bộ thiết bị để vẽ trên bảng trong dạy học toán (thước thẳng, compa)"
+   }
+  ]
+ },
+ {
+  "lop": 12,
+  "hoc_ky": 1,
+  "tuan": 18,
+  "tiet": "35-36",
+  "so_tiet": 2,
+  "loai": "chuyen_sau",
+  "ten": "Chuyên đề nâng cao: Các bài toán cực trị",
+  "bai_so": null,
+  "ten_bai": "Chuyên đề nâng cao: Các bài toán cực trị",
+  "chuyen_de": null,
+  "yccd": "- Giải được các bài toán cực trị hàm một biến bằng đại số (phân tích ra thừa số) và giải tích (khảo sát hàm số).\n- Áp dụng được bất đẳng thức vào bài toán cực trị \n- Vận dụng phương pháp giảm dần các biến số.",
+  "nls": [
+   "1.1.NC1b",
+   "5.2.NC1b",
+   "6.2.NC1b"
+  ],
+  "nls_loi": [],
+  "ghi_chu": null,
+  "thiet_bi": [
+   {
+    "ma": "PTTH2034",
+    "ten": "Bộ thiết bị để vẽ trên bảng trong dạy học toán (thước thẳng, compa)"
+   }
+  ]
+ },
+ {
+  "lop": 12,
+  "hoc_ky": 2,
+  "tuan": 19,
+  "tiet": "55-57",
+  "so_tiet": 3,
+  "loai": "co_ban",
+  "ten": "Bài 11: Nguyên hàm",
+  "bai_so": 11,
+  "ten_bai": "Nguyên hàm",
+  "chuyen_de": null,
+  "yccd": "- Nhận biết khái niệm nguyên hàm của một hàm số, giải thích một số tính chất của nguyên hàm.\n- Tìm nguyên hàm của một số hàm số sơ cấp thường gặp.\n- Vận dụng khái niệm nguyên hàm vào giải quyết một số bài toán từ thực tiễn.",
+  "nls": [
+   "1.1.NC1b",
+   "5.2.NC1b",
+   "6.2.NC1b"
+  ],
+  "nls_loi": [],
+  "ghi_chu": "(T1,2,3/5)",
+  "thiet_bi": [
+   {
+    "ma": "PTTH2034",
+    "ten": "Bộ thiết bị để vẽ trên bảng trong dạy học toán (thước thẳng, compa)"
+   },
+   {
+    "ma": "PTTHTA1001",
+    "ten": "Tranh điện tử"
+   }
+  ]
+ },
+ {
+  "lop": 12,
+  "hoc_ky": 2,
+  "tuan": 19,
+  "tiet": "19",
+  "so_tiet": 1,
+  "loai": "chuyen_de_hoc_tap",
+  "ten": "CĐ2 - Bài 4: Vận dụng đạo hàm để giải quyết một số bài toán tối ưu",
+  "bai_so": null,
+  "ten_bai": "Vận dụng đạo hàm để giải quyết một số bài toán tối ưu",
+  "chuyen_de": "CĐ2.B4",
+  "yccd": "– Vận dụng được các kiến thức về đạo hàm để giải quyết một số bài toán tối ưu xuất hiện trong thực tiễn.",
+  "nls": [
+   "1.1.NC1b",
+   "5.2.NC1b",
+   "6.2.NC1b"
+  ],
+  "nls_loi": [],
+  "ghi_chu": "T2/5",
+  "thiet_bi": [
+   {
+    "ma": "PTTH2034",
+    "ten": "Bộ thiết bị để vẽ trên bảng trong dạy học toán (thước thẳng, compa)"
+   }
+  ]
+ },
+ {
+  "lop": 12,
+  "hoc_ky": 2,
+  "tuan": 19,
+  "tiet": "37-38",
+  "so_tiet": 2,
+  "loai": "chuyen_sau",
+  "ten": "Chuyên đề nâng cao: Các định lý cơ bản của Giải tích và ứng dụng",
+  "bai_so": null,
+  "ten_bai": "Chuyên đề nâng cao: Các định lý cơ bản của Giải tích và ứng dụng",
+  "chuyen_de": null,
+  "yccd": "- Hiểu các định lý cơ bản của giải tích từ bổ đề Fermat, bổ đề về dãy đoạn thẳng lồng nhau, tính chất của hàm liên tục, các định lý Rolle, Lagrange, Cauchy, quy tắc L’Hopitale.\n- Vận dụng được các định lý trên trong giải toán: tìm điều kiện có nghiệm, chứng minh bất đẳng thức, tính giới hạn, tính giá trị của hàm số tại các điểm cực trị.",
+  "nls": [
+   "1.1.NC1b",
+   "5.2.NC1b",
+   "6.2.NC1b"
+  ],
+  "nls_loi": [],
+  "ghi_chu": null,
+  "thiet_bi": [
+   {
+    "ma": "PTTH2034",
+    "ten": "Bộ thiết bị để vẽ trên bảng trong dạy học toán (thước thẳng, compa)"
+   }
+  ]
+ },
+ {
+  "lop": 12,
+  "hoc_ky": 2,
+  "tuan": 20,
+  "tiet": "58-59",
+  "so_tiet": 2,
+  "loai": "co_ban",
+  "ten": "Bài 11: Nguyên hàm",
+  "bai_so": 11,
+  "ten_bai": "Nguyên hàm",
+  "chuyen_de": null,
+  "yccd": "- Nắm được các công thức tính nguyên hàm của hàm số lũy thừa.\n- Nắm được công thức tính nguyên hàm của hàm số lượng giác và hàm số mũ.",
+  "nls": [
+   "1.1.NC1b",
+   "5.2.NC1b",
+   "6.2.NC1b"
+  ],
+  "nls_loi": [],
+  "ghi_chu": "(T4,5/5)",
+  "thiet_bi": [
+   {
+    "ma": "PTTH2034",
+    "ten": "Bộ thiết bị để vẽ trên bảng trong dạy học toán (thước thẳng, compa)"
+   },
+   {
+    "ma": "PTTHTA1001",
+    "ten": "Tranh điện tử"
+   }
+  ]
+ },
+ {
+  "lop": 12,
+  "hoc_ky": 2,
+  "tuan": 20,
+  "tiet": "60",
+  "so_tiet": 1,
+  "loai": "co_ban",
+  "ten": "Bài 12: Tích phân",
+  "bai_so": 12,
+  "ten_bai": "Tích phân",
+  "chuyen_de": null,
+  "yccd": "- Nhận biết định nghĩa và các tính chất của tích phân.\n- Tính tích phân trong những trường hợp đơn giản.\n- Vận dụng tích phân để giải quyết một số bài toán liên quan đến thực tiễn.",
+  "nls": [
+   "1.1.NC1b",
+   "5.2.NC1b",
+   "6.2.NC1b"
+  ],
+  "nls_loi": [],
+  "ghi_chu": "(T1/4)",
+  "thiet_bi": [
+   {
+    "ma": "PTTH2034",
+    "ten": "Bộ thiết bị để vẽ trên bảng trong dạy học toán (thước thẳng, compa)"
+   },
+   {
+    "ma": "TOAN001",
+    "ten": "Bộ dụng cụ vẽ kỹ thuật (thước T, compa, thước dài, eke, thước cong)"
+   },
+   {
+    "ma": "TOAN002",
+    "ten": "Máy tính Acer"
+   },
+   {
+    "ma": "PTTH3001",
+    "ten": "Phần mềm toán học - Đại số và Giải tích"
+   }
+  ]
+ },
+ {
+  "lop": 12,
+  "hoc_ky": 2,
+  "tuan": 20,
+  "tiet": "20",
+  "so_tiet": 1,
+  "loai": "chuyen_de_hoc_tap",
+  "ten": "CĐ2 - Bài 4: Vận dụng đạo hàm để giải quyết một số bài toán tối ưu",
+  "bai_so": null,
+  "ten_bai": "Vận dụng đạo hàm để giải quyết một số bài toán tối ưu",
+  "chuyen_de": "CĐ2.B4",
+  "yccd": "– Vận dụng được các kiến thức về đạo hàm để giải quyết một số bài toán tối ưu trong kinh tế.",
+  "nls": [
+   "1.1.NC1b",
+   "5.2.NC1b",
+   "6.2.NC1b"
+  ],
+  "nls_loi": [],
+  "ghi_chu": "T3/5",
+  "thiet_bi": [
+   {
+    "ma": "PTTH2034",
+    "ten": "Bộ thiết bị để vẽ trên bảng trong dạy học toán (thước thẳng, compa)"
+   }
+  ]
+ },
+ {
+  "lop": 12,
+  "hoc_ky": 2,
+  "tuan": 20,
+  "tiet": "39-40",
+  "so_tiet": 2,
+  "loai": "chuyen_sau",
+  "ten": "Chuyên đề nâng cao: Các định lý cơ bản của Giải tích và ứng dụng",
+  "bai_so": null,
+  "ten_bai": "Chuyên đề nâng cao: Các định lý cơ bản của Giải tích và ứng dụng",
+  "chuyen_de": null,
+  "yccd": "- Hiểu các định lý cơ bản của giải tích từ bổ đề Fermat, bổ đề về dãy đoạn thẳng lồng nhau, tính chất của hàm liên tục, các định lý Rolle, Lagrange, Cauchy, quy tắc L’Hopitale.\n- Vận dụng được các định lý trên trong giải toán: tìm điều kiện có nghiệm, chứng minh bất đẳng thức, tính giới hạn, tính giá trị của hàm số tại các điểm cực trị.",
+  "nls": [
+   "1.1.NC1b",
+   "5.2.NC1b",
+   "6.2.NC1b"
+  ],
+  "nls_loi": [],
+  "ghi_chu": null,
+  "thiet_bi": [
+   {
+    "ma": "PTTH2034",
+    "ten": "Bộ thiết bị để vẽ trên bảng trong dạy học toán (thước thẳng, compa)"
+   }
+  ]
+ },
+ {
+  "lop": 12,
+  "hoc_ky": 2,
+  "tuan": 21,
+  "tiet": "61-63",
+  "so_tiet": 3,
+  "loai": "co_ban",
+  "ten": "Bài 12: Tích phân",
+  "bai_so": 12,
+  "ten_bai": "Tích phân",
+  "chuyen_de": null,
+  "yccd": "- Nhận biết các tính chất của tích phân.\n- Vận dụng kiến thức về tích phân để giải quyết bài toán thực tiễn.",
+  "nls": [
+   "1.1.NC1b",
+   "5.2.NC1b",
+   "6.2.NC1b"
+  ],
+  "nls_loi": [],
+  "ghi_chu": "(T2,3,4/4)",
+  "thiet_bi": [
+   {
+    "ma": "PTTH2034",
+    "ten": "Bộ thiết bị để vẽ trên bảng trong dạy học toán (thước thẳng, compa)"
+   },
+   {
+    "ma": "TOAN001",
+    "ten": "Bộ dụng cụ vẽ kỹ thuật (thước T, compa, thước dài, eke, thước cong)"
+   },
+   {
+    "ma": "TOAN002",
+    "ten": "Máy tính Acer"
+   },
+   {
+    "ma": "PTTH3001",
+    "ten": "Phần mềm toán học - Đại số và Giải tích"
+   }
+  ]
+ },
+ {
+  "lop": 12,
+  "hoc_ky": 2,
+  "tuan": 21,
+  "tiet": "21",
+  "so_tiet": 1,
+  "loai": "chuyen_de_hoc_tap",
+  "ten": "CĐ2 - Bài 4: Vận dụng đạo hàm để giải quyết một số bài toán tối ưu",
+  "bai_so": null,
+  "ten_bai": "Vận dụng đạo hàm để giải quyết một số bài toán tối ưu",
+  "chuyen_de": "CĐ2.B4",
+  "yccd": "– Vận dụng được các kiến thức về đạo hàm để giải quyết một số bài toán tối ưu trong kinh tế.",
+  "nls": [
+   "1.1.NC1b",
+   "5.2.NC1b",
+   "6.2.NC1b"
+  ],
+  "nls_loi": [],
+  "ghi_chu": "T4/5",
+  "thiet_bi": [
+   {
+    "ma": "PTTH2034",
+    "ten": "Bộ thiết bị để vẽ trên bảng trong dạy học toán (thước thẳng, compa)"
+   }
+  ]
+ },
+ {
+  "lop": 12,
+  "hoc_ky": 2,
+  "tuan": 21,
+  "tiet": "41-42",
+  "so_tiet": 2,
+  "loai": "chuyen_sau",
+  "ten": "Chuyên đề nâng cao: Các định lý cơ bản của Giải tích và ứng dụng",
+  "bai_so": null,
+  "ten_bai": "Chuyên đề nâng cao: Các định lý cơ bản của Giải tích và ứng dụng",
+  "chuyen_de": null,
+  "yccd": "- Hiểu các định lý cơ bản của giải tích từ bổ đề Fermat, bổ đề về dãy đoạn thẳng lồng nhau, tính chất của hàm liên tục, các định lý Rolle, Lagrange, Cauchy, quy tắc L’Hopitale.\n- Vận dụng được các định lý trên trong giải toán: tìm điều kiện có nghiệm, chứng minh bất đẳng thức, tính giới hạn, tính giá trị của hàm số tại các điểm cực trị.",
+  "nls": [
+   "1.1.NC1b",
+   "5.2.NC1b",
+   "6.2.NC1b"
+  ],
+  "nls_loi": [],
+  "ghi_chu": null,
+  "thiet_bi": [
+   {
+    "ma": "PTTH2034",
+    "ten": "Bộ thiết bị để vẽ trên bảng trong dạy học toán (thước thẳng, compa)"
+   }
+  ]
+ },
+ {
+  "lop": 12,
+  "hoc_ky": 2,
+  "tuan": 22,
+  "tiet": "64-66",
+  "so_tiet": 3,
+  "loai": "co_ban",
+  "ten": "Bài 13: Ứng dụng hình học của tích phân",
+  "bai_so": 13,
+  "ten_bai": "Ứng dụng hình học của tích phân",
+  "chuyen_de": null,
+  "yccd": "- Sử dụng tích phân để tính diện tích của một số hình phẳng.\n- Sử dụng tích phân để tính thể tích của một số khối.\n- Nhận biết được công thức tính diện tích hình phẳng giới hạn bởi một đồ thị hàm số, trục hoành và hai đường thẳng \n- Tính diện tích hình phẳng giới hạn bởi một đồ thị hàm số và trục hoành.\n- Vận dụng được công thức tính diện tích hình phẳng giới hạn bởi hai đồ thị hàm số và hai đường thẳng .\n- Tính diện tích hình phẳng giới hạn bởi hai đồ thị hàm số.",
+  "nls": [
+   "1.1.NC1b",
+   "5.2.NC1b",
+   "6.2.NC1b"
+  ],
+  "nls_loi": [],
+  "ghi_chu": "(T1,2,3/4) Dạy học online tuỳ theo tình hình thực tế",
+  "thiet_bi": [
+   {
+    "ma": "PTTH2034",
+    "ten": "Bộ thiết bị để vẽ trên bảng trong dạy học toán (thước thẳng, compa)"
+   },
+   {
+    "ma": "TOAN001",
+    "ten": "Bộ dụng cụ vẽ kỹ thuật (thước T, compa, thước dài, eke, thước cong)"
+   },
+   {
+    "ma": "TOAN002",
+    "ten": "Máy tính Acer"
+   },
+   {
+    "ma": "PTTH3001",
+    "ten": "Phần mềm toán học - Đại số và Giải tích"
+   }
+  ]
+ },
+ {
+  "lop": 12,
+  "hoc_ky": 2,
+  "tuan": 22,
+  "tiet": "22",
+  "so_tiet": 1,
+  "loai": "chuyen_de_hoc_tap",
+  "ten": "CĐ2 - Bài 4: Vận dụng đạo hàm để giải quyết một số bài toán tối ưu",
+  "bai_so": null,
+  "ten_bai": "Vận dụng đạo hàm để giải quyết một số bài toán tối ưu",
+  "chuyen_de": "CĐ2.B4",
+  "yccd": "- Vận dụng đạo hàm để giải quyết một số bài toán trong thực tiễn và kinh tế.",
+  "nls": [
+   "1.1.NC1b",
+   "5.2.NC1b",
+   "6.2.NC1b"
+  ],
+  "nls_loi": [],
+  "ghi_chu": "T5/5 Dạy học online tuỳ theo tình hình thực tế",
+  "thiet_bi": [
+   {
+    "ma": "PTTH2034",
+    "ten": "Bộ thiết bị để vẽ trên bảng trong dạy học toán (thước thẳng, compa)"
+   }
+  ]
+ },
+ {
+  "lop": 12,
+  "hoc_ky": 2,
+  "tuan": 22,
+  "tiet": "43-44",
+  "so_tiet": 2,
+  "loai": "chuyen_sau",
+  "ten": "Chuyên đề nâng cao: Các định lý cơ bản của Giải tích và ứng dụng",
+  "bai_so": null,
+  "ten_bai": "Chuyên đề nâng cao: Các định lý cơ bản của Giải tích và ứng dụng",
+  "chuyen_de": null,
+  "yccd": "- Hiểu các định lý cơ bản của giải tích từ bổ đề Fermat, bổ đề về dãy đoạn thẳng lồng nhau, tính chất của hàm liên tục, các định lý Rolle, Lagrange, Cauchy, quy tắc L’Hopitale.\n- Vận dụng được các định lý trên trong giải toán: tìm điều kiện có nghiệm, chứng minh bất đẳng thức, tính giới hạn, tính giá trị của hàm số tại các điểm cực trị.",
+  "nls": [
+   "1.1.NC1b",
+   "5.2.NC1b",
+   "6.2.NC1b"
+  ],
+  "nls_loi": [],
+  "ghi_chu": "Dạy học online tuỳ theo tình hình thực tế",
+  "thiet_bi": [
+   {
+    "ma": "PTTH2034",
+    "ten": "Bộ thiết bị để vẽ trên bảng trong dạy học toán (thước thẳng, compa)"
+   }
+  ]
+ },
+ {
+  "lop": 12,
+  "hoc_ky": 2,
+  "tuan": 23,
+  "tiet": "67",
+  "so_tiet": 1,
+  "loai": "co_ban",
+  "ten": "Bài 13: Ứng dụng hình học của tích phân",
+  "bai_so": 13,
+  "ten_bai": "Ứng dụng hình học của tích phân",
+  "chuyen_de": null,
+  "yccd": "- Vận dụng được công thức tính thể tích vật thể.\n- Vận dụng được công thức tính thể tích của khối tròn xoay.",
+  "nls": [
+   "1.1.NC1b",
+   "5.2.NC1b",
+   "6.2.NC1b"
+  ],
+  "nls_loi": [],
+  "ghi_chu": "(T4/4)",
+  "thiet_bi": [
+   {
+    "ma": "PTTH2034",
+    "ten": "Bộ thiết bị để vẽ trên bảng trong dạy học toán (thước thẳng, compa)"
+   },
+   {
+    "ma": "TOAN001",
+    "ten": "Bộ dụng cụ vẽ kỹ thuật (thước T, compa, thước dài, eke, thước cong)"
+   },
+   {
+    "ma": "TOAN002",
+    "ten": "Máy tính Acer"
+   },
+   {
+    "ma": "PTTH3001",
+    "ten": "Phần mềm toán học - Đại số và Giải tích"
+   }
+  ]
+ },
+ {
+  "lop": 12,
+  "hoc_ky": 2,
+  "tuan": 23,
+  "tiet": "68-69",
+  "so_tiet": 2,
+  "loai": "co_ban",
+  "ten": "Bài tập cuối chương 4",
+  "bai_so": null,
+  "ten_bai": "Bài tập cuối chương 4",
+  "chuyen_de": null,
+  "yccd": "- Hệ thống kiến thức chương IV và các vấn đề cơ bản trong chương gồm nguyên hàm, tích phân và các ứng dụng của tích phân trong tính diện tích hình phẳng, thể tích vật thể và thể tích khối tròn xoay.\n- Ôn tập cách tìm nguyên hàm của một số hàm sơ cấp, tính tích phân trong những trường hợp đơn giản và tính diện tích của một số hình phẳng, thể tích của một số vật thể.\n- Vận dụng được khái niệm nguyên hàm, tích phân vào giải quyết một số bài toán từ thực tiễn.",
+  "nls": [
+   "1.1.NC1b",
+   "5.2.NC1b",
+   "6.2.NC1b"
+  ],
+  "nls_loi": [],
+  "ghi_chu": "(T1,2/2)",
+  "thiet_bi": [
+   {
+    "ma": "PTTH2034",
+    "ten": "Bộ thiết bị để vẽ trên bảng trong dạy học toán (thước thẳng, compa)"
+   }
+  ]
+ },
+ {
+  "lop": 12,
+  "hoc_ky": 2,
+  "tuan": 23,
+  "tiet": "23",
+  "so_tiet": 1,
+  "loai": "chuyen_de_hoc_tap",
+  "ten": "Bài tập cuối chuyên đề 2",
+  "bai_so": null,
+  "ten_bai": "Bài tập cuối chuyên đề 2",
+  "chuyen_de": null,
+  "yccd": "– Ôn tập kĩ năng vận dụng các kiến thức về hệ bất phương trình bậc nhất hai ẩn để giải quyết một số bài toán quy hoạch tuyến tính trong thực tiễn.\n– Ôn tập kĩ năng vận dụng các kiến thức về đạo hàm để giải quyết một số bài toán tối ưu xuất hiện trong thực tiễn và trong kinh tế.",
+  "nls": [
+   "1.1.NC1b",
+   "5.2.NC1b",
+   "6.2.NC1b"
+  ],
+  "nls_loi": [],
+  "ghi_chu": "(T1/2)",
+  "thiet_bi": [
+   {
+    "ma": "PTTH2034",
+    "ten": "Bộ thiết bị để vẽ trên bảng trong dạy học toán (thước thẳng, compa)"
+   }
+  ]
+ },
+ {
+  "lop": 12,
+  "hoc_ky": 2,
+  "tuan": 23,
+  "tiet": "45-46",
+  "so_tiet": 2,
+  "loai": "chuyen_sau",
+  "ten": "Chuyên đề nâng cao: Các định lý cơ bản của Giải tích và ứng dụng",
+  "bai_so": null,
+  "ten_bai": "Chuyên đề nâng cao: Các định lý cơ bản của Giải tích và ứng dụng",
+  "chuyen_de": null,
+  "yccd": "- Hiểu các định lý cơ bản của giải tích từ bổ đề Fermat, bổ đề về dãy đoạn thẳng lồng nhau, tính chất của hàm liên tục, các định lý Rolle, Lagrange, Cauchy, quy tắc L’Hopitale.\n- Vận dụng được các định lý trên trong giải toán: tìm điều kiện có nghiệm, chứng minh bất đẳng thức, tính giới hạn, tính giá trị của hàm số tại các điểm cực trị.",
+  "nls": [
+   "1.1.NC1b",
+   "5.2.NC1b",
+   "6.2.NC1b"
+  ],
+  "nls_loi": [],
+  "ghi_chu": null,
+  "thiet_bi": [
+   {
+    "ma": "PTTH2034",
+    "ten": "Bộ thiết bị để vẽ trên bảng trong dạy học toán (thước thẳng, compa)"
+   }
+  ]
+ },
+ {
+  "lop": 12,
+  "hoc_ky": 2,
+  "tuan": 24,
+  "tiet": "70",
+  "so_tiet": 1,
+  "loai": "on_tap_kiem_tra",
+  "ten": "Ôn tập giữa học kỳ 2",
+  "bai_so": null,
+  "ten_bai": "Ôn tập giữa học kỳ 2",
+  "chuyen_de": null,
+  "yccd": "-  Hệ thống kiến thức lý thuyết.\n-Hệ thống các dạng toán cơ bản và phương pháp giải (chú ý các lưu ý cần thiết khi giải toán).\n- Kiểm tra đánh giá việc lĩnh hội kiến thức và liên hệ thực tiễn của HS.",
+  "nls": [
+   "1.1.NC1b",
+   "5.2.NC1b",
+   "6.2.NC1b"
+  ],
+  "nls_loi": [],
+  "ghi_chu": "(T1/1)",
+  "thiet_bi": [
+   {
+    "ma": "PTTH2034",
+    "ten": "Bộ thiết bị để vẽ trên bảng trong dạy học toán (thước thẳng, compa)"
+   }
+  ]
+ },
+ {
+  "lop": 12,
+  "hoc_ky": 2,
+  "tuan": 24,
+  "tiet": "24",
+  "so_tiet": 1,
+  "loai": "chuyen_de_hoc_tap",
+  "ten": "Bài tập cuối chuyên đề 2",
+  "bai_so": null,
+  "ten_bai": "Bài tập cuối chuyên đề 2",
+  "chuyen_de": null,
+  "yccd": "– Ôn tập kĩ năng vận dụng các kiến thức về hệ bất phương trình bậc nhất hai ẩn để giải quyết một số bài toán quy hoạch tuyến tính trong thực tiễn.\n– Ôn tập kĩ năng vận dụng các kiến thức về đạo hàm để giải quyết một số bài toán tối ưu xuất hiện trong thực tiễn và trong kinh tế.",
+  "nls": [
+   "1.1.NC1b",
+   "5.2.NC1b",
+   "6.2.NC1b"
+  ],
+  "nls_loi": [],
+  "ghi_chu": "(T2/2)",
+  "thiet_bi": [
+   {
+    "ma": "PTTH2034",
+    "ten": "Bộ thiết bị để vẽ trên bảng trong dạy học toán (thước thẳng, compa)"
+   }
+  ]
+ },
+ {
+  "lop": 12,
+  "hoc_ky": 2,
+  "tuan": 24,
+  "tiet": "71-72",
+  "so_tiet": 2,
+  "loai": "on_tap_kiem_tra",
+  "ten": "Kiểm tra giữa học kỳ 2",
+  "bai_so": null,
+  "ten_bai": "Kiểm tra giữa học kỳ 2",
+  "chuyen_de": null,
+  "yccd": "Kĩ năng:  Rèn luyện kĩ năng vận dụng kiến thức đã học, giải bài tập, phân tích, tư duy của học sinh.\nNăng lực:  Năng lực tự học, sáng tạo, giải quyết vấn đề, tính toán và sử dụng ngôn ngữ.\nPhẩm chất: Trung thực nghiêm túc trong kiểm tra.",
+  "nls": [],
+  "nls_loi": [],
+  "ghi_chu": "(T1,2/2)",
+  "thiet_bi": [
+   {
+    "ma": "PTTH2034",
+    "ten": "Bộ thiết bị để vẽ trên bảng trong dạy học toán (thước thẳng, compa)"
+   }
+  ]
+ },
+ {
+  "lop": 12,
+  "hoc_ky": 2,
+  "tuan": 24,
+  "tiet": "47-48",
+  "so_tiet": 2,
+  "loai": "chuyen_sau",
+  "ten": "Chuyên đề nâng cao: Các định lý cơ bản của Giải tích và ứng dụng",
+  "bai_so": null,
+  "ten_bai": "Chuyên đề nâng cao: Các định lý cơ bản của Giải tích và ứng dụng",
+  "chuyen_de": null,
+  "yccd": "- Hiểu các định lý cơ bản của giải tích từ bổ đề Fermat, bổ đề về dãy đoạn thẳng lồng nhau, tính chất của hàm liên tục, các định lý Rolle, Lagrange, Cauchy, quy tắc L’Hopitale.\n- Vận dụng được các định lý trên trong giải toán: tìm điều kiện có nghiệm, chứng minh bất đẳng thức, tính giới hạn, tính giá trị của hàm số tại các điểm cực trị.",
+  "nls": [
+   "1.1.NC1b",
+   "5.2.NC1b",
+   "6.2.NC1b"
+  ],
+  "nls_loi": [],
+  "ghi_chu": null,
+  "thiet_bi": [
+   {
+    "ma": "PTTH2034",
+    "ten": "Bộ thiết bị để vẽ trên bảng trong dạy học toán (thước thẳng, compa)"
+   }
+  ]
+ },
+ {
+  "lop": 12,
+  "hoc_ky": 2,
+  "tuan": 25,
+  "tiet": "73-75",
+  "so_tiet": 3,
+  "loai": "co_ban",
+  "ten": "Bài 14: Phương trình mặt phẳng",
+  "bai_so": 14,
+  "ten_bai": "Phương trình mặt phẳng",
+  "chuyen_de": null,
+  "yccd": "- Nhận biết phương trình mặt phẳng.\n- Viết phương trình mặt phẳng trong các trường hợp: qua một điểm và biết vectơ pháp tuyến, qua một điểm và biết cặp vectơ chỉ phương, qua ba điểm không thẳng hàng.\n- Nhận biết hai mặt phẳng song song, hai mặt phẳng vuông góc.\n- Tính khoảng cách từ một điểm đến một mặt phẳng.\n- Vận dụng kiến thức về phương trình mặt phẳng, công thức tính khoảng cách từ một điểm đến một mặt phẳng vào một số bài toán liên quan đến thực tiễn.",
+  "nls": [
+   "1.1.NC1b",
+   "5.2.NC1b",
+   "6.2.NC1b"
+  ],
+  "nls_loi": [],
+  "ghi_chu": "(T1,2,3/6)",
+  "thiet_bi": [
+   {
+    "ma": "PTTH2034",
+    "ten": "Bộ thiết bị để vẽ trên bảng trong dạy học toán (thước thẳng, compa)"
+   },
+   {
+    "ma": "TOAN002",
+    "ten": "Máy tính Acer"
+   },
+   {
+    "ma": "PTTH3002",
+    "ten": "Phần mềm toán học - Hình học và đo lường"
+   }
+  ]
+ },
+ {
+  "lop": 12,
+  "hoc_ky": 2,
+  "tuan": 25,
+  "tiet": "25",
+  "so_tiet": 1,
+  "loai": "chuyen_de_hoc_tap",
+  "ten": "CĐ3- Bài 5: Tiền tệ - lãi suất",
+  "bai_so": null,
+  "ten_bai": "Tiền tệ - lãi suất",
+  "chuyen_de": "CĐ3.B5",
+  "yccd": "– Nhận biết một số vấn đề về tiền tệ.\n– Hiểu được khái niệm, chức năng, tính chất của tiền tệ và nguyên tắc tổng tiền bằng.",
+  "nls": [
+   "1.1.NC1b",
+   "5.2.NC1b",
+   "6.2.NC1b"
+  ],
+  "nls_loi": [],
+  "ghi_chu": "T1/3",
+  "thiet_bi": [
+   {
+    "ma": "PTTH2034",
+    "ten": "Bộ thiết bị để vẽ trên bảng trong dạy học toán (thước thẳng, compa)"
+   }
+  ]
+ },
+ {
+  "lop": 12,
+  "hoc_ky": 2,
+  "tuan": 25,
+  "tiet": "49-50",
+  "so_tiet": 2,
+  "loai": "chuyen_sau",
+  "ten": "Chuyên đề nâng cao: Các định lý cơ bản của Giải tích và ứng dụng",
+  "bai_so": null,
+  "ten_bai": "Chuyên đề nâng cao: Các định lý cơ bản của Giải tích và ứng dụng",
+  "chuyen_de": null,
+  "yccd": "- Hiểu các định lý cơ bản của giải tích từ bổ đề Fermat, bổ đề về dãy đoạn thẳng lồng nhau, tính chất của hàm liên tục, các định lý Rolle, Lagrange, Cauchy, quy tắc L’Hopitale.\n- Vận dụng được các định lý trên trong giải toán: tìm điều kiện có nghiệm, chứng minh bất đẳng thức, tính giới hạn, tính giá trị của hàm số tại các điểm cực trị.",
+  "nls": [
+   "1.1.NC1b",
+   "5.2.NC1b",
+   "6.2.NC1b"
+  ],
+  "nls_loi": [],
+  "ghi_chu": null,
+  "thiet_bi": [
+   {
+    "ma": "PTTH2034",
+    "ten": "Bộ thiết bị để vẽ trên bảng trong dạy học toán (thước thẳng, compa)"
+   }
+  ]
+ },
+ {
+  "lop": 12,
+  "hoc_ky": 2,
+  "tuan": 26,
+  "tiet": "76-78",
+  "so_tiet": 3,
+  "loai": "co_ban",
+  "ten": "Bài 14: Phương trình mặt phẳng",
+  "bai_so": 14,
+  "ten_bai": "Phương trình mặt phẳng",
+  "chuyen_de": null,
+  "yccd": "- Nắm được điều kiện để hai mặt phẳng vuông góc. Viết phương trình mặt phẳng, sử dụng điều kiện để hai mặt phẳng vuông góc.\n- Nắm được điều kiện để hai mặt phẳng song song. Viết phương trình mặt phẳng, sử dụng điều kiện để hai mặt phẳng song song với nhau.\n- Nắm được công thức tính khoảng cách từ một điểm đến một mặt phẳng để giải quyết các tình huống trong thực tế.",
+  "nls": [
+   "1.1.NC1b",
+   "5.2.NC1b",
+   "6.2.NC1b"
+  ],
+  "nls_loi": [],
+  "ghi_chu": "(T4,5,6/6)",
+  "thiet_bi": [
+   {
+    "ma": "PTTH2034",
+    "ten": "Bộ thiết bị để vẽ trên bảng trong dạy học toán (thước thẳng, compa)"
+   },
+   {
+    "ma": "TOAN002",
+    "ten": "Máy tính Acer"
+   },
+   {
+    "ma": "PTTH3002",
+    "ten": "Phần mềm toán học - Hình học và đo lường"
+   }
+  ]
+ },
+ {
+  "lop": 12,
+  "hoc_ky": 2,
+  "tuan": 26,
+  "tiet": "26",
+  "so_tiet": 1,
+  "loai": "chuyen_de_hoc_tap",
+  "ten": "CĐ3- Bài 5: Tiền tệ - lãi suất",
+  "bai_so": null,
+  "ten_bai": "Tiền tệ - lãi suất",
+  "chuyen_de": "CĐ3.B5",
+  "yccd": "– Các khái niệm quan trọng: tiền vốn, lãi suất, tiền lãi và những lưu ý quan trọng đối với một khoản vay.\n– Nhận biết một số vấn đề về lãi suất của các tổ chức tín dụng.\n– Tính lãi suất được hưởng qua tiền tiết kiệm và các giá trị thực chất có tính đến lạm phát.",
+  "nls": [
+   "1.1.NC1b",
+   "5.2.NC1b",
+   "6.2.NC1b"
+  ],
+  "nls_loi": [],
+  "ghi_chu": "T2/3",
+  "thiet_bi": [
+   {
+    "ma": "PTTH2034",
+    "ten": "Bộ thiết bị để vẽ trên bảng trong dạy học toán (thước thẳng, compa)"
+   }
+  ]
+ },
+ {
+  "lop": 12,
+  "hoc_ky": 2,
+  "tuan": 26,
+  "tiet": "51-52",
+  "so_tiet": 2,
+  "loai": "chuyen_sau",
+  "ten": "Chuyên đề nâng cao: Các định lý cơ bản của Giải tích và ứng dụng",
+  "bai_so": null,
+  "ten_bai": "Chuyên đề nâng cao: Các định lý cơ bản của Giải tích và ứng dụng",
+  "chuyen_de": null,
+  "yccd": "- Hiểu các định lý cơ bản của giải tích từ bổ đề Fermat, bổ đề về dãy đoạn thẳng lồng nhau, tính chất của hàm liên tục, các định lý Rolle, Lagrange, Cauchy, quy tắc L’Hopitale.\n- Vận dụng được các định lý trên trong giải toán: tìm điều kiện có nghiệm, chứng minh bất đẳng thức, tính giới hạn, tính giá trị của hàm số tại các điểm cực trị.",
+  "nls": [
+   "1.1.NC1b",
+   "5.2.NC1b",
+   "6.2.NC1b"
+  ],
+  "nls_loi": [],
+  "ghi_chu": null,
+  "thiet_bi": [
+   {
+    "ma": "PTTH2034",
+    "ten": "Bộ thiết bị để vẽ trên bảng trong dạy học toán (thước thẳng, compa)"
+   }
+  ]
+ },
+ {
+  "lop": 12,
+  "hoc_ky": 2,
+  "tuan": 27,
+  "tiet": "79-81",
+  "so_tiet": 3,
+  "loai": "co_ban",
+  "ten": "Bài 15: Phương trình đường thẳng trong không gian",
+  "bai_so": 15,
+  "ten_bai": "Phương trình đường thẳng trong không gian",
+  "chuyen_de": null,
+  "yccd": "- Nhận biết được các phương trình tham số, chính tắc của đường thẳng.\n- Viết phương trình đường thẳng đi qua một điểm và biết vectơ chỉ phương.\n- Viết phương trình đường thẳng đi qua hai điểm.",
+  "nls": [
+   "1.1.NC1b",
+   "5.2.NC1b",
+   "6.2.NC1b"
+  ],
+  "nls_loi": [],
+  "ghi_chu": "(T1,2,3/5) Dạy học online tuỳ theo tình hình thực tế",
+  "thiet_bi": [
+   {
+    "ma": "PTTH2034",
+    "ten": "Bộ thiết bị để vẽ trên bảng trong dạy học toán (thước thẳng, compa)"
+   },
+   {
+    "ma": "TOAN002",
+    "ten": "Máy tính Acer"
+   },
+   {
+    "ma": "PTTH3002",
+    "ten": "Phần mềm toán học - Hình học và đo lường"
+   }
+  ]
+ },
+ {
+  "lop": 12,
+  "hoc_ky": 2,
+  "tuan": 27,
+  "tiet": "27",
+  "so_tiet": 1,
+  "loai": "chuyen_de_hoc_tap",
+  "ten": "CĐ3- Bài 5: Tiền tệ - lãi suất",
+  "bai_so": null,
+  "ten_bai": "Tiền tệ - lãi suất",
+  "chuyen_de": "CĐ3.B5",
+  "yccd": "– Các khái niệm lạm phát và tỉ lệ lạm phát.\n– Xây dựng công thức tính lãi suất thực và công thức tính sức mua theo tỉ lệ lạm phát.\n– Áp dụng công thức tính sức mua theo tỉ lệ lạm phát và công thức tính lãi suất thực, thu nhập thực tế.",
+  "nls": [
+   "1.1.NC1b",
+   "5.2.NC1b",
+   "6.2.NC1b"
+  ],
+  "nls_loi": [],
+  "ghi_chu": "T3/3 Dạy học online tuỳ theo tình hình thực tế",
+  "thiet_bi": [
+   {
+    "ma": "PTTH2034",
+    "ten": "Bộ thiết bị để vẽ trên bảng trong dạy học toán (thước thẳng, compa)"
+   }
+  ]
+ },
+ {
+  "lop": 12,
+  "hoc_ky": 2,
+  "tuan": 27,
+  "tiet": "53-54",
+  "so_tiet": 2,
+  "loai": "chuyen_sau",
+  "ten": "Chuyên đề nâng cao: Các định lý cơ bản của Giải tích và ứng dụng",
+  "bai_so": null,
+  "ten_bai": "Chuyên đề nâng cao: Các định lý cơ bản của Giải tích và ứng dụng",
+  "chuyen_de": null,
+  "yccd": "- Hiểu các định lý cơ bản của giải tích từ bổ đề Fermat, bổ đề về dãy đoạn thẳng lồng nhau, tính chất của hàm liên tục, các định lý Rolle, Lagrange, Cauchy, quy tắc L’Hopitale.\n- Vận dụng được các định lý trên trong giải toán: tìm điều kiện có nghiệm, chứng minh bất đẳng thức, tính giới hạn, tính giá trị của hàm số tại các điểm cực trị.",
+  "nls": [
+   "1.1.NC1b",
+   "5.2.NC1b",
+   "6.2.NC1b"
+  ],
+  "nls_loi": [],
+  "ghi_chu": "Dạy học online tuỳ theo tình hình thực tế",
+  "thiet_bi": [
+   {
+    "ma": "PTTH2034",
+    "ten": "Bộ thiết bị để vẽ trên bảng trong dạy học toán (thước thẳng, compa)"
+   }
+  ]
+ },
+ {
+  "lop": 12,
+  "hoc_ky": 2,
+  "tuan": 28,
+  "tiet": "82-83",
+  "so_tiet": 2,
+  "loai": "co_ban",
+  "ten": "Bài 15: Phương trình đường thẳng trong không gian",
+  "bai_so": 15,
+  "ten_bai": "Phương trình đường thẳng trong không gian",
+  "chuyen_de": null,
+  "yccd": "- Nhận biết vị trí tương đối của hai đường thẳng.\n- Vận dụng kiến thức về phương trình đường thẳng, vị trí tương đối giữa hai đường thẳng vào một số bài toán liên quan đến thực tiễn.",
+  "nls": [
+   "1.1.NC1b",
+   "5.2.NC1b",
+   "6.2.NC1b"
+  ],
+  "nls_loi": [],
+  "ghi_chu": "(T4,5/5)",
+  "thiet_bi": [
+   {
+    "ma": "PTTH2034",
+    "ten": "Bộ thiết bị để vẽ trên bảng trong dạy học toán (thước thẳng, compa)"
+   },
+   {
+    "ma": "TOAN002",
+    "ten": "Máy tính Acer"
+   },
+   {
+    "ma": "PTTH3002",
+    "ten": "Phần mềm toán học - Hình học và đo lường"
+   }
+  ]
+ },
+ {
+  "lop": 12,
+  "hoc_ky": 2,
+  "tuan": 28,
+  "tiet": "84",
+  "so_tiet": 1,
+  "loai": "co_ban",
+  "ten": "Bài 16: Công thức tính góc trong không gian",
+  "bai_so": 16,
+  "ten_bai": "Công thức tính góc trong không gian",
+  "chuyen_de": null,
+  "yccd": "- Tính góc giữa hai đường thẳng, góc giữa đường thẳng và mặt phẳng, góc giữa hai mặt phẳng.",
+  "nls": [
+   "1.1.NC1b",
+   "5.2.NC1b",
+   "6.2.NC1b"
+  ],
+  "nls_loi": [],
+  "ghi_chu": "(T1/2)",
+  "thiet_bi": [
+   {
+    "ma": "PTTH2034",
+    "ten": "Bộ thiết bị để vẽ trên bảng trong dạy học toán (thước thẳng, compa)"
+   }
+  ]
+ },
+ {
+  "lop": 12,
+  "hoc_ky": 2,
+  "tuan": 28,
+  "tiet": "28",
+  "so_tiet": 1,
+  "loai": "chuyen_de_hoc_tap",
+  "ten": "CĐ3- Bài 6: Tín dụng – Vay nợ",
+  "bai_so": null,
+  "ten_bai": "Tín dụng – Vay nợ",
+  "chuyen_de": "CĐ3.B6",
+  "yccd": "– Thẻ tín dụng, chức năng của thẻ tín dụng và cách tính phí sử dụng thẻ.\n– Tính lãi suất được hưởng hoặc lãi suất cần trả cho thẻ tín dụng, phí sử dụng thẻ (bao gồm các giao dịch).",
+  "nls": [
+   "1.1.NC1b",
+   "5.2.NC1b",
+   "6.2.NC1b"
+  ],
+  "nls_loi": [],
+  "ghi_chu": "T1/3",
+  "thiet_bi": [
+   {
+    "ma": "PTTH2034",
+    "ten": "Bộ thiết bị để vẽ trên bảng trong dạy học toán (thước thẳng, compa)"
+   }
+  ]
+ },
+ {
+  "lop": 12,
+  "hoc_ky": 2,
+  "tuan": 28,
+  "tiet": "55-56",
+  "so_tiet": 2,
+  "loai": "chuyen_sau",
+  "ten": "Chuyên đề nâng cao: Các định lý cơ bản của Giải tích và ứng dụng",
+  "bai_so": null,
+  "ten_bai": "Chuyên đề nâng cao: Các định lý cơ bản của Giải tích và ứng dụng",
+  "chuyen_de": null,
+  "yccd": "- Hiểu các định lý cơ bản của giải tích từ bổ đề Fermat, bổ đề về dãy đoạn thẳng lồng nhau, tính chất của hàm liên tục, các định lý Rolle, Lagrange, Cauchy, quy tắc L’Hopitale.\n- Vận dụng được các định lý trên trong giải toán: tìm điều kiện có nghiệm, chứng minh bất đẳng thức, tính giới hạn, tính giá trị của hàm số tại các điểm cực trị.",
+  "nls": [
+   "1.1.NC1b",
+   "5.2.NC1b",
+   "6.2.NC1b"
+  ],
+  "nls_loi": [],
+  "ghi_chu": null,
+  "thiet_bi": [
+   {
+    "ma": "PTTH2034",
+    "ten": "Bộ thiết bị để vẽ trên bảng trong dạy học toán (thước thẳng, compa)"
+   }
+  ]
+ },
+ {
+  "lop": 12,
+  "hoc_ky": 2,
+  "tuan": 29,
+  "tiet": "85",
+  "so_tiet": 1,
+  "loai": "co_ban",
+  "ten": "Bài 16: Công thức tính góc trong không gian",
+  "bai_so": 16,
+  "ten_bai": "Công thức tính góc trong không gian",
+  "chuyen_de": null,
+  "yccd": "- Vận dụng được kiến thức về góc vào một số bài toán liên quan đến thực tiễn.",
+  "nls": [
+   "1.1.NC1b",
+   "5.2.NC1b",
+   "6.2.NC1b"
+  ],
+  "nls_loi": [],
+  "ghi_chu": "(T2/2)",
+  "thiet_bi": [
+   {
+    "ma": "PTTH2034",
+    "ten": "Bộ thiết bị để vẽ trên bảng trong dạy học toán (thước thẳng, compa)"
+   }
+  ]
+ },
+ {
+  "lop": 12,
+  "hoc_ky": 2,
+  "tuan": 29,
+  "tiet": "86-87",
+  "so_tiet": 2,
+  "loai": "co_ban",
+  "ten": "Bài 17: Phương trình mặt cầu",
+  "bai_so": 17,
+  "ten_bai": "Phương trình mặt cầu",
+  "chuyen_de": null,
+  "yccd": "- Nhận biết phương trình mặt cầu.\n- Xác định tâm, bán kính mặt cầu khi biết phương trình.\n- Lập phương trình mặt cầu khi biết tâm và bán kính.\n- Vận dụng kiến thức về phương trình mặt cầu để giải quyết được một số bài toán liên quan đến thực tiễn.",
+  "nls": [
+   "1.1.NC1b",
+   "5.2.NC1b",
+   "6.2.NC1b"
+  ],
+  "nls_loi": [],
+  "ghi_chu": "(T1,2/3)",
+  "thiet_bi": [
+   {
+    "ma": "PTTH2034",
+    "ten": "Bộ thiết bị để vẽ trên bảng trong dạy học toán (thước thẳng, compa)"
+   },
+   {
+    "ma": "TOAN002",
+    "ten": "Máy tính Acer"
+   },
+   {
+    "ma": "PTTH3002",
+    "ten": "Phần mềm toán học - Hình học và đo lường"
+   }
+  ]
+ },
+ {
+  "lop": 12,
+  "hoc_ky": 2,
+  "tuan": 29,
+  "tiet": "29",
+  "so_tiet": 1,
+  "loai": "chuyen_de_hoc_tap",
+  "ten": "CĐ3- Bài 6: Tín dụng – Vay nợ",
+  "bai_so": null,
+  "ten_bai": "Tín dụng – Vay nợ",
+  "chuyen_de": "CĐ3.B6",
+  "yccd": "– Nhận biết được kết quả của việc trả các khoản nợ đúng thời hạn, bao gồm hồ sơ tín dụng và giá trị tín dụng.\n– Áp dụng công thức tính lãi đơn và lãi kép để tính số tiền phải trả của một khoản vay với hình thức tương ứng.",
+  "nls": [
+   "1.1.NC1b",
+   "5.2.NC1b",
+   "6.2.NC1b"
+  ],
+  "nls_loi": [],
+  "ghi_chu": "T2/3",
+  "thiet_bi": [
+   {
+    "ma": "PTTH2034",
+    "ten": "Bộ thiết bị để vẽ trên bảng trong dạy học toán (thước thẳng, compa)"
+   }
+  ]
+ },
+ {
+  "lop": 12,
+  "hoc_ky": 2,
+  "tuan": 29,
+  "tiet": "57-58",
+  "so_tiet": 2,
+  "loai": "chuyen_sau",
+  "ten": "Chuyên đề nâng cao: Các định lý cơ bản của Giải tích và ứng dụng",
+  "bai_so": null,
+  "ten_bai": "Chuyên đề nâng cao: Các định lý cơ bản của Giải tích và ứng dụng",
+  "chuyen_de": null,
+  "yccd": "- Hiểu các định lý cơ bản của giải tích từ bổ đề Fermat, bổ đề về dãy đoạn thẳng lồng nhau, tính chất của hàm liên tục, các định lý Rolle, Lagrange, Cauchy, quy tắc L’Hopitale.\n- Vận dụng được các định lý trên trong giải toán: tìm điều kiện có nghiệm, chứng minh bất đẳng thức, tính giới hạn, tính giá trị của hàm số tại các điểm cực trị.",
+  "nls": [
+   "1.1.NC1b",
+   "5.2.NC1b",
+   "6.2.NC1b"
+  ],
+  "nls_loi": [],
+  "ghi_chu": null,
+  "thiet_bi": [
+   {
+    "ma": "PTTH2034",
+    "ten": "Bộ thiết bị để vẽ trên bảng trong dạy học toán (thước thẳng, compa)"
+   }
+  ]
+ },
+ {
+  "lop": 12,
+  "hoc_ky": 2,
+  "tuan": 30,
+  "tiet": "88",
+  "so_tiet": 1,
+  "loai": "co_ban",
+  "ten": "Bài 17: Phương trình mặt cầu",
+  "bai_so": 17,
+  "ten_bai": "Phương trình mặt cầu",
+  "chuyen_de": null,
+  "yccd": "- Vận dụng kiến thức về phương trình mặt cầu để giải quyết được một số bài toán liên quan đến thực tiễn.",
+  "nls": [
+   "1.1.NC1b",
+   "5.2.NC1b",
+   "6.2.NC1b"
+  ],
+  "nls_loi": [],
+  "ghi_chu": "(T3/3)",
+  "thiet_bi": [
+   {
+    "ma": "PTTH2034",
+    "ten": "Bộ thiết bị để vẽ trên bảng trong dạy học toán (thước thẳng, compa)"
+   },
+   {
+    "ma": "TOAN002",
+    "ten": "Máy tính Acer"
+   },
+   {
+    "ma": "PTTH3002",
+    "ten": "Phần mềm toán học - Hình học và đo lường"
+   }
+  ]
+ },
+ {
+  "lop": 12,
+  "hoc_ky": 2,
+  "tuan": 30,
+  "tiet": "89-90",
+  "so_tiet": 2,
+  "loai": "co_ban",
+  "ten": "Bài tập cuối chương 5",
+  "bai_so": null,
+  "ten_bai": "Bài tập cuối chương 5",
+  "chuyen_de": null,
+  "yccd": "- Ôn tập lại toàn bộ kiến thức, kĩ năng của chương V liên quan đến phương trình đường thẳng, phương trình mặt phẳng, phương trình mặt cầu, các công thức tính góc.\n- Ôn tập lại cách viết phương trình mặt phẳng, đường thẳng, mặt cầu; nhận biết vị trí tương đối giữa hai mặt phẳng, hai đường thẳng, giữa đường thẳng và mặt phẳng; tính khoảng cách từ một điểm đến một mặt phẳng, giữa hai mặt phẳng song song.\n- Vận dụng được các kiến thức về phương trình mặt phẳng, phương trình đường thẳng, phương trình mặt cầu, các công thức tính khoảng cách từ một điểm đến một mặt phẳng, các công thức tính góc, vị trí tương đối giữa hai đường thẳng, giữa đường thẳng và mặt phẳng, giữa hai mặt phẳng vào một số bài toán liên quan đến thực tiễn.",
+  "nls": [
+   "1.1.NC1b",
+   "5.2.NC1b",
+   "6.2.NC1b"
+  ],
+  "nls_loi": [],
+  "ghi_chu": "(T1,2/2)",
+  "thiet_bi": [
+   {
+    "ma": "PTTH2034",
+    "ten": "Bộ thiết bị để vẽ trên bảng trong dạy học toán (thước thẳng, compa)"
+   }
+  ]
+ },
+ {
+  "lop": 12,
+  "hoc_ky": 2,
+  "tuan": 30,
+  "tiet": "30",
+  "so_tiet": 1,
+  "loai": "chuyen_de_hoc_tap",
+  "ten": "CĐ3- Bài 6: Tín dụng – Vay nợ",
+  "bai_so": null,
+  "ten_bai": "Tín dụng – Vay nợ",
+  "chuyen_de": "CĐ3.B6",
+  "yccd": "– Khái niệm vay trả góp và công thức tính khoản thanh toán trả góp.\n– Vận dụng kiến thức toán học trong việc giải quyết một số vấn đề vay nợ của các tổ chức tín dụng.",
+  "nls": [
+   "1.1.NC1b",
+   "5.2.NC1b",
+   "6.2.NC1b"
+  ],
+  "nls_loi": [],
+  "ghi_chu": "T3/3",
+  "thiet_bi": [
+   {
+    "ma": "PTTH2034",
+    "ten": "Bộ thiết bị để vẽ trên bảng trong dạy học toán (thước thẳng, compa)"
+   }
+  ]
+ },
+ {
+  "lop": 12,
+  "hoc_ky": 2,
+  "tuan": 30,
+  "tiet": "59-60",
+  "so_tiet": 2,
+  "loai": "chuyen_sau",
+  "ten": "Chuyên đề nâng cao: Các định lý cơ bản của Giải tích và ứng dụng",
+  "bai_so": null,
+  "ten_bai": "Chuyên đề nâng cao: Các định lý cơ bản của Giải tích và ứng dụng",
+  "chuyen_de": null,
+  "yccd": "- Hiểu các định lý cơ bản của giải tích từ bổ đề Fermat, bổ đề về dãy đoạn thẳng lồng nhau, tính chất của hàm liên tục, các định lý Rolle, Lagrange, Cauchy, quy tắc L’Hopitale.\n- Vận dụng được các định lý trên trong giải toán: tìm điều kiện có nghiệm, chứng minh bất đẳng thức, tính giới hạn, tính giá trị của hàm số tại các điểm cực trị.",
+  "nls": [
+   "1.1.NC1b",
+   "5.2.NC1b",
+   "6.2.NC1b"
+  ],
+  "nls_loi": [],
+  "ghi_chu": null,
+  "thiet_bi": [
+   {
+    "ma": "PTTH2034",
+    "ten": "Bộ thiết bị để vẽ trên bảng trong dạy học toán (thước thẳng, compa)"
+   }
+  ]
+ },
+ {
+  "lop": 12,
+  "hoc_ky": 2,
+  "tuan": 31,
+  "tiet": "91-93",
+  "so_tiet": 3,
+  "loai": "co_ban",
+  "ten": "Bài 18: Xác suất có điều kiện",
+  "bai_so": 18,
+  "ten_bai": "Xác suất có điều kiện",
+  "chuyen_de": null,
+  "yccd": "- Nhận biết khái niệm xác suất có điều kiện.\n- Nhận biết mối liên hệ giữa xác suất có điều kiện và xác suất.\n- Vận dụng công thức nhân xác suất cho hai biến cố bất kì.",
+  "nls": [
+   "1.1.NC1b",
+   "5.2.NC1b",
+   "6.2.NC1b"
+  ],
+  "nls_loi": [],
+  "ghi_chu": "(T1,2,3/4)",
+  "thiet_bi": [
+   {
+    "ma": "PTTH2034",
+    "ten": "Bộ thiết bị để vẽ trên bảng trong dạy học toán (thước thẳng, compa)"
+   }
+  ]
+ },
+ {
+  "lop": 12,
+  "hoc_ky": 2,
+  "tuan": 31,
+  "tiet": "31",
+  "so_tiet": 1,
+  "loai": "chuyen_de_hoc_tap",
+  "ten": "CĐ3- Bài 7: Đầu tư tài chính. Lập kế hoạch tài chính cá nhân",
+  "bai_so": null,
+  "ten_bai": "Đầu tư tài chính. Lập kế hoạch tài chính cá nhân",
+  "chuyen_de": "CĐ3.B7",
+  "yccd": "– Khái niệm về đầu tư và các kênh đầu tư phổ biến.\n– Công thức xác định lãi suất, thời gian và giá trị hiện tại của một khoản đầu tư.\n– Quy đổi lãi suất đang hưởng về lãi suất đơn năm để so sánh các khoản đầu tư, tính thời gian cần thiết để từ số tiền ban đầu đạt số tiền mong muốn và tính giá trị hiện tại của một khoản tiền.",
+  "nls": [
+   "1.1.NC1b",
+   "5.2.NC1b",
+   "6.2.NC1b"
+  ],
+  "nls_loi": [],
+  "ghi_chu": "T1/3",
+  "thiet_bi": [
+   {
+    "ma": "PTTH2034",
+    "ten": "Bộ thiết bị để vẽ trên bảng trong dạy học toán (thước thẳng, compa)"
+   }
+  ]
+ },
+ {
+  "lop": 12,
+  "hoc_ky": 2,
+  "tuan": 31,
+  "tiet": "61-62",
+  "so_tiet": 2,
+  "loai": "chuyen_sau",
+  "ten": "Chuyên đề nâng cao: Các định lý cơ bản của Giải tích và ứng dụng",
+  "bai_so": null,
+  "ten_bai": "Chuyên đề nâng cao: Các định lý cơ bản của Giải tích và ứng dụng",
+  "chuyen_de": null,
+  "yccd": "- Hiểu các định lý cơ bản của giải tích từ bổ đề Fermat, bổ đề về dãy đoạn thẳng lồng nhau, tính chất của hàm liên tục, các định lý Rolle, Lagrange, Cauchy, quy tắc L’Hopitale.\n- Vận dụng được các định lý trên trong giải toán: tìm điều kiện có nghiệm, chứng minh bất đẳng thức, tính giới hạn, tính giá trị của hàm số tại các điểm cực trị.",
+  "nls": [
+   "1.1.NC1b",
+   "5.2.NC1b",
+   "6.2.NC1b"
+  ],
+  "nls_loi": [],
+  "ghi_chu": null,
+  "thiet_bi": [
+   {
+    "ma": "PTTH2034",
+    "ten": "Bộ thiết bị để vẽ trên bảng trong dạy học toán (thước thẳng, compa)"
+   }
+  ]
+ },
+ {
+  "lop": 12,
+  "hoc_ky": 2,
+  "tuan": 32,
+  "tiet": "94",
+  "so_tiet": 1,
+  "loai": "co_ban",
+  "ten": "Bài 18: Xác suất có điều kiện",
+  "bai_so": 18,
+  "ten_bai": "Xác suất có điều kiện",
+  "chuyen_de": null,
+  "yccd": "-  Giải thích ý nghĩa của xác suất có điều kiện trong một số tình huống thực tế.\n- Vận dụng công thức tính xác suất có điều kiện, công thức nhân xác suất vào bài toán thực tế.",
+  "nls": [
+   "1.1.NC1b",
+   "5.2.NC1b",
+   "6.2.NC1b"
+  ],
+  "nls_loi": [],
+  "ghi_chu": "(T4/4) Dạy học online tuỳ theo tình hình thực tế",
+  "thiet_bi": [
+   {
+    "ma": "PTTH2034",
+    "ten": "Bộ thiết bị để vẽ trên bảng trong dạy học toán (thước thẳng, compa)"
+   }
+  ]
+ },
+ {
+  "lop": 12,
+  "hoc_ky": 2,
+  "tuan": 32,
+  "tiet": "95-96",
+  "so_tiet": 2,
+  "loai": "co_ban",
+  "ten": "Bài 19: Công thức xác suất toàn phần và công thức Bayes",
+  "bai_so": 19,
+  "ten_bai": "Công thức xác suất toàn phần và công thức Bayes",
+  "chuyen_de": null,
+  "yccd": "- Nắm được công thức tính xác suất toàn phần.\n- Mô tả trực quan công thức xác suất toàn phần bằng sơ đồ hình cây.\n- Vận dụng công thức xác suất toàn phần để giải quyết bài toán xác suất có nội dung thực tiễn.",
+  "nls": [
+   "1.1.NC1b",
+   "5.2.NC1b",
+   "6.2.NC1b"
+  ],
+  "nls_loi": [],
+  "ghi_chu": "(T1,2/4) Dạy học online tuỳ theo tình hình thực tế",
+  "thiet_bi": [
+   {
+    "ma": "PTTH2034",
+    "ten": "Bộ thiết bị để vẽ trên bảng trong dạy học toán (thước thẳng, compa)"
+   },
+   {
+    "ma": "TOAN002",
+    "ten": "Máy tính Acer"
+   },
+   {
+    "ma": "PTTH3003",
+    "ten": "Phần mềm toán học - Thống kê và xác suất"
+   }
+  ]
+ },
+ {
+  "lop": 12,
+  "hoc_ky": 2,
+  "tuan": 32,
+  "tiet": "32",
+  "so_tiet": 1,
+  "loai": "chuyen_de_hoc_tap",
+  "ten": "CĐ3- Bài 7: Đầu tư tài chính. Lập kế hoạch tài chính cá nhân",
+  "bai_so": null,
+  "ten_bai": "Đầu tư tài chính. Lập kế hoạch tài chính cá nhân",
+  "chuyen_de": "CĐ3.B7",
+  "yccd": "– Khái niệm, vài trò và các bước lập kế hoạch tài chính cá nhân.\n– Khái niệm và công thức liên quan đến niên kim: công thức tính số tiền của niên kim và công thức tính giá trị hiện tại của niên kim.\n– Thiết lập kế hoạch tài chính cá nhân cho các nhu cầu dài hạn như giáo dục hoặc sống tự lập.",
+  "nls": [
+   "1.1.NC1b",
+   "5.2.NC1b",
+   "6.2.NC1b"
+  ],
+  "nls_loi": [],
+  "ghi_chu": "T2/3 Dạy học online tuỳ theo tình hình thực tế",
+  "thiet_bi": [
+   {
+    "ma": "PTTH2034",
+    "ten": "Bộ thiết bị để vẽ trên bảng trong dạy học toán (thước thẳng, compa)"
+   }
+  ]
+ },
+ {
+  "lop": 12,
+  "hoc_ky": 2,
+  "tuan": 32,
+  "tiet": "63-64",
+  "so_tiet": 2,
+  "loai": "chuyen_sau",
+  "ten": "Chuyên đề nâng cao: Các định lý cơ bản của Giải tích và ứng dụng",
+  "bai_so": null,
+  "ten_bai": "Chuyên đề nâng cao: Các định lý cơ bản của Giải tích và ứng dụng",
+  "chuyen_de": null,
+  "yccd": "- Hiểu các định lý cơ bản của giải tích từ bổ đề Fermat, bổ đề về dãy đoạn thẳng lồng nhau, tính chất của hàm liên tục, các định lý Rolle, Lagrange, Cauchy, quy tắc L’Hopitale.\n- Vận dụng được các định lý trên trong giải toán: tìm điều kiện có nghiệm, chứng minh bất đẳng thức, tính giới hạn, tính giá trị của hàm số tại các điểm cực trị.",
+  "nls": [
+   "1.1.NC1b",
+   "5.2.NC1b",
+   "6.2.NC1b"
+  ],
+  "nls_loi": [],
+  "ghi_chu": "Dạy học online tuỳ theo tình hình thực tế",
+  "thiet_bi": [
+   {
+    "ma": "PTTH2034",
+    "ten": "Bộ thiết bị để vẽ trên bảng trong dạy học toán (thước thẳng, compa)"
+   }
+  ]
+ },
+ {
+  "lop": 12,
+  "hoc_ky": 2,
+  "tuan": 33,
+  "tiet": "97-98",
+  "so_tiet": 2,
+  "loai": "co_ban",
+  "ten": "Bài 19: Công thức xác suất toàn phần và công thức Bayes",
+  "bai_so": 19,
+  "ten_bai": "Công thức xác suất toàn phần và công thức Bayes",
+  "chuyen_de": null,
+  "yccd": "- Công thức Bayes và ý nghĩa của công thức Bayes.\n- Biết vận dụng công thức Bayes vào các tình huống có nội dụng thực tiễn.",
+  "nls": [
+   "1.1.NC1b",
+   "5.2.NC1b",
+   "6.2.NC1b"
+  ],
+  "nls_loi": [],
+  "ghi_chu": "(T3,4/4)",
+  "thiet_bi": [
+   {
+    "ma": "PTTH2034",
+    "ten": "Bộ thiết bị để vẽ trên bảng trong dạy học toán (thước thẳng, compa)"
+   },
+   {
+    "ma": "TOAN002",
+    "ten": "Máy tính Acer"
+   },
+   {
+    "ma": "PTTH3003",
+    "ten": "Phần mềm toán học - Thống kê và xác suất"
+   }
+  ]
+ },
+ {
+  "lop": 12,
+  "hoc_ky": 2,
+  "tuan": 33,
+  "tiet": "99",
+  "so_tiet": 1,
+  "loai": "co_ban",
+  "ten": "Bài tập cuối chương VI",
+  "bai_so": null,
+  "ten_bai": "Bài tập cuối chương VI",
+  "chuyen_de": null,
+  "yccd": "- Ôn tập lại các kiến thức chương VI: Xác suất có điều kiện và công thức tính xác suất có điều kiện, công thức nhân xác suất, công thức xác suất toàn phần và công thức Bayes.\n- Vận dụng các công thức xác suất đã học để giải quyết bài toán xác suất liên quan đến thực tiễn.",
+  "nls": [
+   "1.1.NC1b",
+   "5.2.NC1b",
+   "6.2.NC1b"
+  ],
+  "nls_loi": [],
+  "ghi_chu": "(T1/1)",
+  "thiet_bi": [
+   {
+    "ma": "PTTH2034",
+    "ten": "Bộ thiết bị để vẽ trên bảng trong dạy học toán (thước thẳng, compa)"
+   }
+  ]
+ },
+ {
+  "lop": 12,
+  "hoc_ky": 2,
+  "tuan": 33,
+  "tiet": "33",
+  "so_tiet": 1,
+  "loai": "chuyen_de_hoc_tap",
+  "ten": "CĐ3- Bài 7: Đầu tư tài chính. Lập kế hoạch tài chính cá nhân",
+  "bai_so": null,
+  "ten_bai": "Đầu tư tài chính. Lập kế hoạch tài chính cá nhân",
+  "chuyen_de": "CĐ3.B7",
+  "yccd": "– Áp dụng công thức niên kim để tính số kì gửi cần thiết của một hình thức tiết kiệm tích lũy và kĩ năng áp dụng công thức truy hồi niên kim để đạt tổng số tiền tích lũy mong muốn.\n– Vận dụng được kiến thức toán học trong việc giải quyết một số vấn đề về đầu tư.",
+  "nls": [
+   "1.1.NC1b",
+   "5.2.NC1b",
+   "6.2.NC1b"
+  ],
+  "nls_loi": [],
+  "ghi_chu": "T3/3",
+  "thiet_bi": [
+   {
+    "ma": "PTTH2034",
+    "ten": "Bộ thiết bị để vẽ trên bảng trong dạy học toán (thước thẳng, compa)"
+   }
+  ]
+ },
+ {
+  "lop": 12,
+  "hoc_ky": 2,
+  "tuan": 33,
+  "tiet": "65-66",
+  "so_tiet": 2,
+  "loai": "chuyen_sau",
+  "ten": "Chuyên đề nâng cao: Các định lý cơ bản của Giải tích và ứng dụng",
+  "bai_so": null,
+  "ten_bai": "Chuyên đề nâng cao: Các định lý cơ bản của Giải tích và ứng dụng",
+  "chuyen_de": null,
+  "yccd": "- Hiểu các định lý cơ bản của giải tích từ bổ đề Fermat, bổ đề về dãy đoạn thẳng lồng nhau, tính chất của hàm liên tục, các định lý Rolle, Lagrange, Cauchy, quy tắc L’Hopitale.\n- Vận dụng được các định lý trên trong giải toán: tìm điều kiện có nghiệm, chứng minh bất đẳng thức, tính giới hạn, tính giá trị của hàm số tại các điểm cực trị.",
+  "nls": [
+   "1.1.NC1b",
+   "5.2.NC1b",
+   "6.2.NC1b"
+  ],
+  "nls_loi": [],
+  "ghi_chu": null,
+  "thiet_bi": [
+   {
+    "ma": "PTTH2034",
+    "ten": "Bộ thiết bị để vẽ trên bảng trong dạy học toán (thước thẳng, compa)"
+   }
+  ]
+ },
+ {
+  "lop": 12,
+  "hoc_ky": 2,
+  "tuan": 34,
+  "tiet": "100",
+  "so_tiet": 1,
+  "loai": "trai_nghiem",
+  "ten": "Tính nguyên hàm và tích phân với phần mềm GeoGebra. Tính gần đúng tích phân bằng phương pháp hình thang",
+  "bai_so": null,
+  "ten_bai": "Tính nguyên hàm và tích phân với phần mềm GeoGebra. Tính gần đúng tích phân bằng phương pháp hình thang",
+  "chuyen_de": null,
+  "yccd": "- Sử dụng phần mềm GeoGebra để tính nguyên hàm, tích phân trong trường hợp hàm dưới dấu tích phân cho dưới dạng bảng (tại một số mốc) hoặc cho bởi một đồ thị (mà ta không biết phương trình của nó) hoặc không có nguyên hàm dưới dạng hàm số sơ cấp.\n- Sử dụng phương pháp hình thang để tính gần đúng tích phân.",
+  "nls": [
+   "1.1.NC1b",
+   "5.2.NC1b",
+   "6.2.NC1b"
+  ],
+  "nls_loi": [],
+  "ghi_chu": "(T1/1)",
+  "thiet_bi": [
+   {
+    "ma": "PTTH2034",
+    "ten": "Bộ thiết bị để vẽ trên bảng trong dạy học toán (thước thẳng, compa)"
+   },
+   {
+    "ma": "TOAN002",
+    "ten": "Máy tính Acer"
+   },
+   {
+    "ma": "PTTH3001",
+    "ten": "Phần mềm toán học - Đại số và Giải tích"
+   }
+  ]
+ },
+ {
+  "lop": 12,
+  "hoc_ky": 2,
+  "tuan": 34,
+  "tiet": "101",
+  "so_tiet": 1,
+  "loai": "trai_nghiem",
+  "ten": "Vẽ đồ họa 3D với phần mềm GeoGebra",
+  "bai_so": null,
+  "ten_bai": "Vẽ đồ họa 3D với phần mềm GeoGebra",
+  "chuyen_de": null,
+  "yccd": "- Sử dụng các công cụ có sẵn trên phần mềm GeoGebra để vẽ một số mô hình 3D bất khả: vẽ tam giác Penrose; Tạo lập mặt Mobius",
+  "nls": [
+   "1.1.NC1b",
+   "5.2.NC1b",
+   "6.2.NC1b"
+  ],
+  "nls_loi": [],
+  "ghi_chu": "(T1/1)",
+  "thiet_bi": [
+   {
+    "ma": "PTTH2034",
+    "ten": "Bộ thiết bị để vẽ trên bảng trong dạy học toán (thước thẳng, compa)"
+   },
+   {
+    "ma": "TOAN002",
+    "ten": "Máy tính Acer"
+   },
+   {
+    "ma": "PTTH3001",
+    "ten": "Phần mềm toán học - Đại số và Giải tích"
+   }
+  ]
+ },
+ {
+  "lop": 12,
+  "hoc_ky": 2,
+  "tuan": 34,
+  "tiet": "102",
+  "so_tiet": 1,
+  "loai": "on_tap_kiem_tra",
+  "ten": "Ôn tập cuối năm",
+  "bai_so": null,
+  "ten_bai": "Ôn tập cuối năm",
+  "chuyen_de": null,
+  "yccd": "- Ôn tập các kiến thức đã học trong cả năm học.\n- Vận dụng được các kiến thức đã học trong năm học để giải quyết một số vấn đề thực tiễn.",
+  "nls": [
+   "1.1.NC1b",
+   "5.2.NC1b",
+   "6.2.NC1b"
+  ],
+  "nls_loi": [],
+  "ghi_chu": "(T1/2)",
+  "thiet_bi": [
+   {
+    "ma": "PTTH2034",
+    "ten": "Bộ thiết bị để vẽ trên bảng trong dạy học toán (thước thẳng, compa)"
+   }
+  ]
+ },
+ {
+  "lop": 12,
+  "hoc_ky": 2,
+  "tuan": 34,
+  "tiet": "34",
+  "so_tiet": 1,
+  "loai": "chuyen_de_hoc_tap",
+  "ten": "Bài tập cuối chuyên đề 3",
+  "bai_so": null,
+  "ten_bai": "Bài tập cuối chuyên đề 3",
+  "chuyen_de": null,
+  "yccd": "– Ôn tập các vấn đề về tiền tệ, lãi suất của các tổ chức tín dụng, thẻ tín dụng và cách thiết lập được kế hoạch tài chính cá nhân cho các nhu cầu dài hạn như giáo dục hoặc sống tự lập.\n– Ôn tập sử dụng công thức lãi suất, niên kim,… để giải quyết một số vấn đề về đầu tư.",
+  "nls": [
+   "1.1.NC1b",
+   "5.2.NC1b",
+   "6.2.NC1b"
+  ],
+  "nls_loi": [],
+  "ghi_chu": "T1/2",
+  "thiet_bi": [
+   {
+    "ma": "PTTH2034",
+    "ten": "Bộ thiết bị để vẽ trên bảng trong dạy học toán (thước thẳng, compa)"
+   }
+  ]
+ },
+ {
+  "lop": 12,
+  "hoc_ky": 2,
+  "tuan": 34,
+  "tiet": "67-68",
+  "so_tiet": 2,
+  "loai": "chuyen_sau",
+  "ten": "Chuyên đề nâng cao: Các định lý cơ bản của Giải tích và ứng dụng",
+  "bai_so": null,
+  "ten_bai": "Chuyên đề nâng cao: Các định lý cơ bản của Giải tích và ứng dụng",
+  "chuyen_de": null,
+  "yccd": "- Hiểu các định lý cơ bản của giải tích từ bổ đề Fermat, bổ đề về dãy đoạn thẳng lồng nhau, tính chất của hàm liên tục, các định lý Rolle, Lagrange, Cauchy, quy tắc L’Hopitale.\n- Vận dụng được các định lý trên trong giải toán: tìm điều kiện có nghiệm, chứng minh bất đẳng thức, tính giới hạn, tính giá trị của hàm số tại các điểm cực trị.",
+  "nls": [
+   "1.1.NC1b",
+   "5.2.NC1b",
+   "6.2.NC1b"
+  ],
+  "nls_loi": [],
+  "ghi_chu": null,
+  "thiet_bi": [
+   {
+    "ma": "PTTH2034",
+    "ten": "Bộ thiết bị để vẽ trên bảng trong dạy học toán (thước thẳng, compa)"
+   }
+  ]
+ },
+ {
+  "lop": 12,
+  "hoc_ky": 2,
+  "tuan": 17,
+  "tiet": "103",
+  "so_tiet": 1,
+  "loai": "on_tap_kiem_tra",
+  "ten": "Ôn tập cuối năm",
+  "bai_so": null,
+  "ten_bai": "Ôn tập cuối năm",
+  "chuyen_de": null,
+  "yccd": "- Luyện tập các dạng bài tập liên quan đến các kiến thức hình học và thống kê, xác suất trong năm học.",
+  "nls": [
+   "1.1.NC1b",
+   "5.2.NC1b",
+   "6.2.NC1b"
+  ],
+  "nls_loi": [],
+  "ghi_chu": "(T2/2)",
+  "thiet_bi": [
+   {
+    "ma": "PTTH2034",
+    "ten": "Bộ thiết bị để vẽ trên bảng trong dạy học toán (thước thẳng, compa)"
+   }
+  ]
+ },
+ {
+  "lop": 12,
+  "hoc_ky": 2,
+  "tuan": 17,
+  "tiet": "35",
+  "so_tiet": 1,
+  "loai": "chuyen_de_hoc_tap",
+  "ten": "Bài tập cuối chuyên đề 3",
+  "bai_so": null,
+  "ten_bai": "Bài tập cuối chuyên đề 3",
+  "chuyen_de": null,
+  "yccd": "– Ôn tập các vấn đề về tiền tệ, lãi suất của các tổ chức tín dụng, thẻ tín dụng và cách thiết lập được kế hoạch tài chính cá nhân cho các nhu cầu dài hạn như giáo dục hoặc sống tự lập.\n– Ôn tập sử dụng công thức lãi suất, niên kim,… để giải quyết một số vấn đề về đầu tư.",
+  "nls": [
+   "1.1.NC1b",
+   "5.2.NC1b",
+   "6.2.NC1b"
+  ],
+  "nls_loi": [],
+  "ghi_chu": "T2/2",
+  "thiet_bi": [
+   {
+    "ma": "PTTH2034",
+    "ten": "Bộ thiết bị để vẽ trên bảng trong dạy học toán (thước thẳng, compa)"
+   }
+  ]
+ },
+ {
+  "lop": 12,
+  "hoc_ky": 2,
+  "tuan": 17,
+  "tiet": "104-105",
+  "so_tiet": 2,
+  "loai": "on_tap_kiem_tra",
+  "ten": "Kiểm tra cuối học kỳ 2",
+  "bai_so": null,
+  "ten_bai": "Kiểm tra cuối học kỳ 2",
+  "chuyen_de": null,
+  "yccd": "Kĩ năng:  Rèn luyện kĩ năng vận dụng kiến thức đã học, giải bài tập, phân tích, tư duy của học sinh.\nNăng lực:  Năng lực tự học, sáng tạo, giải quyết vấn đề, tính toán và sử dụng ngôn ngữ.\nPhẩm chất: Trung thực nghiêm túc trong kiểm tra.",
+  "nls": [],
+  "nls_loi": [],
+  "ghi_chu": "(T1,2/2)",
+  "thiet_bi": [
+   {
+    "ma": "PTTH2034",
+    "ten": "Bộ thiết bị để vẽ trên bảng trong dạy học toán (thước thẳng, compa)"
+   }
+  ]
+ },
+ {
+  "lop": 12,
+  "hoc_ky": 2,
+  "tuan": 17,
+  "tiet": "69-70",
+  "so_tiet": 2,
+  "loai": "chuyen_sau",
+  "ten": "Chuyên đề nâng cao: Các định lý cơ bản của Giải tích và ứng dụng",
+  "bai_so": null,
+  "ten_bai": "Chuyên đề nâng cao: Các định lý cơ bản của Giải tích và ứng dụng",
+  "chuyen_de": null,
+  "yccd": "- Hiểu các định lý cơ bản của giải tích từ bổ đề Fermat, bổ đề về dãy đoạn thẳng lồng nhau, tính chất của hàm liên tục, các định lý Rolle, Lagrange, Cauchy, quy tắc L’Hopitale.\n- Vận dụng được các định lý trên trong giải toán: tìm điều kiện có nghiệm, chứng minh bất đẳng thức, tính giới hạn, tính giá trị của hàm số tại các điểm cực trị.",
+  "nls": [
+   "1.1.NC1b",
+   "5.2.NC1b",
+   "6.2.NC1b"
+  ],
+  "nls_loi": [],
+  "ghi_chu": null,
+  "thiet_bi": [
+   {
+    "ma": "PTTH2034",
+    "ten": "Bộ thiết bị để vẽ trên bảng trong dạy học toán (thước thẳng, compa)"
+   }
+  ]
+ }
+]

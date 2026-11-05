@@ -8,12 +8,25 @@
   "loai": "co_ban",
   "ten": "Bài 1. Giá trị lượng giác của góc lượng giác",
   "bai_so": 1,
+  "ten_bai": "Giá trị lượng giác của góc lượng giác",
   "chuyen_de": null,
   "yccd": "Nhận biết được các khái niệm cơ bản về góc lượng giác; số đo của góc lượng giác; hệ thức Chasles cho các góc lượng giác; đường tròn lượng giác.\nNhận biết được khái niệm giá trị lượng giác của một góc lượng giác.\nMô tả được bảng giá trị lượng giác của một số góc lượng giác thường gặp; hệ thức cơ bản giữa các giá trị lượng giác của một góc lượng giác; quan hệ giữa các giá trị lượng giác của các góc lượng giác có liên quan đặc biệt: bù nhau, phụ nhau, đối nhau, hơn kém nhau .\nSử dụng được máy tính cầm tay để tính giá trị lượng giác của một góc lượng giác khi biết số đo của góc đó.\nGiải quyết một số tình huống thực tiễn gắn với giá trị lượng giác của góc lượng giác",
   "nls": [
    "1.1.NC1b",
    "5.2.NC1b",
    "6.2.NC1b"
+  ],
+  "nls_loi": [],
+  "ghi_chu": null,
+  "thiet_bi": [
+   {
+    "ma": "PTTH2034",
+    "ten": "Bộ thiết bị để vẽ trên bảng trong dạy học toán (thước thẳng, compa)"
+   },
+   {
+    "ma": "PTTHTA1001",
+    "ten": "Tranh điện tử"
+   }
   ]
  },
  {
@@ -25,10 +38,19 @@
   "loai": "chuyen_de_hoc_tap",
   "ten": "CĐ1. Bài 1. Phép biến hình",
   "bai_so": null,
+  "ten_bai": "Phép biến hình",
   "chuyen_de": "CĐ1.B1",
   "yccd": "Nhận biết khái niệm phép biến hình, ảnh của một điểm một hình qua phép biến hình",
   "nls": [
    "1.1.NC1b"
+  ],
+  "nls_loi": [],
+  "ghi_chu": null,
+  "thiet_bi": [
+   {
+    "ma": "PTTH2034",
+    "ten": "Bộ thiết bị để vẽ trên bảng trong dạy học toán (thước thẳng, compa)"
+   }
   ]
  },
  {
@@ -40,12 +62,21 @@
   "loai": "chuyen_sau",
   "ten": "Chuyên đề nâng cao: Phương trình hàm",
   "bai_so": null,
+  "ten_bai": "Chuyên đề nâng cao: Phương trình hàm",
   "chuyen_de": null,
   "yccd": "- Đại cương về ánh xạ và phương trình hàm.\n- Hiểu phương trình hàm tuyến tính và phân tuyến tính.\n- Hiểu được phương trình hàm Cauchy và khái niệm về lớp hàm số sinh bởi các phép tính số học, các đại lượng trung bình.\n- Các kỹ thuật cơ bản trong giải phương trình hàm.\n- Giải được bất phương trình hàm cơ bản.",
   "nls": [
    "1.1.NC1b",
    "5.2.NC1b",
    "6.2.NC1b"
+  ],
+  "nls_loi": [],
+  "ghi_chu": null,
+  "thiet_bi": [
+   {
+    "ma": "PTTH2034",
+    "ten": "Bộ thiết bị để vẽ trên bảng trong dạy học toán (thước thẳng, compa)"
+   }
   ]
  },
  {
@@ -57,10 +88,19 @@
   "loai": "co_ban",
   "ten": "Bài 2. Công thức lượng giác",
   "bai_so": 2,
+  "ten_bai": "Công thức lượng giác",
   "chuyen_de": null,
   "yccd": "Mô tả được các phép biến đổi lượng giác cơ bản: công thức cộng; công thức góc nhân đôi; công thức biến đổi tích thành tổng và công thức biến đổi tổng thành tích.\nGiải quyết được một số vấn đề thực tiễn gắn với giá trị lượng giác của góc lượng giác và các phép biến đổi lượng giác.",
   "nls": [
    "1.1.NC1b"
+  ],
+  "nls_loi": [],
+  "ghi_chu": null,
+  "thiet_bi": [
+   {
+    "ma": "PTTH2034",
+    "ten": "Bộ thiết bị để vẽ trên bảng trong dạy học toán (thước thẳng, compa)"
+   }
   ]
  },
  {
@@ -72,10 +112,31 @@
   "loai": "co_ban",
   "ten": "Bài 3. Hàm số lượng giác",
   "bai_so": 3,
+  "ten_bai": "Hàm số lượng giác",
   "chuyen_de": null,
   "yccd": "Nhận biết được được các khái niệm về hàm số chẵn, hàm số lẻ, hàm số tuần hoàn.\nNhận biết được các đặc trưng hình học của đồ thị hàm số chẵn, hàm số lẻ, hàm số tuần hoàn.\nNhận biết được định nghĩa các hàm lượng giác y = sin x, y = cos x, y = tan x, y = cot x thông qua đường tròn lượng giác.\nMô tả được bảng giá trị của bốn hàm số lượng giác đó trên một chu kì.\nVẽ được đồ thị của các hàm số y = sin x, y = cos x, y = tan x, y = cot x.\nGiải thích được: tập xác định; tập giá trị; tính chất chẵn, lẻ; tính tuần hoàn; chu kì; khoảng đồng biến, nghịch biến của các hàm số y = sin x, y = cos x, y = tan x, y = cot x dựa vào đồ thị.\nGiải quyết được một số vấn đề thực tiễn gắn với hàm số lượng giác (ví dụ: một số bài toán có liên quan đến dao động điều hoà trong Vật lí,...).",
   "nls": [
    "1.1.NC1a"
+  ],
+  "nls_loi": [],
+  "ghi_chu": null,
+  "thiet_bi": [
+   {
+    "ma": "PTTH2034",
+    "ten": "Bộ thiết bị để vẽ trên bảng trong dạy học toán (thước thẳng, compa)"
+   },
+   {
+    "ma": "PTTHTA1001",
+    "ten": "Tranh điện tử"
+   },
+   {
+    "ma": "TOAN002",
+    "ten": "Máy tính Acer"
+   },
+   {
+    "ma": "PTTH3001",
+    "ten": "Phần mềm toán học - Đại số và Giải tích"
+   }
   ]
  },
  {
@@ -87,10 +148,19 @@
   "loai": "chuyen_de_hoc_tap",
   "ten": "CĐ1. Bài 1. Phép biến hình",
   "bai_so": null,
+  "ten_bai": "Phép biến hình",
   "chuyen_de": "CĐ1.B1",
   "yccd": "Bài tập Phép biến hình",
   "nls": [
    "2.1.NC1b"
+  ],
+  "nls_loi": [],
+  "ghi_chu": null,
+  "thiet_bi": [
+   {
+    "ma": "PTTH2034",
+    "ten": "Bộ thiết bị để vẽ trên bảng trong dạy học toán (thước thẳng, compa)"
+   }
   ]
  },
  {
@@ -102,12 +172,21 @@
   "loai": "chuyen_sau",
   "ten": "Chuyên đề nâng cao: Phương trình hàm",
   "bai_so": null,
+  "ten_bai": "Chuyên đề nâng cao: Phương trình hàm",
   "chuyen_de": null,
   "yccd": "- Đại cương về ánh xạ và phương trình hàm.\n- Hiểu phương trình hàm tuyến tính và phân tuyến tính.\n- Hiểu được phương trình hàm Cauchy và khái niệm về lớp hàm số sinh bởi các phép tính số học, các đại lượng trung bình.\n- Các kỹ thuật cơ bản trong giải phương trình hàm.\n- Giải được bất phương trình hàm cơ bản.",
   "nls": [
    "1.1.NC1b",
    "5.2.NC1b",
    "6.2.NC1b"
+  ],
+  "nls_loi": [],
+  "ghi_chu": null,
+  "thiet_bi": [
+   {
+    "ma": "PTTH2034",
+    "ten": "Bộ thiết bị để vẽ trên bảng trong dạy học toán (thước thẳng, compa)"
+   }
   ]
  },
  {
@@ -119,12 +198,33 @@
   "loai": "co_ban",
   "ten": "Bài 3. Hàm số lượng giác",
   "bai_so": 3,
+  "ten_bai": "Hàm số lượng giác",
   "chuyen_de": null,
   "yccd": "Nhận biết được được các khái niệm về hàm số chẵn, hàm số lẻ, hàm số tuần hoàn.\nNhận biết được các đặc trưng hình học của đồ thị hàm số chẵn, hàm số lẻ, hàm số tuần hoàn.\nNhận biết được định nghĩa các hàm lượng giác y = sin x, y = cos x, y = tan x, y = cot x thông qua đường tròn lượng giác.\nMô tả được bảng giá trị của bốn hàm số lượng giác đó trên một chu kì.\nVẽ được đồ thị của các hàm số y = sin x, y = cos x, y = tan x, y = cot x.\nGiải thích được: tập xác định; tập giá trị; tính chất chẵn, lẻ; tính tuần hoàn; chu kì; khoảng đồng biến, nghịch biến của các hàm số y = sin x, y = cos x, y = tan x, y = cot x dựa vào đồ thị.\nGiải quyết được một số vấn đề thực tiễn gắn với hàm số lượng giác (ví dụ: một số bài toán có liên quan đến dao động điều hoà trong Vật lí,...).",
   "nls": [
    "1.1.NC1b",
    "5.2.NC1b",
    "6.2.NC1b"
+  ],
+  "nls_loi": [],
+  "ghi_chu": null,
+  "thiet_bi": [
+   {
+    "ma": "PTTH2034",
+    "ten": "Bộ thiết bị để vẽ trên bảng trong dạy học toán (thước thẳng, compa)"
+   },
+   {
+    "ma": "PTTHTA1001",
+    "ten": "Tranh điện tử"
+   },
+   {
+    "ma": "TOAN002",
+    "ten": "Máy tính Acer"
+   },
+   {
+    "ma": "PTTH3001",
+    "ten": "Phần mềm toán học - Đại số và Giải tích"
+   }
   ]
  },
  {
@@ -136,12 +236,21 @@
   "loai": "co_ban",
   "ten": "Bài 4. Phương trình lượng giác cơ bản",
   "bai_so": 4,
+  "ten_bai": "Phương trình lượng giác cơ bản",
   "chuyen_de": null,
   "yccd": "Nhận biết được công thức nghiệm của phương trình lượng giác cơ bản: sin x = m; cos x = m; tan x = m; cot x = m bằng cách vận dụng đồ thị hàm số lượng giác tương ứng.\nTính được nghiệm gần đúng của phương trình lượng giác cơ bản bằng máy tính cầm tay.\nGiải được phương trình lượng giác ở dạng vận dụng trực tiếp phương trình lượng giác cơ  bản  (ví  dụ:  giải  phương  trình  lượng  giác  dạng  sin 2x = sin 3x, sin x = cos 3x).\nGiải quyết được một số vấn đề thực tiễn gắn với phương trình lượng giác (ví dụ: một số bài toán liên quan đến dao động điều hòa trong Vật lí,...).",
   "nls": [
    "1.1.NC1b",
    "5.2.NC1b",
    "6.2.NC1b"
+  ],
+  "nls_loi": [],
+  "ghi_chu": null,
+  "thiet_bi": [
+   {
+    "ma": "PTTH2034",
+    "ten": "Bộ thiết bị để vẽ trên bảng trong dạy học toán (thước thẳng, compa)"
+   }
   ]
  },
  {
@@ -153,12 +262,21 @@
   "loai": "chuyen_de_hoc_tap",
   "ten": "CĐ1. Bài 2. Phép tịnh tiến",
   "bai_so": null,
+  "ten_bai": "Phép tịnh tiến",
   "chuyen_de": "CĐ1.B2",
   "yccd": "Nhận biết phép tịnh tiến và các tính chất của phép tịnh tiến\nXác định được ảnh của điểm, đường thẳng, tam giác, đường tròn qua phép tịnh tiến\nVận dụng trong giải quyết vấn đề thực tiễn",
   "nls": [
    "1.1.NC1b",
    "5.2.NC1b",
    "6.2.NC1b"
+  ],
+  "nls_loi": [],
+  "ghi_chu": null,
+  "thiet_bi": [
+   {
+    "ma": "PTTH2034",
+    "ten": "Bộ thiết bị để vẽ trên bảng trong dạy học toán (thước thẳng, compa)"
+   }
   ]
  },
  {
@@ -170,12 +288,21 @@
   "loai": "chuyen_sau",
   "ten": "Chuyên đề nâng cao: Phương trình hàm",
   "bai_so": null,
+  "ten_bai": "Chuyên đề nâng cao: Phương trình hàm",
   "chuyen_de": null,
   "yccd": "- Đại cương về ánh xạ và phương trình hàm.\n- Hiểu phương trình hàm tuyến tính và phân tuyến tính.\n- Hiểu được phương trình hàm Cauchy và khái niệm về lớp hàm số sinh bởi các phép tính số học, các đại lượng trung bình.\n- Các kỹ thuật cơ bản trong giải phương trình hàm.\n- Giải được bất phương trình hàm cơ bản.",
   "nls": [
    "1.1.NC1b",
    "5.2.NC1b",
    "6.2.NC1b"
+  ],
+  "nls_loi": [],
+  "ghi_chu": null,
+  "thiet_bi": [
+   {
+    "ma": "PTTH2034",
+    "ten": "Bộ thiết bị để vẽ trên bảng trong dạy học toán (thước thẳng, compa)"
+   }
   ]
  },
  {
@@ -187,12 +314,21 @@
   "loai": "co_ban",
   "ten": "Bài tập cuối chương I",
   "bai_so": null,
+  "ten_bai": "Bài tập cuối chương I",
   "chuyen_de": null,
   "yccd": "Nhận biết được các khái niệm cơ bản về góc lượng giác; số đo của góc lượng giác; giá trị lượng giác của một góc lượng giác. Mô tả được hệ thức cơ bản giữa các giá trị lượng giác của một góc lượng giác; quan hệ giữa các giá trị lượng giác của các góc lượng giác có liên quan đặc biệt.\nMô tả được các phép biến đổi lượng giác cơ bản.\nNhận biết được khái niệm và các đặc trưng hình học của đồ thị hàm số chẵn, hàm số lẻ, hàm số tuần hoàn. Nhận biết và mô tả được định nghĩa, bảng giá trị, đồ thị và các tính chất đặc trưng các hàm lượng giác.\nNhận biết được công thức nghiệm của phương trình lượng giác cơ bản và phương trình lượng giác ở dạng vận dụng trực tiếp phương trình lượng giác cơ  bản.\nVận dụng vào giải quyết được một số vấn đề thực tiễn gắn với giá trị lượng giác của góc lượng giáccác phép biến đổi lượng giác, hàm số lượng giác, phương trình lượng giác.",
   "nls": [
    "1.1.NC1b",
    "5.2.NC1b",
    "6.2.NC1b"
+  ],
+  "nls_loi": [],
+  "ghi_chu": null,
+  "thiet_bi": [
+   {
+    "ma": "PTTH2034",
+    "ten": "Bộ thiết bị để vẽ trên bảng trong dạy học toán (thước thẳng, compa)"
+   }
   ]
  },
  {
@@ -204,12 +340,21 @@
   "loai": "co_ban",
   "ten": "Bài 5. Dãy số",
   "bai_so": 5,
+  "ten_bai": "Dãy số",
   "chuyen_de": null,
   "yccd": "Nhận biết được dãy số hữu hạn, dãy số vô hạn.\nThể hiện được cách cho dãy số bằng liệt kê các số hạng; bằng công thức tổng quát; bằng hệ thức truy hồi; bằng cách mô tả.\nNhận biết được tính chất tăng, giảm, bị chặn của dãy số trong những trường hợp đơn giản.",
   "nls": [
    "1.1.NC1b",
    "5.2.NC1b",
    "6.2.NC1b"
+  ],
+  "nls_loi": [],
+  "ghi_chu": null,
+  "thiet_bi": [
+   {
+    "ma": "PTTH2034",
+    "ten": "Bộ thiết bị để vẽ trên bảng trong dạy học toán (thước thẳng, compa)"
+   }
   ]
  },
  {
@@ -221,12 +366,21 @@
   "loai": "chuyen_de_hoc_tap",
   "ten": "CĐ1. Bài 2. Phép tịnh tiến",
   "bai_so": null,
+  "ten_bai": "Phép tịnh tiến",
   "chuyen_de": "CĐ1.B2",
   "yccd": "Bài tập phép tịnh tiến",
   "nls": [
    "1.1.NC1b",
    "5.2.NC1b",
    "6.2.NC1b"
+  ],
+  "nls_loi": [],
+  "ghi_chu": null,
+  "thiet_bi": [
+   {
+    "ma": "PTTH2034",
+    "ten": "Bộ thiết bị để vẽ trên bảng trong dạy học toán (thước thẳng, compa)"
+   }
   ]
  },
  {
@@ -238,12 +392,21 @@
   "loai": "chuyen_sau",
   "ten": "Chuyên đề nâng cao: Phương trình hàm",
   "bai_so": null,
+  "ten_bai": "Chuyên đề nâng cao: Phương trình hàm",
   "chuyen_de": null,
   "yccd": "- Đại cương về ánh xạ và phương trình hàm.\n- Hiểu phương trình hàm tuyến tính và phân tuyến tính.\n- Hiểu được phương trình hàm Cauchy và khái niệm về lớp hàm số sinh bởi các phép tính số học, các đại lượng trung bình.\n- Các kỹ thuật cơ bản trong giải phương trình hàm.\n- Giải được bất phương trình hàm cơ bản.",
   "nls": [
    "1.1.NC1b",
    "5.2.NC1b",
    "6.2.NC1b"
+  ],
+  "nls_loi": [],
+  "ghi_chu": null,
+  "thiet_bi": [
+   {
+    "ma": "PTTH2034",
+    "ten": "Bộ thiết bị để vẽ trên bảng trong dạy học toán (thước thẳng, compa)"
+   }
   ]
  },
  {
@@ -255,12 +418,21 @@
   "loai": "co_ban",
   "ten": "Bài 6. Cấp số cộng",
   "bai_so": 6,
+  "ten_bai": "Cấp số cộng",
   "chuyen_de": null,
   "yccd": "Nhận biết được một dãy số là cấp số cộng.\nGiải thích được công thức xác định số hạng tổng quát của cấp số cộng.\nTính được tổng của n số hạng đầu tiên của cấp số cộng.\nGiải quyết được một số vấn đề thực tiễn gắn với cấp số cộng để giải một số bài toán liên quan đến thực tiễn (ví dụ: một số vấn đề trong Sinh học, trong Giáo dục dân số,...).",
   "nls": [
    "1.1.NC1b",
    "5.2.NC1b",
    "6.2.NC1b"
+  ],
+  "nls_loi": [],
+  "ghi_chu": null,
+  "thiet_bi": [
+   {
+    "ma": "PTTH2034",
+    "ten": "Bộ thiết bị để vẽ trên bảng trong dạy học toán (thước thẳng, compa)"
+   }
   ]
  },
  {
@@ -272,12 +444,21 @@
   "loai": "co_ban",
   "ten": "Bài 7. Cấp số nhân",
   "bai_so": 7,
+  "ten_bai": "Cấp số nhân",
   "chuyen_de": null,
   "yccd": "Nhận biết được một dãy số là cấp số nhân.\nGiải thích được công thức xác định số hạng tổng quát của cấp số nhân.\nTính được tổng của n số hạng đầu tiên của cấp số nhân.\nGiải quyết được một số vấn đề thực tiễn gắn với cấp số nhân để giải một số bài toán liên quan đến thực tiễn (ví dụ: một số vấn đề trong Sinh học, trong Giáo dục dân số,...).",
   "nls": [
    "1.1.NC1b",
    "5.2.NC1b",
    "6.2.NC1b"
+  ],
+  "nls_loi": [],
+  "ghi_chu": null,
+  "thiet_bi": [
+   {
+    "ma": "PTTH2034",
+    "ten": "Bộ thiết bị để vẽ trên bảng trong dạy học toán (thước thẳng, compa)"
+   }
   ]
  },
  {
@@ -289,12 +470,21 @@
   "loai": "chuyen_de_hoc_tap",
   "ten": "CĐ1. Bài 3. Phép đối xứng trục",
   "bai_so": null,
+  "ten_bai": "Phép đối xứng trục",
   "chuyen_de": "CĐ1.B3",
   "yccd": "Nhận biết phép đối xứng trục và các tính chất của phép đối xứng trục\nXác định được ảnh của điểm, đường thẳng, tam giác, đường tròn qua phép đối xứng trục\nVận dụng trong giải quyết vấn đề thực tiễn",
   "nls": [
    "1.1.NC1b",
    "5.2.NC1b",
    "6.2.NC1b"
+  ],
+  "nls_loi": [],
+  "ghi_chu": null,
+  "thiet_bi": [
+   {
+    "ma": "PTTH2034",
+    "ten": "Bộ thiết bị để vẽ trên bảng trong dạy học toán (thước thẳng, compa)"
+   }
   ]
  },
  {
@@ -306,12 +496,21 @@
   "loai": "chuyen_sau",
   "ten": "Chuyên đề nâng cao: Phương trình hàm",
   "bai_so": null,
+  "ten_bai": "Chuyên đề nâng cao: Phương trình hàm",
   "chuyen_de": null,
   "yccd": "- Đại cương về ánh xạ và phương trình hàm.\n- Hiểu phương trình hàm tuyến tính và phân tuyến tính.\n- Hiểu được phương trình hàm Cauchy và khái niệm về lớp hàm số sinh bởi các phép tính số học, các đại lượng trung bình.\n- Các kỹ thuật cơ bản trong giải phương trình hàm.\n- Giải được bất phương trình hàm cơ bản.",
   "nls": [
    "1.1.NC1b",
    "5.2.NC1b",
    "6.2.NC1b"
+  ],
+  "nls_loi": [],
+  "ghi_chu": null,
+  "thiet_bi": [
+   {
+    "ma": "PTTH2034",
+    "ten": "Bộ thiết bị để vẽ trên bảng trong dạy học toán (thước thẳng, compa)"
+   }
   ]
  },
  {
@@ -323,12 +522,21 @@
   "loai": "co_ban",
   "ten": "Bài 7. Cấp số nhân",
   "bai_so": 7,
+  "ten_bai": "Cấp số nhân",
   "chuyen_de": null,
   "yccd": "Nhận biết được một dãy số là cấp số nhân.\nGiải thích được công thức xác định số hạng tổng quát của cấp số nhân.\nTính được tổng của n số hạng đầu tiên của cấp số nhân.\nGiải quyết được một số vấn đề thực tiễn gắn với cấp số nhân để giải một số bài toán liên quan đến thực tiễn (ví dụ: một số vấn đề trong Sinh học, trong Giáo dục dân số,...).",
   "nls": [
    "1.1.NC1b",
    "5.2.NC1b",
    "6.2.NC1b"
+  ],
+  "nls_loi": [],
+  "ghi_chu": null,
+  "thiet_bi": [
+   {
+    "ma": "PTTH2034",
+    "ten": "Bộ thiết bị để vẽ trên bảng trong dạy học toán (thước thẳng, compa)"
+   }
   ]
  },
  {
@@ -340,12 +548,21 @@
   "loai": "co_ban",
   "ten": "Bài tập cuối chương II",
   "bai_so": null,
+  "ten_bai": "Bài tập cuối chương II",
   "chuyen_de": null,
   "yccd": "Nhận biết được một dãy số là cấp số cộng hay cấp số nhân. Giải thích được công thức xác định số hạng tổng quát, tổng của n số hạng đầu tiên của cấp số cộng và cấp số nhân.\nGiải quyết được một số vấn đề thực tiễn gắn với cấp số cộng, cấp số nhân.",
   "nls": [
    "1.1.NC1b",
    "5.2.NC1b",
    "6.2.NC1b"
+  ],
+  "nls_loi": [],
+  "ghi_chu": null,
+  "thiet_bi": [
+   {
+    "ma": "PTTH2034",
+    "ten": "Bộ thiết bị để vẽ trên bảng trong dạy học toán (thước thẳng, compa)"
+   }
   ]
  },
  {
@@ -357,12 +574,21 @@
   "loai": "co_ban",
   "ten": "Bài 8. Mẫu số liệu ghép nhóm",
   "bai_so": 8,
+  "ten_bai": "Mẫu số liệu ghép nhóm",
   "chuyen_de": null,
   "yccd": "Đọc và giải thích mẫu số liệu ghép nhóm.\nGhép nhóm mẫu số liệu.",
   "nls": [
    "1.1.NC1b",
    "5.2.NC1b",
    "6.2.NC1b"
+  ],
+  "nls_loi": [],
+  "ghi_chu": null,
+  "thiet_bi": [
+   {
+    "ma": "PTTH2034",
+    "ten": "Bộ thiết bị để vẽ trên bảng trong dạy học toán (thước thẳng, compa)"
+   }
   ]
  },
  {
@@ -374,9 +600,18 @@
   "loai": "chuyen_de_hoc_tap",
   "ten": "CĐ1. Bài 3. Phép đối xứng trục",
   "bai_so": null,
+  "ten_bai": "Phép đối xứng trục",
   "chuyen_de": "CĐ1.B3",
   "yccd": "Bài tập phép đối xứng trục",
-  "nls": []
+  "nls": [],
+  "nls_loi": [],
+  "ghi_chu": null,
+  "thiet_bi": [
+   {
+    "ma": "PTTH2034",
+    "ten": "Bộ thiết bị để vẽ trên bảng trong dạy học toán (thước thẳng, compa)"
+   }
+  ]
  },
  {
   "lop": 11,
@@ -387,12 +622,21 @@
   "loai": "chuyen_sau",
   "ten": "Chuyên đề nâng cao: Phương trình hàm",
   "bai_so": null,
+  "ten_bai": "Chuyên đề nâng cao: Phương trình hàm",
   "chuyen_de": null,
   "yccd": "- Đại cương về ánh xạ và phương trình hàm.\n- Hiểu phương trình hàm tuyến tính và phân tuyến tính.\n- Hiểu được phương trình hàm Cauchy và khái niệm về lớp hàm số sinh bởi các phép tính số học, các đại lượng trung bình.\n- Các kỹ thuật cơ bản trong giải phương trình hàm.\n- Giải được bất phương trình hàm cơ bản.",
   "nls": [
    "1.1.NC1b",
    "5.2.NC1b",
    "6.2.NC1b"
+  ],
+  "nls_loi": [],
+  "ghi_chu": null,
+  "thiet_bi": [
+   {
+    "ma": "PTTH2034",
+    "ten": "Bộ thiết bị để vẽ trên bảng trong dạy học toán (thước thẳng, compa)"
+   }
   ]
  },
  {
@@ -404,12 +648,29 @@
   "loai": "co_ban",
   "ten": "Bài 9. Các số đặc trưng đo xu thế trung tâm",
   "bai_so": 9,
+  "ten_bai": "Các số đặc trưng đo xu thế trung tâm",
   "chuyen_de": null,
   "yccd": "Tính được các số đặc trưng đo xu thế trung tâm cho mẫu số liệu ghép nhóm: số trung bình cộng (hay số trung bình), trung vị (median), tứ phân vị (quartiles), mốt (mode).\nHiểu được ý nghĩa và vai trò của các số đặc trưng nói trên của mẫu số liệu trong thực tiễn.\nRút ra được kết luận nhờ ý nghĩa của các số đặc trưng nói trên của mẫu số liệu trong trường hợp đơn giản.\nNhận biết được mối liên hệ giữa thống kê với những kiến thức của các môn học khác trong Chương trình lớp 11 và trong thực tiễn.",
   "nls": [
    "1.1.NC1b",
    "5.2.NC1b",
    "6.2.NC1b"
+  ],
+  "nls_loi": [],
+  "ghi_chu": null,
+  "thiet_bi": [
+   {
+    "ma": "PTTH2034",
+    "ten": "Bộ thiết bị để vẽ trên bảng trong dạy học toán (thước thẳng, compa)"
+   },
+   {
+    "ma": "TOAN002",
+    "ten": "Máy tính Acer"
+   },
+   {
+    "ma": "PTTH3003",
+    "ten": "Phần mềm toán học - Thống kê và xác suất"
+   }
   ]
  },
  {
@@ -421,12 +682,21 @@
   "loai": "co_ban",
   "ten": "Bài tập cuối chương III",
   "bai_so": null,
+  "ten_bai": "Bài tập cuối chương III",
   "chuyen_de": null,
   "yccd": "Đọc và giải thích mẫu số liệu ghép nhóm. Ghép nhóm mẫu số liệu.\nTính được và hiểu được vai trò, ý nghĩa của các số đặc trưng đo xu thế trung tâm cho mẫu số liệu ghép nhóm. Nhận biết được mối liên hệ giữa thống kê với những kiến thức của các môn học khác trong Chương trình lớp 11 và trong thực tiễn.",
   "nls": [
    "1.1.NC1b",
    "5.2.NC1b",
    "6.2.NC1b"
+  ],
+  "nls_loi": [],
+  "ghi_chu": null,
+  "thiet_bi": [
+   {
+    "ma": "PTTH2034",
+    "ten": "Bộ thiết bị để vẽ trên bảng trong dạy học toán (thước thẳng, compa)"
+   }
   ]
  },
  {
@@ -438,12 +708,21 @@
   "loai": "chuyen_de_hoc_tap",
   "ten": "CĐ1. Bài 4. Phép quay và phép đối xứng tâm",
   "bai_so": null,
+  "ten_bai": "Phép quay và phép đối xứng tâm",
   "chuyen_de": "CĐ1.B4",
   "yccd": "- Nhận biết phép đối xứng tâm, phép quay và các tính chất của phép đối xứng tâm, phép quay\n- Xác định được ảnh của điểm, đường thẳng, tam giác, đường tròn qua phép quay và đối xứng tâm\n- Vận dụng trong thực tiễn",
   "nls": [
    "1.1.NC1b",
    "5.2.NC1b",
    "6.2.NC1b"
+  ],
+  "nls_loi": [],
+  "ghi_chu": null,
+  "thiet_bi": [
+   {
+    "ma": "PTTH2034",
+    "ten": "Bộ thiết bị để vẽ trên bảng trong dạy học toán (thước thẳng, compa)"
+   }
   ]
  },
  {
@@ -455,12 +734,21 @@
   "loai": "chuyen_sau",
   "ten": "Chuyên đề nâng cao: Phương trình hàm",
   "bai_so": null,
+  "ten_bai": "Chuyên đề nâng cao: Phương trình hàm",
   "chuyen_de": null,
   "yccd": "- Đại cương về ánh xạ và phương trình hàm.\n- Hiểu phương trình hàm tuyến tính và phân tuyến tính.\n- Hiểu được phương trình hàm Cauchy và khái niệm về lớp hàm số sinh bởi các phép tính số học, các đại lượng trung bình.\n- Các kỹ thuật cơ bản trong giải phương trình hàm.\n- Giải được bất phương trình hàm cơ bản.",
   "nls": [
    "1.1.NC1b",
    "5.2.NC1b",
    "6.2.NC1b"
+  ],
+  "nls_loi": [],
+  "ghi_chu": null,
+  "thiet_bi": [
+   {
+    "ma": "PTTH2034",
+    "ten": "Bộ thiết bị để vẽ trên bảng trong dạy học toán (thước thẳng, compa)"
+   }
   ]
  },
  {
@@ -472,12 +760,25 @@
   "loai": "co_ban",
   "ten": "Bài 10. Đường thẳng và mặt phẳng trong không gian",
   "bai_so": 10,
+  "ten_bai": "Đường thẳng và mặt phẳng trong không gian",
   "chuyen_de": null,
   "yccd": "Nhận biết được các quan hệ liên thuộc cơ bản giữa điểm, đường thẳng, mặt phẳng trong không gian.\nMô tả được ba cách xác định mặt phẳng (qua ba điểm không thẳng hàng; qua một đường thẳng và một điểm không thuộc đường thẳng đó; qua hai đường thẳng cắt nhau).\nXác định được giao tuyến của hai mặt phẳng; giao điểm của đường thẳng và mặt phẳng.\nVận dụng được các tính  chất  về  giao  tuyến  của  hai  mặt  phẳng;  giao điểm của đường thẳng và mặt phẳng vào giải bài tập.\nNhận biết được hình chóp, hình tứ diện.\nVận dụng được kiến thức về đường thẳng, mặt phẳng trong không gian để mô tả một số hình ảnh trong thực tiễn.",
   "nls": [
    "1.1.NC1b",
    "5.2.NC1b",
    "6.2.NC1b"
+  ],
+  "nls_loi": [],
+  "ghi_chu": null,
+  "thiet_bi": [
+   {
+    "ma": "PTTH2034",
+    "ten": "Bộ thiết bị để vẽ trên bảng trong dạy học toán (thước thẳng, compa)"
+   },
+   {
+    "ma": "PTTH2036",
+    "ten": "Bộ thiết bị dạy học về hình chóp, hình chóp cụt, hình lăng trụ"
+   }
   ]
  },
  {
@@ -489,12 +790,21 @@
   "loai": "chuyen_de_hoc_tap",
   "ten": "CĐ1. Bài 4. Phép quay và phép đối xứng tâm",
   "bai_so": null,
+  "ten_bai": "Phép quay và phép đối xứng tâm",
   "chuyen_de": "CĐ1.B4",
   "yccd": "Bài tập Phép quay và phép đối xứng tâm",
   "nls": [
    "1.1.NC1b",
    "5.2.NC1b",
    "6.2.NC1b"
+  ],
+  "nls_loi": [],
+  "ghi_chu": null,
+  "thiet_bi": [
+   {
+    "ma": "PTTH2034",
+    "ten": "Bộ thiết bị để vẽ trên bảng trong dạy học toán (thước thẳng, compa)"
+   }
   ]
  },
  {
@@ -506,12 +816,21 @@
   "loai": "chuyen_sau",
   "ten": "Chuyên đề nâng cao: Phương trình hàm",
   "bai_so": null,
+  "ten_bai": "Chuyên đề nâng cao: Phương trình hàm",
   "chuyen_de": null,
   "yccd": "- Đại cương về ánh xạ và phương trình hàm.\n- Hiểu phương trình hàm tuyến tính và phân tuyến tính.\n- Hiểu được phương trình hàm Cauchy và khái niệm về lớp hàm số sinh bởi các phép tính số học, các đại lượng trung bình.\n- Các kỹ thuật cơ bản trong giải phương trình hàm.\n- Giải được bất phương trình hàm cơ bản.",
   "nls": [
    "1.1.NC1b",
    "5.2.NC1b",
    "6.2.NC1b"
+  ],
+  "nls_loi": [],
+  "ghi_chu": null,
+  "thiet_bi": [
+   {
+    "ma": "PTTH2034",
+    "ten": "Bộ thiết bị để vẽ trên bảng trong dạy học toán (thước thẳng, compa)"
+   }
   ]
  },
  {
@@ -520,15 +839,24 @@
   "tuan": 9,
   "tiet": "25-27",
   "so_tiet": 3,
-  "loai": "co_ban",
+  "loai": "on_tap_kiem_tra",
   "ten": "Ôn tập kiểm tra giữa kỳ I",
   "bai_so": null,
+  "ten_bai": "Ôn tập kiểm tra giữa kỳ I",
   "chuyen_de": null,
   "yccd": "Nhận biết được các khái niệm cơ bản liên quan đến góc lượng giác, giá trị lượng giác của một góc lượng giác. Mô tả được hệ thức cơ bản giữa các giá trị lượng giác của một góc lượng giác; quan hệ giữa các giá trị lượng giác của các góc lượng giác có liên quan đặc biệt. Mô tả được các phép biến đổi lượng giác cơ bản. Nhận biết và mô tả được định nghĩa, bảng giá trị, đồ thị và các yếu tố đặc trưng các hàm số lượng giác. Nhận biết được công thức nghiệm của phương trình lượng giác cơ bản và phương trình lượng giác ở dạng vận dụng trực tiếp phương trình lượng giác cơ  bản. Vận dụng vào giải quyết được một số vấn đề thực tiễn.\n  Nhận biết được một dãy số là cấp số cộng hay cấp số nhân. Giải thích được công thức xác định số hạng tổng quát, tổng của n số hạng đầu tiên của cấp số cộng, cấp số nhân; vận dụng vào giải quyết được một số vấn đề thực tiễn.\n Đọc và giải thích mẫu số liệu ghép nhóm. Ghép nhóm mẫu số liệu. Tính được và hiểu được vai trò, ý nghĩa của các số đặc trưng đo xu thế trung tâm cho mẫu số liệu ghép nhóm. Nhận biết được mối liên hệ giữa thống kê với những kiến thức của các môn học khác trong Chương trình lớp 11 và trong thực tiễn.\n Vận dụng được kiến thức về đường thẳng, mặt phẳng trong không gian để giải bài tập.",
   "nls": [
    "1.1.NC1b",
    "5.2.NC1b",
    "6.2.NC1b"
+  ],
+  "nls_loi": [],
+  "ghi_chu": null,
+  "thiet_bi": [
+   {
+    "ma": "PTTH2034",
+    "ten": "Bộ thiết bị để vẽ trên bảng trong dạy học toán (thước thẳng, compa)"
+   }
   ]
  },
  {
@@ -540,12 +868,21 @@
   "loai": "chuyen_de_hoc_tap",
   "ten": "CĐ1. Bài 5. Phép dời hình",
   "bai_so": null,
+  "ten_bai": "Phép dời hình",
   "chuyen_de": "CĐ1.B5",
   "yccd": "Nhận biết phép dời hình\nVận dụng phép dời hình vào thiết kế đồ họa\nSTEM: Vận dụng phép dời hình vào thiết kế đồ hoạ và trong một số vấn đề thực tiễn (ví dụ: tạo hoa văn, hình khối,. . .)\nSẢN PHẨM: Sản phẩm lát mặt phẳng nghệ thuật",
   "nls": [
    "1.1.NC1b",
    "5.2.NC1b",
    "6.2.NC1b"
+  ],
+  "nls_loi": [],
+  "ghi_chu": null,
+  "thiet_bi": [
+   {
+    "ma": "PTTH2034",
+    "ten": "Bộ thiết bị để vẽ trên bảng trong dạy học toán (thước thẳng, compa)"
+   }
   ]
  },
  {
@@ -557,12 +894,21 @@
   "loai": "chuyen_sau",
   "ten": "Chuyên đề nâng cao: Dãy số",
   "bai_so": null,
+  "ten_bai": "Chuyên đề nâng cao: Dãy số",
   "chuyen_de": null,
   "yccd": "Tìm được số hạng tổng quát của các dãy số cơ bản",
   "nls": [
    "1.1.NC1b",
    "5.2.NC1b",
    "6.2.NC1b"
+  ],
+  "nls_loi": [],
+  "ghi_chu": null,
+  "thiet_bi": [
+   {
+    "ma": "PTTH2034",
+    "ten": "Bộ thiết bị để vẽ trên bảng trong dạy học toán (thước thẳng, compa)"
+   }
   ]
  },
  {
@@ -574,12 +920,21 @@
   "loai": "co_ban",
   "ten": "Bài 11. Hai đường thẳng song song",
   "bai_so": 11,
+  "ten_bai": "Hai đường thẳng song song",
   "chuyen_de": null,
   "yccd": "Nhận biết được vị trí tương đối của hai đường thẳng trong không gian: hai đường thẳng trùng nhau, song song, cắt nhau, chéo nhau trong không gian.\nGiải thích được tính chất cơ bản về hai đường thẳng song song trong không gian.\nVận dụng được kiến thức về hai đường thẳng song song để mô tả một số hình ảnh trong thực tiễn.",
   "nls": [
    "1.1.NC1b",
    "5.2.NC1b",
    "6.2.NC1b"
+  ],
+  "nls_loi": [],
+  "ghi_chu": null,
+  "thiet_bi": [
+   {
+    "ma": "PTTH2034",
+    "ten": "Bộ thiết bị để vẽ trên bảng trong dạy học toán (thước thẳng, compa)"
+   }
   ]
  },
  {
@@ -591,12 +946,21 @@
   "loai": "chuyen_de_hoc_tap",
   "ten": "CĐ1. Bài 6. Phép vị tự",
   "bai_so": null,
+  "ten_bai": "Phép vị tự",
   "chuyen_de": "CĐ1.B6",
   "yccd": "Nhận biết phép vị tự và các tính chất của phép vị tự\nXác định được ảnh của điểm, đường thẳng, tam giác, đường tròn qua phép vị tự\nVận dụng phép vị tự trong thực tiễn",
   "nls": [
    "1.1.NC1b",
    "5.2.NC1b",
    "6.2.NC1b"
+  ],
+  "nls_loi": [],
+  "ghi_chu": null,
+  "thiet_bi": [
+   {
+    "ma": "PTTH2034",
+    "ten": "Bộ thiết bị để vẽ trên bảng trong dạy học toán (thước thẳng, compa)"
+   }
   ]
  },
  {
@@ -608,63 +972,99 @@
   "loai": "chuyen_sau",
   "ten": "Chuyên đề nâng cao: Dãy số",
   "bai_so": null,
+  "ten_bai": "Chuyên đề nâng cao: Dãy số",
   "chuyen_de": null,
   "yccd": "Tìm được số hạng tổng quát của các dãy số cơ bản",
   "nls": [
    "1.1.NC1b",
    "5.2.NC1b",
    "6.2.NC1b"
+  ],
+  "nls_loi": [],
+  "ghi_chu": null,
+  "thiet_bi": [
+   {
+    "ma": "PTTH2034",
+    "ten": "Bộ thiết bị để vẽ trên bảng trong dạy học toán (thước thẳng, compa)"
+   }
   ]
  },
  {
   "lop": 11,
   "hoc_ky": 1,
-  "tuan": "11\n(Dạy học online tuỳ vào tình hình thực tế)",
+  "tuan": 11,
   "tiet": "31-33",
   "so_tiet": 3,
   "loai": "co_ban",
   "ten": "Bài 12. Đường thẳng và mặt phẳng song song",
   "bai_so": 12,
+  "ten_bai": "Đường thẳng và mặt phẳng song song",
   "chuyen_de": null,
   "yccd": "Nhận biết được đường thẳng song song với mặt phẳng.\nGiải thích được điều kiện để đường thẳng song song với mặt phẳng.\nGiải thích được tính chất cơ bản về đường thẳng song song với mặt phẳng.\nVận dụng được kiến thức về đường thẳng song song với mặt phẳng để mô tả một số hình ảnh trong thực tiễn.",
   "nls": [
    "1.1.NC1b",
    "5.2.NC1b",
    "6.2.NC1b"
+  ],
+  "nls_loi": [],
+  "ghi_chu": "Dạy học online tuỳ vào tình hình thực tế",
+  "thiet_bi": [
+   {
+    "ma": "PTTH2034",
+    "ten": "Bộ thiết bị để vẽ trên bảng trong dạy học toán (thước thẳng, compa)"
+   }
   ]
  },
  {
   "lop": 11,
   "hoc_ky": 1,
-  "tuan": "11\n(Dạy học online tuỳ vào tình hình thực tế)",
+  "tuan": 11,
   "tiet": "11",
   "so_tiet": 1,
   "loai": "chuyen_de_hoc_tap",
   "ten": "CĐ1. Bài 6. Phép vị tự",
   "bai_so": null,
+  "ten_bai": "Phép vị tự",
   "chuyen_de": "CĐ1.B6",
   "yccd": "Bài tập phép vị tự",
   "nls": [
    "1.1.NC1b",
    "5.2.NC1b",
    "6.2.NC1b"
+  ],
+  "nls_loi": [],
+  "ghi_chu": "Dạy học online tuỳ vào tình hình thực tế",
+  "thiet_bi": [
+   {
+    "ma": "PTTH2034",
+    "ten": "Bộ thiết bị để vẽ trên bảng trong dạy học toán (thước thẳng, compa)"
+   }
   ]
  },
  {
   "lop": 11,
   "hoc_ky": 1,
-  "tuan": "11\n(Dạy học online tuỳ vào tình hình thực tế)",
+  "tuan": 11,
   "tiet": "21-22",
   "so_tiet": 2,
   "loai": "chuyen_sau",
   "ten": "Chuyên đề nâng cao: Dãy số",
   "bai_so": null,
+  "ten_bai": "Chuyên đề nâng cao: Dãy số",
   "chuyen_de": null,
   "yccd": "Các đánh giá cơ bản trên dãy số",
   "nls": [
    "1.1.NC1b",
    "5.2.NC1b",
    "6.2.NC1b"
+  ],
+  "nls_loi": [],
+  "ghi_chu": "Dạy học online tuỳ vào tình hình thực tế",
+  "thiet_bi": [
+   {
+    "ma": "PTTH2034",
+    "ten": "Bộ thiết bị để vẽ trên bảng trong dạy học toán (thước thẳng, compa)"
+   }
   ]
  },
  {
@@ -676,12 +1076,33 @@
   "loai": "co_ban",
   "ten": "Bài 13. Hai mặt phẳng song song",
   "bai_so": 13,
+  "ten_bai": "Hai mặt phẳng song song",
   "chuyen_de": null,
   "yccd": "Nhận biết được hai mặt phẳng song song trong không gian.\nGiải thích được điều kiện để hai mặt phẳng song song.\nGiải thích được tính chất cơ bản về hai mặt phẳng song song.\nGiải thích được định lí Thalès trong không gian.\nGiải thích được tính chất cơ bản của lăng trụ và hình hộp.\nVận dụng được kiến thức về quan hệ song song để mô tả một số hình ảnh trong thực tiễn.",
   "nls": [
    "1.1.NC1b",
    "5.2.NC1b",
    "6.2.NC1b"
+  ],
+  "nls_loi": [],
+  "ghi_chu": null,
+  "thiet_bi": [
+   {
+    "ma": "PTTH2034",
+    "ten": "Bộ thiết bị để vẽ trên bảng trong dạy học toán (thước thẳng, compa)"
+   },
+   {
+    "ma": "PTTH2036",
+    "ten": "Bộ thiết bị dạy học về hình chóp, hình chóp cụt, hình lăng trụ"
+   },
+   {
+    "ma": "TOAN002",
+    "ten": "Máy tính Acer"
+   },
+   {
+    "ma": "PTTH3002",
+    "ten": "Phần mềm toán học - Hình học và đo lường"
+   }
   ]
  },
  {
@@ -693,12 +1114,21 @@
   "loai": "chuyen_de_hoc_tap",
   "ten": "CĐ1. Bài 7. Phép đồng dạng",
   "bai_so": null,
+  "ten_bai": "Phép đồng dạng",
   "chuyen_de": "CĐ1.B7",
   "yccd": "Nhận biết phép đồng dạng\nVận dụng được phép đồng dạng trong thực tiễn",
   "nls": [
    "1.1.NC1b",
    "5.2.NC1b",
    "6.2.NC1b"
+  ],
+  "nls_loi": [],
+  "ghi_chu": null,
+  "thiet_bi": [
+   {
+    "ma": "PTTH2034",
+    "ten": "Bộ thiết bị để vẽ trên bảng trong dạy học toán (thước thẳng, compa)"
+   }
   ]
  },
  {
@@ -710,12 +1140,21 @@
   "loai": "chuyen_sau",
   "ten": "Chuyên đề nâng cao: Phép biến hình trong mặt phẳng",
   "bai_so": null,
+  "ten_bai": "Chuyên đề nâng cao: Phép biến hình trong mặt phẳng",
   "chuyen_de": null,
   "yccd": "- Hiểu được khái niệm phép biến hình trong mặt phẳng, khái niệm phép dời hình trong mặt phẳng.\n- Nhận biết được dạng chính của các phép dời hình thuận (tịnh tiến, quay), biết được dạng chính tắc của dời hình nghịch (đối xứng trượt).\n- Hiểu được các tính chất cơ bản của phép dời hình trong mặt phẳng: bảo tồn tính thẳng hàng, độ dài đoạn thẳng, số đo của góc, diện tích của hình, tỉ số đơn, tỉ số kép. Biết được tính chất của hợp thành hai phép dời hình.\n- Hiểu được phép quay véctơ trong mặt phẳng và các tính chất cơ bản: bảo tồn góc giữa các véctơ, độ lớn của véctơ,…\n- Vận dụng linh hoạt phép dời hình vào các bài toán liên quan.",
   "nls": [
    "1.1.NC1b",
    "5.2.NC1b",
    "6.2.NC1b"
+  ],
+  "nls_loi": [],
+  "ghi_chu": null,
+  "thiet_bi": [
+   {
+    "ma": "PTTH2034",
+    "ten": "Bộ thiết bị để vẽ trên bảng trong dạy học toán (thước thẳng, compa)"
+   }
   ]
  },
  {
@@ -727,12 +1166,21 @@
   "loai": "co_ban",
   "ten": "Bài 14. Phép chiếu song song",
   "bai_so": 14,
+  "ten_bai": "Phép chiếu song song",
   "chuyen_de": null,
   "yccd": "Nhận biết được khái niệm và các tính chất cơ bản về phép chiếu song song.\nXác định được ảnh của một điểm, một đoạn thẳng, một tam giác, một đường tròn qua một phép chiếu song song.\nVẽ được hình biểu diễn của một số hình khối đơn giản.\nSử dụng được kiến thức về phép chiếu song song để mô tả một số hình ảnh trong thực tiễn.",
   "nls": [
    "1.1.NC1b",
    "5.2.NC1b",
    "6.2.NC1b"
+  ],
+  "nls_loi": [],
+  "ghi_chu": null,
+  "thiet_bi": [
+   {
+    "ma": "PTTH2034",
+    "ten": "Bộ thiết bị để vẽ trên bảng trong dạy học toán (thước thẳng, compa)"
+   }
   ]
  },
  {
@@ -744,12 +1192,21 @@
   "loai": "co_ban",
   "ten": "Bài tập cuối chương IV",
   "bai_so": null,
+  "ten_bai": "Bài tập cuối chương IV",
   "chuyen_de": null,
   "yccd": "Vận dụng được các tính  chất  về  giao  tuyến  của  hai  mặt  phẳng;  giao điểm của đường thẳng và mặt phẳng vào giải bài tập.\nNhận biết được vị trí tương đối của hai đường thẳng trong không gian, giải thích được tính chất cơ bản về hai đường thẳng song song trong không gian.\nGiải thích được điều kiện và tính chất cơ bản về đường thẳng song song với mặt phẳng, hai mặt phẳng song song.\nNhận biết được khái niệm và các tính chất cơ bản về phép chiếu song song. Vẽ được hình biểu diễn của một số hình khối đơn giản.\nVận dụng được kiến thức về đường thẳng, mặt phẳng trong không gian và quan hệ song song để mô tả một số hình ảnh trong thực tiễn.",
   "nls": [
    "1.1.NC1b",
    "5.2.NC1b",
    "6.2.NC1b"
+  ],
+  "nls_loi": [],
+  "ghi_chu": null,
+  "thiet_bi": [
+   {
+    "ma": "PTTH2034",
+    "ten": "Bộ thiết bị để vẽ trên bảng trong dạy học toán (thước thẳng, compa)"
+   }
   ]
  },
  {
@@ -758,15 +1215,28 @@
   "tuan": 13,
   "tiet": "13",
   "so_tiet": 1,
-  "loai": "co_ban",
+  "loai": "chuyen_de_hoc_tap",
   "ten": "Bài tập cuối chuyên đề 1",
   "bai_so": null,
+  "ten_bai": "Bài tập cuối chuyên đề 1",
   "chuyen_de": null,
   "yccd": "Nhận biết phép biến hình, phép tịnh tiến, phép đối xứng trục, phép quay- đối xứng tâm, phép dời hình, phép vị tự, phép đồng dạng và các tính chất tương ứng; vận dụng trong giải một số bài tập và thực tiễn.",
   "nls": [
    "1.1.NC1b",
    "5.2.NC1b",
    "6.2.NC1b"
+  ],
+  "nls_loi": [],
+  "ghi_chu": null,
+  "thiet_bi": [
+   {
+    "ma": "PTTH2034",
+    "ten": "Bộ thiết bị để vẽ trên bảng trong dạy học toán (thước thẳng, compa)"
+   },
+   {
+    "ma": "PTTHTA1001",
+    "ten": "Tranh điện tử"
+   }
   ]
  },
  {
@@ -778,12 +1248,21 @@
   "loai": "chuyen_sau",
   "ten": "Chuyên đề nâng cao: Phép biến hình trong mặt phẳng",
   "bai_so": null,
+  "ten_bai": "Chuyên đề nâng cao: Phép biến hình trong mặt phẳng",
   "chuyen_de": null,
   "yccd": "- Hiểu được khái niệm phép biến hình trong mặt phẳng, khái niệm phép dời hình trong mặt phẳng.\n- Nhận biết được dạng chính của các phép dời hình thuận (tịnh tiến, quay), biết được dạng chính tắc của dời hình nghịch (đối xứng trượt).\n- Hiểu được các tính chất cơ bản của phép dời hình trong mặt phẳng: bảo tồn tính thẳng hàng, độ dài đoạn thẳng, số đo của góc, diện tích của hình, tỉ số đơn, tỉ số kép. Biết được tính chất của hợp thành hai phép dời hình.\n- Hiểu được phép quay véctơ trong mặt phẳng và các tính chất cơ bản: bảo tồn góc giữa các véctơ, độ lớn của véctơ,…\n- Vận dụng linh hoạt phép dời hình vào các bài toán liên quan.",
   "nls": [
    "1.1.NC1b",
    "5.2.NC1b",
    "6.2.NC1b"
+  ],
+  "nls_loi": [],
+  "ghi_chu": null,
+  "thiet_bi": [
+   {
+    "ma": "PTTH2034",
+    "ten": "Bộ thiết bị để vẽ trên bảng trong dạy học toán (thước thẳng, compa)"
+   }
   ]
  },
  {
@@ -795,12 +1274,29 @@
   "loai": "co_ban",
   "ten": "Bài 15. Giới hạn của dãy số",
   "bai_so": 15,
+  "ten_bai": "Giới hạn của dãy số",
   "chuyen_de": null,
   "yccd": "Nhận biết được khái niệm giới hạn của dãy số.\nGiải thích được một số giới hạn cơ bản.\nVận dụng được các phép toán giới hạn dãy số để tìm giới hạn của một số dãy số đơn giản.\nTính được tổng của một cấp số nhân lùi vô hạn và vận dụng được kết quả đó để giải quyết một số tình huống thực tiễn giả định hoặc liên quan đến thực tiễn.",
   "nls": [
    "1.1.NC1b",
    "5.2.NC1b",
    "6.2.NC1b"
+  ],
+  "nls_loi": [],
+  "ghi_chu": null,
+  "thiet_bi": [
+   {
+    "ma": "PTTH2034",
+    "ten": "Bộ thiết bị để vẽ trên bảng trong dạy học toán (thước thẳng, compa)"
+   },
+   {
+    "ma": "TOAN002",
+    "ten": "Máy tính Acer"
+   },
+   {
+    "ma": "PTTH3001",
+    "ten": "Phần mềm toán học - Đại số và Giải tích"
+   }
   ]
  },
  {
@@ -812,12 +1308,21 @@
   "loai": "co_ban",
   "ten": "Bài 16. Giới hạn của hàm số",
   "bai_so": 16,
+  "ten_bai": "Giới hạn của hàm số",
   "chuyen_de": null,
   "yccd": "Nhận biết được khái niệm giới hạn hữu hạn của hàm số, giới hạn hữu hạn một phía của hàm số tại một điểm.\nNhận biết được khái niệm giới hạn hữu hạn của hàm số tại vô cực và mô tả được một số giới hạn cơ bản  như  với  là một số nguyên dương\nNhận biết được khái niệm giới hạn vô cực (một phía) của hàm số tại một điểm và hiểu được một số giới hạn cơ bản  như \nTính được một số giới hạn hàm số bằng cách vận dụng các phép toán trên giới hạn hàm số.\nGiải quyết được một số vấn đề thực tiễn gắn với giới hạn hàm số.",
   "nls": [
    "1.1.NC1b",
    "5.2.NC1b",
    "6.2.NC1b"
+  ],
+  "nls_loi": [],
+  "ghi_chu": null,
+  "thiet_bi": [
+   {
+    "ma": "PTTH2034",
+    "ten": "Bộ thiết bị để vẽ trên bảng trong dạy học toán (thước thẳng, compa)"
+   }
   ]
  },
  {
@@ -826,15 +1331,24 @@
   "tuan": 14,
   "tiet": "14",
   "so_tiet": 1,
-  "loai": "co_ban",
+  "loai": "chuyen_de_hoc_tap",
   "ten": "Bài tập và kiểm tra cuối chuyên đề 1",
   "bai_so": null,
+  "ten_bai": "Bài tập và kiểm tra cuối chuyên đề 1",
   "chuyen_de": null,
   "yccd": "Nhận biết phép biến hình, phép tịnh tiến, phép đối xứng trục, phép quay- đối xứng tâm, phép dời hình, phép vị tự, phép đồng dạng và các tính chất tương ứng; vận dụng trong giải một số bài tập và thực tiễn.",
   "nls": [
    "1.1.NC1b",
    "5.2.NC1b",
    "6.2.NC1b"
+  ],
+  "nls_loi": [],
+  "ghi_chu": null,
+  "thiet_bi": [
+   {
+    "ma": "PTTH2034",
+    "ten": "Bộ thiết bị để vẽ trên bảng trong dạy học toán (thước thẳng, compa)"
+   }
   ]
  },
  {
@@ -846,12 +1360,21 @@
   "loai": "chuyen_sau",
   "ten": "Chuyên đề nâng cao: Phép biến hình trong mặt phẳng",
   "bai_so": null,
+  "ten_bai": "Chuyên đề nâng cao: Phép biến hình trong mặt phẳng",
   "chuyen_de": null,
   "yccd": "- Hiểu được khái niệm phép biến hình trong mặt phẳng, khái niệm phép dời hình trong mặt phẳng.\n- Nhận biết được dạng chính của các phép dời hình thuận (tịnh tiến, quay), biết được dạng chính tắc của dời hình nghịch (đối xứng trượt).\n- Hiểu được các tính chất cơ bản của phép dời hình trong mặt phẳng: bảo tồn tính thẳng hàng, độ dài đoạn thẳng, số đo của góc, diện tích của hình, tỉ số đơn, tỉ số kép. Biết được tính chất của hợp thành hai phép dời hình.\n- Hiểu được phép quay véctơ trong mặt phẳng và các tính chất cơ bản: bảo tồn góc giữa các véctơ, độ lớn của véctơ,…\n- Vận dụng linh hoạt phép dời hình vào các bài toán liên quan.",
   "nls": [
    "1.1.NC1b",
    "5.2.NC1b",
    "6.2.NC1b"
+  ],
+  "nls_loi": [],
+  "ghi_chu": null,
+  "thiet_bi": [
+   {
+    "ma": "PTTH2034",
+    "ten": "Bộ thiết bị để vẽ trên bảng trong dạy học toán (thước thẳng, compa)"
+   }
   ]
  },
  {
@@ -863,12 +1386,21 @@
   "loai": "co_ban",
   "ten": "Bài 16. Giới hạn của hàm số",
   "bai_so": 16,
+  "ten_bai": "Giới hạn của hàm số",
   "chuyen_de": null,
   "yccd": "Nhận biết được khái niệm giới hạn hữu hạn của hàm số, giới hạn hữu hạn một phía của hàm số tại một điểm.\nNhận biết được khái niệm giới hạn hữu hạn của hàm số tại vô cực và mô tả được một số giới hạn cơ bản  như  với  là một số nguyên dương\nNhận biết được khái niệm giới hạn vô cực (một phía) của hàm số tại một điểm và hiểu được một số giới hạn cơ bản  như \nTính được một số giới hạn hàm số bằng cách vận dụng các phép toán trên giới hạn hàm số.\nGiải quyết được một số vấn đề thực tiễn gắn với giới hạn hàm số.",
   "nls": [
    "1.1.NC1b",
    "5.2.NC1b",
    "6.2.NC1b"
+  ],
+  "nls_loi": [],
+  "ghi_chu": null,
+  "thiet_bi": [
+   {
+    "ma": "PTTH2034",
+    "ten": "Bộ thiết bị để vẽ trên bảng trong dạy học toán (thước thẳng, compa)"
+   }
   ]
  },
  {
@@ -880,12 +1412,21 @@
   "loai": "co_ban",
   "ten": "Bài 17. Hàm số liên tục",
   "bai_so": 17,
+  "ten_bai": "Hàm số liên tục",
   "chuyen_de": null,
   "yccd": "Nhận dạng được hàm số liên tục tại một điểm, hoặc trên một khoảng, hoặc trên một đoạn.\nNhận dạng được tính liên tục của tổng, hiệu, tích, thương của hai hàm số liên tục.\nNhận biết được tính liên tục của một số hàm sơ cấp cơ bản (như hàm đa thức, hàm phân thức, hàm căn thức, hàm lượng giác) trên tập xác định của chúng.",
   "nls": [
    "1.1.NC1b",
    "5.2.NC1b",
    "6.2.NC1b"
+  ],
+  "nls_loi": [],
+  "ghi_chu": null,
+  "thiet_bi": [
+   {
+    "ma": "PTTH2034",
+    "ten": "Bộ thiết bị để vẽ trên bảng trong dạy học toán (thước thẳng, compa)"
+   }
   ]
  },
  {
@@ -897,12 +1438,21 @@
   "loai": "chuyen_de_hoc_tap",
   "ten": "CĐ2. Bài 8. Một số khái niệm cơ bản về Graph",
   "bai_so": null,
+  "ten_bai": "Một số khái niệm cơ bản về Graph",
   "chuyen_de": "CĐ2.B8",
   "yccd": "Nhận biết được khái niệm đồ thị, đỉnh, cạnh, đường đi, chu trình, bậc của đỉnh",
   "nls": [
    "1.1.NC1b",
    "5.2.NC1b",
    "6.2.NC1b"
+  ],
+  "nls_loi": [],
+  "ghi_chu": null,
+  "thiet_bi": [
+   {
+    "ma": "PTTH2034",
+    "ten": "Bộ thiết bị để vẽ trên bảng trong dạy học toán (thước thẳng, compa)"
+   }
   ]
  },
  {
@@ -914,12 +1464,21 @@
   "loai": "chuyen_sau",
   "ten": "Chuyên đề nâng cao: Phép biến hình trong mặt phẳng",
   "bai_so": null,
+  "ten_bai": "Chuyên đề nâng cao: Phép biến hình trong mặt phẳng",
   "chuyen_de": null,
   "yccd": "- Hiểu được khái niệm phép biến hình trong mặt phẳng, khái niệm phép dời hình trong mặt phẳng.\n- Nhận biết được dạng chính của các phép dời hình thuận (tịnh tiến, quay), biết được dạng chính tắc của dời hình nghịch (đối xứng trượt).\n- Hiểu được các tính chất cơ bản của phép dời hình trong mặt phẳng: bảo tồn tính thẳng hàng, độ dài đoạn thẳng, số đo của góc, diện tích của hình, tỉ số đơn, tỉ số kép. Biết được tính chất của hợp thành hai phép dời hình.\n- Hiểu được phép quay véctơ trong mặt phẳng và các tính chất cơ bản: bảo tồn góc giữa các véctơ, độ lớn của véctơ,…\n- Vận dụng linh hoạt phép dời hình vào các bài toán liên quan.",
   "nls": [
    "1.1.NC1b",
    "5.2.NC1b",
    "6.2.NC1b"
+  ],
+  "nls_loi": [],
+  "ghi_chu": null,
+  "thiet_bi": [
+   {
+    "ma": "PTTH2034",
+    "ten": "Bộ thiết bị để vẽ trên bảng trong dạy học toán (thước thẳng, compa)"
+   }
   ]
  },
  {
@@ -931,12 +1490,21 @@
   "loai": "co_ban",
   "ten": "Bài tập cuối chương V",
   "bai_so": null,
+  "ten_bai": "Bài tập cuối chương V",
   "chuyen_de": null,
   "yccd": "- Nhận biết được khái niệm giới hạn của dãy số.  Vận dụng được các phép toán giới hạn dãy số để tìm giới hạn của các dãy số đơn giản. Tính được tổng của một cấp số nhân lùi vô hạn.\n- Nhận biết được khái niệm giới hạn hữu hạn, giới hạn hữu hạn một phía của hàm số tại một điểm; giới hạn hữu hạn của hàm số tại vô cực, giới hạn vô cực (một phía) của hàm số tại một điểm và hiểu được một số giới hạn cơ bản.  \n - Nhận dạng được hàm số liên tục tại một điểm, hoặc trên một khoảng, hoặc trên một đoạn; tính liên tục của tổng, hiệu, tích, thương của hai hàm số liên tục hoặc của một số hàm sơ cấp cơ bản trên tập xác định của chúng.",
   "nls": [
    "1.1.NC1b",
    "5.2.NC1b",
    "6.2.NC1b"
+  ],
+  "nls_loi": [],
+  "ghi_chu": null,
+  "thiet_bi": [
+   {
+    "ma": "PTTH2034",
+    "ten": "Bộ thiết bị để vẽ trên bảng trong dạy học toán (thước thẳng, compa)"
+   }
   ]
  },
  {
@@ -945,15 +1513,24 @@
   "tuan": 16,
   "tiet": "47-48",
   "so_tiet": 2,
-  "loai": "co_ban",
+  "loai": "trai_nghiem",
   "ten": "Hoạt động thực hành trải nghiệm – Một vài áp dụng của toán học trong tài chính",
   "bai_so": null,
+  "ten_bai": "Hoạt động thực hành trải nghiệm – Một vài áp dụng của toán học trong tài chính",
   "chuyen_de": null,
   "yccd": "HS vận dụng toán học để giải quyết một số vấn đề tài chính như bài toán gửi tiết kiệm, bài toán vay, trả góp",
   "nls": [
    "1.1.NC1b",
    "5.2.NC1b",
    "6.2.NC1b"
+  ],
+  "nls_loi": [],
+  "ghi_chu": null,
+  "thiet_bi": [
+   {
+    "ma": "PTTH2034",
+    "ten": "Bộ thiết bị để vẽ trên bảng trong dạy học toán (thước thẳng, compa)"
+   }
   ]
  },
  {
@@ -965,12 +1542,21 @@
   "loai": "chuyen_de_hoc_tap",
   "ten": "CĐ2. Bài 8. Một số khái niệm cơ bản về Graph",
   "bai_so": null,
+  "ten_bai": "Một số khái niệm cơ bản về Graph",
   "chuyen_de": "CĐ2.B8",
   "yccd": "Nhận biết được khái niệm đồ thị, đỉnh, cạnh, đường đi, chu trình, bậc của đỉnh",
   "nls": [
    "1.1.NC1b",
    "5.2.NC1b",
    "6.2.NC1b"
+  ],
+  "nls_loi": [],
+  "ghi_chu": null,
+  "thiet_bi": [
+   {
+    "ma": "PTTH2034",
+    "ten": "Bộ thiết bị để vẽ trên bảng trong dạy học toán (thước thẳng, compa)"
+   }
   ]
  },
  {
@@ -982,80 +1568,125 @@
   "loai": "chuyen_sau",
   "ten": "Chuyên đề nâng cao: Dãy số",
   "bai_so": null,
+  "ten_bai": "Chuyên đề nâng cao: Dãy số",
   "chuyen_de": null,
   "yccd": "Giới hạn của dãy số",
   "nls": [
    "1.1.NC1b",
    "5.2.NC1b",
    "6.2.NC1b"
+  ],
+  "nls_loi": [],
+  "ghi_chu": null,
+  "thiet_bi": [
+   {
+    "ma": "PTTH2034",
+    "ten": "Bộ thiết bị để vẽ trên bảng trong dạy học toán (thước thẳng, compa)"
+   }
   ]
  },
  {
   "lop": 11,
   "hoc_ky": 1,
-  "tuan": "17\n(Dạy học online tuỳ vào tình hình thực tế)",
+  "tuan": 17,
   "tiet": "49-50",
   "so_tiet": 2,
-  "loai": "co_ban",
+  "loai": "trai_nghiem",
   "ten": "Hoạt động thực hành trải nghiệm – Lực căn mặt ngoài của nước",
   "bai_so": null,
+  "ten_bai": "Hoạt động thực hành trải nghiệm – Lực căn mặt ngoài của nước",
   "chuyen_de": null,
   "yccd": "HS biết thực hiện thí nghiệm để thu thập dữ liệu, biết sử dụng số đặc trưng của mẫu số liệu ghép nhóm để so sánh kết quả và rút ra kết luận.",
   "nls": [
    "1.1.NC1b",
    "5.2.NC1b",
    "6.2.NC1b"
+  ],
+  "nls_loi": [],
+  "ghi_chu": "Dạy học online tuỳ vào tình hình thực tế",
+  "thiet_bi": [
+   {
+    "ma": "PTTH2034",
+    "ten": "Bộ thiết bị để vẽ trên bảng trong dạy học toán (thước thẳng, compa)"
+   }
   ]
  },
  {
   "lop": 11,
   "hoc_ky": 1,
-  "tuan": "17\n(Dạy học online tuỳ vào tình hình thực tế)",
+  "tuan": 17,
   "tiet": "17",
   "so_tiet": 1,
   "loai": "chuyen_de_hoc_tap",
   "ten": "CĐ2. Bài 8. Một số khái niệm cơ bản về Graph",
   "bai_so": null,
+  "ten_bai": "Một số khái niệm cơ bản về Graph",
   "chuyen_de": "CĐ2.B8",
   "yccd": "Nhận biết được khái niệm đồ thị, đỉnh, cạnh, đường đi, chu trình, bậc của đỉnh",
   "nls": [
    "1.1.NC1b",
    "5.2.NC1b",
    "6.2.NC1b"
+  ],
+  "nls_loi": [],
+  "ghi_chu": "Dạy học online tuỳ vào tình hình thực tế",
+  "thiet_bi": [
+   {
+    "ma": "PTTH2034",
+    "ten": "Bộ thiết bị để vẽ trên bảng trong dạy học toán (thước thẳng, compa)"
+   }
   ]
  },
  {
   "lop": 11,
   "hoc_ky": 1,
-  "tuan": "17\n(Dạy học online tuỳ vào tình hình thực tế)",
+  "tuan": 17,
   "tiet": "18",
   "so_tiet": 1,
   "loai": "chuyen_de_hoc_tap",
   "ten": "CĐ2. Bài 9. Đường đi Euler và đường đi Hamilton",
   "bai_so": null,
+  "ten_bai": "Đường đi Euler và đường đi Hamilton",
   "chuyen_de": "CĐ2.B9",
   "yccd": "Nhận biết được đường đi Euler, đường đi Hamilton từ đồ thị đến thực tiễn (ví dụ: xác định đường đi, xác định đường đi  ngắn)",
   "nls": [
    "1.1.NC1b",
    "5.2.NC1b",
    "6.2.NC1b"
+  ],
+  "nls_loi": [],
+  "ghi_chu": "Dạy học online tuỳ vào tình hình thực tế",
+  "thiet_bi": [
+   {
+    "ma": "PTTH2034",
+    "ten": "Bộ thiết bị để vẽ trên bảng trong dạy học toán (thước thẳng, compa)"
+   }
   ]
  },
  {
   "lop": 11,
   "hoc_ky": 1,
-  "tuan": "17\n(Dạy học online tuỳ vào tình hình thực tế)",
+  "tuan": 17,
   "tiet": "33-34",
   "so_tiet": 2,
   "loai": "chuyen_sau",
   "ten": "Chuyên đề nâng cao: Dãy số",
   "bai_so": null,
+  "ten_bai": "Chuyên đề nâng cao: Dãy số",
   "chuyen_de": null,
   "yccd": "Giới hạn của dãy số",
   "nls": [
    "1.1.NC1b",
    "5.2.NC1b",
    "6.2.NC1b"
+  ],
+  "nls_loi": [],
+  "ghi_chu": "Dạy học online tuỳ vào tình hình thực tế",
+  "thiet_bi": [
+   {
+    "ma": "PTTH2034",
+    "ten": "Bộ thiết bị để vẽ trên bảng trong dạy học toán (thước thẳng, compa)"
+   }
   ]
  },
  {
@@ -1064,15 +1695,24 @@
   "tuan": 18,
   "tiet": "51-54",
   "so_tiet": 4,
-  "loai": "co_ban",
+  "loai": "on_tap_kiem_tra",
   "ten": "Ôn tập và kiểm tra cuối kỳ I",
   "bai_so": null,
+  "ten_bai": "Ôn tập và kiểm tra cuối kỳ I",
   "chuyen_de": null,
   "yccd": "Nhận biết và mô tả được các khái niệm cơ bản, các hệ thức cơ bản liên quan đến góc lượng giác, giá trị lượng giác của một góc lượng giác,các phép biến đổi lượng giác cơ bản; định nghĩa, và các yếu tố đặc trưng các hàm số lượng giác; công thức nghiệm của phương trình lượng giác cơ bản. Vận dụng vào giải quyết một số vấn đề thực tiễn.\n  Nhận biết được cấp số cộng, cấp số nhân và giải thích được các công thức liên quan; vận dụng vào giải quyết được một số vấn đề thực tiễn.\n Ghép nhóm mẫu số liệu. Tính được và hiểu được vai trò, ý nghĩa của các số đặc trưng đo xu thế trung tâm cho mẫu số liệu ghép nhóm. \n Vận dụng được kiến thức về đường thẳng, mặt phẳng trong không gian; quan hệ song song giữa hai đường thẳng, giữa đường thẳng và mặt phẳng, giữa hai mặt phẳng vào giải bài tập. Vận dụng mô tả một số hình ảnh trong thực tiễn.\n Nhận biết được khái niệm giới hạn của dãy số; tính được giới hạn của các dãy số đơn giản và tổng của một cấp số nhân lùi vô hạn.  Nhận biết được khái niệm về các giới hạn hữu hạn, giới hạn vô cực của hàm số. Nhận dạng được hàm số liên tục của một số hàm số.",
   "nls": [
    "1.1.NC1b",
    "5.2.NC1b",
    "6.2.NC1b"
+  ],
+  "nls_loi": [],
+  "ghi_chu": null,
+  "thiet_bi": [
+   {
+    "ma": "PTTH2034",
+    "ten": "Bộ thiết bị để vẽ trên bảng trong dạy học toán (thước thẳng, compa)"
+   }
   ]
  },
  {
@@ -1084,12 +1724,21 @@
   "loai": "chuyen_sau",
   "ten": "Chuyên đề nâng cao: Dãy số",
   "bai_so": null,
+  "ten_bai": "Chuyên đề nâng cao: Dãy số",
   "chuyen_de": null,
   "yccd": "Giới hạn của dãy số",
   "nls": [
    "1.1.NC1b",
    "5.2.NC1b",
    "6.2.NC1b"
+  ],
+  "nls_loi": [],
+  "ghi_chu": null,
+  "thiet_bi": [
+   {
+    "ma": "PTTH2034",
+    "ten": "Bộ thiết bị để vẽ trên bảng trong dạy học toán (thước thẳng, compa)"
+   }
   ]
  },
  {
@@ -1101,12 +1750,21 @@
   "loai": "co_ban",
   "ten": "Bài 18. Lũy thừa với số mũ thực",
   "bai_so": 18,
+  "ten_bai": "Lũy thừa với số mũ thực",
   "chuyen_de": null,
   "yccd": "Nhận biết được khái niệm luỹ thừa với số mũ nguyên của một số thực khác 0; luỹ thừa với số mũ hữu tỉ và luỹ thừa với số mũ thực của một số thực dương.\nGiải thích được các tính chất của phép tính luỹ thừa với số mũ nguyên, luỹ thừa với số mũ hữu tỉ và luỹ thừa với số mũ thực.\nSử dụng được tính chất của phép tính luỹ thừa trong tính toán các biểu thức số và rút gọn các biểu thức chứa biến (tính viết và tính nhẩm, tính nhanh một cách hợp lí).\nTính được giá trị biểu thức số có chứa phép tính luỹ thừa bằng sử dụng máy tính cầm tay.\nGiải quyết được một số vấn đề có liên quan đến môn học khác hoặc có liên quan đến thực tiễn gắn với phép tính luỹ thừa (ví dụ: bài toán về lãi suất, sự tăng trưởng,...).",
   "nls": [
    "1.1.NC1b",
    "5.2.NC1b",
    "6.2.NC1b"
+  ],
+  "nls_loi": [],
+  "ghi_chu": null,
+  "thiet_bi": [
+   {
+    "ma": "PTTH2034",
+    "ten": "Bộ thiết bị để vẽ trên bảng trong dạy học toán (thước thẳng, compa)"
+   }
   ]
  },
  {
@@ -1118,12 +1776,21 @@
   "loai": "co_ban",
   "ten": "Bài 19. Lôgarit",
   "bai_so": 19,
+  "ten_bai": "Lôgarit",
   "chuyen_de": null,
   "yccd": "Nhận biết được khái niệm lôgarit cơ số a () của một số thực dương.\nGiải thích được các tính chất của phép tính lôgarit nhờ sử dụng định nghĩa hoặc các tính chất đã biết trước đó.\nSử dụng được tính chất của phép tính lôgarit trong tính toán các biểu thức số và rút gọn các biểu thức chứa biến (tính viết và tính nhẩm, tính nhanh một cách hợp lí).\nTính được giá trị (đúng hoặc gần đúng) của lôgarit bằng cách sử dụng máy tính cầm tay.\nGiải quyết được một số vấn đề có liên quan đến môn học khác hoặc có liên quan đến thực tiễn gắn với phép tính lôgarit (ví dụ: bài toán liên quan đến độ pH trong Hoá học,...).",
   "nls": [
    "1.1.NC1b",
    "5.2.NC1b",
    "6.2.NC1b"
+  ],
+  "nls_loi": [],
+  "ghi_chu": null,
+  "thiet_bi": [
+   {
+    "ma": "PTTH2034",
+    "ten": "Bộ thiết bị để vẽ trên bảng trong dạy học toán (thước thẳng, compa)"
+   }
   ]
  },
  {
@@ -1135,12 +1802,21 @@
   "loai": "chuyen_de_hoc_tap",
   "ten": "CĐ2. Bài 9. Đường đi Euler và đường đi Hamilton",
   "bai_so": null,
+  "ten_bai": "Đường đi Euler và đường đi Hamilton",
   "chuyen_de": "CĐ2.B9",
   "yccd": "Nhận biết được đường đi Euler, đường đi Hamilton từ đồ thị đến thực tiễn (ví dụ: xác định đường đi, xác định đường đi  ngắn)",
   "nls": [
    "1.1.NC1b",
    "5.2.NC1b",
    "6.2.NC1b"
+  ],
+  "nls_loi": [],
+  "ghi_chu": null,
+  "thiet_bi": [
+   {
+    "ma": "PTTH2034",
+    "ten": "Bộ thiết bị để vẽ trên bảng trong dạy học toán (thước thẳng, compa)"
+   }
   ]
  },
  {
@@ -1152,12 +1828,21 @@
   "loai": "chuyen_sau",
   "ten": "Chuyên đề nâng cao: Graph",
   "bai_so": null,
+  "ten_bai": "Chuyên đề nâng cao: Graph",
   "chuyen_de": null,
   "yccd": "Vận dụng kiến thức đồ thị giải quyết một số bài toán cho các lớp đồ thị đặc biệt này.",
   "nls": [
    "1.1.NC1b",
    "5.2.NC1b",
    "6.2.NC1b"
+  ],
+  "nls_loi": [],
+  "ghi_chu": null,
+  "thiet_bi": [
+   {
+    "ma": "PTTH2034",
+    "ten": "Bộ thiết bị để vẽ trên bảng trong dạy học toán (thước thẳng, compa)"
+   }
   ]
  },
  {
@@ -1169,12 +1854,21 @@
   "loai": "co_ban",
   "ten": "Bài 19. Lôgarit",
   "bai_so": 19,
+  "ten_bai": "Lôgarit",
   "chuyen_de": null,
   "yccd": "Nhận biết được khái niệm lôgarit cơ số a () của một số thực dương.\nGiải thích được các tính chất của phép tính lôgarit nhờ sử dụng định nghĩa hoặc các tính chất đã biết trước đó.\nSử dụng được tính chất của phép tính lôgarit trong tính toán các biểu thức số và rút gọn các biểu thức chứa biến (tính viết và tính nhẩm, tính nhanh một cách hợp lí).\nTính được giá trị (đúng hoặc gần đúng) của lôgarit bằng cách sử dụng máy tính cầm tay.\nGiải quyết được một số vấn đề có liên quan đến môn học khác hoặc có liên quan đến thực tiễn gắn với phép tính lôgarit (ví dụ: bài toán liên quan đến độ pH trong Hoá học,...).",
   "nls": [
    "1.1.NC1b",
    "5.2.NC1b",
    "6.2.NC1b"
+  ],
+  "nls_loi": [],
+  "ghi_chu": null,
+  "thiet_bi": [
+   {
+    "ma": "PTTH2034",
+    "ten": "Bộ thiết bị để vẽ trên bảng trong dạy học toán (thước thẳng, compa)"
+   }
   ]
  },
  {
@@ -1186,12 +1880,37 @@
   "loai": "co_ban",
   "ten": "Bài 20. Hàm số mũ và hàm số lôgarit",
   "bai_so": 20,
+  "ten_bai": "Hàm số mũ và hàm số lôgarit",
   "chuyen_de": null,
   "yccd": "Nhận biết được hàm số mũ và hàm số lôgarit. Nêu được một số ví dụ thực tế về hàm số mũ, hàm số lôgarit.\nNhận dạng được đồ thị của các hàm số mũ, hàm số lôgarit.\nGiải thích được các tính chất của hàm số mũ, hàm số lôgarit thông qua đồ thị của chúng.\nGiải quyết được một số vấn đề có liên quan đến môn học khác hoặc có liên quan đến thực tiễn gắn với hàm số mũ và hàm số lôgarit (ví dụ: lãi suất, sự tăng trưởng,...).",
   "nls": [
    "1.1.NC1b",
    "5.2.NC1b",
    "6.2.NC1b"
+  ],
+  "nls_loi": [],
+  "ghi_chu": null,
+  "thiet_bi": [
+   {
+    "ma": "PTTH2034",
+    "ten": "Bộ thiết bị để vẽ trên bảng trong dạy học toán (thước thẳng, compa)"
+   },
+   {
+    "ma": "TOAN001",
+    "ten": "Bộ dụng cụ vẽ kỹ thuật (thước T, compa, thước dài, eke, thước cong)"
+   },
+   {
+    "ma": "PTTHTA1001",
+    "ten": "Tranh điện tử"
+   },
+   {
+    "ma": "TOAN002",
+    "ten": "Máy tính Acer"
+   },
+   {
+    "ma": "PTTH3001",
+    "ten": "Phần mềm toán học - Đại số và Giải tích"
+   }
   ]
  },
  {
@@ -1203,12 +1922,21 @@
   "loai": "chuyen_de_hoc_tap",
   "ten": "CĐ2. Bài 9. Đường đi Euler và đường đi Hamilton",
   "bai_so": null,
+  "ten_bai": "Đường đi Euler và đường đi Hamilton",
   "chuyen_de": "CĐ2.B9",
   "yccd": "Nhận biết được đường đi Euler, đường đi Hamilton từ đồ thị đến thực tiễn (ví dụ: xác định đường đi, xác định đường đi  ngắn)",
   "nls": [
    "1.1.NC1b",
    "5.2.NC1b",
    "6.2.NC1b"
+  ],
+  "nls_loi": [],
+  "ghi_chu": null,
+  "thiet_bi": [
+   {
+    "ma": "PTTH2034",
+    "ten": "Bộ thiết bị để vẽ trên bảng trong dạy học toán (thước thẳng, compa)"
+   }
   ]
  },
  {
@@ -1220,12 +1948,21 @@
   "loai": "chuyen_sau",
   "ten": "Chuyên đề nâng cao: Graph",
   "bai_so": null,
+  "ten_bai": "Chuyên đề nâng cao: Graph",
   "chuyen_de": null,
   "yccd": "Vận dụng kiến thức đồ thị giải quyết một số bài toán cho các lớp đồ thị đặc biệt này.",
   "nls": [
    "1.1.NC1b",
    "5.2.NC1b",
    "6.2.NC1b"
+  ],
+  "nls_loi": [],
+  "ghi_chu": null,
+  "thiet_bi": [
+   {
+    "ma": "PTTH2034",
+    "ten": "Bộ thiết bị để vẽ trên bảng trong dạy học toán (thước thẳng, compa)"
+   }
   ]
  },
  {
@@ -1237,12 +1974,25 @@
   "loai": "co_ban",
   "ten": "Bài 21. PT, BPT mũ và lôgarit",
   "bai_so": 21,
+  "ten_bai": "PT, BPT mũ và lôgarit",
   "chuyen_de": null,
   "yccd": "Giải được phương trình, bất phương trình mũ, lôgarit ở dạng đơn giản.\nGiải quyết được một số vấn đề có liên quan đến môn học khác hoặc có liên quan đến thực tiễn gắn với phương trình, bất phương trình mũ và lôgarit (ví dụ: bài toán liên quan đến độ pH, độ rung chấn,...).",
   "nls": [
    "1.1.NC1b",
    "5.2.NC1b",
    "6.2.NC1b"
+  ],
+  "nls_loi": [],
+  "ghi_chu": null,
+  "thiet_bi": [
+   {
+    "ma": "PTTH2034",
+    "ten": "Bộ thiết bị để vẽ trên bảng trong dạy học toán (thước thẳng, compa)"
+   },
+   {
+    "ma": "TOAN001",
+    "ten": "Bộ dụng cụ vẽ kỹ thuật (thước T, compa, thước dài, eke, thước cong)"
+   }
   ]
  },
  {
@@ -1251,15 +2001,24 @@
   "tuan": 21,
   "tiet": "63",
   "so_tiet": 1,
-  "loai": "co_ban",
+  "loai": "on_tap_kiem_tra",
   "ten": "Ôn tập chương VI",
   "bai_so": null,
+  "ten_bai": "Ôn tập chương VI",
   "chuyen_de": null,
   "yccd": "Nhận biết được khái niệm, các tính chất của luỹ thừa với số mũ nguyên của một số thực khác 0; luỹ thừa với số mũ hữu tỉ , luỹ thừa với số mũ thực của một số thực dương và áp dụng trong tính toán.\n Nhận biết được khái niệm và các tính chất của lôgarit cơ số a () của một số thực dương, áp dụng trong tính toán.\nNhận biết và giải thích được đồ thị, tính chất của hàm số mũ và hàm số lôgarit. \nGiải được phương trình, bất phương trình mũ, lôgarit ở dạng đơn giản.\nGiải quyết được một số vấn đề có liên quan đến môn học khác hoặc có liên quan đến thực tiễn gắn với lũy thừa, loogarit, phương trình, bất phương trình mũ và lôgarit.",
   "nls": [
    "1.1.NC1b",
    "5.2.NC1b",
    "6.2.NC1b"
+  ],
+  "nls_loi": [],
+  "ghi_chu": null,
+  "thiet_bi": [
+   {
+    "ma": "PTTH2034",
+    "ten": "Bộ thiết bị để vẽ trên bảng trong dạy học toán (thước thẳng, compa)"
+   }
   ]
  },
  {
@@ -1271,12 +2030,21 @@
   "loai": "chuyen_de_hoc_tap",
   "ten": "CĐ2. Bài 10. Bài toán tìm đường đi tối ưu trong một số trường hợp đơn giản",
   "bai_so": null,
+  "ten_bai": "Bài toán tìm đường đi tối ưu trong một số trường hợp đơn giản",
   "chuyen_de": "CĐ2.B10",
   "yccd": "Nhận biết được thuật toán về tìm đường đi tối ưu trong những trường hợp đơn giản.\nSử dụng kiến thức về đồ thị để giải quyết một số tình huống liên quan đến thực tiễn (ví dụ: xác định đường đi, xác định đường đi  ngắn nhất…)",
   "nls": [
    "1.1.NC1b",
    "5.2.NC1b",
    "6.2.NC1b"
+  ],
+  "nls_loi": [],
+  "ghi_chu": null,
+  "thiet_bi": [
+   {
+    "ma": "PTTH2034",
+    "ten": "Bộ thiết bị để vẽ trên bảng trong dạy học toán (thước thẳng, compa)"
+   }
   ]
  },
  {
@@ -1288,63 +2056,99 @@
   "loai": "chuyen_sau",
   "ten": "Chuyên đề nâng cao: Graph",
   "bai_so": null,
+  "ten_bai": "Chuyên đề nâng cao: Graph",
   "chuyen_de": null,
   "yccd": "Vận dụng kiến thức đồ thị giải quyết một số bài toán cho các lớp đồ thị đặc biệt này.",
   "nls": [
    "1.1.NC1b",
    "5.2.NC1b",
    "6.2.NC1b"
+  ],
+  "nls_loi": [],
+  "ghi_chu": null,
+  "thiet_bi": [
+   {
+    "ma": "PTTH2034",
+    "ten": "Bộ thiết bị để vẽ trên bảng trong dạy học toán (thước thẳng, compa)"
+   }
   ]
  },
  {
   "lop": 11,
   "hoc_ky": 2,
-  "tuan": "22\n(Dạy học online tuỳ vào tình hình thực tế)",
+  "tuan": 22,
   "tiet": "64-66",
   "so_tiet": 3,
   "loai": "co_ban",
   "ten": "Bài 22. Hai đường thẳng vuông góc",
   "bai_so": 22,
+  "ten_bai": "Hai đường thẳng vuông góc",
   "chuyen_de": null,
   "yccd": "Nhận biết được khái niệm góc giữa hai đường thẳng trong không gian.\nNhận biết được hai đường thẳng vuông góc trong không gian.\nChứng minh được hai đường thẳng vuông góc trong không gian trong một số trường hợp đơn giản.\nSử dụng được kiến thức về hai đường thẳng vuông góc để mô tả một số hình ảnh trong thực tiễn.",
   "nls": [
    "1.1.NC1b",
    "5.2.NC1b",
    "6.2.NC1b"
+  ],
+  "nls_loi": [],
+  "ghi_chu": "Dạy học online tuỳ vào tình hình thực tế",
+  "thiet_bi": [
+   {
+    "ma": "PTTH2034",
+    "ten": "Bộ thiết bị để vẽ trên bảng trong dạy học toán (thước thẳng, compa)"
+   }
   ]
  },
  {
   "lop": 11,
   "hoc_ky": 2,
-  "tuan": "22\n(Dạy học online tuỳ vào tình hình thực tế)",
+  "tuan": 22,
   "tiet": "22",
   "so_tiet": 1,
   "loai": "chuyen_de_hoc_tap",
   "ten": "CĐ2. Bài 10. Bài toán tìm đường đi tối ưu trong một số trường hợp đơn giản",
   "bai_so": null,
+  "ten_bai": "Bài toán tìm đường đi tối ưu trong một số trường hợp đơn giản",
   "chuyen_de": "CĐ2.B10",
   "yccd": "Nhận biết được thuật toán về tìm đường đi tối ưu trong những trường hợp đơn giản.\nSử dụng kiến thức về đồ thị để giải quyết một số tình huống liên quan đến thực tiễn (ví dụ: xác định đường đi, xác định đường đi  ngắn nhất…)",
   "nls": [
    "1.1.NC1b",
    "5.2.NC1b",
    "6.2.NC1b"
+  ],
+  "nls_loi": [],
+  "ghi_chu": "Dạy học online tuỳ vào tình hình thực tế",
+  "thiet_bi": [
+   {
+    "ma": "PTTH2034",
+    "ten": "Bộ thiết bị để vẽ trên bảng trong dạy học toán (thước thẳng, compa)"
+   }
   ]
  },
  {
   "lop": 11,
   "hoc_ky": 2,
-  "tuan": "22\n(Dạy học online tuỳ vào tình hình thực tế)",
+  "tuan": 22,
   "tiet": "43-44",
   "so_tiet": 2,
   "loai": "chuyen_sau",
   "ten": "Chuyên đề nâng cao: Graph",
   "bai_so": null,
+  "ten_bai": "Chuyên đề nâng cao: Graph",
   "chuyen_de": null,
   "yccd": "Vận dụng kiến thức đồ thị giải quyết một số bài toán cho các lớp đồ thị đặc biệt này.",
   "nls": [
    "1.1.NC1b",
    "5.2.NC1b",
    "6.2.NC1b"
+  ],
+  "nls_loi": [],
+  "ghi_chu": "Dạy học online tuỳ vào tình hình thực tế",
+  "thiet_bi": [
+   {
+    "ma": "PTTH2034",
+    "ten": "Bộ thiết bị để vẽ trên bảng trong dạy học toán (thước thẳng, compa)"
+   }
   ]
  },
  {
@@ -1356,12 +2160,21 @@
   "loai": "co_ban",
   "ten": "Bài 23. Đường thẳng vuông góc với mặt phẳng",
   "bai_so": 23,
+  "ten_bai": "Đường thẳng vuông góc với mặt phẳng",
   "chuyen_de": null,
   "yccd": "Nhận biết được đường thẳng vuông góc với mặt phẳng.\nXác định được điều kiện để đường thẳng vuông góc với mặt phẳng.\nGiải thích được được mối liên hệ giữa tính song song và tính vuông góc của đường thẳng và mặt phẳng.\nVận dụng kiến thức về quan hệ vuông góc giữa đường thẳng với mặt phẳng vào thực tế.",
   "nls": [
    "1.1.NC1b",
    "5.2.NC1b",
    "6.2.NC1b"
+  ],
+  "nls_loi": [],
+  "ghi_chu": null,
+  "thiet_bi": [
+   {
+    "ma": "PTTH2034",
+    "ten": "Bộ thiết bị để vẽ trên bảng trong dạy học toán (thước thẳng, compa)"
+   }
   ]
  },
  {
@@ -1373,12 +2186,21 @@
   "loai": "chuyen_de_hoc_tap",
   "ten": "CĐ2. Bài 10. Bài toán tìm đường đi tối ưu trong một số trường hợp đơn giản",
   "bai_so": null,
+  "ten_bai": "Bài toán tìm đường đi tối ưu trong một số trường hợp đơn giản",
   "chuyen_de": "CĐ2.B10",
   "yccd": "Nhận biết được thuật toán về tìm đường đi tối ưu trong những trường hợp đơn giản.\nSử dụng kiến thức về đồ thị để giải quyết một số tình huống liên quan đến thực tiễn (ví dụ: xác định đường đi, xác định đường đi  ngắn nhất…)",
   "nls": [
    "1.1.NC1b",
    "5.2.NC1b",
    "6.2.NC1b"
+  ],
+  "nls_loi": [],
+  "ghi_chu": null,
+  "thiet_bi": [
+   {
+    "ma": "PTTH2034",
+    "ten": "Bộ thiết bị để vẽ trên bảng trong dạy học toán (thước thẳng, compa)"
+   }
   ]
  },
  {
@@ -1390,12 +2212,21 @@
   "loai": "chuyen_sau",
   "ten": "Chuyên đề nâng cao: Graph",
   "bai_so": null,
+  "ten_bai": "Chuyên đề nâng cao: Graph",
   "chuyen_de": null,
   "yccd": "Vận dụng kiến thức đồ thị giải quyết một số bài toán cho các lớp đồ thị đặc biệt này.",
   "nls": [
    "1.1.NC1b",
    "5.2.NC1b",
    "6.2.NC1b"
+  ],
+  "nls_loi": [],
+  "ghi_chu": null,
+  "thiet_bi": [
+   {
+    "ma": "PTTH2034",
+    "ten": "Bộ thiết bị để vẽ trên bảng trong dạy học toán (thước thẳng, compa)"
+   }
   ]
  },
  {
@@ -1407,12 +2238,21 @@
   "loai": "co_ban",
   "ten": "Bài 24. Phép chiếu vuông góc. Góc giữa đường thẳng và mặt phẳng",
   "bai_so": 24,
+  "ten_bai": "Phép chiếu vuông góc. Góc giữa đường thẳng và mặt phẳng",
   "chuyen_de": null,
   "yccd": "Nhận biết được khái niệm phép chiếu vuông góc.\nXác định được hình chiếu vuông góc của một điểm, một đường thẳng, một tam giác.\nNhận biết được công thức tính thể tích của hình chóp, hình lăng trụ, hình hộp.\nVận dụng được kiến thức về đường thẳng vuông góc với mặt phẳng để mô tả một số hình ảnh trong thực tiễn.",
   "nls": [
    "1.1.NC1b",
    "5.2.NC1b",
    "6.2.NC1b"
+  ],
+  "nls_loi": [],
+  "ghi_chu": null,
+  "thiet_bi": [
+   {
+    "ma": "PTTH2034",
+    "ten": "Bộ thiết bị để vẽ trên bảng trong dạy học toán (thước thẳng, compa)"
+   }
   ]
  },
  {
@@ -1421,15 +2261,24 @@
   "tuan": 24,
   "tiet": "72",
   "so_tiet": 1,
-  "loai": "co_ban",
+  "loai": "on_tap_kiem_tra",
   "ten": "Ôn tập kiểm tra giữa kỳ II",
   "bai_so": null,
+  "ten_bai": "Ôn tập kiểm tra giữa kỳ II",
   "chuyen_de": null,
   "yccd": "Nhận biết được khái niệm, các tính chất của luỹ thừa, lôgarit và áp dụng trong tính toán. Nhận biết và giải thích được đồ thị, tính chất của hàm số mũ và hàm số lôgarit. Giải được phương trình, bất phương trình mũ, lôgarit ở dạng đơn giản. Giải quyết được một số vấn đề có liên quan đến môn học khác hoặc có liên quan đến thực tiễn.\nNhận biết được khái niệm góc giữa hai đường thẳng trong không gian. Nhận biết và chứng minh được hai đường thẳng vuông góc, đường thẳng vuông góc với mặt phẳng trong không gian trong một số trường hợp đơn giản. Giải thích được mối liên hệ giữa tính song song và tính vuông góc của đường thẳng và mặt phẳng. Nhận biết được khái niệm phép chiếu vuông góc, xác định được hình chiếu vuông góc của một số đối tượng. Vận dụng trong thực tiễn.",
   "nls": [
    "1.1.NC1b",
    "5.2.NC1b",
    "6.2.NC1b"
+  ],
+  "nls_loi": [],
+  "ghi_chu": null,
+  "thiet_bi": [
+   {
+    "ma": "PTTH2034",
+    "ten": "Bộ thiết bị để vẽ trên bảng trong dạy học toán (thước thẳng, compa)"
+   }
   ]
  },
  {
@@ -1438,15 +2287,24 @@
   "tuan": 24,
   "tiet": "24",
   "so_tiet": 1,
-  "loai": "co_ban",
+  "loai": "chuyen_de_hoc_tap",
   "ten": "Bài tập cuối chuyên đề 2",
   "bai_so": null,
+  "ten_bai": "Bài tập cuối chuyên đề 2",
   "chuyen_de": null,
   "yccd": "- Nhận biết được khái niệm đồ thị, đỉnh, cạnh, đường đi, chu trình, bậc của đỉnh.\n- Nhận biết được đường đi Euler, đường đi Hamilton từ đồ thị đến thực tiễn.\n- Nhận biết được thuật toán về tìm đường đi tối ưu trong những trường hợp đơn giản.\n- Sử dụng kiến thức về đồ thị để giải quyết một số tình huống liên quan đến thực tiễn.",
   "nls": [
    "1.1.NC1b",
    "5.2.NC1b",
    "6.2.NC1b"
+  ],
+  "nls_loi": [],
+  "ghi_chu": null,
+  "thiet_bi": [
+   {
+    "ma": "PTTH2034",
+    "ten": "Bộ thiết bị để vẽ trên bảng trong dạy học toán (thước thẳng, compa)"
+   }
   ]
  },
  {
@@ -1458,12 +2316,21 @@
   "loai": "chuyen_sau",
   "ten": "Chuyên đề nâng cao: Graph",
   "bai_so": null,
+  "ten_bai": "Chuyên đề nâng cao: Graph",
   "chuyen_de": null,
   "yccd": "Vận dụng kiến thức đồ thị giải quyết một số bài toán cho các lớp đồ thị đặc biệt này.",
   "nls": [
    "1.1.NC1b",
    "5.2.NC1b",
    "6.2.NC1b"
+  ],
+  "nls_loi": [],
+  "ghi_chu": null,
+  "thiet_bi": [
+   {
+    "ma": "PTTH2034",
+    "ten": "Bộ thiết bị để vẽ trên bảng trong dạy học toán (thước thẳng, compa)"
+   }
   ]
  },
  {
@@ -1472,15 +2339,24 @@
   "tuan": 25,
   "tiet": "73-75",
   "so_tiet": 3,
-  "loai": "co_ban",
+  "loai": "on_tap_kiem_tra",
   "ten": "Ôn tập và kiểm tra giữa học kì II",
   "bai_so": null,
+  "ten_bai": "Ôn tập và kiểm tra giữa học kì II",
   "chuyen_de": null,
   "yccd": "Nhận biết được khái niệm, các tính chất của luỹ thừa, lôgarit và áp dụng trong tính toán.\n Nhận biết và giải thích được đồ thị, tính chất của hàm số mũ và hàm số lôgarit. Giải được phương trình, bất phương trình mũ, lôgarit ở dạng đơn giản. Giải quyết được một số vấn đề có liên quan đến môn học khác hoặc có liên quan đến thực tiễn.\nNhận biết được khái niệm góc giữa hai đường thẳng trong không gian. Nhận biết và chứng minh được hai đường thẳng vuông góc, đường thẳng vuông góc với mặt phẳng trong không gian trong một số trường hợp đơn giản. Giải thích được mối liên hệ giữa tính song song và tính vuông góc của đường thẳng và mặt phẳng. Nhận biết được khái niệm phép chiếu vuông góc, xác định được hình chiếu vuông góc của một số đối tượng. Vận dụng trong thực tiễn.",
   "nls": [
    "1.1.NC1b",
    "5.2.NC1b",
    "6.2.NC1b"
+  ],
+  "nls_loi": [],
+  "ghi_chu": null,
+  "thiet_bi": [
+   {
+    "ma": "PTTH2034",
+    "ten": "Bộ thiết bị để vẽ trên bảng trong dạy học toán (thước thẳng, compa)"
+   }
   ]
  },
  {
@@ -1489,15 +2365,24 @@
   "tuan": 25,
   "tiet": "25",
   "so_tiet": 1,
-  "loai": "co_ban",
+  "loai": "chuyen_de_hoc_tap",
   "ten": "Bài tập cuối chuyên đề 2",
   "bai_so": null,
+  "ten_bai": "Bài tập cuối chuyên đề 2",
   "chuyen_de": null,
   "yccd": "- Nhận biết được khái niệm đồ thị, đỉnh, cạnh, đường đi, chu trình, bậc của đỉnh.\n- Nhận biết được đường đi Euler, đường đi Hamilton từ đồ thị đến thực tiễn.\n- Nhận biết được thuật toán về tìm đường đi tối ưu trong những trường hợp đơn giản.\n- Sử dụng kiến thức về đồ thị để giải quyết một số tình huống liên quan đến thực tiễn.",
   "nls": [
    "1.1.NC1b",
    "5.2.NC1b",
    "6.2.NC1b"
+  ],
+  "nls_loi": [],
+  "ghi_chu": null,
+  "thiet_bi": [
+   {
+    "ma": "PTTH2034",
+    "ten": "Bộ thiết bị để vẽ trên bảng trong dạy học toán (thước thẳng, compa)"
+   }
   ]
  },
  {
@@ -1509,12 +2394,21 @@
   "loai": "chuyen_sau",
   "ten": "Chuyên đề nâng cao: Cực và đối cực đối với đường tròn",
   "bai_so": null,
+  "ten_bai": "Chuyên đề nâng cao: Cực và đối cực đối với đường tròn",
   "chuyen_de": null,
   "yccd": "- Hiểu được khái niệm hai điểm liên hợp đối với một đường tròn, cực của một đường thẳng và đối cực của một điểm đối với một đường tròn.\n- Xác định được đường đối cực của một điểm đối với một đường tròn, biết cách xác định cực của một đường thẳng đối với một đường tròn.\n- Phát biểu và chứng minh được các định lý: Định lý Lahire, định lý Brocard.\n- Vận dụng linh hoạt khái niệm cực, đối cực và các định lý trên trong các bài toán liên quan.",
   "nls": [
    "1.1.NC1b",
    "5.2.NC1b",
    "6.2.NC1b"
+  ],
+  "nls_loi": [],
+  "ghi_chu": null,
+  "thiet_bi": [
+   {
+    "ma": "PTTH2034",
+    "ten": "Bộ thiết bị để vẽ trên bảng trong dạy học toán (thước thẳng, compa)"
+   }
   ]
  },
  {
@@ -1526,12 +2420,21 @@
   "loai": "co_ban",
   "ten": "Bài 25. Hai mặt phẳng vuông góc",
   "bai_so": 25,
+  "ten_bai": "Hai mặt phẳng vuông góc",
   "chuyen_de": null,
   "yccd": "Nhận biết được hai mặt phẳng vuông góc trong không gian.\nXác định được điều kiện để hai mặt phẳng vuông góc.\nGiải thích được tính chất cơ bản về hai mặt phẳng vuông góc.\nGiải thích được tính chất cơ bản của hình lăng trụ đứng, lăng trụ đều, hình hộp đứng, hình hộp chữ nhật, hình lập phương, hình chóp đều.\nVận dụng được kiến thức về hai mặt phẳng vuông góc để mô tả một số hình ảnh trong thực tiễn.\nNhận biết được khái niệm góc nhị diện, góc phẳng nhị diện.\nXác định và tính được số đo góc nhị diện, góc phẳng nhị diện trong những trường hợp đơn giản (ví dụ: nhận biết được mặt phẳng vuông góc với cạnh nhị diện).\nSử dụng được kiến thức về góc giữa đường thẳng và mặt phẳng, góc nhị diện để mô tả một số hình ảnh trong thực tiễn.\nSTEM: Hiểu sâu hơn về các hình lăng trụ đứng và hình chóp đều bằng cách vẽ hình khai triển của chúng và lắp ghép chúng thành các hình tương ứng.\nSẢN PHẨM: Mô hình các hình trong không gian.",
   "nls": [
    "1.1.NC1b",
    "5.2.NC1b",
    "6.2.NC1b"
+  ],
+  "nls_loi": [],
+  "ghi_chu": null,
+  "thiet_bi": [
+   {
+    "ma": "PTTH2034",
+    "ten": "Bộ thiết bị để vẽ trên bảng trong dạy học toán (thước thẳng, compa)"
+   }
   ]
  },
  {
@@ -1540,15 +2443,24 @@
   "tuan": 26,
   "tiet": "26",
   "so_tiet": 1,
-  "loai": "co_ban",
+  "loai": "chuyen_de_hoc_tap",
   "ten": "Bài tập và kiểm tra cuối chuyên đề 2",
   "bai_so": null,
+  "ten_bai": "Bài tập và kiểm tra cuối chuyên đề 2",
   "chuyen_de": null,
   "yccd": "- Nhận biết được khái niệm đồ thị, đỉnh, cạnh, đường đi, chu trình, bậc của đỉnh; đường đi Euler, đường đi Hamilton từ đồ thị đến thực tiễn; thuật toán về tìm đường đi tối ưu trong những trường hợp đơn giản.\n- Sử dụng kiến thức về đồ thị để giải quyết một số tình huống liên quan đến thực tiễn.",
   "nls": [
    "1.1.NC1b",
    "5.2.NC1b",
    "6.2.NC1b"
+  ],
+  "nls_loi": [],
+  "ghi_chu": null,
+  "thiet_bi": [
+   {
+    "ma": "PTTH2034",
+    "ten": "Bộ thiết bị để vẽ trên bảng trong dạy học toán (thước thẳng, compa)"
+   }
   ]
  },
  {
@@ -1560,63 +2472,99 @@
   "loai": "chuyen_sau",
   "ten": "Chuyên đề nâng cao: Cực và đối cực đối với đường tròn",
   "bai_so": null,
+  "ten_bai": "Chuyên đề nâng cao: Cực và đối cực đối với đường tròn",
   "chuyen_de": null,
   "yccd": "- Hiểu được khái niệm hai điểm liên hợp đối với một đường tròn, cực của một đường thẳng và đối cực của một điểm đối với một đường tròn.\n- Xác định được đường đối cực của một điểm đối với một đường tròn, biết cách xác định cực của một đường thẳng đối với một đường tròn.\n- Phát biểu và chứng minh được các định lý: Định lý Lahire, định lý Brocard.\n- Vận dụng linh hoạt khái niệm cực, đối cực và các định lý trên trong các bài toán liên quan.",
   "nls": [
    "1.1.NC1b",
    "5.2.NC1b",
    "6.2.NC1b"
+  ],
+  "nls_loi": [],
+  "ghi_chu": null,
+  "thiet_bi": [
+   {
+    "ma": "PTTH2034",
+    "ten": "Bộ thiết bị để vẽ trên bảng trong dạy học toán (thước thẳng, compa)"
+   }
   ]
  },
  {
   "lop": 11,
   "hoc_ky": 2,
-  "tuan": "27\n(Dạy học online tuỳ vào tình hình thực tế)",
+  "tuan": 27,
   "tiet": "79-81",
   "so_tiet": 3,
   "loai": "co_ban",
   "ten": "Bài 26. Khoảng cách",
   "bai_so": 26,
+  "ten_bai": "Khoảng cách",
   "chuyen_de": null,
   "yccd": "Xác định được khoảng cách từ một điểm đến một đường thẳng; khoảng cách từ một điểm đến một mặt phẳng; khoảng cách giữa hai đường thẳng song song; khoảng cách giữa đường thẳng và mặt phẳng song song; khoảng cách giữa hai mặt phẳng song song trong những trường hợp đơn giản.\nNhận biết được đường vuông góc chung của hai đường thẳng  chéo nhau; tính được khoảng cách giữa hai đường thẳng chéo nhau trong những trường hợp đơn giản (ví dụ: có một đường thẳng vuông góc với mặt phẳng chứa đường thẳng còn lại).\nSử dụng được kiến thức về khoảng cách trong không gian để mô tả một số hình ảnh trong thực tiễn.",
   "nls": [
    "1.1.NC1b",
    "5.2.NC1b",
    "6.2.NC1b"
+  ],
+  "nls_loi": [],
+  "ghi_chu": "Dạy học online tuỳ vào tình hình thực tế",
+  "thiet_bi": [
+   {
+    "ma": "PTTH2034",
+    "ten": "Bộ thiết bị để vẽ trên bảng trong dạy học toán (thước thẳng, compa)"
+   }
   ]
  },
  {
   "lop": 11,
   "hoc_ky": 2,
-  "tuan": "27\n(Dạy học online tuỳ vào tình hình thực tế)",
+  "tuan": 27,
   "tiet": "27",
   "so_tiet": 1,
   "loai": "chuyen_de_hoc_tap",
   "ten": "CĐ3. Bài 11. Hình chiếu vuông góc và hình chiếu trục đo",
   "bai_so": null,
+  "ten_bai": "Hình chiếu vuông góc và hình chiếu trục đo",
   "chuyen_de": "CĐ3.B11",
   "yccd": "Nhận biết được hình biểu diễn của vật thể, hình chiếu vuông góc\nNhận biết được hình chiếu trục đo và hình chiếu trục đo vuông góc đều",
   "nls": [
    "1.1.NC1b",
    "5.2.NC1b",
    "6.2.NC1b"
+  ],
+  "nls_loi": [],
+  "ghi_chu": "Dạy học online tuỳ vào tình hình thực tế",
+  "thiet_bi": [
+   {
+    "ma": "PTTH2034",
+    "ten": "Bộ thiết bị để vẽ trên bảng trong dạy học toán (thước thẳng, compa)"
+   }
   ]
  },
  {
   "lop": 11,
   "hoc_ky": 2,
-  "tuan": "27\n(Dạy học online tuỳ vào tình hình thực tế)",
+  "tuan": 27,
   "tiet": "53-54",
   "so_tiet": 2,
   "loai": "chuyen_sau",
   "ten": "Chuyên đề nâng cao: Cực và đối cực đối với đường tròn",
   "bai_so": null,
+  "ten_bai": "Chuyên đề nâng cao: Cực và đối cực đối với đường tròn",
   "chuyen_de": null,
   "yccd": "- Hiểu được khái niệm hai điểm liên hợp đối với một đường tròn, cực của một đường thẳng và đối cực của một điểm đối với một đường tròn.\n- Xác định được đường đối cực của một điểm đối với một đường tròn, biết cách xác định cực của một đường thẳng đối với một đường tròn.\n- Phát biểu và chứng minh được các định lý: Định lý Lahire, định lý Brocard.\n- Vận dụng linh hoạt khái niệm cực, đối cực và các định lý trên trong các bài toán liên quan.",
   "nls": [
    "1.1.NC1b",
    "5.2.NC1b",
    "6.2.NC1b"
+  ],
+  "nls_loi": [],
+  "ghi_chu": "Dạy học online tuỳ vào tình hình thực tế",
+  "thiet_bi": [
+   {
+    "ma": "PTTH2034",
+    "ten": "Bộ thiết bị để vẽ trên bảng trong dạy học toán (thước thẳng, compa)"
+   }
   ]
  },
  {
@@ -1628,12 +2576,25 @@
   "loai": "co_ban",
   "ten": "Bài 27. Thể tích",
   "bai_so": 27,
+  "ten_bai": "Thể tích",
   "chuyen_de": null,
   "yccd": "Nhận biết được công thức tính thể tích của khối chóp, khối lăng trụ, khối hộp, khối chóp cụt đều.\nTính thể tích của khối chóp, khối lăng trụ, khối hộp, khối chóp cụt đều trong một số trường hợp đơn giản.\nVận dụng kiến thức, kĩ năng về thể tích vào một số bài toán thực tế.",
   "nls": [
    "1.1.NC1b",
    "5.2.NC1b",
    "6.2.NC1b"
+  ],
+  "nls_loi": [],
+  "ghi_chu": null,
+  "thiet_bi": [
+   {
+    "ma": "PTTH2034",
+    "ten": "Bộ thiết bị để vẽ trên bảng trong dạy học toán (thước thẳng, compa)"
+   },
+   {
+    "ma": "PTTH2036",
+    "ten": "Bộ thiết bị dạy học về hình chóp, hình chóp cụt, hình lăng trụ"
+   }
   ]
  },
  {
@@ -1645,12 +2606,21 @@
   "loai": "co_ban",
   "ten": "Bài tập cuối chương VII",
   "bai_so": null,
+  "ten_bai": "Bài tập cuối chương VII",
   "chuyen_de": null,
   "yccd": "- Nhận biết được khái niệm góc giữa hai đường thẳng, góc giữa đường thẳng và mặt phẳng, góc giữa hai mặt phẳng trong không gian. Nhận biết và chứng minh được hai đường thẳng vuông góc, đường thẳng vuông góc với mặt phẳng, hai mặt phẳng vuông góc trong không gian. \n- Nhận biết được khái niệm phép chiếu vuông góc, xác định được hình chiếu vuông góc của một số đối tượng.  \nXác định được khoảng cách từ một điểm đến một đường thẳng, từ một điểm đến một mặt phẳng; khoảng cách giữa hai đường thẳng song song, giữa đường thẳng và mặt phẳng song song, giữa hai mặt phẳng song song. Nhận biết được đường vuông góc chung của hai đường thẳng chéo nhau.\nGiải thích được tính chất cơ bản của hình lăng trụ đứng, lăng trụ đều, hình hộp đứng, hình hộp chữ nhật, hình lập phương, hình chóp đều. Tính thể tích của khối chóp, khối lăng trụ, khối hộp, khối chóp cụt đều trong một số trường hợp đơn giản.\nVận dụng kiến thức, kĩ năng vào một số bài toán thực tế.",
   "nls": [
    "1.1.NC1b",
    "5.2.NC1b",
    "6.2.NC1b"
+  ],
+  "nls_loi": [],
+  "ghi_chu": null,
+  "thiet_bi": [
+   {
+    "ma": "PTTH2034",
+    "ten": "Bộ thiết bị để vẽ trên bảng trong dạy học toán (thước thẳng, compa)"
+   }
   ]
  },
  {
@@ -1662,12 +2632,21 @@
   "loai": "chuyen_de_hoc_tap",
   "ten": "CĐ3. Bài 11. Hình chiếu vuông góc và hình chiếu trục đo",
   "bai_so": null,
+  "ten_bai": "Hình chiếu vuông góc và hình chiếu trục đo",
   "chuyen_de": "CĐ3.B11",
   "yccd": "Nhận biết được hình biểu diễn của vật thể, hình chiếu vuông góc\nNhận biết được hình chiếu trục đo và hình chiếu trục đo vuông góc đều",
   "nls": [
    "1.1.NC1b",
    "5.2.NC1b",
    "6.2.NC1b"
+  ],
+  "nls_loi": [],
+  "ghi_chu": null,
+  "thiet_bi": [
+   {
+    "ma": "PTTH2034",
+    "ten": "Bộ thiết bị để vẽ trên bảng trong dạy học toán (thước thẳng, compa)"
+   }
   ]
  },
  {
@@ -1679,12 +2658,21 @@
   "loai": "chuyen_sau",
   "ten": "Chuyên đề nâng cao: Cực và đối cực đối với đường tròn",
   "bai_so": null,
+  "ten_bai": "Chuyên đề nâng cao: Cực và đối cực đối với đường tròn",
   "chuyen_de": null,
   "yccd": "- Hiểu được khái niệm hai điểm liên hợp đối với một đường tròn, cực của một đường thẳng và đối cực của một điểm đối với một đường tròn.\n- Xác định được đường đối cực của một điểm đối với một đường tròn, biết cách xác định cực của một đường thẳng đối với một đường tròn.\n- Phát biểu và chứng minh được các định lý: Định lý Lahire, định lý Brocard.\n- Vận dụng linh hoạt khái niệm cực, đối cực và các định lý trên trong các bài toán liên quan.",
   "nls": [
    "1.1.NC1b",
    "5.2.NC1b",
    "6.2.NC1b"
+  ],
+  "nls_loi": [],
+  "ghi_chu": null,
+  "thiet_bi": [
+   {
+    "ma": "PTTH2034",
+    "ten": "Bộ thiết bị để vẽ trên bảng trong dạy học toán (thước thẳng, compa)"
+   }
   ]
  },
  {
@@ -1696,12 +2684,21 @@
   "loai": "co_ban",
   "ten": "Bài 28. Biến cố hợp, biến cố giao, biến cố độc lập",
   "bai_so": 28,
+  "ten_bai": "Biến cố hợp, biến cố giao, biến cố độc lập",
   "chuyen_de": null,
   "yccd": "Nhận biết được một số khái niệm về xác suất cổ điển: hợp và giao các biến cố; biến cố độc lập.",
   "nls": [
    "1.1.NC1b",
    "5.2.NC1b",
    "6.2.NC1b"
+  ],
+  "nls_loi": [],
+  "ghi_chu": null,
+  "thiet_bi": [
+   {
+    "ma": "PTTH2034",
+    "ten": "Bộ thiết bị để vẽ trên bảng trong dạy học toán (thước thẳng, compa)"
+   }
   ]
  },
  {
@@ -1713,12 +2710,29 @@
   "loai": "co_ban",
   "ten": "Bài 29. Công thức cộng xác suất",
   "bai_so": 29,
+  "ten_bai": "Công thức cộng xác suất",
   "chuyen_de": null,
   "yccd": "Tính được xác suất của biến cố hợp của hai biến cố xung khắc bằng cách sử dụng công thức cộng xác suất.\nTính được xác suất của biến cố trong một số bài toán đơn giản bằng phương pháp cộng xác suất và phương pháp tổ hợp.",
   "nls": [
    "1.1.NC1b",
    "5.2.NC1b",
    "6.2.NC1b"
+  ],
+  "nls_loi": [],
+  "ghi_chu": null,
+  "thiet_bi": [
+   {
+    "ma": "PTTH2034",
+    "ten": "Bộ thiết bị để vẽ trên bảng trong dạy học toán (thước thẳng, compa)"
+   },
+   {
+    "ma": "TOAN002",
+    "ten": "Máy tính Acer"
+   },
+   {
+    "ma": "PTTH3003",
+    "ten": "Phần mềm toán học - Thống kê và xác suất"
+   }
   ]
  },
  {
@@ -1730,12 +2744,21 @@
   "loai": "chuyen_de_hoc_tap",
   "ten": "CĐ3. Bài 11. Hình chiếu vuông góc và hình chiếu trục đo",
   "bai_so": null,
+  "ten_bai": "Hình chiếu vuông góc và hình chiếu trục đo",
   "chuyen_de": "CĐ3.B11",
   "yccd": "Nhận biết được hình biểu diễn của vật thể, hình chiếu vuông góc\nNhận biết được hình chiếu trục đo và hình chiếu trục đo vuông góc đều",
   "nls": [
    "1.1.NC1b",
    "5.2.NC1b",
    "6.2.NC1b"
+  ],
+  "nls_loi": [],
+  "ghi_chu": null,
+  "thiet_bi": [
+   {
+    "ma": "PTTH2034",
+    "ten": "Bộ thiết bị để vẽ trên bảng trong dạy học toán (thước thẳng, compa)"
+   }
   ]
  },
  {
@@ -1747,12 +2770,21 @@
   "loai": "chuyen_sau",
   "ten": "Chuyên đề nâng cao: Cực và đối cực đối với đường tròn",
   "bai_so": null,
+  "ten_bai": "Chuyên đề nâng cao: Cực và đối cực đối với đường tròn",
   "chuyen_de": null,
   "yccd": "- Hiểu được khái niệm hai điểm liên hợp đối với một đường tròn, cực của một đường thẳng và đối cực của một điểm đối với một đường tròn.\n- Xác định được đường đối cực của một điểm đối với một đường tròn, biết cách xác định cực của một đường thẳng đối với một đường tròn.\n- Phát biểu và chứng minh được các định lý: Định lý Lahire, định lý Brocard.\n- Vận dụng linh hoạt khái niệm cực, đối cực và các định lý trên trong các bài toán liên quan.",
   "nls": [
    "1.1.NC1b",
    "5.2.NC1b",
    "6.2.NC1b"
+  ],
+  "nls_loi": [],
+  "ghi_chu": null,
+  "thiet_bi": [
+   {
+    "ma": "PTTH2034",
+    "ten": "Bộ thiết bị để vẽ trên bảng trong dạy học toán (thước thẳng, compa)"
+   }
   ]
  },
  {
@@ -1764,12 +2796,29 @@
   "loai": "co_ban",
   "ten": "Bài 29. Công thức cộng xác suất",
   "bai_so": 29,
+  "ten_bai": "Công thức cộng xác suất",
   "chuyen_de": null,
   "yccd": "Tính được xác suất của biến cố hợp của hai biến cố xung khắc bằng cách sử dụng công thức cộng xác suất.\nTính được xác suất của biến cố trong một số bài toán đơn giản bằng phương pháp cộng xác suất và phương pháp tổ hợp.",
   "nls": [
    "1.1.NC1b",
    "5.2.NC1b",
    "6.2.NC1b"
+  ],
+  "nls_loi": [],
+  "ghi_chu": null,
+  "thiet_bi": [
+   {
+    "ma": "PTTH2034",
+    "ten": "Bộ thiết bị để vẽ trên bảng trong dạy học toán (thước thẳng, compa)"
+   },
+   {
+    "ma": "TOAN002",
+    "ten": "Máy tính Acer"
+   },
+   {
+    "ma": "PTTH3003",
+    "ten": "Phần mềm toán học - Thống kê và xác suất"
+   }
   ]
  },
  {
@@ -1781,12 +2830,29 @@
   "loai": "co_ban",
   "ten": "Bài 30. Công thức nhân xác suất cho hai biến cố độc lập",
   "bai_so": 30,
+  "ten_bai": "Công thức nhân xác suất cho hai biến cố độc lập",
   "chuyen_de": null,
   "yccd": "Tính được xác suất của biến cố giao bằng cách sử dụng công thức nhân (cho trường hợp biến cố độc lập).\nTính được xác suất trong một số bài toán đơn giản bằng cách sử dụng sơ đồ hình cây.",
   "nls": [
    "1.1.NC1b",
    "5.2.NC1b",
    "6.2.NC1b"
+  ],
+  "nls_loi": [],
+  "ghi_chu": null,
+  "thiet_bi": [
+   {
+    "ma": "PTTH2034",
+    "ten": "Bộ thiết bị để vẽ trên bảng trong dạy học toán (thước thẳng, compa)"
+   },
+   {
+    "ma": "TOAN002",
+    "ten": "Máy tính Acer"
+   },
+   {
+    "ma": "PTTH3003",
+    "ten": "Phần mềm toán học - Thống kê và xác suất"
+   }
   ]
  },
  {
@@ -1798,12 +2864,21 @@
   "loai": "chuyen_de_hoc_tap",
   "ten": "CĐ3. Bài 11. Hình chiếu vuông góc và hình chiếu trục đo",
   "bai_so": null,
+  "ten_bai": "Hình chiếu vuông góc và hình chiếu trục đo",
   "chuyen_de": "CĐ3.B11",
   "yccd": "Nhận biết được hình biểu diễn của vật thể, hình chiếu vuông góc\nNhận biết được hình chiếu trục đo và hình chiếu trục đo vuông góc đều",
   "nls": [
    "1.1.NC1b",
    "5.2.NC1b",
    "6.2.NC1b"
+  ],
+  "nls_loi": [],
+  "ghi_chu": null,
+  "thiet_bi": [
+   {
+    "ma": "PTTH2034",
+    "ten": "Bộ thiết bị để vẽ trên bảng trong dạy học toán (thước thẳng, compa)"
+   }
   ]
  },
  {
@@ -1815,12 +2890,21 @@
   "loai": "chuyen_sau",
   "ten": "Chuyên đề nâng cao: Phép nghịch đảo",
   "bai_so": null,
+  "ten_bai": "Chuyên đề nâng cao: Phép nghịch đảo",
   "chuyen_de": null,
   "yccd": "- Hiểu được định nghĩa của phép nghịch đảo. Xác định được ảnh qua một phép nghịch đảo của: đường thẳng đi qua cực nghịch đảo, đường thẳng không đi qua cực nghịch đảo, đường tròn đi qua cực nghịch đảo, đường tròn không đi qua cực nghịch đảo, hai điểm đối xứng qua một đường thẳng.\n- Chứng minh được các tính chất cơ bản của phép nghịch đảo: bảo tồn góc, bảo tồn tỉ số kép của bốn điểm. Tính được khoảng cách của ảnh của hai điểm qua phép nghịch đảo. \n-  Chứng minh được tính chất cơ bản về hợp thành của hai phép nghịch đảo (cùng cực nghịch đảo và khác cực nghịch đảo).\n- Hiểu được định nghĩa phép nghịch đảo đối xứng. Vận dụng phép nghịch đảo đối xứng để chứng minh các tính chất đơn giản của đường tròn Mixtilinear.\n- Vận dụng linh hoạt phép nghịch đảo và phép nghịch đảo đối xứng vào các bài toán liên quan.",
   "nls": [
    "1.1.NC1b",
    "5.2.NC1b",
    "6.2.NC1b"
+  ],
+  "nls_loi": [],
+  "ghi_chu": null,
+  "thiet_bi": [
+   {
+    "ma": "PTTH2034",
+    "ten": "Bộ thiết bị để vẽ trên bảng trong dạy học toán (thước thẳng, compa)"
+   }
   ]
  },
  {
@@ -1832,12 +2916,21 @@
   "loai": "co_ban",
   "ten": "Bài tập cuối chương VIII",
   "bai_so": null,
+  "ten_bai": "Bài tập cuối chương VIII",
   "chuyen_de": null,
   "yccd": "- Nhận biết được một số khái niệm về xác suất cổ điển.\n- Tính được xác suất của biến cố trong một số bài toán đơn giản bằng phương pháp cộng xác suất và phương pháp tổ hợp.\n- Tính được xác suất của biến cố giao bằng cách sử dụng công thức nhân.\n- Tính được xác suất trong một số bài toán đơn giản bằng cách sử dụng sơ đồ hình cây.",
   "nls": [
    "1.1.NC1b",
    "5.2.NC1b",
    "6.2.NC1b"
+  ],
+  "nls_loi": [],
+  "ghi_chu": null,
+  "thiet_bi": [
+   {
+    "ma": "PTTH2034",
+    "ten": "Bộ thiết bị để vẽ trên bảng trong dạy học toán (thước thẳng, compa)"
+   }
   ]
  },
  {
@@ -1849,12 +2942,21 @@
   "loai": "co_ban",
   "ten": "Bài 31. Định nghĩa và ý nghĩa của đạo hàm",
   "bai_so": 31,
+  "ten_bai": "Định nghĩa và ý nghĩa của đạo hàm",
   "chuyen_de": null,
   "yccd": "Nhận biết được một số bài toán dẫn đến khái niệm đạo hàm như: xác định vận tốc tức thời của một vật chuyển động không đều, xác định tốc độ thay đổi của nhiệt độ.\nNhận biết được định nghĩa đạo hàm. Tính được đạo hàm của một số hàm đơn giản bằng định nghĩa.\nNhận biết được ý nghĩa hình học của đạo hàm.\nThiết lập được phương trình tiếp tuyến của đồ thị hàm số tại một điểm thuộc đồ thị.\nNhận biết được số e thông qua bài toán mô hình hoá lãi suất ngân hàng",
   "nls": [
    "1.1.NC1b",
    "5.2.NC1b",
    "6.2.NC1b"
+  ],
+  "nls_loi": [],
+  "ghi_chu": null,
+  "thiet_bi": [
+   {
+    "ma": "PTTH2034",
+    "ten": "Bộ thiết bị để vẽ trên bảng trong dạy học toán (thước thẳng, compa)"
+   }
   ]
  },
  {
@@ -1866,12 +2968,21 @@
   "loai": "chuyen_de_hoc_tap",
   "ten": "CĐ3. Bài 12. Bản vẽ kỹ thuật",
   "bai_so": null,
+  "ten_bai": "Bản vẽ kỹ thuật",
   "chuyen_de": "CĐ3.B12",
   "yccd": "Nhận biết được nguyên tắc cơ bản trong vẽ kỹ thuật.\nĐọc được thông tin từ một số bản vẽ kỹ thuật đơn giản.\nVẽ được bản vẽ kỹ thuật đơn giản.",
   "nls": [
    "1.1.NC1b",
    "5.2.NC1b",
    "6.2.NC1b"
+  ],
+  "nls_loi": [],
+  "ghi_chu": null,
+  "thiet_bi": [
+   {
+    "ma": "PTTH2034",
+    "ten": "Bộ thiết bị để vẽ trên bảng trong dạy học toán (thước thẳng, compa)"
+   }
   ]
  },
  {
@@ -1883,63 +2994,99 @@
   "loai": "chuyen_sau",
   "ten": "Chuyên đề nâng cao: Phép nghịch đảo",
   "bai_so": null,
+  "ten_bai": "Chuyên đề nâng cao: Phép nghịch đảo",
   "chuyen_de": null,
   "yccd": "- Hiểu được định nghĩa của phép nghịch đảo. Xác định được ảnh qua một phép nghịch đảo của: đường thẳng đi qua cực nghịch đảo, đường thẳng không đi qua cực nghịch đảo, đường tròn đi qua cực nghịch đảo, đường tròn không đi qua cực nghịch đảo, hai điểm đối xứng qua một đường thẳng.\n- Chứng minh được các tính chất cơ bản của phép nghịch đảo: bảo tồn góc, bảo tồn tỉ số kép của bốn điểm. Tính được khoảng cách của ảnh của hai điểm qua phép nghịch đảo. \n-  Chứng minh được tính chất cơ bản về hợp thành của hai phép nghịch đảo (cùng cực nghịch đảo và khác cực nghịch đảo).\n- Hiểu được định nghĩa phép nghịch đảo đối xứng. Vận dụng phép nghịch đảo đối xứng để chứng minh các tính chất đơn giản của đường tròn Mixtilinear.\n- Vận dụng linh hoạt phép nghịch đảo và phép nghịch đảo đối xứng vào các bài toán liên quan.",
   "nls": [
    "1.1.NC1b",
    "5.2.NC1b",
    "6.2.NC1b"
+  ],
+  "nls_loi": [],
+  "ghi_chu": null,
+  "thiet_bi": [
+   {
+    "ma": "PTTH2034",
+    "ten": "Bộ thiết bị để vẽ trên bảng trong dạy học toán (thước thẳng, compa)"
+   }
   ]
  },
  {
   "lop": 11,
   "hoc_ky": 2,
-  "tuan": "32\n(Dạy học online tuỳ vào tình hình thực tế)",
+  "tuan": 32,
   "tiet": "94-96",
   "so_tiet": 3,
   "loai": "co_ban",
   "ten": "Bài 32. Các quy tắc tính đạo hàm",
   "bai_so": 32,
+  "ten_bai": "Các quy tắc tính đạo hàm",
   "chuyen_de": null,
   "yccd": "Tính được đạo hàm của một số hàm số sơ cấp cơ bản (như hàm đa thức, hàm căn thức đơn giản, hàm số lượng giác, hàm số mũ, hàm số lôgarit).\nSử dụng được các công thức tính đạo hàm của tổng, hiệu, tích, thương của các hàm số và đạo hàm của hàm hợp.\nGiải quyết được một số vấn đề có liên quan đến môn học khác hoặc có liên quan đến thực tiễn gắn với đạo hàm (ví dụ: xác định vận tốc tức thời của một vật chuyển động không đều,...).",
   "nls": [
    "1.1.NC1b",
    "5.2.NC1b",
    "6.2.NC1b"
+  ],
+  "nls_loi": [],
+  "ghi_chu": "Dạy học online tuỳ vào tình hình thực tế",
+  "thiet_bi": [
+   {
+    "ma": "PTTH2034",
+    "ten": "Bộ thiết bị để vẽ trên bảng trong dạy học toán (thước thẳng, compa)"
+   }
   ]
  },
  {
   "lop": 11,
   "hoc_ky": 2,
-  "tuan": "32\n(Dạy học online tuỳ vào tình hình thực tế)",
+  "tuan": 32,
   "tiet": "32",
   "so_tiet": 1,
   "loai": "chuyen_de_hoc_tap",
   "ten": "CĐ3. Bài 12. Bản vẽ kỹ thuật",
   "bai_so": null,
+  "ten_bai": "Bản vẽ kỹ thuật",
   "chuyen_de": "CĐ3.B12",
   "yccd": "Nhận biết được nguyên tắc cơ bản trong vẽ kỹ thuật.\nĐọc được thông tin từ một số bản vẽ kỹ thuật đơn giản.\nVẽ được bản vẽ kỹ thuật đơn giản.",
   "nls": [
    "1.1.NC1b",
    "5.2.NC1b",
    "6.2.NC1b"
+  ],
+  "nls_loi": [],
+  "ghi_chu": "Dạy học online tuỳ vào tình hình thực tế",
+  "thiet_bi": [
+   {
+    "ma": "PTTH2034",
+    "ten": "Bộ thiết bị để vẽ trên bảng trong dạy học toán (thước thẳng, compa)"
+   }
   ]
  },
  {
   "lop": 11,
   "hoc_ky": 2,
-  "tuan": "32\n(Dạy học online tuỳ vào tình hình thực tế)",
+  "tuan": 32,
   "tiet": "63-64",
   "so_tiet": 2,
   "loai": "chuyen_sau",
   "ten": "Chuyên đề nâng cao: Phép nghịch đảo",
   "bai_so": null,
+  "ten_bai": "Chuyên đề nâng cao: Phép nghịch đảo",
   "chuyen_de": null,
   "yccd": "- Hiểu được định nghĩa của phép nghịch đảo. Xác định được ảnh qua một phép nghịch đảo của: đường thẳng đi qua cực nghịch đảo, đường thẳng không đi qua cực nghịch đảo, đường tròn đi qua cực nghịch đảo, đường tròn không đi qua cực nghịch đảo, hai điểm đối xứng qua một đường thẳng.\n- Chứng minh được các tính chất cơ bản của phép nghịch đảo: bảo tồn góc, bảo tồn tỉ số kép của bốn điểm. Tính được khoảng cách của ảnh của hai điểm qua phép nghịch đảo. \n-  Chứng minh được tính chất cơ bản về hợp thành của hai phép nghịch đảo (cùng cực nghịch đảo và khác cực nghịch đảo).\n- Hiểu được định nghĩa phép nghịch đảo đối xứng. Vận dụng phép nghịch đảo đối xứng để chứng minh các tính chất đơn giản của đường tròn Mixtilinear.\n- Vận dụng linh hoạt phép nghịch đảo và phép nghịch đảo đối xứng vào các bài toán liên quan.",
   "nls": [
    "1.1.NC1b",
    "5.2.NC1b",
    "6.2.NC1b"
+  ],
+  "nls_loi": [],
+  "ghi_chu": "Dạy học online tuỳ vào tình hình thực tế",
+  "thiet_bi": [
+   {
+    "ma": "PTTH2034",
+    "ten": "Bộ thiết bị để vẽ trên bảng trong dạy học toán (thước thẳng, compa)"
+   }
   ]
  },
  {
@@ -1951,12 +3098,21 @@
   "loai": "co_ban",
   "ten": "Bài 33. Đạo hàm cấp hai",
   "bai_so": 33,
+  "ten_bai": "Đạo hàm cấp hai",
   "chuyen_de": null,
   "yccd": "Nhận biết được khái niệm đạo hàm cấp hai của một hàm số.\nTính được đạo hàm cấp hai của một số hàm số đơn giản.\nGiải quyết được một số vấn đề có liên quan đến môn học khác hoặc có liên quan đến thực tiễn gắn với đạo hàm cấp hai (ví dụ: xác định gia tốc từ đồ thị vận tốc theo thời gian của một chuyển động không đều,...).",
   "nls": [
    "1.1.NC1b",
    "5.2.NC1b",
    "6.2.NC1b"
+  ],
+  "nls_loi": [],
+  "ghi_chu": null,
+  "thiet_bi": [
+   {
+    "ma": "PTTH2034",
+    "ten": "Bộ thiết bị để vẽ trên bảng trong dạy học toán (thước thẳng, compa)"
+   }
   ]
  },
  {
@@ -1968,12 +3124,21 @@
   "loai": "co_ban",
   "ten": "Bài tập cuối chương IX",
   "bai_so": null,
+  "ten_bai": "Bài tập cuối chương IX",
   "chuyen_de": null,
   "yccd": "Nhận biết được định nghĩa và ý nghĩa hình học của đạo hàm. Thiết lập được phương trình tiếp tuyến của đồ thị hàm số tại một điểm thuộc đồ thị.\nTính được đạo hàm của một số hàm số sơ cấp cơ bản; đạo hàm của tổng, hiệu, tích, thương của các hàm số; đạo hàm của hàm hợp; đạo hàm cấp hai.\nGiải quyết được một số vấn đề có liên quan đến môn học khác hoặc có liên quan đến thực tiễn gắn với đạo hàm.",
   "nls": [
    "1.1.NC1b",
    "5.2.NC1b",
    "6.2.NC1b"
+  ],
+  "nls_loi": [],
+  "ghi_chu": null,
+  "thiet_bi": [
+   {
+    "ma": "PTTH2034",
+    "ten": "Bộ thiết bị để vẽ trên bảng trong dạy học toán (thước thẳng, compa)"
+   }
   ]
  },
  {
@@ -1982,15 +3147,32 @@
   "tuan": 33,
   "tiet": "99",
   "so_tiet": 1,
-  "loai": "co_ban",
+  "loai": "trai_nghiem",
   "ten": "Hoạt động thực hành trải nghiệm",
   "bai_so": null,
+  "ten_bai": "Hoạt động thực hành trải nghiệm",
   "chuyen_de": null,
   "yccd": "Một vài mô hình toán học sử dụng hàm số mũ và hàm số lôgarit",
   "nls": [
    "1.1.NC1b",
    "5.2.NC1b",
    "6.2.NC1b"
+  ],
+  "nls_loi": [],
+  "ghi_chu": null,
+  "thiet_bi": [
+   {
+    "ma": "PTTH2034",
+    "ten": "Bộ thiết bị để vẽ trên bảng trong dạy học toán (thước thẳng, compa)"
+   },
+   {
+    "ma": "TOAN002",
+    "ten": "Máy tính Acer"
+   },
+   {
+    "ma": "PTTH3001",
+    "ten": "Phần mềm toán học - Đại số và Giải tích"
+   }
   ]
  },
  {
@@ -2002,12 +3184,21 @@
   "loai": "chuyen_de_hoc_tap",
   "ten": "CĐ3. Bài 12. Bản vẽ kỹ thuật",
   "bai_so": null,
+  "ten_bai": "Bản vẽ kỹ thuật",
   "chuyen_de": "CĐ3.B12",
   "yccd": "Nhận biết được nguyên tắc cơ bản trong vẽ kỹ thuật.\nĐọc được thông tin từ một số bản vẽ kỹ thuật đơn giản.\nVẽ được bản vẽ kỹ thuật đơn giản.",
   "nls": [
    "1.1.NC1b",
    "5.2.NC1b",
    "6.2.NC1b"
+  ],
+  "nls_loi": [],
+  "ghi_chu": null,
+  "thiet_bi": [
+   {
+    "ma": "PTTH2034",
+    "ten": "Bộ thiết bị để vẽ trên bảng trong dạy học toán (thước thẳng, compa)"
+   }
   ]
  },
  {
@@ -2019,12 +3210,21 @@
   "loai": "chuyen_sau",
   "ten": "Chuyên đề nâng cao: Phép nghịch đảo",
   "bai_so": null,
+  "ten_bai": "Chuyên đề nâng cao: Phép nghịch đảo",
   "chuyen_de": null,
   "yccd": "- Hiểu được định nghĩa của phép nghịch đảo. Xác định được ảnh qua một phép nghịch đảo của: đường thẳng đi qua cực nghịch đảo, đường thẳng không đi qua cực nghịch đảo, đường tròn đi qua cực nghịch đảo, đường tròn không đi qua cực nghịch đảo, hai điểm đối xứng qua một đường thẳng.\n- Chứng minh được các tính chất cơ bản của phép nghịch đảo: bảo tồn góc, bảo tồn tỉ số kép của bốn điểm. Tính được khoảng cách của ảnh của hai điểm qua phép nghịch đảo. \n-  Chứng minh được tính chất cơ bản về hợp thành của hai phép nghịch đảo (cùng cực nghịch đảo và khác cực nghịch đảo).\n- Hiểu được định nghĩa phép nghịch đảo đối xứng. Vận dụng phép nghịch đảo đối xứng để chứng minh các tính chất đơn giản của đường tròn Mixtilinear.\n- Vận dụng linh hoạt phép nghịch đảo và phép nghịch đảo đối xứng vào các bài toán liên quan.",
   "nls": [
    "1.1.NC1b",
    "5.2.NC1b",
    "6.2.NC1b"
+  ],
+  "nls_loi": [],
+  "ghi_chu": null,
+  "thiet_bi": [
+   {
+    "ma": "PTTH2034",
+    "ten": "Bộ thiết bị để vẽ trên bảng trong dạy học toán (thước thẳng, compa)"
+   }
   ]
  },
  {
@@ -2033,15 +3233,32 @@
   "tuan": 34,
   "tiet": "100-101",
   "so_tiet": 2,
-  "loai": "co_ban",
+  "loai": "trai_nghiem",
   "ten": "Hoạt động thực hành trải nghiệm hình học",
   "bai_so": null,
+  "ten_bai": "Hoạt động thực hành trải nghiệm hình học",
   "chuyen_de": null,
   "yccd": "- Gấp giấy tạo dựng hình không gian.\n- Đo đạc và tính toán.\n- vẽ hình với phần mềm GeoGebra",
   "nls": [
    "1.1.NC1b",
    "5.2.NC1b",
    "6.2.NC1b"
+  ],
+  "nls_loi": [],
+  "ghi_chu": null,
+  "thiet_bi": [
+   {
+    "ma": "PTTH2034",
+    "ten": "Bộ thiết bị để vẽ trên bảng trong dạy học toán (thước thẳng, compa)"
+   },
+   {
+    "ma": "TOAN002",
+    "ten": "Máy tính Acer"
+   },
+   {
+    "ma": "PTTH3001",
+    "ten": "Phần mềm toán học - Đại số và Giải tích"
+   }
   ]
  },
  {
@@ -2050,15 +3267,24 @@
   "tuan": 34,
   "tiet": "34-35",
   "so_tiet": 2,
-  "loai": "co_ban",
+  "loai": "chuyen_de_hoc_tap",
   "ten": "Bài tập và kiểm tra cuối chuyên đề 3",
   "bai_so": null,
+  "ten_bai": "Bài tập và kiểm tra cuối chuyên đề 3",
   "chuyen_de": null,
   "yccd": "Vẽ được bản vẽ kỹ thuật đơn giản. Nhận biết được hình biểu diễn của vật thể, hình chiếu vuông góc. Nhận biết được hình chiếu trục đo và hình chiếu trục đo vuông góc đều.\nNhận biết được nguyên tắc cơ bản trong vẽ kỹ thuật. Đọc được thông tin từ một số bản vẽ kỹ thuật đơn giản. Vẽ được bản vẽ kỹ thuật đơn giản.",
   "nls": [
    "1.1.NC1b",
    "5.2.NC1b",
    "6.2.NC1b"
+  ],
+  "nls_loi": [],
+  "ghi_chu": null,
+  "thiet_bi": [
+   {
+    "ma": "PTTH2034",
+    "ten": "Bộ thiết bị để vẽ trên bảng trong dạy học toán (thước thẳng, compa)"
+   }
   ]
  },
  {
@@ -2070,12 +3296,21 @@
   "loai": "chuyen_sau",
   "ten": "Chuyên đề nâng cao: Phép nghịch đảo",
   "bai_so": null,
+  "ten_bai": "Chuyên đề nâng cao: Phép nghịch đảo",
   "chuyen_de": null,
   "yccd": "- Hiểu được định nghĩa của phép nghịch đảo. Xác định được ảnh qua một phép nghịch đảo của: đường thẳng đi qua cực nghịch đảo, đường thẳng không đi qua cực nghịch đảo, đường tròn đi qua cực nghịch đảo, đường tròn không đi qua cực nghịch đảo, hai điểm đối xứng qua một đường thẳng.\n- Chứng minh được các tính chất cơ bản của phép nghịch đảo: bảo tồn góc, bảo tồn tỉ số kép của bốn điểm. Tính được khoảng cách của ảnh của hai điểm qua phép nghịch đảo. \n-  Chứng minh được tính chất cơ bản về hợp thành của hai phép nghịch đảo (cùng cực nghịch đảo và khác cực nghịch đảo).\n- Hiểu được định nghĩa phép nghịch đảo đối xứng. Vận dụng phép nghịch đảo đối xứng để chứng minh các tính chất đơn giản của đường tròn Mixtilinear.\n- Vận dụng linh hoạt phép nghịch đảo và phép nghịch đảo đối xứng vào các bài toán liên quan.",
   "nls": [
    "1.1.NC1b",
    "5.2.NC1b",
    "6.2.NC1b"
+  ],
+  "nls_loi": [],
+  "ghi_chu": null,
+  "thiet_bi": [
+   {
+    "ma": "PTTH2034",
+    "ten": "Bộ thiết bị để vẽ trên bảng trong dạy học toán (thước thẳng, compa)"
+   }
   ]
  },
  {
@@ -2084,15 +3319,24 @@
   "tuan": 35,
   "tiet": "102-105",
   "so_tiet": 4,
-  "loai": "co_ban",
+  "loai": "on_tap_kiem_tra",
   "ten": "Ôn tập và kiểm tra cuối năm",
   "bai_so": null,
+  "ten_bai": "Ôn tập và kiểm tra cuối năm",
   "chuyen_de": null,
   "yccd": "- Nhận biết được khái niệm, các tính chất của luỹ thừa, lôgarit và áp dụng trong tính toán. Nhận biết và giải thích được đồ thị, tính chất của hàm số mũ và hàm số lôgarit. Giải được phương trình, bất phương trình mũ, lôgarit ở dạng đơn giản. Giải quyết được một số vấn đề có liên quan đến môn học khác hoặc có liên quan đến thực tiễn.\n- Xác định góc, chứng minh quan hệ vuông góc, khoảng cách giữa các đối tượng trong không gian. Tính thể tích của khối chóp, khối lăng trụ, khối hộp, khối chóp cụt đều. Vận dụng vào thực tiễn.\n- Nhận biết được một số khái niệm về xác suất cổ điển. Tính được xác suất của biến cố hợp, biến cố giao trong một số trường hợp. \n- Nhận biết được định nghĩa và ý nghĩa hình học của đạo hàm. Thiết lập được phương trình tiếp tuyến của đồ thị hàm số. Tính được đạo hàm của một số hàm số. Vận dụng giải quyết được một số vấn đề có liên quan đến môn học khác hoặc có liên quan đến thực tiễn.",
   "nls": [
    "1.1.NC1b",
    "5.2.NC1b",
    "6.2.NC1b"
+  ],
+  "nls_loi": [],
+  "ghi_chu": null,
+  "thiet_bi": [
+   {
+    "ma": "PTTH2034",
+    "ten": "Bộ thiết bị để vẽ trên bảng trong dạy học toán (thước thẳng, compa)"
+   }
   ]
  },
  {
@@ -2104,12 +3348,21 @@
   "loai": "chuyen_sau",
   "ten": "Chuyên đề nâng cao: Phép nghịch đảo",
   "bai_so": null,
+  "ten_bai": "Chuyên đề nâng cao: Phép nghịch đảo",
   "chuyen_de": null,
   "yccd": "- Hiểu được định nghĩa của phép nghịch đảo. Xác định được ảnh qua một phép nghịch đảo của: đường thẳng đi qua cực nghịch đảo, đường thẳng không đi qua cực nghịch đảo, đường tròn đi qua cực nghịch đảo, đường tròn không đi qua cực nghịch đảo, hai điểm đối xứng qua một đường thẳng.\n- Chứng minh được các tính chất cơ bản của phép nghịch đảo: bảo tồn góc, bảo tồn tỉ số kép của bốn điểm. Tính được khoảng cách của ảnh của hai điểm qua phép nghịch đảo. \n-  Chứng minh được tính chất cơ bản về hợp thành của hai phép nghịch đảo (cùng cực nghịch đảo và khác cực nghịch đảo).\n- Hiểu được định nghĩa phép nghịch đảo đối xứng. Vận dụng phép nghịch đảo đối xứng để chứng minh các tính chất đơn giản của đường tròn Mixtilinear.\n- Vận dụng linh hoạt phép nghịch đảo và phép nghịch đảo đối xứng vào các bài toán liên quan.",
   "nls": [
    "1.1.NC1b",
    "5.2.NC1b",
    "6.2.NC1b"
+  ],
+  "nls_loi": [],
+  "ghi_chu": null,
+  "thiet_bi": [
+   {
+    "ma": "PTTH2034",
+    "ten": "Bộ thiết bị để vẽ trên bảng trong dạy học toán (thước thẳng, compa)"
+   }
   ]
  }
 ]
