@@ -177,6 +177,45 @@ const exBlocks = body.match(/\\begin\{ex\}[\s\S]*?\\end\{ex\}/g) || [];
 const exLoi = exBlocks.filter(b => /Bước\s*\d/.test(b)).length;
 if (exLoi) van_de.push(`Có ${exLoi} câu trắc nghiệm (\\begin{ex}) bị lẫn các dòng "Bước ..." của tiến trình – có thể do lỗi chuyển Word → TeX`);
 
+// ===== 9b. File gửi lên là TÀI LIỆU (chưa phải KHBD) → lập dàn ý gọn cho AI soạn KHBD mới =====
+const la_tai_lieu = !sec.muc_tieu && !sec.tien_trinh && hoat_dong.length === 0;
+let dan_y = null;
+if (la_tai_lieu) {
+  van_de.length = 0;
+  van_de.push("File là tài liệu chuyên đề, chưa phải kế hoạch bài dạy → soạn KHBD mới theo CV 5512, tài liệu gốc đưa vào Phụ lục");
+  const ngan = (s, n) => { const t = plain(s).replace(/\\[a-zA-Z]+skip=[\d.]+cm/g, "").replace(/\s+/g, " ").trim(); return t.length > n ? t.slice(0, n) + "…" : t; };
+  const muc = [];           // các phần lớn của tài liệu
+  let hien = { ten: "Mở đầu", vi_du: [], bai_tap: [] };
+  let soBT = 0;
+  const lines = body.split("\n");
+  for (let i = 0; i < lines.length; i++) {
+    const l = lines[i];
+    // Tiêu đề phần: \item \textbf{...} trong enumerate cấp ngoài, \section, hoặc dòng in đậm dạng "1. ...", "I. ..."
+    const mH = l.match(/^\s*\\item\s*\\textbf\{([^}]{4,120})\}/) || l.match(/\\(?:sub)*section\*?\{(.{4,120})\}\s*$/) ||
+               l.match(/^\s*\{?\\textbf\{\s*((?:[IVX]+|\d+)\.\s[^}]{3,120})\}\s*\}?\s*$/) ||
+               l.match(/^\s*((?:[IVX]+|\d+)\.\s*\\textbf\{[^}]{4,120})\}\s*$/);
+    if (mH) {
+      if (hien.vi_du.length || hien.bai_tap.length) muc.push(hien);
+      hien = { ten: ngan(mH[1], 120), vi_du: [], bai_tap: [] };
+      continue;
+    }
+    if (/\\textbf\{\s*\*?\s*(Ví dụ|Định lí|Định lý|Bổ đề|Tính chất|Nhận xét)/.test(l) && hien.vi_du.length < 8) hien.vi_du.push(ngan(l, 140));
+    if (/\\begin\{(bt|ex)\}/.test(l)) {
+      soBT++;
+      let k = i + 1, de = "";
+      while (k < lines.length && !/\\loigiai\{|\\end\{(bt|ex)\}/.test(lines[k]) && de.length < 400) de += " " + lines[k++];
+      const nguon = (de.match(/\[([^\]]{3,60})\]/) || [])[1] || "";
+      hien.bai_tap.push({ so: soBT, nguon: nguon.trim(), de: ngan(de.replace(/\\textbf\{\s*\[[^\]]*\]\s*\}/, ""), 160) });
+    }
+  }
+  muc.push(hien);
+  // dòng tiêu đề lớn (chữ to) của tài liệu
+  const mTitle = body.match(/\\fontsize\{(?:2\d|1[6-9])\}[^\n]*?\\textbf\{([^}]{4,120})\}/);
+  const soHinhChuaChuyen = (body.match(/\\texttt\{image\d+\.(emf|wmf)\}/gi) || []).length;
+  dan_y = { tieu_de: mTitle ? ngan(mTitle[1], 120) : null, so_bai_tap: soBT, so_hinh_chua_chuyen: soHinhChuaChuyen,
+            muc };
+}
+
 // ===== 10. Báo cáo ngắn gửi Telegram (Parse Mode: HTML) =====
 const esc = s => String(s ?? "").replace(/&/g, "&amp;").replace(/</g, "&lt;").replace(/>/g, "&gt;");
 const L = meta.lesson || {};
@@ -204,6 +243,8 @@ return [{
     van_de,
     so_van_de: van_de.length,
     bao_cao,
-    sections_tex
+    sections_tex,
+    la_tai_lieu,
+    dan_y
   }
 }];

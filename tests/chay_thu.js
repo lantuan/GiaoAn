@@ -19,13 +19,21 @@ function run(argv){
  const rows=all.filter(x=>String(x.bai_so)===bai);
  const yccd=rows.map(x=>({id:x.id,MucDo:x.MucDo,content:x.content,scope:x.scope}));
  const out={'04_LAY_YCCD':{chat_id:1,message_id:1,file_name:argv[0].split('/').pop()+(zipBin?'.zip':''),request:{grade:lop},lesson:{bai_so:bai,bai:rows[0]&&rows[0].bai,so_tiet:2,tuan:'?'},yccd},'07_DOC_TEX':{giao_an_tex:tex}};
- if(argv[4]){const r3=new Function('$json',rd(G+'n8n/03_PHAN_TICH_YEU_CAU.js'))({text:argv[4],file_name:out['04_LAY_YCCD'].file_name}); out['04_LAY_YCCD'].request={...r3.json.request,grade:lop};}
  const st={}, $$=n=>({first:()=>({json:out[n]})});
- const helpers={httpRequest:o=>o.url.includes('nls_nc1')?JSON.parse(rd(G+'data/nang_luc_so/nls_nc1.json')):{data:[{id:'google/gemma-4-31b-it:free'}]},
+ const helpers={httpRequest:o=>{const u=o.url;
+   if(u.includes('nls_nc1')) return JSON.parse(rd(G+'data/nang_luc_so/nls_nc1.json'));
+   if(u.includes('ppct_2026_2027/')) return JSON.parse(rd(G+'data/'+u.split('/data/')[1]));
+   if(u.includes('/curriculum/')){const t=rd('/Users/mailan/Desktop/NganHangDe_Lan/web/NganHangDe/data/'+u.split('/data/')[1]); if(!t) throw new Error('404'); return JSON.parse(t);}
+   return {data:[{id:'google/gemma-4-31b-it:free'}]};},
    prepareBinaryData:(b,f,m)=>({fileName:f,_s:b._s})};
  const Buf={from:s=>({length:s.length,_s:s})};
  const mk=code=>new Function('$input','$','$getWorkflowStaticData','Buffer',code.replace(/await /g,'').replace(/async /g,''));
  const step=(f,inp)=>mk(rd(G+'n8n/'+f)).call({helpers},{first:()=>({json:inp})},$$,()=>st,Buf)[0];
+ if(bai==='-'){ // chạy THẬT node 03 + 04 (tìm bài trong PPCT theo chú thích + tên file)
+   const r3=new Function('$json',rd(G+'n8n/03_PHAN_TICH_YEU_CAU.js'))({text:argv[4]||'',file_name:out['04_LAY_YCCD'].file_name,input_type:'document'});
+   out['04_LAY_YCCD']=mk(rd(G+'n8n/04_LAY_YCCD.js')).call({helpers},{first:()=>({json:{chat_id:1,message_id:1,file_name:out['04_LAY_YCCD'].file_name,...r3.json}})},$$,()=>st,Buf)[0].json;
+   if(!out['04_LAY_YCCD'].ok) return 'NODE 04: '+out['04_LAY_YCCD'].error_message;
+ } else if(argv[4]){const r3=new Function('$json',rd(G+'n8n/03_PHAN_TICH_YEU_CAU.js'))({text:argv[4],file_name:out['04_LAY_YCCD'].file_name}); out['04_LAY_YCCD'].request={...r3.json.request,grade:lop};}
  try{
   if(zipBin){
    const h2={...helpers,getBinaryDataBuffer:(n,k)=>({toString:enc=>enc==='base64'?ObjC.unwrap($.NSData.dataWithContentsOfFile(zipBin[k]._p).base64EncodedStringWithOptions(0)):rd(zipBin[k]._p)})};
@@ -34,7 +42,7 @@ function run(argv){
   }
   out['08']=step('08_KIEM_TRA_5512.js',{giao_an_tex:tex}).json;
   out['09_CHUAN_BI_AI']=step('09_CHUAN_BI_AI.js',out['08']).json;
-  const r=step('11_GHEP_VA_SUA.js',JSON.parse(rd(G+'tests/fake_ai.json')));
+  const r=step('11_GHEP_VA_SUA.js',JSON.parse(rd(G+(out['09_CHUAN_BI_AI'].soan_moi?'tests/fake_ai_soan.json':'tests/fake_ai.json'))));
   if(argv[3]) wr(argv[3],r.binary.data._s);
   return 'BINARY: '+r.json.ds_binary+' | zip: '+r.json.zip_name+'\n'+r.json.caption+"\n\nVIỆC GỬI AI: "+JSON.stringify(out['09_CHUAN_BI_AI'].viec).slice(0,600);
  }catch(e){return 'LỖI: '+e+' dòng '+e.line;}

@@ -71,6 +71,21 @@ if (nlsChuaDung.length) {
 const hskt = d.request?.hs_khuyet_tat;
 if (hskt?.mo_ta) viec.ca_nhan_hoa = { yeu_cau_cua_gv: hskt.mo_ta, cac_hoat_dong: (kt.hoat_dong || []).map(h => h.ten || h.key) };
 
+// ===== 3f. File là TÀI LIỆU chuyên đề → soạn KHBD mới (thay toàn bộ việc ở trên) =====
+const soanMoi = !!d.la_tai_lieu;
+let pp = {};
+try { pp = $('04_LAY_YCCD').first().json.ppct || {}; } catch (e) {}
+const nlsSoan = (pp.nls || []).filter(c => NLS[c]);
+if (soanMoi) {
+  for (const k of Object.keys(viec)) delete viec[k];
+  viec.soan_khbd_tu_tai_lieu = {
+    so_tiet: d.lesson?.so_tiet || null,
+    dan_y_tai_lieu: d.dan_y,
+    nls_duoc_dung: nlsSoan.map(c => ({ ma: c, mo_ta: NLS[c] })),
+    hs_khuyet_tat: hskt?.mo_ta || null
+  };
+}
+
 const can_ai = Object.keys(viec).length > 0;
 
 // ===== 4. Soạn yêu cầu gửi AI =====
@@ -87,9 +102,23 @@ Quy tắc:
 {"them_muc_tieu_kien_thuc":["..."],"bo_sung_hoat_dong":[{"key":"...","tex":"..."}],"hoat_dong_moi":[{"key":"...","tex":"..."}],"nls_trong_hoat_dong":[{"key":"...","ma":"...","tex":"..."}],"ca_nhan_hoa":"..."}
 Mảng nào không có việc thì để [], "ca_nhan_hoa" không có việc thì để "".`;
 
+const SYSTEM_SOAN = `Bạn là giáo viên chuyên Toán giỏi, soạn kế hoạch bài dạy (KHBD) theo Công văn 5512/BGDĐT-GDTrH cho lớp chuyên.
+Đầu vào: dàn ý một tài liệu chuyên đề (các phần, ví dụ, bài tập đánh số 1..n). Tài liệu gốc sẽ được in nguyên văn ở PHỤ LỤC, nên khi cần chỉ ghi "Ví dụ ... phần ...", "Bài tập k (Phụ lục)", KHÔNG chép lại đề.
+Yêu cầu:
+- Chia ${d.lesson?.so_tiet || "các"} tiết hợp lý theo các phần của tài liệu ("phan_bo").
+- Hoạt động: hd_mo_dau (1 cái); hd_hinh_thanh_1, hd_hinh_thanh_2… (mỗi phần lớn của tài liệu 1 hoạt động); hd_luyen_tap (chọn bài tập theo mức tăng dần); hd_van_dung (bài khó/thi HSG, dự án nhỏ hoặc tìm hiểu thêm có dùng công cụ số).
+- Mỗi hoạt động đủ: a) Mục tiêu; b) Nội dung; c) Sản phẩm; d) Tổ chức thực hiện gồm Bước 1: Chuyển giao nhiệm vụ; Bước 2: Thực hiện nhiệm vụ; Bước 3: Báo cáo, thảo luận; Bước 4: Kết luận, nhận định. Ghi rõ tiết ở trường "tiet".
+- "muc_tieu_kien_thuc": 4–8 ý, bám YCCĐ trong PPCT và nội dung tài liệu.
+- "nls_trong_hoat_dong": mỗi mã trong "nls_duoc_dung" gắn vào ĐÚNG MỘT hoạt động phù hợp, 1 câu mô tả việc HS làm. Không dùng mã khác.
+- Nếu có "hs_khuyet_tat": thêm "ca_nhan_hoa" (gọi là "HS A"), không thì để "".
+- Mã LaTeX dùng được ngay: công thức trong $...$, in đậm \\textbf{...}, xuống dòng bằng dòng trống; không dùng \\section, không dùng gói lạ.
+- Chỉ trả về MỘT đối tượng JSON, không giải thích, không markdown:
+{"muc_tieu_kien_thuc":["..."],"phan_bo":[{"tiet":"1-2","noi_dung":"..."}],"hoat_dong":[{"key":"hd_mo_dau","ten":"...","tiet":"1","tex":"..."}],"nls_trong_hoat_dong":[{"key":"...","ma":"...","tex":"..."}],"ca_nhan_hoa":""}`;
+
 const L = d.lesson || {};
 const user = {
-  bai: `Toán ${d.request?.grade} – Bài ${L.bai_so}. ${L.bai} (${L.so_tiet ?? "?"} tiết, bộ Kết nối tri thức)`,
+  bai: L.bai_so ? `Toán ${d.request?.grade} – Bài ${L.bai_so}. ${L.bai} (${L.so_tiet ?? "?"} tiết, bộ Kết nối tri thức)`
+                : `Toán ${d.request?.grade} – ${L.bai} (${L.so_tiet ?? "?"} tiết)`,
   yccd_cua_bai: (d.yccd || []).map(y => y.content),
   viec
 };
@@ -97,11 +126,11 @@ const user = {
 const ai_body = {
   models,                               // OpenRouter tự chuyển model sau nếu model trước lỗi/hết lượt
   temperature: 0.3,
-  max_tokens: hskt?.mo_ta ? 4000 : 3000,
+  max_tokens: soanMoi ? 9000 : (hskt?.mo_ta ? 4000 : 3000),
   messages: [
-    { role: "system", content: SYSTEM },
+    { role: "system", content: soanMoi ? SYSTEM_SOAN : SYSTEM },
     { role: "user", content: JSON.stringify(user) }
   ]
 };
 
-return [{ json: { ...d, can_ai, viec, ai_body, nls_map: NLS } }];
+return [{ json: { ...d, can_ai, viec, ai_body, nls_map: NLS, soan_moi: soanMoi, ppct: pp } }];

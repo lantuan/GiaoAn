@@ -64,3 +64,10 @@ Muốn nhận lại đủ hình: **nén cả thư mục bài thành .zip** rồi
 11_GHEP_VA_SUA → IF 11A_CO_ZIP ─true→ 12A_NEN_ZIP (Compress, ds_binary) → 12 Telegram
                                └false──────────────────────────────────→ 12 Telegram
 ```
+
+## Soạn KHBD từ tài liệu chuyên đề
+
+Gửi tài liệu (chưa phải KHBD) kèm chú thích, ví dụ: `chuyển giáo án cho chuyên đề chuyên sâu (nâng cao) lớp 11`.
+- Node 04 tìm bài trong `ppct_2026_2027` theo **tên** (chú thích + tên file) – không cần số bài; "nâng cao/chuyên sâu" → `chuyen_sau`, "chuyên đề học tập" → `chuyen_de_hoc_tap`.
+- Node 08 nhận ra file chưa có cấu trúc KHBD → lập dàn ý (các phần, ví dụ, bài tập đánh số) ~6 nghìn ký tự gửi AI thay cho cả tài liệu.
+- Node 11 dựng KHBD: Mục tiêu (YCCĐ trong PPCT + AI), năng lực, NLS (nguyên văn CV 3456), thiết bị có mã mượn, tiến trình 4 hoạt động do AI viết; tài liệu gốc in nguyên văn ở **Phụ lục**.

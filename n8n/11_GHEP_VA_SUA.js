@@ -42,6 +42,81 @@ if (ai) {
   if (!d.viec?.yccd_thieu?.length) ai.them_muc_tieu_kien_thuc = [];
 }
 
+// ===== 1S. SOẠN KHBD MỚI từ tài liệu chuyên đề (node 08 nhận ra file chưa phải KHBD) =====
+const soanMoi = !!d.soan_moi;
+const PL_MARK = "%%==PHU_LUC_TAI_LIEU==";
+if (soanMoi) {
+  const L = meta.lesson || {};
+  const pp = d.ppct || meta.ppct || {};
+  const nlsPP = (pp.nls || []).filter(c => NLS[c]);
+  const ds = (arr, mau) => "\\begin{itemize}\n" + arr.map(x => `\\item ${mau ? mau(x) : x}\n`).join("") + "\\end{itemize}\n";
+  const TD = t => `\n{\\noindent\\textbf{${t}}\\par}\n\n`;
+  const ok = s => typeof s === "string" && s.trim() && canBang(s);
+
+  // Mục tiêu
+  const ktAI = (ai?.muc_tieu_kien_thuc || []).filter(ok);
+  const ktPP = (meta.yccd || []).map(y => y.content).filter(Boolean);
+  let khbd = `{\\centering\\fontsize{15}{18}\\selectfont\\textbf{KẾ HOẠCH BÀI DẠY}\\par}\n\n` +
+    `{\\centering\\fontsize{14}{17}\\selectfont\\textbf{${String(L.bai || "").toUpperCase()}}\\par}\n\n` +
+    (L.so_tiet ? `{\\centering\\textit{(${L.so_tiet} tiết)}\\par}\n\n` : "") +
+    TD("I. MỤC TIÊU") + TD("1. Kiến thức") + "Học xong chuyên đề này, HS đạt các yêu cầu sau:\n\n" +
+    ds([...ktPP, ...ktAI.map(x => `{\\color[HTML]{0070C0}${x}}`)]) +
+    TD("2. Năng lực") + "\\textit{\\textbf{Năng lực chung:}}\n\n" +
+    ds(["Năng lực tự chủ và tự học: tự nghiên cứu tài liệu chuyên đề, tự giải các bài tập.",
+        "Năng lực giao tiếp và hợp tác: trình bày lời giải, thảo luận nhóm, phản biện.",
+        "Năng lực giải quyết vấn đề và sáng tạo: chuyển bài toán thực tế/tổ hợp về mô hình phù hợp, tìm nhiều cách giải."]) +
+    "\\textit{\\textbf{Năng lực đặc thù:}}\n\n" +
+    ds(["Năng lực tư duy và lập luận toán học", "Năng lực mô hình hoá toán học", "Năng lực giải quyết vấn đề toán học",
+        "Năng lực giao tiếp toán học", "Năng lực sử dụng công cụ, phương tiện học toán"]) +
+    "\\textcolor[HTML]{EE0000}{\\textit{\\textbf{Năng lực số:}}}\n\n" +
+    (nlsPP.length ? ds(nlsPP, c => DO(`${c}: ${NLS[c]}`)) : "\n") +
+    TD("3. Phẩm chất") +
+    ds(["Chăm chỉ: tích cực, kiên trì giải các bài toán khó.", "Trung thực: trình bày đúng kết quả, ghi rõ nguồn khi tham khảo tài liệu, công cụ số và AI.",
+        "Trách nhiệm: hoàn thành nhiệm vụ cá nhân và nhóm."]) +
+    TD("II. THIẾT BỊ DẠY HỌC VÀ HỌC LIỆU") +
+    ds(["\\textbf{GV:} Kế hoạch bài dạy, tài liệu chuyên đề (Phụ lục), phiếu bài tập, máy chiếu/ti vi." +
+          ((pp.thiet_bi || []).length ? " Thiết bị mượn: " + pp.thiet_bi.map(t => `${t.ten} (mã ${t.ma})`).join("; ") + "." : ""),
+        "\\textbf{HS:} Tài liệu chuyên đề, vở ghi, dụng cụ học tập."]) +
+    TD("III. TIẾN TRÌNH DẠY HỌC");
+
+  // Phân bố thời lượng
+  const pb = (ai?.phan_bo || []).filter(x => ok(String(x.tiet || "")) && ok(String(x.noi_dung || "")));
+  if (pb.length) {
+    khbd += "\\textit{Phân bố thời lượng:}\n\n" + ds(pb, x => `{\\color[HTML]{0070C0}Tiết ${x.tiet}: ${x.noi_dung}}`);
+  }
+  // Các hoạt động
+  const nlsHD = {};
+  for (const x of ai?.nls_trong_hoat_dong || []) {
+    if (nlsPP.includes(x.ma) && ok(x.tex)) (nlsHD[x.key] = nlsHD[x.key] || []).push(x.tex.startsWith(x.ma) ? x.tex : `${x.ma}: ${x.tex}`);
+  }
+  const KEY_RX = /^hd_(mo_dau|hinh_thanh(_\d+)?|luyen_tap|van_dung)$/;
+  const hds = (ai?.hoat_dong || []).filter(h => KEY_RX.test(h.key || "") && ok(h.tex));
+  const TIEU = { mo_dau: "1. HOẠT ĐỘNG MỞ ĐẦU", hinh_thanh: "2. HOẠT ĐỘNG HÌNH THÀNH KIẾN THỨC MỚI", luyen_tap: "3. HOẠT ĐỘNG LUYỆN TẬP", van_dung: "4. HOẠT ĐỘNG VẬN DỤNG" };
+  const nhom = k => k.replace(/^hd_/, "").replace(/_\d+$/, "");
+  let daCoHT = false, soHT = 0;
+  for (const k of ["mo_dau", "hinh_thanh", "luyen_tap", "van_dung"]) {
+    const cua = hds.filter(h => nhom(h.key) === k);
+    if (!cua.length) { khbd += TD(TIEU[k]) + "{\\color[HTML]{0070C0}(Chưa soạn được phần này – gửi lại để AI viết.)}\n\n"; canh_bao.push(`Thiếu ${TIEU[k].replace(/^\d\.\s*/, "")}`); continue; }
+    khbd += TD(TIEU[k]);
+    for (const h of cua) {
+      if (k === "hinh_thanh") { soHT++; khbd += `{\\noindent\\textbf{Hoạt động 2.${soHT}: ${String(h.ten || "").replace(/[{}\\]/g, "")}}${h.tiet ? ` \\textit{(Tiết ${String(h.tiet).replace(/[{}\\]/g, "")})}` : ""}\\par}\n\n`; }
+      else if (h.tiet) khbd += `\\textit{(Tiết ${String(h.tiet).replace(/[{}\\]/g, "")})}\n\n`;
+      khbd += XANH(h.tex) + "\n\n" + (nlsHD[h.key] || []).map(x => DO(x) + "\n\n").join("");
+    }
+  }
+  if (hds.length) da_sua.push(`Soạn mới KHBD theo CV 5512 từ tài liệu: ${hds.length} hoạt động` + (pb.length ? `, chia ${L.so_tiet || "?"} tiết` : ""));
+  else canh_bao.push("AI chưa soạn được tiến trình – đã tạo khung Mục tiêu, Thiết bị; gửi lại để AI viết hoạt động.");
+  if (d.dan_y?.so_hinh_chua_chuyen) canh_bao.push(`Tài liệu có ${d.dan_y.so_hinh_chua_chuyen} hình .emf/.wmf Word2Tex chưa chuyển được (chỉ hiện khung "Hình imageX.emf") – cần đổi sang .png trong Word2Tex.`);
+
+  // Ghép: preamble gốc + KHBD + Phụ lục (nguyên văn tài liệu)
+  const i0 = tex.indexOf("\\begin{document}"), i1 = tex.lastIndexOf("\\end{document}");
+  const than = i0 >= 0 ? tex.slice(i0 + 16, i1 > i0 ? i1 : undefined) : tex;
+  tex = (i0 >= 0 ? tex.slice(0, i0 + 16) : "\\begin{document}") + "\n" + khbd +
+    `\n\n${PL_MARK}\n\\newpage\n{\\centering\\fontsize{14}{17}\\selectfont\\textbf{PHỤ LỤC. TÀI LIỆU CHUYÊN ĐỀ}\\par}\n\n` + than + "\n\\end{document}\n";
+  // các việc kiểu "sửa giáo án cũ" không áp dụng
+  if (ai) { ai.them_muc_tieu_kien_thuc = []; ai.bo_sung_hoat_dong = []; ai.hoat_dong_moi = []; (ai.nls_trong_hoat_dong || []).forEach(x => { x._da_dung = true; }); }
+}
+
 if (ai) {
   // 1a. Thêm YCCĐ vào Mục tiêu – Kiến thức
   const kt = (ai.them_muc_tieu_kien_thuc || []).filter(s => s && canBang(s));
@@ -95,7 +170,8 @@ if (ai) {
   if (hskt && cnh && canBang(cnh)) {
     const noiDung = hskt.ten ? cnh.split("HS A").join(`HS ${hskt.ten}`) : cnh;
     const khoi = `\n\n\\subsubsection*{IV. HỖ TRỢ HỌC SINH KHUYẾT TẬT HỌC HOÀ NHẬP}\n\n` + XANH(noiDung) + "\n\n";
-    const e = tex.lastIndexOf("\\end{document}");
+    const iPL = tex.indexOf(PL_MARK);
+    const e = iPL >= 0 ? iPL : tex.lastIndexOf("\\end{document}");
     if (e > 0) { tex = tex.slice(0, e) + khoi + tex.slice(e); da_sua.push("Thêm phần cá nhân hoá cho HS khuyết tật (mục IV)"); }
   } else if (hskt) canh_bao.push("Chưa viết được phần cá nhân hoá cho HS khuyết tật – gửi lại giúp mình");
 }
@@ -213,7 +289,8 @@ if (!/Ký duyệt/i.test(plainBody)) {
 \\end{minipage}
 
 `;
-  const e = tex.lastIndexOf("\\end{document}");
+  const iPL = tex.indexOf(PL_MARK);
+  const e = iPL >= 0 ? iPL : tex.lastIndexOf("\\end{document}");
   if (e > 0) { tex = tex.slice(0, e) + KY + tex.slice(e); da_sua.push("Thêm khối Ký duyệt (Tổ trưởng chuyên môn – Giáo viên)"); }
 }
 
@@ -256,10 +333,10 @@ const ds_binary = Object.keys(binary).join(",");
 const zip_name = goc_ten + "_CV5512.zip";
 
 const esc = s => String(s ?? "").replace(/&/g, "&amp;").replace(/</g, "&lt;").replace(/>/g, "&gt;");
-let caption = `<b>✅ Đã chỉnh theo CV 5512: Bài ${esc(meta.lesson?.bai_so)}. ${esc(meta.lesson?.bai)}</b>\n` +
+let caption = `<b>✅ ${soanMoi ? "Đã soạn KHBD theo CV 5512" : "Đã chỉnh theo CV 5512"}: ${meta.lesson?.bai_so ? "Bài " + esc(meta.lesson.bai_so) + ". " : ""}${esc(meta.lesson?.bai)}</b>\n` +
   (da_sua.length ? da_sua.map(s => "• " + esc(s)).join("\n") : "Không có gì cần sửa.") +
   (canh_bao.length ? `\n<b>Lưu ý:</b>\n` + canh_bao.map(s => "• " + esc(s)).join("\n") : "") +
-  (co_zip ? `\n📦 File .zip gồm giáo án + ${hinhGui.length} hình – giải nén rồi mở file .tex.` : "") +
+  (co_zip ? `\n📦 File .zip gồm giáo án${hinhGui.length ? " + " + hinhGui.length + " hình" : ""} + ex_test.sty – giải nén rồi mở file .tex.` : "") +
   `\n<i>Phần màu xanh do AI viết – thầy/cô rà soát trước khi dùng.${model_dung ? " (" + esc(model_dung) + ")" : ""}</i>`;
 if (caption.length > 1000) caption = caption.slice(0, 990) + "…";
 
