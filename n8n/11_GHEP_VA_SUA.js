@@ -82,11 +82,50 @@ if (ai) {
     const dong = x.tex.startsWith(x.ma) ? x.tex : `${x.ma}: ${x.tex}`;
     if (chen(S[x.key], "\n\n" + DO(dong) + "\n")) da_sua.push(`Gắn ${x.ma} vào ${x.key}`);
   }
+  // 1e. Cá nhân hoá cho HS khuyết tật (chỉ khi GV yêu cầu) – điền lại tên thật tại đây, AI không biết tên
+  const hskt = meta.request?.hs_khuyet_tat || d.request?.hs_khuyet_tat;
+  const cnh = typeof ai.ca_nhan_hoa === "string" ? ai.ca_nhan_hoa.trim() : "";
+  if (hskt && cnh && canBang(cnh)) {
+    const noiDung = hskt.ten ? cnh.split("HS A").join(`HS ${hskt.ten}`) : cnh;
+    const khoi = `\n\n\\subsubsection*{IV. HỖ TRỢ HỌC SINH KHUYẾT TẬT HỌC HOÀ NHẬP}\n\n` + XANH(noiDung) + "\n\n";
+    const e = tex.lastIndexOf("\\end{document}");
+    if (e > 0) { tex = tex.slice(0, e) + khoi + tex.slice(e); da_sua.push("Thêm phần cá nhân hoá cho HS khuyết tật (mục IV)"); }
+  } else if (hskt) canh_bao.push("Chưa viết được phần cá nhân hoá cho HS khuyết tật – gửi lại giúp mình");
 }
 
 // ===== 2. Sửa bằng code (0 token) =====
 // 2a. Thuật ngữ
 if (/Năng lực riêng/.test(tex)) { tex = tex.replace(/Năng lực riêng/g, "Năng lực đặc thù"); da_sua.push('Đổi "Năng lực riêng" → "Năng lực đặc thù"'); }
+
+// 2d. Xoá thông tin riêng từng lớp (ngày soạn/dạy, lớp, tuần, tiết PPCT, sĩ số) để dùng chung cho nhiều lớp.
+// Hệ thống của trường đã lưu lớp + thời điểm đẩy lên. Giữ lại nếu GV ghi "giữ ngày/lớp".
+if (!(meta.request?.giu_thong_tin_lop)) {
+  const pl = s => s.replace(/\\[a-zA-Z]+\*?(\[[^\]]*\])?(\{[0-9A-Fa-f]{6}\})?/g, " ").replace(/[{}~$]/g, " ").replace(/\s+/g, " ").trim().toLowerCase();
+  // Mạnh: xoá ở bất kỳ đâu (dòng ngắn bắt đầu bằng các nhãn này)
+  const MANH = /^(ngày|thời gian|giờ)\s*(soạn|dạy|giảng|lên lớp|thực hiện)|^(tiết|tiết thứ)\s*(theo\s*)?ppct|^(tuần|lớp)\s*dạy|^sĩ số|^lớp\s*:\s*\d|^lớp\s*\d{1,2}\s*[a-zđ]+\d*\s*([:,;–-]|$)/;
+  // Chỉ xoá ở phần đầu (trước I. MỤC TIÊU)
+  const DAU = /^(ngày|tuần|thứ)\s*(\d|\.|:|…|hai|ba|tư|năm|sáu|bảy)|^tiết\s*[:\d]|^lớp\s*[:\d]/;
+  const iB = tex.indexOf("\\begin{document}"), iE = tex.lastIndexOf("\\end{document}");
+  if (iB >= 0 && iE > iB) {
+    let body = tex.slice(iB, iE);
+    let soXoa = 0, pos = 0;
+    // bảng thông tin lớp (Lớp | Ngày dạy | Sĩ số…)
+    body = body.replace(/\\begin\{(tabular|tabularx|longtable)\}[\s\S]*?\\end\{\1\}/g, b => {
+      const t = pl(b);
+      if (t.length < 600 && /(ngày dạy|ngày giảng|sĩ số|lớp dạy|tiết ppct)/.test(t)) { soXoa++; return ""; }
+      return b;
+    });
+    const iMuc = body.search(/I\.\s*MỤC TIÊU/);
+    body = body.split("\n").filter(l => {
+      const viTri = pos; pos += l.length + 1;
+      const t = pl(l);
+      if (!t || t.length > 160) return true;
+      if (MANH.test(t) || (viTri < iMuc && DAU.test(t))) { soXoa++; return false; }
+      return true;
+    }).join("\n").replace(/\n{3,}/g, "\n\n");
+    if (soXoa) { tex = tex.slice(0, iB) + body + tex.slice(iE); da_sua.push(`Xoá ${soXoa} dòng thông tin riêng từng lớp (ngày, lớp, tuần, tiết PPCT) để dùng chung`); }
+  }
+}
 
 // 2b. Dòng tiến trình lọt vào câu trắc nghiệm \begin{ex}
 // Lỗi Word2Tex: (1) dòng "Bước…" lọt giữa đề và \choice; (2) \loigiai{...} của câu cuối "nuốt" phần
@@ -144,6 +183,31 @@ if (iMT >= 0 && iTB > iMT) {
     } else canh_bao.push("Không tìm thấy danh sách Năng lực số trong Mục tiêu để thêm mã");
   }
   tex = tex.slice(0, iMT) + mt + tex.slice(iTB);
+}
+
+// 2e. Khối "Ký duyệt" cuối giáo án (Tổ trưởng chuyên môn – Giáo viên)
+const plainBody = tex.slice(tex.indexOf("\\begin{document}")).normalize("NFC");
+if (!/Ký duyệt/i.test(plainBody)) {
+  const KY = `
+
+\\par\\vspace{0.8cm}\\noindent
+\\begin{minipage}{\\linewidth}
+\\centering{\\textbf{Ký duyệt}}\\par\\vspace{2pt}
+\\noindent\\rule{\\linewidth}{0.6pt}\\par\\vspace{6pt}
+\\begin{minipage}[t]{0.5\\linewidth}\\centering
+\\textbf{Tổ trưởng chuyên môn}\\par\\vspace{6pt}
+\\textit{(Ký, ghi rõ họ tên)}
+\\end{minipage}%
+\\begin{minipage}[t]{0.5\\linewidth}\\centering
+\\textbf{Giáo viên}\\par\\vspace{6pt}
+\\textit{(Ký, ghi rõ họ tên)}
+\\end{minipage}
+\\vspace{2.5cm}
+\\end{minipage}
+
+`;
+  const e = tex.lastIndexOf("\\end{document}");
+  if (e > 0) { tex = tex.slice(0, e) + KY + tex.slice(e); da_sua.push("Thêm khối Ký duyệt (Tổ trưởng chuyên môn – Giáo viên)"); }
 }
 
 // ===== 3. Xuất file =====

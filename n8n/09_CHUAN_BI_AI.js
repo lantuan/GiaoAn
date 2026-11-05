@@ -67,6 +67,10 @@ if (nlsChuaDung.length) {
   viec.cac_hoat_dong = [...(kt.hoat_dong || []).map(h => h.key), ...thieuHD.map(h => h.key)];
 }
 
+// 3e. Cá nhân hoá cho HS khuyết tật – CHỈ khi GV yêu cầu (tên thật đã được thay bằng "HS A")
+const hskt = d.request?.hs_khuyet_tat;
+if (hskt?.mo_ta) viec.ca_nhan_hoa = { yeu_cau_cua_gv: hskt.mo_ta, cac_hoat_dong: (kt.hoat_dong || []).map(h => h.ten || h.key) };
+
 const can_ai = Object.keys(viec).length > 0;
 
 // ===== 4. Soạn yêu cầu gửi AI =====
@@ -78,9 +82,10 @@ Quy tắc:
 - Mỗi hoạt động mới gồm đủ: a) Mục tiêu, b) Nội dung, c) Sản phẩm, d) Tổ chức thực hiện với Bước 1: Chuyển giao nhiệm vụ; Bước 2: Thực hiện nhiệm vụ; Bước 3: Báo cáo, thảo luận; Bước 4: Kết luận, nhận định.
 - Hoạt động Vận dụng phải gắn với tình huống thực tiễn và bám YCCĐ.
 - "nls_can_gan": mỗi mã chọn MỘT hoạt động phù hợp trong "cac_hoat_dong" (key), viết 1 câu mô tả việc HS làm để đạt mã đó, dạng "mã: mô tả". Không dùng mã nào khác.
+- "ca_nhan_hoa" (nếu có): viết kế hoạch hỗ trợ HS khuyết tật học hoà nhập (TT 03/2018/TT-BGDĐT) đúng tình trạng GV mô tả, gọi HS là "HS A": mục tiêu điều chỉnh; chỗ ngồi, thiết bị, phương tiện hỗ trợ; điều chỉnh nhiệm vụ trong từng hoạt động; cách đánh giá phù hợp. Không bịa thêm tình trạng.
 - Chỉ trả về MỘT đối tượng JSON, không giải thích, không markdown, đúng khuôn:
-{"them_muc_tieu_kien_thuc":["..."],"bo_sung_hoat_dong":[{"key":"...","tex":"..."}],"hoat_dong_moi":[{"key":"...","tex":"..."}],"nls_trong_hoat_dong":[{"key":"...","ma":"...","tex":"..."}]}
-Mảng nào không có việc thì để [].`;
+{"them_muc_tieu_kien_thuc":["..."],"bo_sung_hoat_dong":[{"key":"...","tex":"..."}],"hoat_dong_moi":[{"key":"...","tex":"..."}],"nls_trong_hoat_dong":[{"key":"...","ma":"...","tex":"..."}],"ca_nhan_hoa":"..."}
+Mảng nào không có việc thì để [], "ca_nhan_hoa" không có việc thì để "".`;
 
 const L = d.lesson || {};
 const user = {
@@ -92,7 +97,7 @@ const user = {
 const ai_body = {
   models,                               // OpenRouter tự chuyển model sau nếu model trước lỗi/hết lượt
   temperature: 0.3,
-  max_tokens: 3000,
+  max_tokens: hskt?.mo_ta ? 4000 : 3000,
   messages: [
     { role: "system", content: SYSTEM },
     { role: "user", content: JSON.stringify(user) }

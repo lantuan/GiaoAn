@@ -30,7 +30,7 @@ function timBai(s) {
   const m = s.match(/b[àa]i\s*(\d+)\s*[.:\-–]?\s*(.*)$/i);
   if (!m) return { so: null, ten: null };
   const ten = m[2]
-    .split(/[,;(]|\s+[-–]\s+|\d+\s*(tiết|phút)|kết nối tri thức|chân trời sáng tạo|cánh diều/i)[0]
+    .split(/[,;(]|\s+[-–]\s+|\d+\s*(tiết|phút)|\blớp\s|lớp có|học sinh|khuyết tật|kết nối tri thức|chân trời sáng tạo|cánh diều/i)[0]
     .trim().replace(/[.:]+$/, "");
   return { so: m[1], ten: ten || null };
 }
@@ -56,8 +56,20 @@ const sections = ["mục tiêu","thiết bị dạy học","học liệu","mở 
 let target_section = null;
 for (const s of sections) { if (lower.includes(s)) { target_section = s; break; } }
 
-// 7. Hỗ trợ học sinh khuyết tật
-const has_disability_support = /khuyết tật|hòa nhập|hoà nhập|hỗ trợ học sinh|học sinh đặc biệt/.test(lower);
+// 7. Hỗ trợ học sinh khuyết tật (chỉ khi GV ghi rõ trong chú thích)
+const has_disability_support = /khuyết tật|hòa nhập|hoà nhập|khiếm thị|khiếm thính|tự kỷ|tự kỉ|bại não|chậm phát triển|tăng động|học sinh đặc biệt/.test(lower);
+let hs_khuyet_tat = null;
+if (has_disability_support) {
+  // Tách tên HS (nếu có) để KHÔNG gửi tên thật cho AI; node 11 tự điền lại tên vào giáo án
+  const mTen = caption.match(/(?:^|\s)(?:tên(?:\s+là)?|em|bạn)\s*:?\s*((?:\p{Lu}\p{Ll}*\s*){1,4})/u);
+  const ten = mTen ? mTen[1].trim().replace(/[,.;]+$/, "") : null;
+  let mo_ta = caption;
+  if (ten) mo_ta = mo_ta.split(ten).join("HS A");
+  hs_khuyet_tat = { ten, mo_ta };
+}
+
+// 8. Giữ ngày/lớp/tuần? Mặc định XOÁ để dùng chung cho nhiều lớp (hệ thống đã lưu lớp + thời điểm đẩy lên)
+const giu_thong_tin_lop = /giữ (nguyên )?(ngày|lớp|tuần|thông tin lớp)/.test(lower);
 
 return {
   json: {
@@ -66,7 +78,8 @@ return {
       original_text: text,
       file_base: fileBase || null,
       task_type, grade, lesson_number, lesson_title, duration,
-      book_series, book_series_is_default, target_section, has_disability_support
+      book_series, book_series_is_default, target_section, has_disability_support,
+      hs_khuyet_tat, giu_thong_tin_lop
     }
   }
 };

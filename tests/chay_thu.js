@@ -1,5 +1,5 @@
 // Chạy thử chuỗi node 08 → 09 → 11 trên máy Mac (không cần n8n):
-// osascript -l JavaScript tests/chay_thu.js <file.tex> <lớp> <bài> <file_ra.tex>
+// osascript -l JavaScript tests/chay_thu.js <file.tex> <lớp> <bài> <file_ra.tex> ["chú thích Telegram"]
 ObjC.import('Foundation');
 function rd(p){return ObjC.unwrap($.NSString.stringWithContentsOfFileEncodingError(p,4,null));}
 function wr(p,s){$.NSString.alloc.initWithUTF8String(s).writeToFileAtomicallyEncodingError(p,true,4,null);}
@@ -10,6 +10,7 @@ function run(argv){
  const rows=all.filter(x=>String(x.bai_so)===bai);
  const yccd=rows.map(x=>({id:x.id,MucDo:x.MucDo,content:x.content,scope:x.scope}));
  const out={'04_LAY_YCCD':{chat_id:1,message_id:1,file_name:argv[0].split('/').pop(),request:{grade:lop},lesson:{bai_so:bai,bai:rows[0]&&rows[0].bai,so_tiet:2,tuan:'?'},yccd},'07_DOC_TEX':{giao_an_tex:tex}};
+ if(argv[4]){const r3=new Function('$json',rd(G+'n8n/03_PHAN_TICH_YEU_CAU.js'))({text:argv[4],file_name:out['04_LAY_YCCD'].file_name}); out['04_LAY_YCCD'].request={...r3.json.request,grade:lop};}
  const st={}, $$=n=>({first:()=>({json:out[n]})});
  const helpers={httpRequest:o=>o.url.includes('nls_nc1')?JSON.parse(rd(G+'data/nang_luc_so/nls_nc1.json')):{data:[{id:'google/gemma-4-31b-it:free'}]},
    prepareBinaryData:(b,f,m)=>({fileName:f,_s:b._s})};
