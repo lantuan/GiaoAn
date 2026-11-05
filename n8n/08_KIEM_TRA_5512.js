@@ -1,16 +1,16 @@
 const tex = $input.first().json.giao_an_tex || "";
 const meta = $('04_LAY_YCCD').first().json;
 
-// ===== 1. Lấy phần thân, bỏ comment =====
-let body = tex;
+// ===== 1. Lấy phần thân (GIỮ NGUYÊN văn bản gốc để node 11 tìm lại đúng chỗ) =====
+let body = tex.normalize("NFC");
 const b0 = body.indexOf("\\begin{document}");
 const b1 = body.lastIndexOf("\\end{document}");
 if (b0 >= 0) body = body.slice(b0 + 16, b1 > b0 ? b1 : undefined);
-body = body.replace(/(^|[^\\])%.*$/gm, "$1");
 
-// ===== 2. Hàm bỏ lệnh LaTeX để lấy chữ =====
+// ===== 2. Hàm bỏ lệnh LaTeX để lấy chữ (bỏ comment ở đây) =====
 function plain(s) {
   return s
+    .replace(/(^|[^\\])%.*$/gm, "$1")
     .replace(/\\textcolor\[HTML\]\{[0-9A-Fa-f]{6}\}/g, "")
     .replace(/\\fontsize\{[^}]*\}\{[^}]*\}\\selectfont/g, "")
     .replace(/\\(begin|end)\{[^}]*\}(\[[^\]]*\])?/g, "\n")

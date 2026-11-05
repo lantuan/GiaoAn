@@ -14,7 +14,7 @@ Dữ liệu dùng chung cho workflow n8n `GA_01_TELEGRAM_RECEIVE`: nhận giáo 
 | `data/ppct_2026_2027/toan{10,11,12}_thuong.json` | Lớp thường = bản chuyên bỏ các dòng `loai: "chuyen_sau"`. |
 | `data/thiet_bi/thiet_bi_to_toan.json` | Danh mục thiết bị tổ Toán, mã theo trang mượn thiết bị của trường. |
 | `data/khung_5512/khung_5512.json` | Khung KHBD theo CV 5512 (Phụ lục IV), năng lực chung/đặc thù môn Toán, phẩm chất. |
-| `n8n/` | Code các node Code trong n8n (03, 04, 08…) – dán vào node cùng tên. |
+| `n8n/` | Code các node Code trong n8n (03, 04, 08, 09, 11) – dán vào node cùng tên. |
 | `scripts/` | Script Python tạo lại các file JSON từ file Word gốc. |
 | `templates/` | Mẫu .tex giáo án (sẽ bổ sung). |
 | `prompts/` | Prompt cho AI (sẽ bổ sung). |
