@@ -2,7 +2,11 @@
 // Đầu vào: kết quả 10_GOI_AI (HTTP OpenRouter) HOẶC thẳng từ IF "can_ai = false"
 const inp = $input.first().json;
 const d = $('09_CHUAN_BI_AI').first().json;
-const goc = $('07_DOC_TEX').first().json.giao_an_tex || "";
+// Giáo án: từ nhánh .zip (07C, có hình) hoặc nhánh .tex (07_DOC_TEX)
+let tuZip = null;
+try { tuZip = $('07C_LAY_TEX_TU_ZIP').first().json; } catch (e) {}
+if (!tuZip?.giao_an_tex) tuZip = null;
+const goc = tuZip ? tuZip.giao_an_tex : ($('07_DOC_TEX').first().json.giao_an_tex || "");
 const meta = $('04_LAY_YCCD').first().json;
 const cache = $getWorkflowStaticData("global");
 const NLS = d.nls_map || cache.nls_nc1 || {};   // lấy từ node 09 (static data không chia sẻ giữa các node khi chạy thử)
@@ -210,16 +214,50 @@ if (!/Ký duyệt/i.test(plainBody)) {
   if (e > 0) { tex = tex.slice(0, e) + KY + tex.slice(e); da_sua.push("Thêm khối Ký duyệt (Tổ trưởng chuyên môn – Giáo viên)"); }
 }
 
+// 2f. Hình ảnh: file .tex chỉ ghi đường dẫn tới hình, hình nằm ở thư mục riêng
+const RX_IMG = /\\includegraphics\s*(\[[^\]]*\])?\s*\{([^}]+)\}/g;
+const soHinh = (tex.match(RX_IMG) || []).length;
+const hinhGui = [];
+if (tuZip) {
+  const theoTen = new Map();
+  for (const h of tuZip.hinh || []) { theoTen.set(h.ten, h); theoTen.set(h.ten.replace(/\.[^.]+$/, ""), h); }
+  const thieu = new Set();
+  // Hình đặt cạnh file .tex trong zip trả về → đường dẫn chỉ còn tên file, mở ở đâu cũng thấy hình
+  tex = tex.replace(RX_IMG, (all, opt, p) => {
+    const h = theoTen.get(p.trim().split("/").pop());
+    if (!h) { thieu.add(p.trim()); return all; }
+    if (!hinhGui.includes(h)) hinhGui.push(h);
+    return `\\includegraphics${opt || ""}{${h.ten}}`;
+  });
+  if (hinhGui.length) da_sua.push(`Giữ nguyên ${hinhGui.length} hình, đóng gói cùng file .tex`);
+  if (thieu.size) canh_bao.push(`Không thấy ${thieu.size} hình trong file .zip: ${[...thieu].slice(0, 3).join(", ")}`);
+} else if (soHinh) {
+  canh_bao.push(`Giáo án có ${soHinh} hình nhưng chỉ gửi file .tex nên không có hình. Muốn nhận lại đủ hình: nén cả thư mục bài thành .zip rồi gửi (hoặc lưu file trả về vào đúng thư mục cũ, cạnh thư mục hình).`);
+}
+
 // ===== 3. Xuất file =====
-const tenGoc = (meta.file_name || `Bai_${meta.lesson?.bai_so || ""}.tex`).normalize("NFC");
-const fileName = tenGoc.replace(/\.tex$/i, "") + "_CV5512.tex";
+const tenGoc = ((tuZip && tuZip.ten_tex) || meta.file_name || `Bai_${meta.lesson?.bai_so || ""}.tex`).normalize("NFC");
+const goc_ten = tenGoc.replace(/\.(tex|zip)$/i, "");
+const fileName = goc_ten + "_CV5512.tex";
 const binary = { data: await this.helpers.prepareBinaryData(Buffer.from(tex, "utf8"), fileName, "application/x-tex") };
+// Nhánh .zip: thêm hình + .sty để node "12A_NEN_ZIP" nén lại
+const co_zip = !!tuZip && (hinhGui.length > 0 || (tuZip.sty || []).length > 0);
+if (co_zip) {
+  let i = 0;
+  for (const f of [...hinhGui, ...(tuZip.sty || [])]) {
+    binary["f" + i] = await this.helpers.prepareBinaryData(Buffer.from(f.b64, "base64"), f.ten, f.mime);
+    i++;
+  }
+}
+const ds_binary = Object.keys(binary).join(",");
+const zip_name = goc_ten + "_CV5512.zip";
 
 const esc = s => String(s ?? "").replace(/&/g, "&amp;").replace(/</g, "&lt;").replace(/>/g, "&gt;");
 let caption = `<b>✅ Đã chỉnh theo CV 5512: Bài ${esc(meta.lesson?.bai_so)}. ${esc(meta.lesson?.bai)}</b>\n` +
   (da_sua.length ? da_sua.map(s => "• " + esc(s)).join("\n") : "Không có gì cần sửa.") +
   (canh_bao.length ? `\n<b>Lưu ý:</b>\n` + canh_bao.map(s => "• " + esc(s)).join("\n") : "") +
+  (co_zip ? `\n📦 File .zip gồm giáo án + ${hinhGui.length} hình – giải nén rồi mở file .tex.` : "") +
   `\n<i>Phần màu xanh do AI viết – thầy/cô rà soát trước khi dùng.${model_dung ? " (" + esc(model_dung) + ")" : ""}</i>`;
 if (caption.length > 1000) caption = caption.slice(0, 990) + "…";
 
-return [{ json: { chat_id: meta.chat_id, message_id: meta.message_id, caption, da_sua, canh_bao, model_dung, file_name: fileName }, binary }];
+return [{ json: { chat_id: meta.chat_id, message_id: meta.message_id, caption, da_sua, canh_bao, model_dung, file_name: fileName, co_zip, ds_binary, zip_name }, binary }];

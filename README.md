@@ -14,7 +14,7 @@ Dữ liệu dùng chung cho workflow n8n `GA_01_TELEGRAM_RECEIVE`: nhận giáo 
 | `data/ppct_2026_2027/toan{10,11,12}_thuong.json` | Lớp thường = bản chuyên bỏ các dòng `loai: "chuyen_sau"`. |
 | `data/thiet_bi/thiet_bi_to_toan.json` | Danh mục thiết bị tổ Toán, mã theo trang mượn thiết bị của trường. |
 | `data/khung_5512/khung_5512.json` | Khung KHBD theo CV 5512 (Phụ lục IV), năng lực chung/đặc thù môn Toán, phẩm chất. |
-| `n8n/` | Code các node Code trong n8n (03, 04, 08, 09, 11) – dán vào node cùng tên. |
+| `n8n/` | Code các node Code trong n8n (03, 04, 07C, 08, 09, 11) – dán vào node cùng tên. |
 | `scripts/` | Script Python tạo lại các file JSON từ file Word gốc. |
 | `templates/` | Mẫu .tex giáo án (sẽ bổ sung). |
 | `prompts/` | Prompt cho AI (sẽ bổ sung). |
@@ -51,4 +51,16 @@ cd scripts
 python3 build_nls_nc1.py "Công-văn-3456-BGDĐT-GDPT.docx" ../data/nang_luc_so/nls_nc1.json
 python3 ppct_1_doc_word.py "Kế hoạch giảng dạy toán chuyên năm học 2026-2027.docx"   # → ppct_v2_raw.json
 python3 ppct_2_tao_json.py ../data/ppct_2026_2027                                   # → JSON + báo cáo lỗi
+```
+
+## Gửi giáo án có hình
+
+File .tex chỉ ghi đường dẫn tới hình (`\includegraphics{..._hinh/image1.png}`), hình nằm ở thư mục riêng.
+Muốn nhận lại đủ hình: **nén cả thư mục bài thành .zip** rồi gửi bot. Luồng trả về .zip gồm file `_CV5512.tex` + hình + `ex_test.sty` (cùng một cấp thư mục).
+
+```
+06_TAI_FILE → IF 07A_LA_ZIP ─false→ 07_DOC_TEX ───────────────→ 08 …
+                            └true─→ 07B_GIAI_NEN (Decompress) → 07C_LAY_TEX_TU_ZIP → 08 …
+11_GHEP_VA_SUA → IF 11A_CO_ZIP ─true→ 12A_NEN_ZIP (Compress, ds_binary) → 12 Telegram
+                               └false──────────────────────────────────→ 12 Telegram
 ```
