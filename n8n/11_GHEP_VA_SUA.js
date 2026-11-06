@@ -331,14 +331,29 @@ if (iMT >= 0 && iTB > iMT) {
 }
 
 // 2e. Khối "Ký duyệt" cuối giáo án (Tổ trưởng chuyên môn – Giáo viên)
-const plainBody = tex.slice(tex.indexOf("\\begin{document}")).normalize("NFC");
-if (!/Ký duyệt/i.test(plainBody)) {
+// Khối ký có sẵn trong file Word (bảng ẩn hẹp, lệch, dòng "Ký duyệt" lọt vào danh sách…) → xoá, thay bằng khối chuẩn:
+// rộng hết trang, chia đôi hai bên, chữ ở chính giữa.
+const KY_MARK = "%%==KY_DUYET==";
+if (!tex.includes(KY_MARK)) {
+  const iDoc = Math.max(0, tex.indexOf("\\begin{document}"));
+  let than = tex.slice(iDoc), soXoaKy = 0;
+  const laBangKy = b => b.length < 2000 && /Tổ trưởng|TỔ TRƯỞNG/.test(b) && /Giáo viên|GIÁO VIÊN|Người soạn|NGƯỜI SOẠN|Người duyệt/.test(b);
+  than = than.replace(/\\begin\{center\}\s*\\begin\{(tabular\*?|tabularx|longtable)\}[\s\S]*?\\end\{\1\}\s*\\end\{center\}|(?:\\noindent\s*)?\\begin\{(tabular\*?|tabularx|longtable)\}[\s\S]*?\\end\{\2\}/g,
+    b => laBangKy(b.normalize("NFC")) ? (soXoaKy++, "") : b);
+  // dòng chỉ có chữ "Ký duyệt" (kể cả nằm trong danh sách / có màu, in đậm)
+  than = than.split("\n").filter(l => {
+    const t = l.replace(/\\item\b/g, "").replace(/\\[a-zA-Z]+(\[[^\]]*\])?(\{[0-9A-Fa-f]{6}\})?/g, " ").replace(/[{}~\\]/g, " ").replace(/\s+/g, " ").trim().normalize("NFC");
+    if (l.length < 200 && /^(ký|kí) duyệt[\s.:]*$/i.test(t)) { soXoaKy++; return false; }
+    return true;
+  }).join("\n");
+  tex = tex.slice(0, iDoc) + than;
   const KY = `
 
+${KY_MARK}
 \\par\\vspace{0.8cm}\\noindent
 \\begin{minipage}{\\linewidth}
-\\centering{\\textbf{Ký duyệt}}\\par\\vspace{2pt}
-\\noindent\\rule{\\linewidth}{0.6pt}\\par\\vspace{6pt}
+\\centering\\textbf{Ký duyệt}\\par\\vspace{2pt}
+\\rule{\\linewidth}{0.6pt}\\par\\vspace{6pt}
 \\begin{minipage}[t]{0.5\\linewidth}\\centering
 \\textbf{Tổ trưởng chuyên môn}\\par\\vspace{6pt}
 \\textit{(Ký, ghi rõ họ tên)}
@@ -353,7 +368,11 @@ if (!/Ký duyệt/i.test(plainBody)) {
 `;
   const iPL = tex.indexOf(PL_MARK);
   const e = iPL >= 0 ? iPL : tex.lastIndexOf("\\end{document}");
-  if (e > 0) { tex = tex.slice(0, e) + KY + tex.slice(e); da_sua.push("Thêm khối Ký duyệt (Tổ trưởng chuyên môn – Giáo viên)"); }
+  if (e > 0) {
+    tex = tex.slice(0, e) + KY + tex.slice(e);
+    da_sua.push(soXoaKy ? "Thay khối Ký duyệt có sẵn bằng khối chuẩn (rộng hết trang, Tổ trưởng chuyên môn – Giáo viên)"
+                        : "Thêm khối Ký duyệt (Tổ trưởng chuyên môn – Giáo viên)");
+  }
 }
 
 // 2f. Hình ảnh: file .tex chỉ ghi đường dẫn tới hình, hình nằm ở thư mục riêng
