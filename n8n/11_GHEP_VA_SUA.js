@@ -377,6 +377,25 @@ if (tuZip) {
   canh_bao.push(`Giáo án có ${soHinh} hình nhưng chỉ gửi file .tex nên không có hình. Muốn nhận lại đủ hình: nén cả thư mục bài thành .zip rồi gửi (hoặc lưu file trả về vào đúng thư mục cũ, cạnh thư mục hình).`);
 }
 
+// 2g. Gói bclogo: nhiều máy (tectonic, MiKTeX mới cài) không có → dịch lỗi "bclogo.sty not found"
+// Không dùng trong bài → chỉ nạp khi máy có; có dùng → gửi kèm bclogo.sty (lưu trong repo GiaoAn)
+const styThem = [];
+const RX_BC = /\\usepackage\[tikz\]\{bclogo\}/;
+if (RX_BC.test(tex) && !/\\IfFileExists\{bclogo\.sty\}/.test(tex)) {
+  const than = tex.slice(Math.max(0, tex.indexOf("\\begin{document}")));
+  if (/\\begin\{bclogo\}|\\bclogo\b|\\bc(?:bombe|attention|danger|info|stop|note|crayon|loupe|lampe|book)\b/.test(than)) {
+    const daCo = (tuZip?.sty || []).some(f => /^bclogo\.sty$/i.test(f.ten));
+    if (!daCo) {
+      try {
+        const bc = await this.helpers.httpRequest({ url: "https://raw.githubusercontent.com/lantuan/GiaoAn/main/data/latex/bclogo.sty" });
+        styThem.push({ ten: "bclogo.sty", mime: "text/x-tex", b64: Buffer.from(String(bc), "utf8").toString("base64") });
+      } catch (e) { canh_bao.push("Bài dùng gói bclogo nhưng chưa tải được bclogo.sty – máy thiếu gói này sẽ dịch lỗi."); }
+    }
+  } else {
+    tex = tex.replace(RX_BC, "\\IfFileExists{bclogo.sty}{\\usepackage[tikz]{bclogo}}{}");
+  }
+}
+
 // ===== 3. Xuất file =====
 // Tên lấy từ file gửi qua Telegram (đúng dấu tiếng Việt); tên file bên trong .zip có thể bị lỗi mã hoá khi giải nén
 const tenGoc = (meta.file_name || (tuZip && tuZip.ten_tex) || `Bai_${meta.lesson?.bai_so || ""}.tex`).normalize("NFC");
@@ -384,10 +403,11 @@ const goc_ten = tenGoc.replace(/\.(tex|zip)$/i, "").replace(/_extest$/i, "");
 const fileName = goc_ten + "_CV5512.tex";
 const binary = { data: await this.helpers.prepareBinaryData(Buffer.from(tex, "utf8"), fileName, "application/x-tex") };
 // Nhánh .zip: thêm hình + .sty để node "12A_NEN_ZIP" nén lại
-const co_zip = !!tuZip && (hinhGui.length > 0 || (tuZip.sty || []).length > 0);
+const dsSty = [...(tuZip?.sty || []), ...styThem];
+const co_zip = (!!tuZip && hinhGui.length > 0) || dsSty.length > 0;
 if (co_zip) {
   let i = 0;
-  for (const f of [...hinhGui, ...(tuZip.sty || [])]) {
+  for (const f of [...hinhGui, ...dsSty]) {
     binary["f" + i] = await this.helpers.prepareBinaryData(Buffer.from(f.b64, "base64"), f.ten, f.mime);
     i++;
   }
@@ -399,7 +419,7 @@ const esc = s => String(s ?? "").replace(/&/g, "&amp;").replace(/</g, "&lt;").re
 let caption = `<b>✅ ${soanMoi ? "Đã soạn KHBD theo CV 5512" : "Đã chỉnh theo CV 5512"}: ${meta.lesson?.bai_so ? "Bài " + esc(meta.lesson.bai_so) + ". " : ""}${esc(meta.lesson?.bai)}</b>\n` +
   (da_sua.length ? da_sua.map(s => "• " + esc(s)).join("\n") : "Không có gì cần sửa.") +
   (canh_bao.length ? `\n<b>Lưu ý:</b>\n` + canh_bao.map(s => "• " + esc(s)).join("\n") : "") +
-  (co_zip ? `\n📦 File .zip gồm giáo án${hinhGui.length ? " + " + hinhGui.length + " hình" : ""} + ex_test.sty – giải nén rồi mở file .tex.` : "") +
+  (co_zip ? `\n📦 File .zip gồm giáo án${hinhGui.length ? " + " + hinhGui.length + " hình" : ""}${dsSty.length ? " + " + dsSty.map(f => f.ten).join(", ") : ""} – giải nén rồi mở file .tex.` : "") +
   `\n<i>Phần màu xanh do AI viết – thầy/cô rà soát trước khi dùng.${model_dung ? " (" + esc(model_dung) + ")" : ""}</i>`;
 if (caption.length > 1000) caption = caption.slice(0, 990) + "…";
 
