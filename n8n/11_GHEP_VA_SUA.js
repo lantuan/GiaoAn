@@ -613,6 +613,18 @@ if (RX_BC.test(tex) && !/\\IfFileExists\{bclogo\.sty\}/.test(tex)) {
   }
 }
 
+// 2i. GV muốn in chữ đen ("chữ đen", "màu đen", "in đen", "đen trắng", "bỏ màu") → bỏ mọi lệnh màu trong thân bài
+const chuDen = /chữ đen|màu đen|in đen|đen trắng|bỏ màu|không (tô )?màu/i.test(String(meta.request?.original_text || "").normalize("NFC"));
+if (chuDen) {
+  const iDoc = Math.max(0, tex.indexOf("\\begin{document}"));
+  const than = tex.slice(iDoc)
+    .replace(/\\textcolor\[HTML\]\{[0-9A-Fa-f]{6}\}/g, "")
+    .replace(/\\(color|cellcolor)\[HTML\]\{[0-9A-Fa-f]{6}\}/g, "")
+    .replace(/\\textcolor\{[a-zA-Z!0-9]+\}/g, "");
+  tex = tex.slice(0, iDoc) + than;
+  da_sua.push("Chuyển toàn bộ chữ màu sang màu đen (theo yêu cầu)");
+}
+
 // ===== 3. Xuất file =====
 // Tên lấy từ file gửi qua Telegram (đúng dấu tiếng Việt); tên file bên trong .zip có thể bị lỗi mã hoá khi giải nén
 const tenGoc = (meta.file_name || (tuZip && tuZip.ten_tex) || `Bai_${meta.lesson?.bai_so || ""}.tex`).normalize("NFC");
@@ -664,7 +676,7 @@ let caption = `<b>✅ ${soanMoi ? "Đã soạn KHBD theo CV 5512" : "Đã chỉn
   (da_sua.length ? da_sua.map(s => "• " + esc(s)).join("\n") : "Không có gì cần sửa.") +
   (canh_bao.length ? `\n<b>Lưu ý:</b>\n` + canh_bao.map(s => "• " + esc(s)).join("\n") : "") +
   (co_zip ? `\n📦 File .zip gồm giáo án${hinhGui.length ? " + " + hinhGui.length + " hình" : ""}${dsSty.length ? " + " + dsSty.map(f => f.ten).join(", ") : ""} – giải nén rồi mở file .tex.` : "") +
-  `\n<i>Phần màu xanh do AI viết – thầy/cô rà soát trước khi dùng.${model_dung ? " (" + esc(model_dung) + ")" : ""}</i>`;
+  `\n<i>${chuDen ? "Đã chuyển hết sang chữ đen – thầy/cô rà soát kỹ phần AI viết thêm." : "Phần màu xanh do AI viết – thầy/cô rà soát trước khi dùng."}${model_dung ? " (" + esc(model_dung) + ")" : ""}</i>`;
 if (caption.length > 1000) {
   // cắt bớt nhưng không để thẻ HTML dở dang / chưa đóng (Telegram sẽ báo lỗi)
   caption = caption.slice(0, 985).replace(/<[^>]*$/, "").replace(/&[a-z]*$/, "") + "…";
