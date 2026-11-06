@@ -507,6 +507,28 @@ if (iMT >= 0 && iTB > iMT) {
   tex = tex.slice(0, iMT) + mt + tex.slice(iTB);
 }
 
+// 2g. Thiết bị dạy học theo PPCT (kho thiết bị của tổ, có mã mượn): bổ sung vào mục II những thiết bị còn thiếu
+if (!soanMoi) {
+  const tbPP = (d.ppct || meta.ppct || {}).thiet_bi || [];
+  const iII = tex.search(/II\.\s*THIẾT BỊ/), iIII = tex.search(/III\.\s*TIẾN TRÌNH/);
+  if (tbPP.length && iII >= 0 && iIII > iII) {
+    let muc = tex.slice(iII, iIII);
+    const chuII = muc.normalize("NFC").toLowerCase();
+    const tuKhoa = t => String(t.ten || "").toLowerCase().replace(/\(.*?\)/g, "").split(/[\s,–-]+/).filter(w => w.length > 3);
+    const thieu = tbPP.filter(t => !chuII.includes(String(t.ma).toLowerCase()) &&
+      !(tuKhoa(t).length && tuKhoa(t).every(w => chuII.includes(w))));
+    if (thieu.length) {
+      const dong = `{\\color[HTML]{0070C0}\\textbf{Thiết bị mượn của tổ (theo PPCT):} ` +
+        thieu.map(t => `${String(t.ten).replace(/[{}\\%&$#_^~]/g, " ")} (mã ${String(t.ma).replace(/[{}\\%&$#_^~]/g, "")})`).join("; ") + ".}";
+      const e1 = muc.lastIndexOf("\\end{itemize}");
+      if (e1 > 0) muc = muc.slice(0, e1) + `\n\\item ${dong}\n\n` + muc.slice(e1);
+      else muc = muc.replace(/\s*$/, "") + `\n\n${dong}\n\n`;
+      tex = tex.slice(0, iII) + muc + tex.slice(iIII);
+      da_sua.push(`Bổ sung thiết bị theo PPCT vào mục II: ${thieu.map(t => t.ma).join(", ")}`);
+    }
+  }
+}
+
 // 2e. Khối "Ký duyệt" cuối giáo án (Tổ trưởng chuyên môn – Giáo viên)
 // Khối ký có sẵn trong file Word (bảng ẩn hẹp, lệch, dòng "Ký duyệt" lọt vào danh sách…) → xoá, thay bằng khối chuẩn:
 // rộng hết trang, chia đôi hai bên, chữ ở chính giữa.
