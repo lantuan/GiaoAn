@@ -416,11 +416,31 @@ const ds_binary = Object.keys(binary).join(",");
 const zip_name = goc_ten + "_CV5512.zip";
 
 const esc = s => String(s ?? "").replace(/&/g, "&amp;").replace(/</g, "&lt;").replace(/>/g, "&gt;");
+// Hết lượt AI miễn phí → OpenRouter tự chuyển sang model trả phí: báo token + chi phí lần chạy này
+const TY_GIA_VND = 26500;                 // 1 USD ≈ … đồng (sửa theo tỷ giá hiện tại)
+const u = inp.usage || {};
+const traPhi = !!model_dung && !/:free$/.test(model_dung) && !(typeof u.cost === "number" && u.cost === 0);
+let dongPhi = "";
+if (traPhi) {
+  const so = n => Number(n || 0).toLocaleString("vi-VN");
+  const usd = typeof u.cost === "number" ? u.cost : null;
+  dongPhi = `💳 <b>Lượt AI miễn phí hôm nay đã hết</b> – lần này dùng AI trả phí (${esc(model_dung)}): ` +
+    `${so(u.total_tokens)} token (gửi ${so(u.prompt_tokens)}, nhận ${so(u.completion_tokens)})` +
+    (usd !== null ? `, chi phí <b>${usd.toFixed(5)} USD ≈ ${so(Math.round(usd * TY_GIA_VND))} đ</b>.` : `; chi phí xem tại openrouter.ai/activity.`);
+}
 let caption = `<b>✅ ${soanMoi ? "Đã soạn KHBD theo CV 5512" : "Đã chỉnh theo CV 5512"}: ${meta.lesson?.bai_so ? "Bài " + esc(meta.lesson.bai_so) + ". " : ""}${esc(meta.lesson?.bai)}</b>\n` +
+  (dongPhi ? dongPhi + "\n" : "") +
   (da_sua.length ? da_sua.map(s => "• " + esc(s)).join("\n") : "Không có gì cần sửa.") +
   (canh_bao.length ? `\n<b>Lưu ý:</b>\n` + canh_bao.map(s => "• " + esc(s)).join("\n") : "") +
   (co_zip ? `\n📦 File .zip gồm giáo án${hinhGui.length ? " + " + hinhGui.length + " hình" : ""}${dsSty.length ? " + " + dsSty.map(f => f.ten).join(", ") : ""} – giải nén rồi mở file .tex.` : "") +
   `\n<i>Phần màu xanh do AI viết – thầy/cô rà soát trước khi dùng.${model_dung ? " (" + esc(model_dung) + ")" : ""}</i>`;
-if (caption.length > 1000) caption = caption.slice(0, 990) + "…";
+if (caption.length > 1000) {
+  // cắt bớt nhưng không để thẻ HTML dở dang / chưa đóng (Telegram sẽ báo lỗi)
+  caption = caption.slice(0, 985).replace(/<[^>]*$/, "").replace(/&[a-z]*$/, "") + "…";
+  for (const t of ["b", "i"]) {
+    const mo = (caption.match(new RegExp(`<${t}>`, "g")) || []).length, dong = (caption.match(new RegExp(`</${t}>`, "g")) || []).length;
+    if (mo > dong) caption += `</${t}>`;
+  }
+}
 
-return [{ json: { chat_id: meta.chat_id, message_id: meta.message_id, caption, da_sua, canh_bao, model_dung, file_name: fileName, co_zip, ds_binary, zip_name }, binary }];
+return [{ json: { chat_id: meta.chat_id, message_id: meta.message_id, caption, da_sua, canh_bao, model_dung, tra_phi: traPhi, usage: u, file_name: fileName, co_zip, ds_binary, zip_name }, binary }];

@@ -134,6 +134,7 @@ const user = {
 const ai_body = {
   models,                               // OpenRouter tự chuyển model sau nếu model trước lỗi/hết lượt
   temperature: 0.3,
+  usage: { include: true },             // OpenRouter trả kèm số token + chi phí (USD) để báo cho người dùng
   max_tokens: soanMoi ? 10000 : (hskt?.mo_ta ? 4000 : 3000),
   messages: [
     { role: "system", content: soanMoi ? SYSTEM_SOAN : SYSTEM },

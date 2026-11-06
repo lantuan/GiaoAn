@@ -52,6 +52,36 @@ function gomPPCT(rows) {
   };
 }
 
+// ===== Hướng dẫn sử dụng: /start, "hướng dẫn", hoặc nhắn tin mà không gửi file =====
+// (đi theo nhánh "ok = false" → node Telegram báo lỗi sẵn có, nhắn nội dung error_message)
+const HUONG_DAN = `📘 BOT SOẠN & CHỈNH GIÁO ÁN TOÁN THPT (CV 5512)
+
+1️⃣ CHỈNH GIÁO ÁN CÓ SẴN
+• Gửi file .tex (xuất từ Word2Tex, bản ex_test).
+• Giáo án có hình: nén cả thư mục bài thành .zip rồi gửi – bot trả lại .zip đủ hình.
+• Ghi kèm chú thích: lớp và bài, ví dụ: "lớp 10 bài 9".
+→ Bot sửa theo CV 5512, bám YCCĐ (CT GDPT 2018), gắn năng lực số (CV 3456), xoá ngày/lớp/tuần để dùng chung, thêm khối Ký duyệt.
+
+2️⃣ SOẠN KHBD MỚI TỪ TÀI LIỆU CHUYÊN ĐỀ
+• Gửi .zip tài liệu, chú thích ví dụ: "chuyên đề nâng cao Graph lớp 11".
+→ Bot tra PPCT, chia nội dung tài liệu vào từng hoạt động.
+
+3️⃣ HỌC SINH KHUYẾT TẬT (chỉ khi cần)
+• Ghi thêm, ví dụ: "lớp có HS khuyết tật tên Nam, khiếm thính" → thêm mục hỗ trợ học hoà nhập.
+
+🤖 VỀ AI
+• Bot dùng AI MIỄN PHÍ trong số lượt cho phép mỗi ngày.
+• Khi hết lượt miễn phí, bot TỰ CHUYỂN sang AI TRẢ PHÍ để không gián đoạn, và báo số token + số tiền của lần chạy đó.
+• Phần AI viết có MÀU XANH – thầy/cô rà soát trước khi dùng.
+
+⚠️ File tối đa 20 MB. Không ghi họ tên thật của học sinh ngoài trường hợp mục 3.
+Gõ /start để xem lại hướng dẫn này.`;
+const txtGoc = String(req.original_text || "").trim().toLowerCase();
+const laHuongDan = /^\/(start|help|huongdan)\b/.test(txtGoc) || /^(hướng dẫn|huong dan|help|hd)\s*[.!?]*$/.test(txtGoc);
+if (laHuongDan || (d.input_type && d.input_type !== "document")) {
+  return fail((laHuongDan ? "" : "Mình chưa thấy file giáo án đính kèm.\n\n") + HUONG_DAN);
+}
+
 const lopThu = req.grade ? [req.grade] : ["10", "11", "12"];
 
 // Chuyên đề (học tập / nâng cao) không nằm trong YCCĐ bài thường → tìm theo tên (nhánh B)
