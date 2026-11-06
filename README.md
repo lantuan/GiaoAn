@@ -71,3 +71,17 @@ Gửi tài liệu (chưa phải KHBD) kèm chú thích, ví dụ: `chuyển giá
 - Node 04 tìm bài trong `ppct_2026_2027` theo **tên** (chú thích + tên file) – không cần số bài; "nâng cao/chuyên sâu" → `chuyen_sau`, "chuyên đề học tập" → `chuyen_de_hoc_tap`.
 - Node 08 nhận ra file chưa có cấu trúc KHBD → lập dàn ý (các phần, ví dụ, bài tập đánh số) ~6 nghìn ký tự gửi AI thay cho cả tài liệu.
 - Node 11 dựng KHBD: Mục tiêu (YCCĐ trong PPCT + AI), năng lực, NLS (nguyên văn CV 3456), thiết bị có mã mượn, tiến trình 4 hoạt động do AI viết; tài liệu gốc in nguyên văn ở **Phụ lục**.
+
+## Gửi kèm PDF (dịch trên máy Mac của GV)
+
+Máy chủ n8n không có LaTeX, nên node 11 gửi .tex + hình + .sty sang **Máy dịch PDF** chạy trên máy Mac
+(`~/Library/Application Support/MayDichPDF/server.py`, cổng 8792, dịch bằng tectonic), qua đường hầm Cloudflare miễn phí.
+
+- Địa chỉ đường hầm đổi mỗi lần mở → máy Mac tự báo địa chỉ mới cho n8n qua webhook `POST /webhook/ga-pdf-dia-chi`
+  → node `13_LUU_DIA_CHI_PDF` (lưu vào static data, kiểm tra mã bí mật).
+- Mã bí mật xem ở trang `http://127.0.0.1:8792` trên máy Mac, dán vào node 13 trên n8n (không đưa lên GitHub).
+- Máy Mac tắt: bot vẫn gửi .tex và báo "chưa có PDF".
+
+```
+Webhook (POST, ga-pdf-dia-chi, Respond: When Last Node Finishes) → 13_LUU_DIA_CHI_PDF
+```
