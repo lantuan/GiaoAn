@@ -238,6 +238,32 @@ if (la_tai_lieu) {
             muc, bai_tap };
 }
 
+// ===== 9c. Giáo án đã có phần GIÁO DỤC HOÀ NHẬP (GV viết sẵn) → nhận ra tên HS, dạng khuyết tật =====
+// Node 11 sẽ chuẩn hoá lại (mục tiêu I.4, hỗ trợ trong từng hoạt động, bảng kế hoạch mục IV).
+let hoa_nhap = null;
+{
+  const bN = body.normalize("NFC");
+  const coHN = /h[oò]a nhập|hoà nhập|khuyết tật/i.test(bN);
+  if (coHN) {
+    const hoaTen = t => t.toLowerCase().split(/\s+/).filter(Boolean).map(w => w[0].toUpperCase() + w.slice(1)).join(" ");
+    let ten = null;
+    const m1 = bN.match(/DÀNH\s+(?:RIÊNG\s+)?CHO\s+(?:HS|HỌC SINH|EM)\s+([A-ZÀ-ỸĐ][A-ZÀ-ỸĐ ]{2,40}?)\s*\)/u);
+    if (m1) ten = hoaTen(m1[1].trim());
+    if (!ten) {
+      const m2 = bN.match(/\bem\s+((?:\p{Lu}\p{Ll}+\s){1,3}\p{Lu}\p{Ll}+)/u);
+      if (m2 && /khuyết tật|hòa nhập|hoà nhập|Lưu ý/i.test(bN.slice(Math.max(0, m2.index - 300), m2.index + 300))) ten = m2[1].trim();
+    }
+    const mMoTa = bN.match(/khuyết tật\s+([^()\n}.;:]{3,70})/i);
+    const iI4 = bN.search(/Mục tiêu[^\n]{0,30}h[oò]a nhập|Mục tiêu[^\n]{0,30}hoà nhập/i);
+    const iIV = bN.search(/KẾ HOẠCH[^\n]{0,60}(H[OÒ]A NHẬP|HOÀ NHẬP|KHUYẾT TẬT)|HỖ TRỢ[^\n]{0,40}KHUYẾT TẬT/);
+    if (ten || iI4 >= 0 || iIV >= 0) {
+      const lay = (i, n) => i >= 0 ? plain(bN.slice(i, i + n)).replace(/\s+/g, " ").trim() : "";
+      hoa_nhap = { co: true, ten, mo_ta: mMoTa ? "khuyết tật " + mMoTa[1].trim() : "khuyết tật",
+                   hien_co: (lay(iI4, 900) + " | " + lay(iIV, 1400)).slice(0, 1600) };
+    }
+  }
+}
+
 // ===== 10. Báo cáo ngắn gửi Telegram (Parse Mode: HTML) =====
 const esc = s => String(s ?? "").replace(/&/g, "&amp;").replace(/</g, "&lt;").replace(/>/g, "&gt;");
 const L = meta.lesson || {};
@@ -268,6 +294,7 @@ return [{
     sections_tex,
     la_tai_lieu,
     dan_y,
-    khoi_tai_lieu
+    khoi_tai_lieu,
+    hoa_nhap
   }
 }];

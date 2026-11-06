@@ -68,13 +68,24 @@ if (nlsChuaDung.length) {
 }
 
 // 3e. Cá nhân hoá cho HS khuyết tật – CHỈ khi GV yêu cầu (tên thật đã được thay bằng "HS A")
-const hskt = d.request?.hs_khuyet_tat;
+// HS khuyết tật: theo chú thích GV; nếu không có thì lấy từ phần hoà nhập GV đã viết sẵn trong giáo án (node 08)
+const hskt = d.request?.hs_khuyet_tat || (d.hoa_nhap?.co ? { ten: d.hoa_nhap.ten, mo_ta: d.hoa_nhap.mo_ta } : null);
+// không gửi tên thật cho AI: thay họ tên và tên gọi bằng "HS A"
+const anTen = t => {
+  let x = String(t || "");
+  const ten = hskt?.ten;
+  if (!ten) return x;
+  for (const p of [ten, ten.toUpperCase()]) x = x.split(p).join("HS A");
+  const goi = ten.split(" ").pop();                       // tên gọi: chỉ thay khi đi sau em/bạn/HS (tránh "Như vậy")
+  return x.replace(new RegExp(`(^|[^\\p{L}])(em|bạn|HS|học sinh|Em|Bạn)\\s+(${goi}|${goi.toUpperCase()})(?![\\p{L}])`, "gu"), "$1HS A");
+};
 // Gửi kèm những việc HS phải làm trong từng hoạt động (lên bảng, nhóm, trò chơi…) để AI điều chỉnh đúng chỗ
 const VIEC_RX = /lên bảng|nhóm|thảo luận|trò chơi|thi đua|di chuyển|đứng|chạy|đổi chỗ|ra ngoài|thực hành|đo đạc|quan sát|nghe|video|clip|trình bày|báo cáo|giơ tay|điện thoại|máy tính|quizizz|kahoot|azota|phiếu|bảng phụ|bảng con|mô hình|vẽ|gấp|cắt|ghép|đọc/i;
 const viecHS = key => [...new Set(plain(d.sections_tex?.[key] || "").split(/\s+[-–+•]\s+|(?<=[.;:!?])\s+/)
   .map(x => x.trim()).filter(x => x.length > 12 && VIEC_RX.test(x)).map(x => x.length > 130 ? x.slice(0, 130) + "…" : x))].slice(0, 5);
 if (hskt?.mo_ta) viec.ca_nhan_hoa = {
-  yeu_cau_cua_gv: hskt.mo_ta,
+  yeu_cau_cua_gv: anTen(hskt.mo_ta),
+  hien_co_trong_giao_an: d.hoa_nhap?.hien_co ? anTen(d.hoa_nhap.hien_co) : undefined,
   cac_hoat_dong: (kt.hoat_dong || []).map(h => ({ key: h.key, ten: h.ten || h.key, viec_hs: viecHS(h.key) }))
 };
 
@@ -108,9 +119,11 @@ Quy tắc:
 - Hoạt động Vận dụng phải gắn với tình huống thực tiễn và bám YCCĐ.
 - "nls_can_gan": mỗi mã chọn MỘT hoạt động phù hợp trong "cac_hoat_dong" (key), viết 1 câu mô tả việc HS làm để đạt mã đó, dạng "mã: mô tả". Không dùng mã nào khác.
 - "ca_nhan_hoa" (nếu có): kế hoạch hỗ trợ HS khuyết tật học hoà nhập theo TT 03/2018/TT-BGDĐT (kế hoạch giáo dục cá nhân) và đánh giá theo Điều 11 TT 22/2021/TT-BGDĐT, ĐÚNG tình trạng GV mô tả, gọi HS là "HS A", không bịa thêm tình trạng. Khuyết tật không ảnh hưởng nhận thức (vận động, khiếm thị, khiếm thính…) thì GIỮ NGUYÊN yêu cầu cần đạt, chỉ điều chỉnh cách tham gia; không tách HS khỏi lớp, không gây chú ý, kỳ thị.
+  "muc_tieu_hoa_nhap": 2–4 ý cho mục I.4 (kiến thức, năng lực theo ĐÚNG bài này; tâm lí, kĩ năng xã hội; ý riêng theo dạng khuyết tật, vd. vận động và an toàn).
+  Nếu có "hien_co_trong_giao_an" (GV đã viết sẵn): giữ các ý đúng của GV, sửa chỗ sai (vd. chép nhầm nội dung bài khác), bổ sung phần còn thiếu.
   "hoat_dong": MỖI hoạt động trong "cac_hoat_dong" một mục, nói CỤ THỂ cách HS A làm từng việc trong "viec_hs" của hoạt động đó (vd. khuyết tật chân: khi gọi lên bảng → trình bày tại chỗ trên bảng con, GV chiếu bài lên màn hình; thảo luận nhóm → nhóm ngồi quanh chỗ của HS A, các bạn di chuyển đến).
 - Chỉ trả về MỘT đối tượng JSON, không giải thích, không markdown, đúng khuôn:
-{"them_muc_tieu_kien_thuc":["..."],"bo_sung_hoat_dong":[{"key":"...","tex":"..."}],"hoat_dong_moi":[{"key":"...","tex":"..."}],"nls_trong_hoat_dong":[{"key":"...","ma":"...","tex":"..."}],"ca_nhan_hoa":{"thong_tin":"...","muc_tieu":"...","chuan_bi":"...","hoat_dong":[{"key":"...","dieu_chinh":"..."}],"danh_gia":"...","phoi_hop":"..."}}
+{"them_muc_tieu_kien_thuc":["..."],"bo_sung_hoat_dong":[{"key":"...","tex":"..."}],"hoat_dong_moi":[{"key":"...","tex":"..."}],"nls_trong_hoat_dong":[{"key":"...","ma":"...","tex":"..."}],"ca_nhan_hoa":{"thong_tin":"...","muc_tieu_hoa_nhap":["..."],"muc_tieu":"...","chuan_bi":"...","hoat_dong":[{"key":"...","dieu_chinh":"..."}],"danh_gia":"...","phoi_hop":"..."}}
 Mảng nào không có việc thì để [], "ca_nhan_hoa" không có việc thì để "".`;
 
 const SYSTEM_SOAN = `Bạn là giáo viên chuyên Toán giỏi, soạn kế hoạch bài dạy (KHBD) theo Công văn 5512/BGDĐT-GDTrH cho lớp chuyên.
@@ -129,7 +142,7 @@ Yêu cầu:
 - Nếu có "hs_khuyet_tat": thêm "ca_nhan_hoa" (gọi là "HS A") theo TT 03/2018/TT-BGDĐT và Điều 11 TT 22/2021/TT-BGDĐT, đúng tình trạng GV mô tả, không bịa thêm; khuyết tật không ảnh hưởng nhận thức thì giữ nguyên yêu cầu cần đạt, chỉ điều chỉnh cách tham gia; "hoat_dong" có MỘT mục cho MỖI hoạt động bạn soạn, nói cụ thể HS A làm thế nào (lên bảng, nhóm, trò chơi…). Không có thì để "".
 - Văn bản là mã LaTeX: công thức trong $...$, in đậm \\textbf{...}, xuống dòng bằng dòng trống; không dùng \\section, không dùng gói lạ. Trong JSON phải viết dấu \\ thành \\\\.
 - Chỉ trả về MỘT đối tượng JSON, không giải thích, không markdown:
-{"muc_tieu_kien_thuc":["..."],"nang_luc_chung":[{"ten":"...","bieu_hien":"..."}],"nang_luc_dac_thu":[{"ten":"...","bieu_hien":"..."}],"pham_chat":[{"ten":"...","bieu_hien":"..."}],"phan_bo":[{"tiet":"1-2","noi_dung":"..."}],"hoat_dong":[{"key":"hd_mo_dau","ten":"...","tiet":"1","muc_tieu":"...","tinh_huong":"...","dung":[],"san_pham":"...","b1":"...","b2":"...","b3":"...","b4":"..."}],"nls_trong_hoat_dong":[{"key":"...","ma":"...","tex":"..."}],"ca_nhan_hoa":{"thong_tin":"...","muc_tieu":"...","chuan_bi":"...","hoat_dong":[{"key":"...","dieu_chinh":"..."}],"danh_gia":"...","phoi_hop":"..."}}`;
+{"muc_tieu_kien_thuc":["..."],"nang_luc_chung":[{"ten":"...","bieu_hien":"..."}],"nang_luc_dac_thu":[{"ten":"...","bieu_hien":"..."}],"pham_chat":[{"ten":"...","bieu_hien":"..."}],"phan_bo":[{"tiet":"1-2","noi_dung":"..."}],"hoat_dong":[{"key":"hd_mo_dau","ten":"...","tiet":"1","muc_tieu":"...","tinh_huong":"...","dung":[],"san_pham":"...","b1":"...","b2":"...","b3":"...","b4":"..."}],"nls_trong_hoat_dong":[{"key":"...","ma":"...","tex":"..."}],"ca_nhan_hoa":{"thong_tin":"...","muc_tieu_hoa_nhap":["..."],"muc_tieu":"...","chuan_bi":"...","hoat_dong":[{"key":"...","dieu_chinh":"..."}],"danh_gia":"...","phoi_hop":"..."}}`;
 
 const L = d.lesson || {};
 const user = {
@@ -146,7 +159,7 @@ const ai_body = {
   max_tokens: soanMoi ? (hskt?.mo_ta ? 12000 : 10000) : (hskt?.mo_ta ? 5000 : 3000),
   messages: [
     { role: "system", content: soanMoi ? SYSTEM_SOAN : SYSTEM },
-    { role: "user", content: JSON.stringify(user) }
+    { role: "user", content: anTen(JSON.stringify(user)) }     // không gửi tên thật của HS cho AI
   ]
 };
 

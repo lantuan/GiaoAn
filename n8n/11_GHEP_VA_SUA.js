@@ -64,6 +64,7 @@ if (ai) {
 // Nội dung tài liệu (khối M…, BT…) được chèn NGUYÊN VĂN vào đúng hoạt động AI chọn; AI chỉ viết khung CV 5512 (màu xanh).
 const soanMoi = !!d.soan_moi;
 const PL_MARK = "%%==PHU_LUC_TAI_LIEU==";
+const KY_MARK = "%%==KY_DUYET==";      // khối Ký duyệt chuẩn (mục 2e)
 if (soanMoi) {
   const L = meta.lesson || {};
   const pp = d.ppct || meta.ppct || {};
@@ -233,7 +234,8 @@ if (ai) {
 // - Trong TỪNG hoạt động: đoạn "Hỗ trợ HS …" (màu tím) nói cụ thể cách em tham gia (lên bảng, nhóm, trò chơi…)
 // - Mục IV: kế hoạch hỗ trợ (thông tin, mục tiêu điều chỉnh, chuẩn bị, đánh giá, phối hợp)
 // AI không biết tên thật ("HS A"); tên được điền lại ở đây. AI thiếu phần nào → dùng quy tắc theo dạng khuyết tật.
-const hskt = meta.request?.hs_khuyet_tat || d.request?.hs_khuyet_tat;
+const hskt = meta.request?.hs_khuyet_tat || d.request?.hs_khuyet_tat ||
+  (d.hoa_nhap?.co ? { ten: d.hoa_nhap.ten, mo_ta: d.hoa_nhap.mo_ta } : null);   // GV đã viết sẵn phần hoà nhập trong giáo án
 if (hskt) {
   const tenHS = hskt.ten ? `HS ${hskt.ten}` : "HS khuyết tật";
   const thayTen = x => String(x || "").replace(/\b(HS|học sinh|Học sinh|em) A\b/g, tenHS).replace(/\bHS A\b/g, tenHS);
@@ -246,7 +248,7 @@ if (hskt) {
   // --- Quy tắc theo dạng khuyết tật (dự phòng khi AI không viết / viết thiếu) ---
   const moTa = String(hskt.mo_ta || "").toLowerCase().normalize("NFC");
   const QT = {
-    van_dong: { rx: /chân|tay|đi lại|đi đứng|xe lăn|vận động|nạng|bại não|liệt|khớp/, ten: "khuyết tật vận động",
+    van_dong: { rx: /chân|tay|đi lại|đi đứng|xe lăn|vận động|nạng|bại não|liệt|khớp/, ten: "khuyết tật vận động", mt_rieng: "Vận động và an toàn: tham gia đầy đủ hoạt động học tại chỗ, không phải di chuyển xa; bảo đảm an toàn khi đi lại trong lớp.",
       muc_tieu: "Giữ nguyên yêu cầu cần đạt của bài như các bạn; tạo điều kiện để em tham gia đầy đủ các hoạt động mà không phải di chuyển nhiều.",
       chuan_bi: "Xếp em ngồi bàn đầu, gần lối đi và cửa lớp; lối đi thông thoáng; chuẩn bị bảng con hoặc giấy A4 để em trình bày tại chỗ; phân công 1–2 bạn ngồi cạnh hỗ trợ khi cần (lấy đồ dùng, chuyển phiếu học tập).",
       bang: "không gọi em lên bảng; em làm vào bảng con hoặc giấy A4 tại chỗ, GV chụp ảnh hoặc dùng máy chiếu vật thể đưa bài lên màn hình, em trình bày miệng tại chỗ (được ngồi khi trình bày).",
@@ -255,7 +257,7 @@ if (hskt) {
       chung: "em làm nhiệm vụ tại chỗ như các bạn; không yêu cầu đứng lâu hay di chuyển; GV chủ động đến chỗ em để quan sát, hỗ trợ.",
       danh_gia: "Cùng yêu cầu cần đạt về kiến thức, kĩ năng như các bạn; chỉ điều chỉnh hình thức: trình bày tại chỗ, nộp bài trên giấy hoặc ảnh chụp thay cho làm trên bảng; không trừ điểm vì không lên bảng hay không tham gia phần phải di chuyển.",
       phoi_hop: "Trao đổi với gia đình, GV chủ nhiệm về sức khoẻ và việc đi lại của em; cho em ra vào lớp trước hoặc sau các bạn 2–3 phút để tránh chen lấn; ghi nhận tiến bộ vào kế hoạch giáo dục cá nhân." },
-    khiem_thi: { rx: /khiếm thị|mắt|nhìn|thị lực|mù/, ten: "khiếm thị",
+    khiem_thi: { rx: /khiếm thị|mắt|nhìn|thị lực|mù/, ten: "khiếm thị", mt_rieng: "Tiếp cận thông tin: đọc được tài liệu, hình vẽ đã phóng to; theo dõi được nội dung GV đọc, mô tả.",
       muc_tieu: "Giữ nguyên yêu cầu cần đạt; bảo đảm em tiếp cận được đầy đủ nội dung ghi bảng, hình vẽ.",
       chuan_bi: "Xếp em ngồi bàn đầu, chính giữa, đủ ánh sáng; phiếu học tập in cỡ chữ lớn (16–18), hình vẽ nét đậm; cho phép dùng kính lúp hoặc điện thoại để phóng to.",
       bang: "em làm tại chỗ trên giấy cỡ lớn; GV đọc to đề bài và mô tả hình vẽ trên bảng.",
@@ -264,7 +266,7 @@ if (hskt) {
       chung: "GV đọc to nội dung trình chiếu, mô tả hình vẽ; cho em thêm thời gian làm bài.",
       danh_gia: "Cùng yêu cầu cần đạt; đề in cỡ chữ lớn, thêm thời gian; có thể kiểm tra miệng phần cần đọc hình.",
       phoi_hop: "Trao đổi với gia đình về thị lực, kính, phương tiện hỗ trợ; ghi nhận tiến bộ vào kế hoạch giáo dục cá nhân." },
-    khiem_thinh: { rx: /khiếm thính|tai|nghe kém|điếc|thính lực/, ten: "khiếm thính",
+    khiem_thinh: { rx: /khiếm thính|tai|nghe kém|điếc|thính lực/, ten: "khiếm thính", mt_rieng: "Tiếp nhận thông tin: nắm được yêu cầu qua chữ viết, hình ảnh; trình bày được bằng chữ viết.",
       muc_tieu: "Giữ nguyên yêu cầu cần đạt; bảo đảm em tiếp nhận đầy đủ yêu cầu bằng hình ảnh, chữ viết.",
       chuan_bi: "Xếp em ngồi bàn đầu, nhìn rõ mặt GV và bảng; mọi yêu cầu, câu hỏi đều ghi lên bảng hoặc trình chiếu; video có phụ đề.",
       bang: "GV ghi rõ yêu cầu lên bảng; em có thể trình bày bằng cách viết thay cho nói.",
@@ -273,7 +275,7 @@ if (hskt) {
       chung: "GV nói rõ, chậm, quay mặt về phía lớp khi nói; kiểm tra lại xem em đã nắm yêu cầu chưa.",
       danh_gia: "Cùng yêu cầu cần đạt; ưu tiên hình thức viết thay cho vấn đáp.",
       phoi_hop: "Trao đổi với gia đình về máy trợ thính, cách giao tiếp phù hợp; ghi nhận tiến bộ vào kế hoạch giáo dục cá nhân." },
-    tri_tue: { rx: /trí tuệ|chậm phát triển|chậm hiểu|tiếp thu chậm|khó khăn về học|khuyết tật học tập/, ten: "khó khăn về học tập",
+    tri_tue: { rx: /trí tuệ|chậm phát triển|chậm hiểu|tiếp thu chậm|khó khăn về học|khuyết tật học tập/, ten: "khó khăn về học tập", mt_rieng: "Kĩ năng học tập: hoàn thành các nhiệm vụ đã chia nhỏ, có ví dụ mẫu; tiến bộ so với chính em.",
       muc_tieu: "Điều chỉnh theo kế hoạch giáo dục cá nhân: tập trung vào các yêu cầu cần đạt cốt lõi ở mức nhận biết, thông hiểu.",
       chuan_bi: "Phiếu học tập riêng, ít bước, có ví dụ mẫu; xếp em ngồi gần GV và cạnh bạn học tốt hỗ trợ.",
       bang: "em làm bài tập đã được giảm bước tại chỗ hoặc lên bảng làm câu dễ để tạo hứng thú, có gợi ý từng bước.",
@@ -282,7 +284,7 @@ if (hskt) {
       chung: "giao nhiệm vụ ngắn, chia nhỏ từng bước, có ví dụ mẫu; cho thêm thời gian.",
       danh_gia: "Đánh giá theo mức độ tiến bộ so với mục tiêu trong kế hoạch giáo dục cá nhân (Điều 11 TT 22/2021/TT-BGDĐT).",
       phoi_hop: "Phối hợp gia đình ôn tập ở nhà theo phiếu riêng; ghi nhận tiến bộ vào kế hoạch giáo dục cá nhân." },
-    tu_ky: { rx: /tự kỷ|tự kỉ|phổ tự kỷ/, ten: "rối loạn phổ tự kỷ",
+    tu_ky: { rx: /tự kỷ|tự kỉ|phổ tự kỷ/, ten: "rối loạn phổ tự kỷ", mt_rieng: "Hành vi, giao tiếp: theo được trình tự tiết học, tham gia nhóm nhỏ với vai trò rõ ràng.",
       muc_tieu: "Theo kế hoạch giáo dục cá nhân; ưu tiên duy trì nề nếp, tham gia học tập ổn định.",
       chuan_bi: "Chỗ ngồi cố định, ít bị phân tán; thông báo trước trình tự các hoạt động của tiết học.",
       bang: "báo trước cho em khi sẽ được gọi; cho phép trả lời tại chỗ.",
@@ -291,7 +293,7 @@ if (hskt) {
       chung: "hướng dẫn ngắn gọn, trực quan; tránh thay đổi đột ngột.",
       danh_gia: "Theo kế hoạch giáo dục cá nhân, ghi nhận sự tiến bộ (Điều 11 TT 22/2021/TT-BGDĐT).",
       phoi_hop: "Phối hợp gia đình, GV chủ nhiệm theo dõi cảm xúc, hành vi; ghi nhận vào kế hoạch giáo dục cá nhân." },
-    tang_dong: { rx: /tăng động|giảm chú ý|adhd/, ten: "tăng động, giảm chú ý",
+    tang_dong: { rx: /tăng động|giảm chú ý|adhd/, ten: "tăng động, giảm chú ý", mt_rieng: "Tập trung, nề nếp: duy trì chú ý trong từng nhiệm vụ ngắn, tham gia tích cực theo luật.",
       muc_tieu: "Giữ yêu cầu cần đạt; chia nhỏ nhiệm vụ để em duy trì tập trung.",
       chuan_bi: "Ngồi gần GV, xa cửa sổ; giao việc ngắn, có thời hạn rõ ràng.",
       bang: "cho em lên bảng làm câu ngắn để vận động hợp lí.",
@@ -300,7 +302,7 @@ if (hskt) {
       chung: "chia nhiệm vụ thành nhiều bước ngắn, nhắc nhở nhẹ nhàng, khen kịp thời.",
       danh_gia: "Cùng yêu cầu cần đạt; chia bài kiểm tra thành nhiều phần ngắn.",
       phoi_hop: "Phối hợp gia đình duy trì nề nếp; ghi nhận tiến bộ vào kế hoạch giáo dục cá nhân." },
-    ngon_ngu: { rx: /nói lắp|nói ngọng|ngôn ngữ|câm|khó nói/, ten: "khó khăn về ngôn ngữ, giao tiếp",
+    ngon_ngu: { rx: /nói lắp|nói ngọng|ngôn ngữ|câm|khó nói/, ten: "khó khăn về ngôn ngữ, giao tiếp", mt_rieng: "Giao tiếp: tự tin thể hiện ý kiến bằng lời nói hoặc chữ viết.",
       muc_tieu: "Giữ yêu cầu cần đạt; cho em thể hiện bằng nhiều hình thức.",
       chuan_bi: "Chuẩn bị thẻ, bảng con để em trả lời bằng chữ viết.",
       bang: "em trình bày lời giải bằng chữ viết, không bắt buộc thuyết trình.",
@@ -311,7 +313,7 @@ if (hskt) {
       phoi_hop: "Phối hợp gia đình, tạo môi trường để em tự tin giao tiếp; ghi nhận vào kế hoạch giáo dục cá nhân." }
   };
   let dang = Object.keys(QT).filter(k => QT[k].rx.test(moTa));
-  const CHUNG = { ten: "khuyết tật", muc_tieu: "Theo kế hoạch giáo dục cá nhân của em; giữ yêu cầu cần đạt nếu khuyết tật không ảnh hưởng nhận thức.",
+  const CHUNG = { ten: "khuyết tật", mt_rieng: "Tham gia học tập phù hợp với khả năng, theo kế hoạch giáo dục cá nhân.", muc_tieu: "Theo kế hoạch giáo dục cá nhân của em; giữ yêu cầu cần đạt nếu khuyết tật không ảnh hưởng nhận thức.",
     chuan_bi: "Bố trí chỗ ngồi, phương tiện phù hợp với tình trạng của em; phân công bạn hỗ trợ.", bang: "cho em trình bày theo hình thức phù hợp (tại chỗ, viết thay nói…).",
     nhom: "giao vai trò phù hợp với khả năng của em trong nhóm.", tro_choi: "điều chỉnh cách tham gia để em không bị loại khỏi trò chơi.",
     chung: "GV theo dõi, hỗ trợ kịp thời, cho thêm thời gian khi cần.", danh_gia: "Theo Điều 11 TT 22/2021/TT-BGDĐT và kế hoạch giáo dục cá nhân của em.",
@@ -339,6 +341,33 @@ if (hskt) {
     if (S[h.key] && chen(S[h.key], "\n\n" + TIM(`\\textbf{* Hỗ trợ ${tenHS}:} ${nd}`) + "\n")) soChen++;
     else conLaiHD.push(`\\textit{${String(h.ten).replace(/[{}\\]/g, "")}:} ${nd}`);
   }
+  // Câu "Lưu ý…" chung chung GV viết lặp lại ở các hoạt động → đã có đoạn hỗ trợ cụ thể, bỏ đi
+  const tenGoi = hskt.ten ? hskt.ten.split(" ").pop() : null;
+  let soBoLuuY = 0;
+  tex = tex.split("\n").filter(l => {
+    if (l.length > 400 || /Hỗ trợ HS/.test(l)) return true;
+    const coTen = hskt.ten && (l.includes(hskt.ten) || (tenGoi && new RegExp(`\\bem ${tenGoi}\\b`).test(l)));
+    if (/^\s*[-–•]?\s*(\\textbf\{)?\s*Lưu ý\s*:?/.test(l) && (coTen || /khuyết tật|hòa nhập|hoà nhập/i.test(l))) { soBoLuuY++; return false; }
+    return true;
+  }).join("\n");
+
+  // I.4 Mục tiêu giáo dục hoà nhập (thay mục GV viết sẵn, thường chép nhầm từ bài khác)
+  const iTB = tex.search(/\\subsubsection\*?\{[^\n]*II\.\s*THIẾT BỊ|II\.\s*THIẾT BỊ/);
+  const iI4 = tex.search(/[^\n]*Mục tiêu[^\n]{0,30}(h[oò]a nhập|hoà nhập)[^\n]*/i);
+  if (iI4 >= 0 && iTB > iI4) {
+    const dauDong = tex.lastIndexOf("\n", iI4) + 1;
+    tex = tex.slice(0, dauDong) + tex.slice(iTB);
+  }
+  const mtAI = (Array.isArray(cnh.muc_tieu_hoa_nhap) ? cnh.muc_tieu_hoa_nhap : []).filter(hop).map(thayTen);
+  const yc = (meta.yccd || []).map(y => String(y.content || "").replace(/[{}\\%&$#_^~]/g, " ")).filter(Boolean);
+  const mtQT = [`Kiến thức, năng lực: ${gop("muc_tieu")}` + (yc.length ? ` Cụ thể: ${yc.slice(0, 2).join("; ").slice(0, 260)}.` : ""),
+    "Tâm lí, kĩ năng xã hội: tự tin phát biểu, hợp tác với bạn; không cảm thấy tự ti hay bị tách khỏi tập thể.",
+    ...ds_qt.map(q => q.mt_rieng)];
+  const khoiI4 = `{\\noindent\\textbf{4. Mục tiêu giáo dục hoà nhập (dành cho ${tenHS} – ${ds_qt.map(q => q.ten).join(", ")})}\\par\\nopagebreak}\n\n` +
+    "\\begin{itemize}\n" + (mtAI.length ? mtAI : mtQT).map(x => `\\item ${TIM(x)}\n`).join("") + "\\end{itemize}\n\n";
+  const iTB2 = tex.search(/\\subsubsection\*?\{[^\n]*II\.\s*THIẾT BỊ|[^\n]*II\.\s*THIẾT BỊ/);
+  if (iTB2 > 0) { const dd = tex.lastIndexOf("\n", iTB2) + 1; tex = tex.slice(0, dd) + khoiI4 + tex.slice(dd); }
+
   // soạn KHBD mới: hoạt động do AI soạn, không có sẵn trong file → liệt kê ở mục IV
   if (!dsHD.length) for (const [k, v] of Object.entries(aiHD)) conLaiHD.push(`\\textit{${k.replace(/^hd_/, "").replace(/_/g, " ")}:} ${thayTen(v)}`);
 
@@ -346,21 +375,42 @@ if (hskt) {
   const lay = (f, macDinh) => hop(cnh[f]) ? thayTen(cnh[f]) : macDinh;
   const dangTen = ds_qt.map(q => q.ten).join(", ");
   const thongTin = lay("thong_tin", `${tenHS}: ${dangTen} (theo GV: ${thayTen(String(hskt.mo_ta || "").replace(/^\s*(lớp\s*\d+\s*[,;]?\s*)?(bài\s*\d+\s*[,;.]?\s*)?/i, "")).replace(/[{}\\%&$#_^~]/g, " ").trim().slice(0, 200)}).`);
+  // Bỏ mục IV GV viết sẵn (bảng kế hoạch cũ) – thay bằng bảng chuẩn ngay sau
+  {
+    const iIVcu = tex.search(/[^\n]*(KẾ HOẠCH[^\n]{0,60}(H[OÒ]A NHẬP|HOÀ NHẬP|KHUYẾT TẬT)|HỖ TRỢ[^\n]{0,40}KHUYẾT TẬT)/);
+    if (iIVcu > 0) {
+      const dd = tex.lastIndexOf("\n", iIVcu) + 1;
+      const sau = tex.slice(dd);
+      const kt = [sau.search(/[^\n]*(Ký|Kí) duyệt/), sau.indexOf(KY_MARK), sau.indexOf(PL_MARK), sau.lastIndexOf("\\end{document}")].filter(x => x > 0);
+      if (kt.length) tex = tex.slice(0, dd) + sau.slice(Math.min(...kt));
+    }
+  }
+  const o = x => TIM(x);
+  const hang = [
+    ["Môi trường, vị trí ngồi", lay("chuan_bi", gop("chuan_bi")), "GVCN, GV bộ môn, lớp trưởng"],
+    ["Tham gia hoạt động học (nhóm, lên bảng, trò chơi)", conLaiHD.length ? "Theo từng hoạt động (mục 4 dưới bảng)." :
+      `Theo đoạn \\textit{"Hỗ trợ ${tenHS}"} trong từng hoạt động ở mục III.`, "GV dạy Toán"],
+    ["Kiểm tra, đánh giá (Điều 11 TT 22/2021/TT-BGDĐT)", lay("danh_gia", gop("danh_gia")), "GV dạy Toán"],
+    ["Tâm lí, động viên", "Khen ngợi kịp thời sự tiến bộ; giao vai trò phù hợp để em tự tin; tập thể lớp thân thiện, không để em bị cô lập.", "GV, tập thể lớp"],
+    ["Phối hợp gia đình", lay("phoi_hop", gop("phoi_hop")), "GVCN, phụ huynh"]
+  ];
+  const cot = (f) => `p{\\dimexpr ${f}\\linewidth-2\\tabcolsep-1.33\\arrayrulewidth\\relax}`;
+  const bangIV = `\\begin{longtable}{|${cot(0.24)}|${cot(0.54)}|${cot(0.22)}|}\n\\hline\n` +
+    `\\centering\\textbf{Nội dung điều chỉnh} & \\centering\\textbf{Biện pháp thực hiện} & \\centering\\textbf{Người thực hiện} \\tabularnewline\n\\hline\n\\endhead\n` +
+    hang.map(([a, b, c]) => `${a}\n& ${o(b)}\n& ${c} \\tabularnewline\n\\hline\n`).join("") + "\\end{longtable}\n\n";
   const khoiIV = `\n\n\\subsubsection*{IV. KẾ HOẠCH HỖ TRỢ HỌC SINH KHUYẾT TẬT HỌC HOÀ NHẬP}\n\n` +
     `\\textit{(Căn cứ Thông tư 03/2018/TT-BGDĐT quy định về giáo dục hoà nhập đối với người khuyết tật; đánh giá theo Điều 11 Thông tư 22/2021/TT-BGDĐT.)}\n\n` +
-    TIM(`\\textbf{1. Thông tin học sinh:} ${thongTin}\n\n` +
-      `\\textbf{2. Mục tiêu điều chỉnh:} ${lay("muc_tieu", gop("muc_tieu"))}\n\n` +
-      `\\textbf{3. Chuẩn bị (chỗ ngồi, phương tiện, người hỗ trợ):} ${lay("chuan_bi", gop("chuan_bi"))}\n\n` +
-      `\\textbf{4. Điều chỉnh trong các hoạt động:} ` +
-      (conLaiHD.length ? "\n\n\\begin{itemize}\n" + conLaiHD.map(x => `\\item ${x}\n`).join("") + "\\end{itemize}\n\n"
-                        : `xem đoạn \\textit{"Hỗ trợ ${tenHS}"} trong từng hoạt động ở mục III.\n\n`) +
-      `\\textbf{5. Đánh giá:} ${lay("danh_gia", gop("danh_gia"))}\n\n` +
-      `\\textbf{6. Phối hợp:} ${lay("phoi_hop", gop("phoi_hop"))}`) + "\n\n";
+    `\\textbf{1. Thông tin học sinh:} ${o(thongTin)}\n\n` +
+    `\\textbf{2. Mục tiêu điều chỉnh:} ${o(lay("muc_tieu", gop("muc_tieu")))}\n\n` +
+    `\\textbf{3. Biện pháp hỗ trợ:}\n\n` + bangIV +
+    (conLaiHD.length ? `\\textbf{4. Điều chỉnh trong các hoạt động:}\n\n\\begin{itemize}\n` + conLaiHD.map(x => `\\item ${o(x)}\n`).join("") + "\\end{itemize}\n\n" : "") +
+    `\\textbf{${conLaiHD.length ? 5 : 4}. Kết quả, điều chỉnh sau tiết dạy} \\textit{(GV ghi sau giờ dạy)}:\n\n\\noindent\\dotfill\n\n\\noindent\\dotfill\n\n`;
   const iPL = tex.indexOf(PL_MARK);
   const e = iPL >= 0 ? iPL : tex.lastIndexOf("\\end{document}");
   if (e > 0) {
     tex = tex.slice(0, e) + khoiIV + tex.slice(e);
-    da_sua.push(`Hỗ trợ ${tenHS} (${dangTen}): điều chỉnh trong ${soChen || conLaiHD.length} hoạt động + mục IV kế hoạch hỗ trợ (TT 03/2018, Điều 11 TT 22/2021)`);
+    da_sua.push(`Hoà nhập ${tenHS} (${dangTen}): mục tiêu I.4, hỗ trợ trong ${soChen || conLaiHD.length} hoạt động, bảng kế hoạch mục IV (TT 03/2018, Điều 11 TT 22/2021)` +
+      (soBoLuuY ? `; thay ${soBoLuuY} câu "Lưu ý" chung chung` : ""));
   }
   if (soQT && ai) canh_bao.push(`AI chưa viết phần hỗ trợ cho ${soQT} hoạt động – đã điền theo quy tắc chung cho dạng ${dangTen}, thầy/cô xem lại.`);
 }
@@ -460,7 +510,6 @@ if (iMT >= 0 && iTB > iMT) {
 // 2e. Khối "Ký duyệt" cuối giáo án (Tổ trưởng chuyên môn – Giáo viên)
 // Khối ký có sẵn trong file Word (bảng ẩn hẹp, lệch, dòng "Ký duyệt" lọt vào danh sách…) → xoá, thay bằng khối chuẩn:
 // rộng hết trang, chia đôi hai bên, chữ ở chính giữa.
-const KY_MARK = "%%==KY_DUYET==";
 if (!tex.includes(KY_MARK)) {
   const iDoc = Math.max(0, tex.indexOf("\\begin{document}"));
   let than = tex.slice(iDoc), soXoaKy = 0;
