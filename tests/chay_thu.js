@@ -24,6 +24,7 @@ function run(argv){
    if(u.includes('nls_nc1')) return JSON.parse(rd(G+'data/nang_luc_so/nls_nc1.json'));
    if(u.includes('ppct_2026_2027/')) return JSON.parse(rd(G+'data/'+u.split('/data/')[1]));
    if(u.includes('/curriculum/')){const t=rd('/Users/mailan/Desktop/NganHangDe_Lan/web/NganHangDe/data/'+u.split('/data/')[1]); if(!t) throw new Error('404'); return JSON.parse(t);}
+   if(u.includes('er-api')) return {result:'success',rates:{VND:25692.44}};   // tỷ giá giả lập
    return {data:[{id:'google/gemma-4-31b-it:free'}]};},
    prepareBinaryData:(b,f,m)=>({fileName:f,_s:b._s})};
  const Buf={from:s=>({length:s.length,_s:s})};

@@ -417,16 +417,30 @@ const zip_name = goc_ten + "_CV5512.zip";
 
 const esc = s => String(s ?? "").replace(/&/g, "&amp;").replace(/</g, "&lt;").replace(/>/g, "&gt;");
 // Hết lượt AI miễn phí → OpenRouter tự chuyển sang model trả phí: báo token + chi phí lần chạy này
-const TY_GIA_VND = 26500;                 // 1 USD ≈ … đồng (sửa theo tỷ giá hiện tại)
 const u = inp.usage || {};
 const traPhi = !!model_dung && !/:free$/.test(model_dung) && !(typeof u.cost === "number" && u.cost === 0);
 let dongPhi = "";
 if (traPhi) {
   const so = n => Number(n || 0).toLocaleString("vi-VN");
   const usd = typeof u.cost === "number" ? u.cost : null;
+  // Tỷ giá thật USD→VND (open.er-api.com, miễn phí, cập nhật hằng ngày); lưu trong ngày; lỗi thì chỉ ghi USD
+  let tyGia = null;
+  if (usd !== null) {
+    const ngay = new Date().toISOString().slice(0, 10);
+    if (cache.ty_gia_ngay === ngay && cache.ty_gia_vnd) tyGia = cache.ty_gia_vnd;
+    else {
+      try {
+        const r = await this.helpers.httpRequest({ url: "https://open.er-api.com/v6/latest/USD", json: true, timeout: 8000 });
+        const v = Number(r?.rates?.VND);
+        if (r?.result === "success" && v > 1000) { tyGia = v; cache.ty_gia_vnd = v; cache.ty_gia_ngay = ngay; }
+      } catch (e) {}
+    }
+  }
   dongPhi = `💳 <b>Lượt AI miễn phí hôm nay đã hết</b> – lần này dùng AI trả phí (${esc(model_dung)}): ` +
     `${so(u.total_tokens)} token (gửi ${so(u.prompt_tokens)}, nhận ${so(u.completion_tokens)})` +
-    (usd !== null ? `, chi phí <b>${usd.toFixed(5)} USD ≈ ${so(Math.round(usd * TY_GIA_VND))} đ</b>.` : `; chi phí xem tại openrouter.ai/activity.`);
+    (usd === null ? `; chi phí xem tại openrouter.ai/activity.`
+      : `, chi phí trả OpenRouter: <b>${usd.toFixed(5)} USD</b>` +
+        (tyGia ? ` (≈ ${so(Math.round(usd * tyGia))} đ, tỷ giá ${so(Math.round(tyGia))} đ/USD)` : "") + ".");
 }
 let caption = `<b>✅ ${soanMoi ? "Đã soạn KHBD theo CV 5512" : "Đã chỉnh theo CV 5512"}: ${meta.lesson?.bai_so ? "Bài " + esc(meta.lesson.bai_so) + ". " : ""}${esc(meta.lesson?.bai)}</b>\n` +
   (dongPhi ? dongPhi + "\n" : "") +
