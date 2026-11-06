@@ -69,7 +69,14 @@ if (nlsChuaDung.length) {
 
 // 3e. Cá nhân hoá cho HS khuyết tật – CHỈ khi GV yêu cầu (tên thật đã được thay bằng "HS A")
 const hskt = d.request?.hs_khuyet_tat;
-if (hskt?.mo_ta) viec.ca_nhan_hoa = { yeu_cau_cua_gv: hskt.mo_ta, cac_hoat_dong: (kt.hoat_dong || []).map(h => h.ten || h.key) };
+// Gửi kèm những việc HS phải làm trong từng hoạt động (lên bảng, nhóm, trò chơi…) để AI điều chỉnh đúng chỗ
+const VIEC_RX = /lên bảng|nhóm|thảo luận|trò chơi|thi đua|di chuyển|đứng|chạy|đổi chỗ|ra ngoài|thực hành|đo đạc|quan sát|nghe|video|clip|trình bày|báo cáo|giơ tay|điện thoại|máy tính|quizizz|kahoot|azota|phiếu|bảng phụ|bảng con|mô hình|vẽ|gấp|cắt|ghép|đọc/i;
+const viecHS = key => [...new Set(plain(d.sections_tex?.[key] || "").split(/\s+[-–+•]\s+|(?<=[.;:!?])\s+/)
+  .map(x => x.trim()).filter(x => x.length > 12 && VIEC_RX.test(x)).map(x => x.length > 130 ? x.slice(0, 130) + "…" : x))].slice(0, 5);
+if (hskt?.mo_ta) viec.ca_nhan_hoa = {
+  yeu_cau_cua_gv: hskt.mo_ta,
+  cac_hoat_dong: (kt.hoat_dong || []).map(h => ({ key: h.key, ten: h.ten || h.key, viec_hs: viecHS(h.key) }))
+};
 
 // ===== 3f. File là TÀI LIỆU chuyên đề → soạn KHBD mới (thay toàn bộ việc ở trên) =====
 const soanMoi = !!d.la_tai_lieu;
@@ -100,9 +107,10 @@ Quy tắc:
 - Mỗi hoạt động mới gồm đủ: a) Mục tiêu, b) Nội dung, c) Sản phẩm, d) Tổ chức thực hiện với Bước 1: Chuyển giao nhiệm vụ; Bước 2: Thực hiện nhiệm vụ; Bước 3: Báo cáo, thảo luận; Bước 4: Kết luận, nhận định.
 - Hoạt động Vận dụng phải gắn với tình huống thực tiễn và bám YCCĐ.
 - "nls_can_gan": mỗi mã chọn MỘT hoạt động phù hợp trong "cac_hoat_dong" (key), viết 1 câu mô tả việc HS làm để đạt mã đó, dạng "mã: mô tả". Không dùng mã nào khác.
-- "ca_nhan_hoa" (nếu có): viết kế hoạch hỗ trợ HS khuyết tật học hoà nhập (TT 03/2018/TT-BGDĐT) đúng tình trạng GV mô tả, gọi HS là "HS A": mục tiêu điều chỉnh; chỗ ngồi, thiết bị, phương tiện hỗ trợ; điều chỉnh nhiệm vụ trong từng hoạt động; cách đánh giá phù hợp. Không bịa thêm tình trạng.
+- "ca_nhan_hoa" (nếu có): kế hoạch hỗ trợ HS khuyết tật học hoà nhập theo TT 03/2018/TT-BGDĐT (kế hoạch giáo dục cá nhân) và đánh giá theo Điều 11 TT 22/2021/TT-BGDĐT, ĐÚNG tình trạng GV mô tả, gọi HS là "HS A", không bịa thêm tình trạng. Khuyết tật không ảnh hưởng nhận thức (vận động, khiếm thị, khiếm thính…) thì GIỮ NGUYÊN yêu cầu cần đạt, chỉ điều chỉnh cách tham gia; không tách HS khỏi lớp, không gây chú ý, kỳ thị.
+  "hoat_dong": MỖI hoạt động trong "cac_hoat_dong" một mục, nói CỤ THỂ cách HS A làm từng việc trong "viec_hs" của hoạt động đó (vd. khuyết tật chân: khi gọi lên bảng → trình bày tại chỗ trên bảng con, GV chiếu bài lên màn hình; thảo luận nhóm → nhóm ngồi quanh chỗ của HS A, các bạn di chuyển đến).
 - Chỉ trả về MỘT đối tượng JSON, không giải thích, không markdown, đúng khuôn:
-{"them_muc_tieu_kien_thuc":["..."],"bo_sung_hoat_dong":[{"key":"...","tex":"..."}],"hoat_dong_moi":[{"key":"...","tex":"..."}],"nls_trong_hoat_dong":[{"key":"...","ma":"...","tex":"..."}],"ca_nhan_hoa":"..."}
+{"them_muc_tieu_kien_thuc":["..."],"bo_sung_hoat_dong":[{"key":"...","tex":"..."}],"hoat_dong_moi":[{"key":"...","tex":"..."}],"nls_trong_hoat_dong":[{"key":"...","ma":"...","tex":"..."}],"ca_nhan_hoa":{"thong_tin":"...","muc_tieu":"...","chuan_bi":"...","hoat_dong":[{"key":"...","dieu_chinh":"..."}],"danh_gia":"...","phoi_hop":"..."}}
 Mảng nào không có việc thì để [], "ca_nhan_hoa" không có việc thì để "".`;
 
 const SYSTEM_SOAN = `Bạn là giáo viên chuyên Toán giỏi, soạn kế hoạch bài dạy (KHBD) theo Công văn 5512/BGDĐT-GDTrH cho lớp chuyên.
@@ -118,10 +126,10 @@ Yêu cầu:
 - "muc_tieu_kien_thuc": 4–8 ý, bám YCCĐ trong PPCT và các khái niệm trong tài liệu.
 - "nang_luc_chung" (3 năng lực: tự chủ và tự học; giao tiếp và hợp tác; giải quyết vấn đề và sáng tạo), "nang_luc_dac_thu" (tư duy và lập luận; mô hình hoá; giải quyết vấn đề; giao tiếp; sử dụng công cụ, phương tiện học toán), "pham_chat" (chăm chỉ; trung thực; trách nhiệm): mỗi mục 1–2 câu biểu hiện CỤ THỂ gắn với nội dung bài (ví dụ: "chuyển bài toán bắt tay về đếm cạnh của graph đầy đủ $K_n$").
 - "nls_trong_hoat_dong": mỗi mã trong "nls_duoc_dung" gắn vào ĐÚNG MỘT hoạt động phù hợp, 1 câu mô tả việc HS làm. Không dùng mã khác.
-- Nếu có "hs_khuyet_tat": thêm "ca_nhan_hoa" (gọi là "HS A"), không thì để "".
+- Nếu có "hs_khuyet_tat": thêm "ca_nhan_hoa" (gọi là "HS A") theo TT 03/2018/TT-BGDĐT và Điều 11 TT 22/2021/TT-BGDĐT, đúng tình trạng GV mô tả, không bịa thêm; khuyết tật không ảnh hưởng nhận thức thì giữ nguyên yêu cầu cần đạt, chỉ điều chỉnh cách tham gia; "hoat_dong" có MỘT mục cho MỖI hoạt động bạn soạn, nói cụ thể HS A làm thế nào (lên bảng, nhóm, trò chơi…). Không có thì để "".
 - Văn bản là mã LaTeX: công thức trong $...$, in đậm \\textbf{...}, xuống dòng bằng dòng trống; không dùng \\section, không dùng gói lạ. Trong JSON phải viết dấu \\ thành \\\\.
 - Chỉ trả về MỘT đối tượng JSON, không giải thích, không markdown:
-{"muc_tieu_kien_thuc":["..."],"nang_luc_chung":[{"ten":"...","bieu_hien":"..."}],"nang_luc_dac_thu":[{"ten":"...","bieu_hien":"..."}],"pham_chat":[{"ten":"...","bieu_hien":"..."}],"phan_bo":[{"tiet":"1-2","noi_dung":"..."}],"hoat_dong":[{"key":"hd_mo_dau","ten":"...","tiet":"1","muc_tieu":"...","tinh_huong":"...","dung":[],"san_pham":"...","b1":"...","b2":"...","b3":"...","b4":"..."}],"nls_trong_hoat_dong":[{"key":"...","ma":"...","tex":"..."}],"ca_nhan_hoa":""}`;
+{"muc_tieu_kien_thuc":["..."],"nang_luc_chung":[{"ten":"...","bieu_hien":"..."}],"nang_luc_dac_thu":[{"ten":"...","bieu_hien":"..."}],"pham_chat":[{"ten":"...","bieu_hien":"..."}],"phan_bo":[{"tiet":"1-2","noi_dung":"..."}],"hoat_dong":[{"key":"hd_mo_dau","ten":"...","tiet":"1","muc_tieu":"...","tinh_huong":"...","dung":[],"san_pham":"...","b1":"...","b2":"...","b3":"...","b4":"..."}],"nls_trong_hoat_dong":[{"key":"...","ma":"...","tex":"..."}],"ca_nhan_hoa":{"thong_tin":"...","muc_tieu":"...","chuan_bi":"...","hoat_dong":[{"key":"...","dieu_chinh":"..."}],"danh_gia":"...","phoi_hop":"..."}}`;
 
 const L = d.lesson || {};
 const user = {
@@ -135,7 +143,7 @@ const ai_body = {
   models,                               // OpenRouter tự chuyển model sau nếu model trước lỗi/hết lượt
   temperature: 0.3,
   usage: { include: true },             // OpenRouter trả kèm số token + chi phí (USD) để báo cho người dùng
-  max_tokens: soanMoi ? 10000 : (hskt?.mo_ta ? 4000 : 3000),
+  max_tokens: soanMoi ? (hskt?.mo_ta ? 12000 : 10000) : (hskt?.mo_ta ? 5000 : 3000),
   messages: [
     { role: "system", content: soanMoi ? SYSTEM_SOAN : SYSTEM },
     { role: "user", content: JSON.stringify(user) }
