@@ -57,11 +57,20 @@ let target_section = null;
 for (const s of sections) { if (lower.includes(s)) { target_section = s; break; } }
 
 // 7. Hỗ trợ học sinh khuyết tật (chỉ khi GV ghi rõ trong chú thích)
-const has_disability_support = /khuyết tật|hòa nhập|hoà nhập|khiếm thị|khiếm thính|tự kỷ|tự kỉ|bại não|chậm phát triển|tăng động|học sinh đặc biệt/.test(lower);
+const has_disability_support = new RegExp([
+  "khuyết tật", "khuyet tat", "hskt", "hòa nhập", "hoà nhập", "(^|[\\s,.;:(])tật([\\s,.;:)]|$)",
+  "khiếm thị", "khiếm thính", "nhìn kém", "thị lực kém", "nghe kém", "điếc", "(^|\\s)mù(\\s|$)",
+  "tự kỷ", "tự kỉ", "bại não", "chậm phát triển", "tăng động", "giảm chú ý", "rối loạn",
+  "xe lăn", "nạng", "bị liệt", "liệt (chân|tay|nửa)", "đi lại khó", "khó khăn (khi |trong |về )?(đi lại|di chuyển|vận động|nghe|nhìn|học)",
+  "hạn chế (di chuyển|vận động|đi lại)", "nói lắp", "nói ngọng", "học sinh đặc biệt"
+].join("|"), "u").test(lower);
 let hs_khuyet_tat = null;
 if (has_disability_support) {
   // Tách tên HS (nếu có) để KHÔNG gửi tên thật cho AI; node 11 tự điền lại tên vào giáo án
-  const mTen = caption.match(/(?:^|\s)(?:tên(?:\s+là)?|em|bạn)\s*:?\s*((?:\p{Lu}\p{Ll}*\s*){1,4})/u);
+  // "em Lê Gia Như", "tên là …", "HSKT …", "học sinh: …", "…: Lê Gia Như" (họ tên viết hoa chữ đầu)
+  const TEN = "((?:\\p{Lu}\\p{Ll}+\\s+){0,3}\\p{Lu}\\p{Ll}+)";
+  const mTen = caption.match(new RegExp(`(?:^|[\\s,(])(?:tên(?:\\s+là)?|em|bạn|HSKT|hskt|HS|học sinh|cho)\\s*:?\\s*${TEN}`, "u")) ||
+               caption.match(new RegExp(`:\\s*${TEN}`, "u"));
   const ten = mTen ? mTen[1].trim().replace(/[,.;]+$/, "") : null;
   let mo_ta = caption;
   if (ten) mo_ta = mo_ta.split(ten).join("HS A");
