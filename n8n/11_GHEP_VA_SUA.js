@@ -613,180 +613,6 @@ if (RX_BC.test(tex) && !/\\IfFileExists\{bclogo\.sty\}/.test(tex)) {
   }
 }
 
-// ===== 2h. Câu trắc nghiệm trong giáo án → file Quizizz (Wayground): Tạo → Import → Spreadsheet =====
-// <QUIZ>
-function layNgoac(s, i) {                    // s[i] === "{" → [nội dung, vị trí sau "}"]
-  let n = 0;
-  for (let k = i; k < s.length; k++) {
-    const c = s[k];
-    if (c === "\\") { k++; continue; }
-    if (c === "{") n++;
-    else if (c === "}") { n--; if (n === 0) return [s.slice(i + 1, k), k + 1]; }
-  }
-  return null;
-}
-function thayLenh(s, ten, soDoiSo, fn) {      // \ten[tuỳ chọn]{a}{b}… → fn(tuỳ chọn, a, b…)
-  const rx = new RegExp(`\\\\${ten}(?![A-Za-z])`, "g");
-  let out = "", i = 0, m;
-  while ((m = rx.exec(s))) {
-    let k = m.index + m[0].length, opt = null;
-    while (s[k] === " ") k++;
-    if (s[k] === "[") { const e = s.indexOf("]", k); if (e > 0) { opt = s.slice(k + 1, e); k = e + 1; } }
-    const args = [];
-    for (let a = 0; a < soDoiSo; a++) {
-      while (s[k] === " " || s[k] === "\n") k++;
-      if (s[k] === "{") { const r = layNgoac(s, k); if (!r) break; args.push(r[0]); k = r[1]; }
-      else if (s[k] && /[A-Za-z0-9]/.test(s[k])) { args.push(s[k]); k++; }
-      else break;
-    }
-    if (args.length < soDoiSo) continue;
-    out += s.slice(i, m.index) + fn(opt, ...args);
-    i = k; rx.lastIndex = k;
-  }
-  return out + s.slice(i);
-}
-const SUP = { 0: "⁰", 1: "¹", 2: "²", 3: "³", 4: "⁴", 5: "⁵", 6: "⁶", 7: "⁷", 8: "⁸", 9: "⁹", n: "ⁿ", "+": "⁺", "-": "⁻", "(": "⁽", ")": "⁾", x: "ˣ", i: "ⁱ", "∘": "°", "°": "°" };
-const SUB = { 0: "₀", 1: "₁", 2: "₂", 3: "₃", 4: "₄", 5: "₅", 6: "₆", 7: "₇", 8: "₈", 9: "₉", n: "ₙ", i: "ᵢ", k: "ₖ", "+": "₊", "-": "₋", a: "ₐ", e: "ₑ", o: "ₒ", x: "ₓ", r: "ᵣ", m: "ₘ" };
-const KYHIEU = { le: "≤", leq: "≤", ge: "≥", geq: "≥", ne: "≠", neq: "≠", pm: "±", mp: "∓", times: "×", cdot: "·", div: "÷", infty: "∞",
-  in: "∈", notin: "∉", subset: "⊂", subseteq: "⊆", supset: "⊃", cup: "∪", cap: "∩", emptyset: "∅", varnothing: "∅", forall: "∀", exists: "∃",
-  Rightarrow: "⇒", Leftrightarrow: "⇔", rightarrow: "→", to: "→", leftarrow: "←", perp: "⊥", parallel: "∥", angle: "∠", circ: "∘", approx: "≈",
-  equiv: "≡", sim: "∼", ldots: "…", cdots: "⋯", dots: "…", alpha: "α", beta: "β", gamma: "γ", delta: "δ", Delta: "Δ", epsilon: "ε", varepsilon: "ε",
-  theta: "θ", lambda: "λ", mu: "μ", pi: "π", rho: "ρ", sigma: "σ", Sigma: "Σ", varphi: "φ", phi: "φ", omega: "ω", Omega: "Ω", mathbb: "",
-  sin: "sin", cos: "cos", tan: "tan", cot: "cot", log: "log", ln: "ln", lim: "lim", max: "max", min: "min" };
-function texSangChu(s) {
-  s = String(s || "").replace(/(^|[^\\])%.*$/gm, "$1")
-    .replace(/\$([^$]+)\$/g, " $1 ");        // tách công thức khỏi chữ dính liền ("$ABCD$có" → "ABCD có")
-  let truoc;
-  do {
-    truoc = s;
-    for (const t of ["textbf", "textit", "uline", "underline", "emph", "text", "mathrm", "mathbf", "mathit", "boxed", "mbox", "operatorname", "displaystyle"])
-      s = thayLenh(s, t, 1, (o, a) => a);
-    s = thayLenh(s, "textcolor", 2, (o, c, a) => a);
-    s = thayLenh(s, "color", 1, () => "");
-    s = thayLenh(s, "mathbb", 1, (o, a) => ({ R: "ℝ", N: "ℕ", Z: "ℤ", Q: "ℚ", C: "ℂ" }[a] || a));
-    s = thayLenh(s, "overrightarrow", 1, (o, a) => a + "⃗");
-    s = thayLenh(s, "vec", 1, (o, a) => a + "⃗");
-    s = thayLenh(s, "overline", 1, (o, a) => a + "̅");
-    s = thayLenh(s, "widehat", 1, (o, a) => "∠" + a);
-    s = thayLenh(s, "hat", 1, (o, a) => "∠" + a);
-    for (const f of ["frac", "dfrac", "tfrac"]) s = thayLenh(s, f, 2, (o, a, b) => {
-      const g = x => /^[\p{L}\p{N}.,²³⃗]+$/u.test(x.trim()) ? x.trim() : `(${x.trim()})`;
-      return `${g(a)}/${g(b)}`;
-    });
-    s = thayLenh(s, "sqrt", 1, (o, a) => (o ? (o.split("").map(c => SUP[c] || c).join("")) : "") + "√" + (/^[\p{L}\p{N}]+$/u.test(a.trim()) ? a.trim() : `(${a.trim()})`));
-  } while (s !== truoc);
-  const muc = (x, bang, dau) => x.split("").every(c => bang[c]) ? x.split("").map(c => bang[c]).join("") : `${dau}(${x})`;
-  for (let lap = 0; lap < 3; lap++) {
-    s = s.replace(/\^\{\\circ\}|\^\\circ|\^\{o\}|\^o(?![a-z])/g, "°");
-    s = s.replace(/\^\{([^{}]*)\}/g, (m, x) => muc(x.trim(), SUP, "^")).replace(/\^([A-Za-z0-9])/g, (m, x) => muc(x, SUP, "^"));
-    s = s.replace(/_\{([^{}]*)\}/g, (m, x) => muc(x.trim(), SUB, "_")).replace(/_([A-Za-z0-9])/g, (m, x) => muc(x, SUB, "_"));
-  }
-  s = s.replace(/\\(left|right|big|Big|bigg|Bigg)(?![A-Za-z])\s*/g, "").replace(/\\[,;:! ]|\\quad|\\qquad/g, " ")
-       .replace(/\\\{/g, "{").replace(/\\\}/g, "}").replace(/\\\|/g, "‖").replace(/\\%/g, "%").replace(/\\&/g, "&").replace(/\\\\/g, " ")
-       .replace(/\\([A-Za-z]+)\s*/g, (m, w) => w in KYHIEU ? KYHIEU[w] + (/^[a-z]{2,}$/.test(KYHIEU[w]) ? " " : "") : "")   // lệnh lạ (\centering, \par…) bỏ tên lệnh
-       .replace(/[{}$~]/g, "").replace(/\s+/g, " ")
-       .replace(/\s+([,.;:?!)])/g, "$1").replace(/\(\s+/g, "(").replace(/\|\s*([^|]*?)\s*\|/g, "|$1|").trim();
-  return s;
-}
-function tachCauTN(t) {                      // các câu \begin{ex} có \choice 4 phương án
-  const ds = [];
-  for (const m of t.matchAll(/\\begin\{ex\}([\s\S]*?)\\end\{ex\}/g)) {
-    let inner = m[1].replace(/^%%[^\n]*\n?/, "");
-    const iL = inner.indexOf("\\loigiai");
-    const loigiai = iL >= 0 ? (layNgoac(inner, inner.indexOf("{", iL)) || [""])[0] : "";
-    if (iL >= 0) inner = inner.slice(0, iL);
-    const iC = inner.search(/\\choice(TF)?\b/);
-    if (iC < 0 || /\\choiceTF/.test(inner)) continue;
-    const de = inner.slice(0, iC);
-    let k = iC + "\\choice".length;
-    if (inner[k] === "[") k = inner.indexOf("]", k) + 1;
-    const pa = [];
-    while (pa.length < 4) {
-      while (k < inner.length && /\s/.test(inner[k])) k++;
-      if (inner[k] !== "{") break;
-      const r = layNgoac(inner, k); if (!r) break;
-      pa.push(r[0]); k = r[1];
-    }
-    if (pa.length !== 4) continue;
-    const dung = pa.findIndex(x => /\\True\b/.test(x));
-    ds.push({ de, pa: pa.map(x => x.replace(/\\True\b/g, "")), dung: dung >= 0 ? dung : null, loigiai });
-  }
-  return ds;
-}
-function bangDapAn(t) {                      // bảng "Đáp án câu hỏi trắc nghiệm": hàng số 1..n, hàng dưới A–D
-  const kq = {};
-  for (const m of t.matchAll(/\\begin\{(tabular|longtable)\}[\s\S]*?\\end\{\1\}/g)) {
-    const hang = m[0].split(/\\tabularnewline|\\\\\s*(?:\n|\\hline)/).map(h =>
-      h.replace(/\\(hline|endhead|begin\{(tabular|longtable)\}(\[[^\]]*\])?\{[^\n]*\}|end\{(tabular|longtable)\})/g, "")
-       .split(/(?<!\\)&/).map(c => texSangChu(c).replace(/^Câu\s*/i, "").trim()));
-    for (let i = 0; i + 1 < hang.length; i++) {
-      const a = hang[i], b = hang[i + 1];
-      if (a.length >= 2 && a.length === b.length && a.every(x => /^\d{1,3}$/.test(x)) && b.every(x => /^[A-Da-d]$/.test(x)))
-        a.forEach((x, j) => { kq[+x] = b[j].toUpperCase(); });
-    }
-  }
-  return kq;
-}
-function taoXlsx(rows) {                     // tự dựng file .xlsx (zip không nén) – Code node của n8n không có thư viện Excel
-  const u8 = str => { const out = []; for (const ch of str) { let c = ch.codePointAt(0);
-    if (c < 0x80) out.push(c); else if (c < 0x800) out.push(0xC0 | c >> 6, 0x80 | c & 63);
-    else if (c < 0x10000) out.push(0xE0 | c >> 12, 0x80 | c >> 6 & 63, 0x80 | c & 63);
-    else out.push(0xF0 | c >> 18, 0x80 | c >> 12 & 63, 0x80 | c >> 6 & 63, 0x80 | c & 63); } return Uint8Array.from(out); };
-  const x = v => String(v).replace(/[\u0000-\u0008\u000B\u000C\u000E-\u001F]/g, "").replace(/&/g, "&amp;").replace(/</g, "&lt;").replace(/>/g, "&gt;").replace(/"/g, "&quot;");
-  const cot = i => String.fromCharCode(65 + i);
-  const sheet = '<?xml version="1.0" encoding="UTF-8" standalone="yes"?><worksheet xmlns="http://schemas.openxmlformats.org/spreadsheetml/2006/main"><sheetData>' +
-    rows.map((r, ri) => `<row r="${ri + 1}">` + r.map((v, ci) => v === "" || v == null ? "" :
-      typeof v === "number" ? `<c r="${cot(ci)}${ri + 1}"><v>${v}</v></c>` :
-      `<c r="${cot(ci)}${ri + 1}" t="inlineStr"><is><t xml:space="preserve">${x(v)}</t></is></c>`).join("") + "</row>").join("") + "</sheetData></worksheet>";
-  const files = [
-    ["[Content_Types].xml", '<?xml version="1.0" encoding="UTF-8" standalone="yes"?><Types xmlns="http://schemas.openxmlformats.org/package/2006/content-types"><Default Extension="rels" ContentType="application/vnd.openxmlformats-package.relationships+xml"/><Default Extension="xml" ContentType="application/xml"/><Override PartName="/xl/workbook.xml" ContentType="application/vnd.openxmlformats-officedocument.spreadsheetml.sheet.main+xml"/><Override PartName="/xl/worksheets/sheet1.xml" ContentType="application/vnd.openxmlformats-officedocument.spreadsheetml.worksheet+xml"/></Types>'],
-    ["_rels/.rels", '<?xml version="1.0" encoding="UTF-8" standalone="yes"?><Relationships xmlns="http://schemas.openxmlformats.org/package/2006/relationships"><Relationship Id="rId1" Type="http://schemas.openxmlformats.org/officeDocument/2006/relationships/officeDocument" Target="xl/workbook.xml"/></Relationships>'],
-    ["xl/workbook.xml", '<?xml version="1.0" encoding="UTF-8" standalone="yes"?><workbook xmlns="http://schemas.openxmlformats.org/spreadsheetml/2006/main" xmlns:r="http://schemas.openxmlformats.org/officeDocument/2006/relationships"><sheets><sheet name="Sheet1" sheetId="1" r:id="rId1"/></sheets></workbook>'],
-    ["xl/_rels/workbook.xml.rels", '<?xml version="1.0" encoding="UTF-8" standalone="yes"?><Relationships xmlns="http://schemas.openxmlformats.org/package/2006/relationships"><Relationship Id="rId1" Type="http://schemas.openxmlformats.org/officeDocument/2006/relationships/worksheet" Target="worksheets/sheet1.xml"/></Relationships>'],
-    ["xl/worksheets/sheet1.xml", sheet]
-  ];
-  const T = []; for (let n = 0; n < 256; n++) { let c = n; for (let k = 0; k < 8; k++) c = c & 1 ? 0xEDB88320 ^ (c >>> 1) : c >>> 1; T[n] = c >>> 0; }
-  const crc = b => { let c = 0xFFFFFFFF; for (let i = 0; i < b.length; i++) c = T[(c ^ b[i]) & 255] ^ (c >>> 8); return (c ^ 0xFFFFFFFF) >>> 0; };
-  const parts = [], central = []; let off = 0;
-  for (const [ten, noiDung] of files) {
-    const nb = u8(ten), db = u8(noiDung), c = crc(db);
-    const h = new Uint8Array(30 + nb.length), v = new DataView(h.buffer);
-    v.setUint32(0, 0x04034b50, true); v.setUint16(4, 20, true); v.setUint16(6, 0x0800, true); v.setUint16(8, 0, true);
-    v.setUint16(10, 0, true); v.setUint16(12, 0x21, true); v.setUint32(14, c, true); v.setUint32(18, db.length, true);
-    v.setUint32(22, db.length, true); v.setUint16(26, nb.length, true); v.setUint16(28, 0, true); h.set(nb, 30);
-    const cd = new Uint8Array(46 + nb.length), w = new DataView(cd.buffer);
-    w.setUint32(0, 0x02014b50, true); w.setUint16(4, 20, true); w.setUint16(6, 20, true); w.setUint16(8, 0x0800, true);
-    w.setUint16(10, 0, true); w.setUint16(12, 0, true); w.setUint16(14, 0x21, true); w.setUint32(16, c, true);
-    w.setUint32(20, db.length, true); w.setUint32(24, db.length, true); w.setUint16(28, nb.length, true);
-    w.setUint32(42, off, true); cd.set(nb, 46);
-    parts.push(h, db); central.push(cd); off += h.length + db.length;
-  }
-  const cdLen = central.reduce((a, b) => a + b.length, 0);
-  const end = new Uint8Array(22), e = new DataView(end.buffer);
-  e.setUint32(0, 0x06054b50, true); e.setUint16(8, files.length, true); e.setUint16(10, files.length, true);
-  e.setUint32(12, cdLen, true); e.setUint32(16, off, true);
-  const all = [...parts, ...central, end], tong = all.reduce((a, b) => a + b.length, 0);
-  const kq = new Uint8Array(tong); let p = 0; for (const b of all) { kq.set(b, p); p += b.length; }
-  return kq;
-}
-// </QUIZ>
-const cauTN = tachCauTN(tex);
-let quizXlsx = null, soCauQuiz = 0;
-if (cauTN.length) {
-  const daBang = bangDapAn(tex);
-  const HANG = [["Question Text", "Question Type", "Option 1", "Option 2", "Option 3", "Option 4", "Option 5", "Correct Answer", "Time in seconds", "Image Link", "Answer explanation"]];
-  let thieuDA = 0;
-  cauTN.forEach((c, i) => {
-    let d = c.dung;
-    if (d === null && daBang[i + 1]) d = "ABCD".indexOf(daBang[i + 1]);
-    if (d === null || d < 0) { thieuDA++; return; }
-    HANG.push([texSangChu(c.de), "Multiple Choice", ...c.pa.map(texSangChu), "", d + 1, 30, "", texSangChu(c.loigiai).slice(0, 500)]);
-  });
-  soCauQuiz = HANG.length - 1;
-  if (soCauQuiz) { quizXlsx = taoXlsx(HANG); da_sua.push(`Tạo file quizizz.xlsx (${soCauQuiz} câu trắc nghiệm) để nhập vào Quizizz/Wayground`); }
-  if (thieuDA) canh_bao.push(`${thieuDA} câu trắc nghiệm chưa có đáp án (không có \\True, không có bảng đáp án) – chưa đưa vào file Quizizz.`);
-}
-
 // ===== 3. Xuất file =====
 // Tên lấy từ file gửi qua Telegram (đúng dấu tiếng Việt); tên file bên trong .zip có thể bị lỗi mã hoá khi giải nén
 const tenGoc = (meta.file_name || (tuZip && tuZip.ten_tex) || `Bai_${meta.lesson?.bai_so || ""}.tex`).normalize("NFC");
@@ -795,15 +621,13 @@ const fileName = goc_ten + "_CV5512.tex";
 const binary = { data: await this.helpers.prepareBinaryData(Buffer.from(tex, "utf8"), fileName, "application/x-tex") };
 // Nhánh .zip: thêm hình + .sty để node "12A_NEN_ZIP" nén lại
 const dsSty = [...(tuZip?.sty || []), ...styThem];
-const co_zip = (!!tuZip && hinhGui.length > 0) || dsSty.length > 0 || !!quizXlsx;
+const co_zip = (!!tuZip && hinhGui.length > 0) || dsSty.length > 0;
 if (co_zip) {
   let i = 0;
   for (const f of [...hinhGui, ...dsSty]) {
     binary["f" + i] = await this.helpers.prepareBinaryData(Buffer.from(f.b64, "base64"), f.ten, f.mime);
     i++;
   }
-  if (quizXlsx) binary["f" + i] = await this.helpers.prepareBinaryData(Buffer.from(quizXlsx), "quizizz.xlsx",
-    "application/vnd.openxmlformats-officedocument.spreadsheetml.sheet");
 }
 const ds_binary = Object.keys(binary).join(",");
 const zip_name = goc_ten + "_CV5512.zip";
@@ -839,8 +663,7 @@ let caption = `<b>✅ ${soanMoi ? "Đã soạn KHBD theo CV 5512" : "Đã chỉn
   (dongPhi ? dongPhi + "\n" : "") +
   (da_sua.length ? da_sua.map(s => "• " + esc(s)).join("\n") : "Không có gì cần sửa.") +
   (canh_bao.length ? `\n<b>Lưu ý:</b>\n` + canh_bao.map(s => "• " + esc(s)).join("\n") : "") +
-  (co_zip ? `\n📦 File .zip gồm giáo án${hinhGui.length ? " + " + hinhGui.length + " hình" : ""}${dsSty.length ? " + " + dsSty.map(f => f.ten).join(", ") : ""}${quizXlsx ? " + quizizz.xlsx" : ""} – giải nén rồi mở file .tex.` : "") +
-  (quizXlsx ? `\n📝 quizizz.xlsx (${soCauQuiz} câu): vào Quizizz/Wayground → Tạo → Import → Spreadsheet, chọn file này.` : "") +
+  (co_zip ? `\n📦 File .zip gồm giáo án${hinhGui.length ? " + " + hinhGui.length + " hình" : ""}${dsSty.length ? " + " + dsSty.map(f => f.ten).join(", ") : ""} – giải nén rồi mở file .tex.` : "") +
   `\n<i>Phần màu xanh do AI viết – thầy/cô rà soát trước khi dùng.${model_dung ? " (" + esc(model_dung) + ")" : ""}</i>`;
 if (caption.length > 1000) {
   // cắt bớt nhưng không để thẻ HTML dở dang / chưa đóng (Telegram sẽ báo lỗi)
