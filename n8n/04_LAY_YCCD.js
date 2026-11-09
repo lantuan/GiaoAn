@@ -77,6 +77,8 @@ const HUONG_DAN = `📘 BOT SOẠN & CHỈNH GIÁO ÁN TOÁN THPT (CV 5512)
 ⚠️ File tối đa 20 MB. Không ghi họ tên thật của học sinh ngoài trường hợp mục 3.
 Gõ /start để xem lại hướng dẫn này.`;
 const txtGoc = String(req.original_text || "").trim().toLowerCase();
+// /id: cho biết mã chat (dán vào máy Mac để gửi giáo án từ OneDrive thẳng vào luồng – node 14)
+if (/^\/id\b/.test(txtGoc)) return fail(`Mã chat của bạn: ${d.chat_id}`);
 const laHuongDan = /^\/(start|help|huongdan)\b/.test(txtGoc) || /^(hướng dẫn|huong dan|help|hd)\s*[.!?]*$/.test(txtGoc);
 if (laHuongDan || (d.input_type && d.input_type !== "document")) {
   return fail((laHuongDan ? "" : "Mình chưa thấy file giáo án đính kèm.\n\n") + HUONG_DAN);

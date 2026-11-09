@@ -85,3 +85,24 @@ Máy chủ n8n không có LaTeX, nên node 11 gửi .tex + hình + .sty sang **M
 ```
 Webhook (POST, ga-pdf-dia-chi, Respond: When Last Node Finishes) → 13_LUU_DIA_CHI_PDF
 ```
+
+## Gửi giáo án từ máy Mac / OneDrive (không cần tự gửi qua Telegram)
+
+`tools/gui_giao_an.py` lấy giáo án trên máy (.docx, .tex, thư mục bài hoặc .zip), đổi Word → TeX (MathType → Equation nếu có), gói thành .zip rồi gửi vào luồng. Kết quả về Telegram như khi tự gửi file cho bot.
+
+```
+python3 tools/gui_giao_an.py "~/Library/CloudStorage/OneDrive-Personal/GiaoAn_Goc/Lop10/Bài 8. ….docx" "in chữ đen"
+```
+
+Trên n8n (cùng workflow `GA_01_TELEGRAM_RECEIVE`):
+
+```
+Webhook (POST, path ga-nhan-giao-an, Respond: Immediately)
+  → 14_NHAN_TU_MAY (Code)
+  → 14B_GUI_FILE_GOC (Telegram › Send Document: Chat ID {{ $json.chat_id }}, Binary, field data, caption 📥 {{ $json.caption }})
+  → 14C_CHUAN_HOA_TU_MAY (Code)
+  → 03_PHAN_TICH_YEU_CAU (đang có)
+```
+
+- Xác thực bằng mã bí mật của Máy dịch PDF (node 13 đã lưu) – không phải dán mã nào vào node 14.
+- Mã chat: gõ `/id` cho bot, rồi `python3 tools/gui_giao_an.py --chat-id <số>` (lưu trong config của Máy dịch PDF).
