@@ -16,4 +16,6 @@ const cache = $getWorkflowStaticData("global");
 cache.pdf_url = b.url;
 cache.pdf_bi_mat = BI_MAT;
 cache.pdf_luc = new Date().toISOString();
+// mã chat của chủ máy: chỉ người này nhắn chữ là bot tìm giáo án trong OneDrive (node 04)
+if (/^\d{3,20}$/.test(String(b.chat_id || ""))) cache.chu_chat_id = String(b.chat_id);
 return [{ json: { ok: true } }];

@@ -106,3 +106,10 @@ Webhook (POST, path ga-nhan-giao-an, Respond: Immediately)
 
 - Xác thực bằng mã bí mật của Máy dịch PDF (node 13 đã lưu) – không phải dán mã nào vào node 14.
 - Mã chat: gõ `/id` cho bot, rồi `python3 tools/gui_giao_an.py --chat-id <số>` (lưu trong config của Máy dịch PDF).
+
+### Nhắn chữ cho bot để lấy giáo án trong OneDrive (chỉ chủ máy)
+
+Chủ máy (mã chat do Máy dịch PDF báo qua node 13) nhắn kiểu `Làm giáo án Bài 8 lớp 10, in chữ đen` → node 04 gọi `POST <đường hầm>/tim` → máy Mac chạy `tools/tim_giao_an.py` tìm trong `OneDrive/GiaoAn_Goc`:
+- một bản rõ ràng → `tools/gui_giao_an.py` gửi vào luồng (node 14), bot báo "📂 Tìm thấy …";
+- nhiều bản gần đúng → bot liệt kê, trả lời số (ví dụ `1`) để chọn.
+Người khác nhắn chữ vẫn nhận hướng dẫn như cũ.

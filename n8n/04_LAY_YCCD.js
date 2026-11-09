@@ -80,6 +80,18 @@ const txtGoc = String(req.original_text || "").trim().toLowerCase();
 // /id: cho biết mã chat (dán vào máy Mac để gửi giáo án từ OneDrive thẳng vào luồng – node 14)
 if (/^\/id\b/.test(txtGoc)) return fail(`Mã chat của bạn: ${d.chat_id}`);
 const laHuongDan = /^\/(start|help|huongdan)\b/.test(txtGoc) || /^(hướng dẫn|huong dan|help|hd)\s*[.!?]*$/.test(txtGoc);
+// Chủ máy nhắn chữ (không kèm file) → máy Mac tìm giáo án gốc trong OneDrive rồi tự gửi vào luồng (node 14)
+const laChu = cache.chu_chat_id && String(d.chat_id) === String(cache.chu_chat_id);
+if (laChu && !laHuongDan && d.input_type !== "document" && txtGoc) {
+  if (!cache.pdf_url) return fail("Máy Mac chưa mở Máy dịch PDF nên chưa tìm được giáo án trong OneDrive. Bật máy Mac + mở app rồi nhắn lại, hoặc gửi file trực tiếp.");
+  try {
+    const r = await helpers.httpRequest({ method: "POST", url: cache.pdf_url + "/tim", json: true, timeout: 60000,
+      headers: { "X-Bi-Mat": cache.pdf_bi_mat }, body: { chat_id: String(d.chat_id), text: String(req.original_text || "") } });
+    return fail(r.tra_loi || "Máy Mac không trả lời.");
+  } catch (e) {
+    return fail("Không liên lạc được máy Mac (máy tắt hoặc app Máy dịch PDF đang tắt). Mở app rồi đợi khoảng 10 giây, nhắn lại; hoặc gửi file trực tiếp.");
+  }
+}
 if (laHuongDan || (d.input_type && d.input_type !== "document")) {
   return fail((laHuongDan ? "" : "Mình chưa thấy file giáo án đính kèm.\n\n") + HUONG_DAN);
 }
