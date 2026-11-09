@@ -72,7 +72,11 @@ Gửi tài liệu (chưa phải KHBD) kèm chú thích, ví dụ: `chuyển giá
 - Node 08 nhận ra file chưa có cấu trúc KHBD → lập dàn ý (các phần, ví dụ, bài tập đánh số) ~6 nghìn ký tự gửi AI thay cho cả tài liệu.
 - Node 11 dựng KHBD: Mục tiêu (YCCĐ trong PPCT + AI), năng lực, NLS (nguyên văn CV 3456), thiết bị có mã mượn, tiến trình 4 hoạt động do AI viết; tài liệu gốc in nguyên văn ở **Phụ lục**.
 
-## Gửi kèm PDF (dịch trên máy Mac của GV)
+## Gửi kèm Word có Equation (chuyển trên máy Mac của GV)
+
+Từ 9/11/2026 node 11 gọi `POST <đường hầm>/word` (Tex2Word) thay cho `/dich` (PDF): bot trả .zip gồm `_CV5512.tex` + `_CV5512.docx` (công thức là Equation) + hình. Máy Mac tắt → chỉ có .tex. Phần dưới (app "Máy dịch PDF", node 13) giữ nguyên.
+
+### Cách cũ: PDF
 
 Máy chủ n8n không có LaTeX, nên node 11 gửi .tex + hình + .sty sang **Máy dịch PDF** chạy trên máy Mac
 (`~/Library/Application Support/MayDichPDF/server.py`, cổng 8792, dịch bằng tectonic), qua đường hầm Cloudflare miễn phí.

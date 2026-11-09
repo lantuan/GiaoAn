@@ -641,30 +641,30 @@ if (co_zip) {
     i++;
   }
 }
-// 3b. PDF: gửi sang "Máy dịch PDF" trên máy Mac của GV (đường hầm Cloudflare, địa chỉ do node 13 lưu)
-let co_pdf = false, loiPdf = null;
+// 3b. Word (Equation): gửi sang máy Mac của GV (app "Máy dịch PDF" chạy Tex2Word, đường hầm Cloudflare, địa chỉ do node 13 lưu)
+let co_word = false, loiWord = null;
 if (cache.pdf_url && cache.pdf_bi_mat) {
   try {
     const files = [{ ten: "giao_an.tex", b64: Buffer.from(tex, "utf8").toString("base64") },
       ...[...hinhGui, ...dsSty].map(f => ({ ten: f.ten, b64: f.b64 }))];
     const r = await this.helpers.httpRequest({
-      method: "POST", url: cache.pdf_url + "/dich", body: JSON.stringify({ files }),
+      method: "POST", url: cache.pdf_url + "/word", body: JSON.stringify({ files }),
       headers: { "Content-Type": "application/json", "X-Bi-Mat": cache.pdf_bi_mat },
-      encoding: "arraybuffer", returnFullResponse: true, ignoreHttpStatusErrors: true, timeout: 240000
+      encoding: "arraybuffer", returnFullResponse: true, ignoreHttpStatusErrors: true, timeout: 300000
     });
     const buf = Buffer.from(r.body);
-    if (r.statusCode === 200 && buf.slice(0, 4).toString() === "%PDF") {
-      binary.pdf = await this.helpers.prepareBinaryData(buf, goc_ten + "_CV5512.pdf", "application/pdf");
-      co_pdf = true;
+    if (r.statusCode === 200 && buf.slice(0, 2).toString() === "PK") {
+      binary.f_word = await this.helpers.prepareBinaryData(buf, goc_ten + "_CV5512.docx",
+        "application/vnd.openxmlformats-officedocument.wordprocessingml.document");
+      co_word = true;
     } else {
       let m = ""; try { m = JSON.parse(buf.toString("utf8")).loi || ""; } catch (e) { m = "HTTP " + r.statusCode; }
-      loiPdf = "Máy dịch PDF báo lỗi: " + String(m).slice(0, 300);
+      loiWord = "Máy Mac chuyển sang Word bị lỗi: " + String(m).slice(0, 300);
     }
-  } catch (e) { loiPdf = "Máy dịch PDF trên máy Mac đang tắt (hoặc mất mạng) – chưa có PDF, thầy/cô dịch file .tex trên máy."; }
-} else loiPdf = "Chưa kết nối Máy dịch PDF (mở app \"Máy dịch PDF\" trên máy Mac) – lần này chỉ có file .tex.";
-if (loiPdf) canh_bao.push(loiPdf);
-if (co_pdf) { binary.f_pdf = binary.pdf; delete binary.pdf; }
-const co_zip2 = co_zip || co_pdf;           // có PDF thì luôn nén .tex + .pdf (+ hình, .sty) thành một file .zip
+  } catch (e) { loiWord = "Máy Mac đang tắt (hoặc app Máy dịch PDF đang tắt) – lần này chỉ có file .tex."; }
+} else loiWord = "Chưa kết nối máy Mac (mở app \"Máy dịch PDF\") – lần này chỉ có file .tex.";
+if (loiWord) canh_bao.push(loiWord);
+const co_zip2 = co_zip || co_word;          // có Word thì nén .tex + .docx (+ hình, .sty) thành một file .zip
 const ds_binary = Object.keys(binary).join(",");
 const zip_name = goc_ten + "_CV5512.zip";
 
@@ -699,7 +699,7 @@ let caption = `<b>✅ ${soanMoi ? "Đã soạn KHBD theo CV 5512" : "Đã chỉn
   (dongPhi ? dongPhi + "\n" : "") +
   (da_sua.length ? da_sua.map(s => "• " + esc(s)).join("\n") : "Không có gì cần sửa.") +
   (canh_bao.length ? `\n<b>Lưu ý:</b>\n` + canh_bao.map(s => "• " + esc(s)).join("\n") : "") +
-  (co_zip2 ? `\n📦 File .zip gồm giáo án${co_pdf ? " (.tex + .pdf)" : ""}${hinhGui.length ? " + " + hinhGui.length + " hình" : ""}${dsSty.length ? " + " + dsSty.map(f => f.ten).join(", ") : ""} – giải nén rồi mở file .tex.` : "") +
+  (co_zip2 ? `\n📦 File .zip gồm giáo án${co_word ? " (.tex + Word .docx có Equation)" : ""}${hinhGui.length ? " + " + hinhGui.length + " hình" : ""}${dsSty.length ? " + " + dsSty.map(f => f.ten).join(", ") : ""} – giải nén rồi mở file Word (.docx) hoặc .tex.` : "") +
   `\n<i>${chuDen ? "Đã chuyển hết sang chữ đen – thầy/cô rà soát kỹ phần AI viết thêm." : "Phần màu xanh do AI viết – thầy/cô rà soát trước khi dùng."}${model_dung ? " (" + esc(model_dung) + ")" : ""}</i>`;
 if (caption.length > 1000) {
   // cắt bớt nhưng không để thẻ HTML dở dang / chưa đóng (Telegram sẽ báo lỗi)
@@ -710,4 +710,4 @@ if (caption.length > 1000) {
   }
 }
 
-return [{ json: { chat_id: meta.chat_id, message_id: meta.message_id, caption, da_sua, canh_bao, model_dung, tra_phi: traPhi, usage: u, file_name: fileName, co_zip: co_zip2, co_pdf, ds_binary, zip_name }, binary }];
+return [{ json: { chat_id: meta.chat_id, message_id: meta.message_id, caption, da_sua, canh_bao, model_dung, tra_phi: traPhi, usage: u, file_name: fileName, co_zip: co_zip2, co_word, ds_binary, zip_name }, binary }];
