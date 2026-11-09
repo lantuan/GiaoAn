@@ -19,6 +19,9 @@ function plain(s) {
     .replace(/\\item\b/g, "\n- ")
     .replace(/\\(textbf|textit|uline|emph|raggedright|centering|noindent|tabularnewline|hline|mbox|tab)\b/g, " ")
     .replace(/\\\\/g, "\n")
+    .replace(/\\[a-zA-Z]*skip\s*=\s*-?[\d.]+\s*(cm|mm|pt|em)/g, " ")
+    .replace(/\\[hv]space\*?\{[^}]*\}/g, " ")
+    .replace(/\\(justifying|raggedleft|flushleft|selectfont|bfseries|itshape|normalfont|large|Large|small|footnotesize)\b/g, " ")
     .replace(/[{}~]/g, " ")
     .replace(/[ \t]+/g, " ")
     .normalize("NFC");
@@ -28,14 +31,16 @@ const rawLines = body.split("\n");
 const plainLines = rawLines.map(l => plain(l).replace(/\s*\n\s*/g, " ").trim());
 
 // ===== 3. Tìm các tiêu đề chính =====
+const HD_DAU = "^(?:(?:\\d+\\.\\s*)?(?:HOẠT ĐỘNG|HĐ)\\s*(?:\\d+\\s*)?[:.\\-–]?\\s*|\\d+\\.\\s*)";
 const RX = {
   muc_tieu:      /^I\.\s*MỤC TIÊU/iu,
   thiet_bi:      /^II\.\s*THIẾT BỊ/iu,
   tien_trinh:    /^III\.\s*TIẾN TRÌNH/iu,
-  hd_mo_dau:     /^\d\.\s*(HOẠT ĐỘNG\s*)?(KHỞI ĐỘNG|MỞ ĐẦU|XÁC ĐỊNH VẤN ĐỀ)/iu,
-  hd_hinh_thanh: /^\d\.\s*(HOẠT ĐỘNG\s*)?HÌNH THÀNH KIẾN THỨC/iu,
-  hd_luyen_tap:  /^\d\.\s*(HOẠT ĐỘNG\s*)?LUYỆN TẬP/iu,
-  hd_van_dung:   /^\d\.\s*(HOẠT ĐỘNG\s*)?(VẬN DỤNG|TÌM TÒI|MỞ RỘNG)/iu
+  // "1. HOẠT ĐỘNG MỞ ĐẦU", "1. HOẠT ĐỘNG 1: MỞ ĐẦU", "HOẠT ĐỘNG 2: HÌNH THÀNH KIẾN THỨC", "Hoạt động 3: Luyện tập"…
+  hd_mo_dau:     new RegExp(HD_DAU + "(KHỞI ĐỘNG|MỞ ĐẦU|XÁC ĐỊNH VẤN ĐỀ)", "iu"),
+  hd_hinh_thanh: new RegExp(HD_DAU + "HÌNH THÀNH KIẾN THỨC", "iu"),
+  hd_luyen_tap:  new RegExp(HD_DAU + "LUYỆN TẬP", "iu"),
+  hd_van_dung:   new RegExp(HD_DAU + "(VẬN DỤNG|TÌM TÒI|MỞ RỘNG)", "iu")
 };
 const TEN = {
   muc_tieu: "I. Mục tiêu", thiet_bi: "II. Thiết bị dạy học và học liệu", tien_trinh: "III. Tiến trình dạy học",
@@ -47,6 +52,13 @@ const starts = [];
 for (const [k, rx] of Object.entries(RX)) {
   const i = plainLines.findIndex(l => rx.test(l));
   if (i >= 0) starts.push({ k, i });
+}
+// Phần sau tiến trình (IV. Điều chỉnh, V. Phụ lục, Ký duyệt…): hoạt động cuối dừng trước đó
+const RX_HET = /^(IV|V|VI)\.\s*(ĐIỀU CHỈNH|PHỤ LỤC|RÚT KINH NGHIỆM|HỒ SƠ|KẾ HOẠCH|ĐÁNH GIÁ|NHẬN XÉT|GÓP Ý|BỔ SUNG)|^(Ký|Kí) duyệt\b/iu;
+{
+  const iTT = Math.max(-1, ...starts.map(s => s.i));
+  const iHet = plainLines.findIndex((l, i) => i > iTT && RX_HET.test(l));
+  if (iHet > 0) starts.push({ k: "_het", i: iHet });
 }
 starts.sort((a, b) => a.i - b.i);
 
@@ -73,7 +85,7 @@ function kiemTraHD(ten, text) {
   if (!/b\)\s*nội dung/.test(t)) thieu.push("b) Nội dung");
   if (!/c\)\s*sản phẩm/.test(t)) thieu.push("c) Sản phẩm");
   if (!/d\)\s*tổ chức thực hiện/.test(t)) thieu.push("d) Tổ chức thực hiện");
-  if (!/chuyển giao/.test(t)) thieu.push("Bước 1: Chuyển giao nhiệm vụ");
+  if (!/chuyển giao|giao nhiệm vụ/.test(t)) thieu.push("Bước 1: Chuyển giao nhiệm vụ");
   if (!/thực hiện nhiệm vụ/.test(t)) thieu.push("Bước 2: Thực hiện nhiệm vụ");
   if (!/báo cáo/.test(t)) thieu.push("Bước 3: Báo cáo, thảo luận");
   if (!/kết luận|nhận định/.test(t)) thieu.push("Bước 4: Kết luận, nhận định");
@@ -90,8 +102,9 @@ if (sec.hd_hinh_thanh) {
   const { from, to } = sec.hd_hinh_thanh;
   const subs = [];
   for (let i = from; i < to; i++) {
-    const m = plainLines[i].match(/^Hoạt động\s*(\d+)\s*[:.]\s*(.*)$/iu);
-    if (m) subs.push({ i, so: m[1], ten: m[2].trim() });
+    if (i === from) continue;                       // dòng tiêu đề "HOẠT ĐỘNG 2: HÌNH THÀNH KIẾN THỨC"
+    const m = plainLines[i].match(/^(?:Hoạt động|HĐ)\s*(\d+(?:\.\d+)?)\s*[:.]\s*(.*)$/iu);
+    if (m) subs.push({ i, so: m[1].replace(".", ""), ten: m[2].trim() });
   }
   if (!subs.length) {
     hoat_dong.push({ key: "hd_hinh_thanh", ...kiemTraHD(TEN.hd_hinh_thanh, sec.hd_hinh_thanh.text) });
@@ -136,9 +149,12 @@ const tok = s => new Set(norm(s).split(" ").filter(w => w.length > 1 && !STOP.ha
 let ktItems = [];
 if (sec.muc_tieu) {
   const L = sec.muc_tieu.text.split("\n");
-  const a = L.findIndex(l => /^1\.\s*kiến thức/i.test(l));
-  const b = L.findIndex(l => /^2\.\s*năng lực/i.test(l));
-  if (a >= 0) ktItems = L.slice(a + 1, b > a ? b : undefined).filter(l => l.startsWith("-"));
+  const a = L.findIndex(l => /^1\.\s*(về\s*)?kiến thức/i.test(l));
+  const b = L.findIndex(l => /^2\.\s*(về\s*)?năng lực/i.test(l));
+  if (a >= 0) {
+    const doan = L.slice(a + 1, b > a ? b : undefined).map(l => l.trim()).filter(l => l.length > 8);
+    ktItems = doan.some(l => /^[-+•]/.test(l)) ? doan.filter(l => /^[-+•]/.test(l)) : doan;   // có gạch đầu dòng hoặc mỗi đoạn một ý
+  }
 }
 const ktTok = ktItems.map(tok);
 const yccd_doi_chieu = (meta.yccd || []).map(y => {
@@ -264,6 +280,17 @@ let hoa_nhap = null;
   }
 }
 
+// ===== 9d. Yêu cầu riêng của tổ: mã NLS theo PPCT, năng lực AI (QĐ 2422), thiết bị mượn của tổ =====
+const pp = meta.ppct || {};
+const toanVan = plainLines.join("\n");
+const nls_ppct_thieu = (pp.nls || []).filter(c => !toanVan.includes(c));
+if (nls_ppct_thieu.length) van_de.push(`Chưa có mã năng lực số theo PPCT: ${nls_ppct_thieu.join(", ")}`);
+const AI_RX = /\b1[012]\.[A-D]\d\.(?:MR)?\d+\b/g;
+const nang_luc_ai = [...new Set(toanVan.match(AI_RX) || [])];
+if (!nang_luc_ai.length) van_de.push("Chưa có năng lực AI (QĐ 2422/QĐ-BGDĐT)");
+const tb_thieu = (pp.thiet_bi || []).filter(t => !toanVan.includes(String(t.ma)));
+if (tb_thieu.length) van_de.push(`Chưa ghi thiết bị mượn của tổ theo PPCT: ${tb_thieu.map(t => t.ma).join(", ")}`);
+
 // ===== 10. Báo cáo ngắn gửi Telegram (Parse Mode: HTML) =====
 const esc = s => String(s ?? "").replace(/&/g, "&amp;").replace(/</g, "&lt;").replace(/>/g, "&gt;");
 const L = meta.lesson || {};
@@ -287,7 +314,7 @@ return [{
     lesson: meta.lesson,
     yccd: meta.yccd,
     kiem_tra: { muc_tieu, hoat_dong, so_tiet_giao_an, so_tiet_ppct,
-                nls_muc_tieu, nls_hoat_dong, yccd_doi_chieu },
+                nls_muc_tieu, nls_hoat_dong, yccd_doi_chieu, nls_ppct_thieu, nang_luc_ai, tb_thieu },
     van_de,
     so_van_de: van_de.length,
     bao_cao,

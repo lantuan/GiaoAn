@@ -117,3 +117,11 @@ Chủ máy (mã chat do Máy dịch PDF báo qua node 13) nhắn kiểu `Làm gi
 - một bản rõ ràng → `tools/gui_giao_an.py` gửi vào luồng (node 14), bot báo "📂 Tìm thấy …";
 - nhiều bản gần đúng → bot liệt kê, trả lời số (ví dụ `1`) để chọn.
 Người khác nhắn chữ vẫn nhận hướng dẫn như cũ.
+
+## Giữ nguyên giáo án đạt yêu cầu; thiếu đâu bổ sung đó (từ 9/11/2026)
+
+Node 08 kiểm tra: cấu trúc CV 5512 (nhận cả "1. HOẠT ĐỘNG 1: MỞ ĐẦU", "HOẠT ĐỘNG 2: …", "Hoạt động 2.1: …", "Bước 1: Giao nhiệm vụ"), YCCĐ, **mã NLS theo PPCT**, **năng lực AI (QĐ 2422)**, **thiết bị mượn của tổ (mã PPCT)**.
+- Đạt hết → node 09 `giu_nguyen = true`, không gọi AI; node 11 không sửa gì, chỉ xuất lại .tex + Word.
+- Thiếu → chỉ bổ sung phần thiếu (mã NLS vào Mục tiêu + hoạt động; năng lực AI 1–2 mã hợp bài; thiết bị PPCT vào mục II).
+- `data/nang_luc_ai/qd2422_yccd_10_12.json`: 71 YCCĐ lớp 10–12 của Phụ lục QĐ 2422/QĐ-BGDĐT (mã `10.C3.2`, `.MR` = mở rộng).
+- Node 04 nhận mã chuyên đề học tập từ tên file/chú thích: "CD 2-B4", "CĐ2.B4", "chuyên đề 2 bài 4" → dòng PPCT `CĐ2.B4`.

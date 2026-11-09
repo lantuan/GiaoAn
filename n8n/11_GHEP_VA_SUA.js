@@ -13,6 +13,8 @@ if (!goc) throw new Error(loiZip || "Không đọc được giáo án. Kiểm tr
 const meta = $('04_LAY_YCCD').first().json;
 const cache = $getWorkflowStaticData("global");
 const NLS = d.nls_map || cache.nls_nc1 || {};   // lấy từ node 09 (static data không chia sẻ giữa các node khi chạy thử)
+const AIM = d.ai_map || {};                      // năng lực AI (QĐ 2422) của lớp này: mã → YCCĐ
+const giuNguyen = !!d.giu_nguyen;                // giáo án đã đạt mọi yêu cầu → không sửa gì, chỉ xuất lại
 
 let tex = goc.normalize("NFC");
 const da_sua = [];
@@ -65,6 +67,8 @@ if (ai) {
 const soanMoi = !!d.soan_moi;
 const PL_MARK = "%%==PHU_LUC_TAI_LIEU==";
 const KY_MARK = "%%==KY_DUYET==";      // khối Ký duyệt chuẩn (mục 2e)
+const aiChon = (d.viec?.nang_luc_ai || d.viec?.soan_khbd_tu_tai_lieu ? (ai?.nang_luc_ai || []) : [])
+  .filter(x => x && AIM[x.ma] && typeof x.tex === "string" && x.tex.trim() && canBang(x.tex)).slice(0, 2);
 if (soanMoi) {
   const L = meta.lesson || {};
   const pp = d.ppct || meta.ppct || {};
@@ -98,6 +102,8 @@ if (soanMoi) {
         "Năng lực giao tiếp toán học", "Năng lực sử dụng công cụ, phương tiện học toán"]) +
     "\\textcolor[HTML]{EE0000}{\\textit{\\textbf{Năng lực số:}}}\n\n" +
     (nlsPP.length ? ds(nlsPP, c => DO(`${c}: ${NLS[c]}`)) : "\n") +
+    (aiChon.length ? "\textcolor[HTML]{EE0000}{\textit{\textbf{Năng lực AI (QĐ 2422/QĐ-BGDĐT):}}}\n\n" +
+      ds([...new Set(aiChon.map(x => x.ma))], c => DO(`${c}: ${AIM[c]}`)) : "") +
     TD("3. Phẩm chất") +
     nl(ai?.pham_chat, ["Chăm chỉ: tích cực, kiên trì giải các bài toán khó.", "Trung thực: trình bày đúng kết quả, ghi rõ nguồn khi tham khảo tài liệu, công cụ số và AI.",
         "Trách nhiệm: hoàn thành nhiệm vụ cá nhân và nhóm."]) +
@@ -112,6 +118,7 @@ if (soanMoi) {
 
   // --- Hoạt động ---
   const nlsHD = {};
+  for (const x of aiChon) (nlsHD[x.key] = nlsHD[x.key] || []).push(`${x.ma} (năng lực AI): ${x.tex.replace(x.ma, "").replace(/^[\s:–-]+/, "")}`);
   for (const x of ai?.nls_trong_hoat_dong || []) {
     if (nlsPP.includes(x.ma) && ok(x.tex)) (nlsHD[x.key] = nlsHD[x.key] || []).push(x.tex.startsWith(x.ma) ? x.tex : `${x.ma}: ${x.tex}`);
   }
@@ -226,6 +233,13 @@ if (ai) {
     if (!nlsDuocPhep.has(x.ma) || !S[x.key] || !x.tex || !canBang(x.tex)) { canh_bao.push(`Bỏ qua mã NLS ${x.ma || "?"} (không hợp lệ)`); continue; }
     const dong = x.tex.startsWith(x.ma) ? x.tex : `${x.ma}: ${x.tex}`;
     if (chen(S[x.key], "\n\n" + DO(dong) + "\n")) da_sua.push(`Gắn ${x.ma} vào ${x.key}`);
+  }
+  // 1f. Năng lực AI (QĐ 2422) vào hoạt động
+  if (!soanMoi) for (const x of aiChon) {
+    const key = S[x.key] ? x.key : Object.keys(S).find(k => /^hd_/.test(k));
+    const dong = `${x.ma} (năng lực AI): ${x.tex.replace(x.ma, "").replace(/^[\s:–-]+/, "")}`;
+    if (key && chen(S[key], "\n\n" + DO(dong) + "\n")) da_sua.push(`Gắn năng lực AI ${x.ma} vào ${key}`);
+    else canh_bao.push(`Không tìm thấy hoạt động để gắn năng lực AI ${x.ma}`);
   }
 }
 
@@ -416,6 +430,8 @@ if (hskt) {
 }
 
 // ===== 2. Sửa bằng code (0 token) =====
+if (giuNguyen) da_sua.push("Giáo án đã đạt yêu cầu (CV 5512, YCCĐ, mã NLS theo PPCT, năng lực AI, thiết bị của tổ) – giữ nguyên, chỉ xuất lại .tex và Word");
+if (!giuNguyen) {
 // 2a. Thuật ngữ
 if (/Năng lực riêng/.test(tex)) { tex = tex.replace(/Năng lực riêng/g, "Năng lực đặc thù"); da_sua.push('Đổi "Năng lực riêng" → "Năng lực đặc thù"'); }
 
@@ -482,7 +498,8 @@ tex = tex.replace(/\\begin\{ex\}([\s\S]*?)\\end\{ex\}/g, (blk, inner) => {
 if (soEx) da_sua.push(`Gỡ ${soEx} câu trắc nghiệm bị lẫn tiến trình (lỗi Word2Tex)` + (soNuot ? `, trả ${soNuot} phần bị \\loigiai "nuốt" về đúng chỗ` : ""));
 
 // 2c. Năng lực số ở Mục tiêu: đúng nguyên văn CV 3456 + bổ sung mã đang dùng ở hoạt động
-const iMT = tex.search(/I\.\s*MỤC TIÊU/), iTB = tex.search(/II\.\s*THIẾT BỊ/);
+const dauDong = i => (i < 0 ? i : tex.lastIndexOf("\n", i) + 1);   // chèn ở đầu dòng tiêu đề, không lọt vào giữa {\textbf{…}}
+const iMT = tex.search(/I\.\s*MỤC TIÊU/iu), iTB = dauDong(tex.search(/II\.\s*THIẾT BỊ/iu));
 if (iMT >= 0 && iTB > iMT) {
   let mt = tex.slice(iMT, iTB);
   let soSua = 0;
@@ -494,15 +511,27 @@ if (iMT >= 0 && iTB > iMT) {
   if (soSua) da_sua.push(`Sửa ${soSua} mô tả năng lực số cho đúng nguyên văn CV 3456`);
 
   const coMT = new Set(mt.match(/\b[1-6]\.[1-6]\.NC1[a-z]/g) || []);
-  const trongHD = new Set([...(d.kiem_tra?.nls_hoat_dong || []), ...(ai?.nls_trong_hoat_dong || []).map(x => x.ma).filter(m => nlsDuocPhep.has(m))]);
+  const trongHD = new Set([...(d.kiem_tra?.nls_hoat_dong || []), ...(ai?.nls_trong_hoat_dong || []).map(x => x.ma).filter(m => nlsDuocPhep.has(m)),
+    ...(d.kiem_tra?.nls_ppct_thieu || [])]);     // mã PPCT ghi cho bài: luôn có trong Mục tiêu
   const them = [...trongHD].filter(m => !coMT.has(m) && NLS[m]).sort();
+  // vị trí đầu dòng tiêu đề "Phẩm chất" (chèn trước nó khi không có danh sách itemize sau "Năng lực số")
+  const viTriPC = () => { const k = mt.search(/(\d\.\s*)?(Về\s*)?phẩm chất\s*:?\s*\}/i); return k > 0 ? mt.lastIndexOf("\n", k) + 1 : mt.length; };
   if (them.length) {
     const j0 = mt.search(/Năng lực số/);
-    const j1 = j0 >= 0 ? mt.indexOf("\\end{itemize}", j0) : -1;
-    if (j1 > 0) {
-      mt = mt.slice(0, j1) + them.map(m => `\\item ${DO(`${m}: ${NLS[m]}`)}\n\n`).join("") + mt.slice(j1);
-      da_sua.push(`Thêm vào Mục tiêu các mã NLS đang dùng ở hoạt động: ${them.join(", ")}`);
-    } else canh_bao.push("Không tìm thấy danh sách Năng lực số trong Mục tiêu để thêm mã");
+    const pc = viTriPC();
+    let j1 = j0 >= 0 ? mt.indexOf("\\end{itemize}", j0) : -1;
+    if (j1 > pc) j1 = -1;
+    if (j1 > 0) mt = mt.slice(0, j1) + them.map(m => `\\item ${DO(`${m}: ${NLS[m]}`)}\n\n`).join("") + mt.slice(j1);
+    else mt = mt.slice(0, pc) + "\\begin{itemize}\n" + them.map(m => `\\item ${DO(`${m}: ${NLS[m]}`)}\n`).join("") + "\\end{itemize}\n\n" + mt.slice(pc);
+    da_sua.push(`Thêm vào Mục tiêu – Năng lực số các mã theo PPCT/đang dùng: ${them.join(", ")}`);
+  }
+  // Năng lực AI (QĐ 2422) ở Mục tiêu
+  const aiMa = [...new Set(aiChon.map(x => x.ma))];
+  if (aiMa.length) {
+    const pc = viTriPC();
+    mt = mt.slice(0, pc) + `{\\noindent\\textcolor[HTML]{EE0000}{\\textit{\\textbf{+ Năng lực AI (QĐ 2422/QĐ-BGDĐT):}}}\\par}\n\\begin{itemize}\n` +
+      aiMa.map(m => `\\item ${DO(`${m}: ${AIM[m]}`)}\n`).join("") + "\\end{itemize}\n\n" + mt.slice(pc);
+    da_sua.push(`Thêm năng lực AI (QĐ 2422) vào Mục tiêu: ${aiMa.join(", ")}`);
   }
   tex = tex.slice(0, iMT) + mt + tex.slice(iTB);
 }
@@ -510,7 +539,7 @@ if (iMT >= 0 && iTB > iMT) {
 // 2g. Thiết bị dạy học theo PPCT (kho thiết bị của tổ, có mã mượn): bổ sung vào mục II những thiết bị còn thiếu
 if (!soanMoi) {
   const tbPP = (d.ppct || meta.ppct || {}).thiet_bi || [];
-  const iII = tex.search(/II\.\s*THIẾT BỊ/), iIII = tex.search(/III\.\s*TIẾN TRÌNH/);
+  const iII = tex.search(/II\.\s*THIẾT BỊ/iu), iIII = dauDong(tex.search(/III\.\s*TIẾN TRÌNH/iu));
   if (tbPP.length && iII >= 0 && iIII > iII) {
     let muc = tex.slice(iII, iIII);
     const chuII = muc.normalize("NFC").toLowerCase();
@@ -540,7 +569,7 @@ if (!tex.includes(KY_MARK)) {
     b => laBangKy(b.normalize("NFC")) ? (soXoaKy++, "") : b);
   // dòng chỉ có chữ "Ký duyệt" (kể cả nằm trong danh sách / có màu, in đậm)
   than = than.split("\n").filter(l => {
-    const t = l.replace(/\\item\b/g, "").replace(/\\[a-zA-Z]+(\[[^\]]*\])?(\{[0-9A-Fa-f]{6}\})?/g, " ").replace(/[{}~\\]/g, " ").replace(/\s+/g, " ").trim().normalize("NFC");
+    const t = l.replace(/\\item\b/g, "").replace(/\\fontsize\{[^}]*\}\{[^}]*\}/g, " ").replace(/\\[a-zA-Z]+(\[[^\]]*\])?(\{[0-9A-Fa-f]{6}\})?/g, " ").replace(/[{}~\\]/g, " ").replace(/\s+/g, " ").trim().normalize("NFC");
     if (l.length < 200 && /^(ký|kí) duyệt[\s.:]*$/i.test(t)) { soXoaKy++; return false; }
     return true;
   }).join("\n");
@@ -572,6 +601,8 @@ ${KY_MARK}
                         : "Thêm khối Ký duyệt (Tổ trưởng chuyên môn – Giáo viên)");
   }
 }
+
+}   // hết phần sửa (bỏ qua khi giữ nguyên)
 
 // 2f. Hình ảnh: file .tex chỉ ghi đường dẫn tới hình, hình nằm ở thư mục riêng
 const RX_IMG = /\\includegraphics\s*(\[[^\]]*\])?\s*\{([^}]+)\}/g;
@@ -628,7 +659,7 @@ if (chuDen) {
 // ===== 3. Xuất file =====
 // Tên lấy từ file gửi qua Telegram (đúng dấu tiếng Việt); tên file bên trong .zip có thể bị lỗi mã hoá khi giải nén
 const tenGoc = (meta.file_name || (tuZip && tuZip.ten_tex) || `Bai_${meta.lesson?.bai_so || ""}.tex`).normalize("NFC");
-const goc_ten = tenGoc.replace(/\.(tex|zip)$/i, "").replace(/_extest$/i, "");
+const goc_ten = tenGoc.replace(/\.(tex|zip)$/i, "").replace(/_extest$/i, "").replace(/_CV5512$/i, "");
 const fileName = goc_ten + "_CV5512.tex";
 const binary = { data: await this.helpers.prepareBinaryData(Buffer.from(tex, "utf8"), fileName, "application/x-tex") };
 // Nhánh .zip: thêm hình + .sty để node "12A_NEN_ZIP" nén lại
@@ -695,12 +726,12 @@ if (traPhi) {
       : `, chi phí trả OpenRouter: <b>${usd.toFixed(5)} USD</b>` +
         (tyGia ? ` (≈ ${so(Math.round(usd * tyGia))} đ, tỷ giá ${so(Math.round(tyGia))} đ/USD)` : "") + ".");
 }
-let caption = `<b>✅ ${soanMoi ? "Đã soạn KHBD theo CV 5512" : "Đã chỉnh theo CV 5512"}: ${meta.lesson?.bai_so ? "Bài " + esc(meta.lesson.bai_so) + ". " : ""}${esc(meta.lesson?.bai)}</b>\n` +
+let caption = `<b>✅ ${soanMoi ? "Đã soạn KHBD theo CV 5512" : giuNguyen ? "Giáo án đã đạt yêu cầu – giữ nguyên" : "Đã chỉnh theo CV 5512"}: ${meta.lesson?.bai_so ? "Bài " + esc(meta.lesson.bai_so) + ". " : ""}${esc(meta.lesson?.bai)}</b>\n` +
   (dongPhi ? dongPhi + "\n" : "") +
   (da_sua.length ? da_sua.map(s => "• " + esc(s)).join("\n") : "Không có gì cần sửa.") +
   (canh_bao.length ? `\n<b>Lưu ý:</b>\n` + canh_bao.map(s => "• " + esc(s)).join("\n") : "") +
   (co_zip2 ? `\n📦 File .zip gồm giáo án${co_word ? " (.tex + Word .docx có Equation)" : ""}${hinhGui.length ? " + " + hinhGui.length + " hình" : ""}${dsSty.length ? " + " + dsSty.map(f => f.ten).join(", ") : ""} – giải nén rồi mở file Word (.docx) hoặc .tex.` : "") +
-  `\n<i>${chuDen ? "Đã chuyển hết sang chữ đen – thầy/cô rà soát kỹ phần AI viết thêm." : "Phần màu xanh do AI viết – thầy/cô rà soát trước khi dùng."}${model_dung ? " (" + esc(model_dung) + ")" : ""}</i>`;
+  (giuNguyen ? "" : `\n<i>${chuDen ? "Đã chuyển hết sang chữ đen – thầy/cô rà soát kỹ phần AI viết thêm." : "Phần màu xanh do AI viết – thầy/cô rà soát trước khi dùng."}${model_dung ? " (" + esc(model_dung) + ")" : ""}</i>`);
 if (caption.length > 1000) {
   // cắt bớt nhưng không để thẻ HTML dở dang / chưa đóng (Telegram sẽ báo lỗi)
   caption = caption.slice(0, 985).replace(/<[^>]*$/, "").replace(/&[a-z]*$/, "") + "…";

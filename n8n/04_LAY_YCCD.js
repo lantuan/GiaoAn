@@ -99,7 +99,31 @@ if (laHuongDan || (d.input_type && d.input_type !== "document")) {
 const lopThu = req.grade ? [req.grade] : ["10", "11", "12"];
 
 // Chuyên đề (học tập / nâng cao) không nằm trong YCCĐ bài thường → tìm theo tên (nhánh B)
-const laChuyenDe = /chuyên đề|chuyên sâu|nâng cao|\bcđ\s*\d/.test(norm(`${req.original_text || ""} ${req.file_base || ""}`));
+const laChuyenDe = /chuyên đề|chuyên sâu|nâng cao|\bc[đd]\s*\d/.test(norm(`${req.original_text || ""} ${req.file_base || ""}`));
+
+// ===== C. Mã chuyên đề học tập: "CD 2-B4", "CĐ2.B4", "chuyên đề 2 bài 4" → dòng PPCT chuyen_de = "CĐ2.B4" =====
+{
+  const t = norm(`${req.original_text || ""} ${req.file_base || ""}`);
+  const m = t.match(/(?:\bc[đd]|chuyên đề(?: học tập)?)\s*(\d)\s*(?:b|bài)\s*(\d+)/);
+  if (m) {
+    const ma = `CĐ${m[1]}.B${m[2]}`;
+    const hit = [];
+    for (const g of lopThu) {
+      const rows = (await taiPPCT(g)).filter(r => r.chuyen_de === ma);
+      if (rows.length) hit.push({ g, rows });
+    }
+    if (hit.length === 1) {
+      const { g, rows } = hit[0];
+      const pp = gomPPCT(rows);
+      return [{ json: { ...d, request: { ...req, grade: g }, ok: true, error_message: null,
+        lesson: { bai_so: null, bai: rows[0].ten, chuong: null, loai: pp.loai, hoc_ky: pp.hoc_ky,
+                  tiet_ppct: pp.tiet, so_tiet: req.duration ? parseInt(req.duration) : pp.so_tiet },
+        ppct: pp,
+        yccd: pp.yccd_ppct.map((c, i) => ({ id: `PPCT-${i + 1}`, MucDo: "", content: c, scope: "ppct" })) } }];
+    }
+    if (hit.length > 1) return fail(`${ma} có ở lớp ${hit.map(h => h.g).join(", ")}. Bạn ghi rõ lớp giúp mình.`);
+  }
+}
 
 // ===== A. Có số bài =====
 if (req.lesson_number && !laChuyenDe) {
@@ -134,7 +158,7 @@ const BO = new Set(["chuyên","đề","nâng","cao","sâu","bài","giáo","án",
 const tuKhoa = [...new Set(norm(`${req.original_text || ""} ${req.file_base || ""}`).split(" ")
   .filter(w => w.length > 1 && !BO.has(w) && !/^\d+$/.test(w)))];
 const muonNangCao = /chuyên sâu|nâng cao/.test(norm(req.original_text));
-const muonCDHT = /chuyên đề học tập|\bcđ\s*\d/.test(norm(req.original_text));
+const muonCDHT = /chuyên đề học tập|\bc[đd]\s*\d/.test(norm(`${req.original_text || ""} ${req.file_base || ""}`));
 
 let ung = [];
 for (const g of lopThu) {

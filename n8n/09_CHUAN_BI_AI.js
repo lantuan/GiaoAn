@@ -18,6 +18,15 @@ if (!cache.nls_nc1) {
   cache.nls_nc1 = (await helpers.httpRequest({ url: `${GA}/nang_luc_so/nls_nc1.json`, json: true })).chi_bao;
 }
 const NLS = cache.nls_nc1;
+// Năng lực AI – YCCĐ lớp 10–12 của QĐ 2422/QĐ-BGDĐT (lồng ghép, không tăng YCCĐ môn Toán)
+if (!cache.ai2422) {
+  try { cache.ai2422 = await helpers.httpRequest({ url: `${GA}/nang_luc_ai/qd2422_yccd_10_12.json`, json: true }); }
+  catch (e) { cache.ai2422 = []; }
+}
+const lopAI = String(d.request?.grade || "");
+if (!Array.isArray(cache.ai2422)) cache.ai2422 = [];
+const AI_DS = cache.ai2422.filter(x => x.lop === lopAI);
+const AI_MAP = Object.fromEntries(AI_DS.map(x => [x.ma, x.yccd]));
 
 // ===== 2. Chọn model miễn phí đang hoạt động (kiểm tra lại mỗi ngày) =====
 const homNay = new Date().toISOString().slice(0, 10);
@@ -61,10 +70,17 @@ const thieuHD = [["hd_mo_dau", "Mở đầu"], ["hd_hinh_thanh", "Hình thành k
 if (thieuHD.length) viec.hoat_dong_moi = thieuHD;
 
 // 3d. Mã NLS ở Mục tiêu nhưng chưa có hoạt động nào thực hiện
-const nlsChuaDung = (kt.nls_muc_tieu || []).filter(c => !(kt.nls_hoat_dong || []).includes(c) && NLS[c]);
+const nlsChuaDung = [...new Set([...(kt.nls_muc_tieu || []).filter(c => !(kt.nls_hoat_dong || []).includes(c)),
+  ...(kt.nls_ppct_thieu || [])])].filter(c => NLS[c]);      // + mã NLS PPCT ghi cho bài mà giáo án chưa có
 if (nlsChuaDung.length) {
   viec.nls_can_gan = nlsChuaDung.map(c => ({ ma: c, mo_ta: NLS[c] }));
   viec.cac_hoat_dong = [...(kt.hoat_dong || []).map(h => h.key), ...thieuHD.map(h => h.key)];
+}
+
+// 3d'. Năng lực AI (QĐ 2422): giáo án chưa có mã nào → AI chọn 1–2 YCCĐ hợp nội dung bài, gắn vào hoạt động
+if (!(kt.nang_luc_ai || []).length && AI_DS.length) {
+  viec.nang_luc_ai = { chon_tu: AI_DS.map(x => ({ ma: x.ma, yccd: x.yccd })),
+    cac_hoat_dong: [...(kt.hoat_dong || []).map(h => h.key), ...thieuHD.map(h => h.key)] };
 }
 
 // 3e. Cá nhân hoá cho HS khuyết tật – CHỈ khi GV yêu cầu (tên thật đã được thay bằng "HS A")
@@ -103,11 +119,14 @@ if (soanMoi) {
     cac_phan: dy.muc || [],          // M0, M1… = lý thuyết + ví dụ của từng phần
     bai_tap: dy.bai_tap || [],        // BT1, BT2… = bài tập (có lời giải)
     nls_duoc_dung: nlsSoan.map(c => ({ ma: c, mo_ta: NLS[c] })),
+    nang_luc_ai_chon_tu: AI_DS.map(x => ({ ma: x.ma, yccd: x.yccd })),
     hs_khuyet_tat: hskt?.mo_ta || null
   };
 }
 
 const can_ai = Object.keys(viec).length > 0;
+// Giáo án đã đạt mọi yêu cầu (CV 5512, YCCĐ, mã NLS theo PPCT, năng lực AI) và đủ thiết bị → giữ nguyên, chỉ xuất lại
+const giu_nguyen = !can_ai && !soanMoi && !(kt.tb_thieu || []).length;
 
 // ===== 4. Soạn yêu cầu gửi AI =====
 const SYSTEM = `Bạn là chuyên gia soạn kế hoạch bài dạy (KHBD) môn Toán THPT theo Công văn 5512/BGDĐT-GDTrH và Chương trình GDPT 2018.
@@ -118,12 +137,13 @@ Quy tắc:
 - Mỗi hoạt động mới gồm đủ: a) Mục tiêu, b) Nội dung, c) Sản phẩm, d) Tổ chức thực hiện với Bước 1: Chuyển giao nhiệm vụ; Bước 2: Thực hiện nhiệm vụ; Bước 3: Báo cáo, thảo luận; Bước 4: Kết luận, nhận định.
 - Hoạt động Vận dụng phải gắn với tình huống thực tiễn và bám YCCĐ.
 - "nls_can_gan": mỗi mã chọn MỘT hoạt động phù hợp trong "cac_hoat_dong" (key), viết 1 câu mô tả việc HS làm để đạt mã đó, dạng "mã: mô tả". Không dùng mã nào khác.
+- "nang_luc_ai" (nếu có việc này): chọn 1–2 mã trong "chon_tu" HỢP NỘI DUNG BÀI (ưu tiên mã không có .MR), mỗi mã gắn vào MỘT hoạt động trong "cac_hoat_dong", "tex" là 1–2 câu mô tả CỤ THỂ việc HS làm với công cụ AI trong hoạt động đó (vd. dùng chatbot kiểm tra lời giải rồi tự đối chiếu, chỉ ra chỗ AI sai; khai báo việc dùng AI). Không làm tăng yêu cầu của môn Toán. Không dùng mã ngoài "chon_tu".
 - "ca_nhan_hoa" (nếu có): kế hoạch hỗ trợ HS khuyết tật học hoà nhập theo TT 03/2018/TT-BGDĐT (kế hoạch giáo dục cá nhân) và đánh giá theo Điều 11 TT 22/2021/TT-BGDĐT, ĐÚNG tình trạng GV mô tả, gọi HS là "HS A", không bịa thêm tình trạng. Khuyết tật không ảnh hưởng nhận thức (vận động, khiếm thị, khiếm thính…) thì GIỮ NGUYÊN yêu cầu cần đạt, chỉ điều chỉnh cách tham gia; không tách HS khỏi lớp, không gây chú ý, kỳ thị.
   "muc_tieu_hoa_nhap": 2–4 ý cho mục I.4 (kiến thức, năng lực theo ĐÚNG bài này; tâm lí, kĩ năng xã hội; ý riêng theo dạng khuyết tật, vd. vận động và an toàn).
   Nếu có "hien_co_trong_giao_an" (GV đã viết sẵn): giữ các ý đúng của GV, sửa chỗ sai (vd. chép nhầm nội dung bài khác), bổ sung phần còn thiếu.
   "hoat_dong": MỖI hoạt động trong "cac_hoat_dong" một mục, nói CỤ THỂ cách HS A làm từng việc trong "viec_hs" của hoạt động đó (vd. khuyết tật chân: khi gọi lên bảng → trình bày tại chỗ trên bảng con, GV chiếu bài lên màn hình; thảo luận nhóm → nhóm ngồi quanh chỗ của HS A, các bạn di chuyển đến).
 - Chỉ trả về MỘT đối tượng JSON, không giải thích, không markdown, đúng khuôn:
-{"them_muc_tieu_kien_thuc":["..."],"bo_sung_hoat_dong":[{"key":"...","tex":"..."}],"hoat_dong_moi":[{"key":"...","tex":"..."}],"nls_trong_hoat_dong":[{"key":"...","ma":"...","tex":"..."}],"ca_nhan_hoa":{"thong_tin":"...","muc_tieu_hoa_nhap":["..."],"muc_tieu":"...","chuan_bi":"...","hoat_dong":[{"key":"...","dieu_chinh":"..."}],"danh_gia":"...","phoi_hop":"..."}}
+{"them_muc_tieu_kien_thuc":["..."],"bo_sung_hoat_dong":[{"key":"...","tex":"..."}],"hoat_dong_moi":[{"key":"...","tex":"..."}],"nls_trong_hoat_dong":[{"key":"...","ma":"...","tex":"..."}],"nang_luc_ai":[{"key":"...","ma":"...","tex":"..."}],"ca_nhan_hoa":{"thong_tin":"...","muc_tieu_hoa_nhap":["..."],"muc_tieu":"...","chuan_bi":"...","hoat_dong":[{"key":"...","dieu_chinh":"..."}],"danh_gia":"...","phoi_hop":"..."}}
 Mảng nào không có việc thì để [], "ca_nhan_hoa" không có việc thì để "".`;
 
 const SYSTEM_SOAN = `Bạn là giáo viên chuyên Toán giỏi, soạn kế hoạch bài dạy (KHBD) theo Công văn 5512/BGDĐT-GDTrH cho lớp chuyên.
@@ -139,10 +159,11 @@ Yêu cầu:
 - "muc_tieu_kien_thuc": 4–8 ý, bám YCCĐ trong PPCT và các khái niệm trong tài liệu.
 - "nang_luc_chung" (3 năng lực: tự chủ và tự học; giao tiếp và hợp tác; giải quyết vấn đề và sáng tạo), "nang_luc_dac_thu" (tư duy và lập luận; mô hình hoá; giải quyết vấn đề; giao tiếp; sử dụng công cụ, phương tiện học toán), "pham_chat" (chăm chỉ; trung thực; trách nhiệm): mỗi mục 1–2 câu biểu hiện CỤ THỂ gắn với nội dung bài (ví dụ: "chuyển bài toán bắt tay về đếm cạnh của graph đầy đủ $K_n$").
 - "nls_trong_hoat_dong": mỗi mã trong "nls_duoc_dung" gắn vào ĐÚNG MỘT hoạt động phù hợp, 1 câu mô tả việc HS làm. Không dùng mã khác.
+- "nang_luc_ai": chọn 1–2 mã trong "nang_luc_ai_chon_tu" (QĐ 2422) hợp nội dung bài, gắn vào MỘT hoạt động, 1–2 câu mô tả cụ thể việc HS làm với công cụ AI; không tăng yêu cầu môn Toán.
 - Nếu có "hs_khuyet_tat": thêm "ca_nhan_hoa" (gọi là "HS A") theo TT 03/2018/TT-BGDĐT và Điều 11 TT 22/2021/TT-BGDĐT, đúng tình trạng GV mô tả, không bịa thêm; khuyết tật không ảnh hưởng nhận thức thì giữ nguyên yêu cầu cần đạt, chỉ điều chỉnh cách tham gia; "hoat_dong" có MỘT mục cho MỖI hoạt động bạn soạn, nói cụ thể HS A làm thế nào (lên bảng, nhóm, trò chơi…). Không có thì để "".
 - Văn bản là mã LaTeX: công thức trong $...$, in đậm \\textbf{...}, xuống dòng bằng dòng trống; không dùng \\section, không dùng gói lạ. Trong JSON phải viết dấu \\ thành \\\\.
 - Chỉ trả về MỘT đối tượng JSON, không giải thích, không markdown:
-{"muc_tieu_kien_thuc":["..."],"nang_luc_chung":[{"ten":"...","bieu_hien":"..."}],"nang_luc_dac_thu":[{"ten":"...","bieu_hien":"..."}],"pham_chat":[{"ten":"...","bieu_hien":"..."}],"phan_bo":[{"tiet":"1-2","noi_dung":"..."}],"hoat_dong":[{"key":"hd_mo_dau","ten":"...","tiet":"1","muc_tieu":"...","tinh_huong":"...","dung":[],"san_pham":"...","b1":"...","b2":"...","b3":"...","b4":"..."}],"nls_trong_hoat_dong":[{"key":"...","ma":"...","tex":"..."}],"ca_nhan_hoa":{"thong_tin":"...","muc_tieu_hoa_nhap":["..."],"muc_tieu":"...","chuan_bi":"...","hoat_dong":[{"key":"...","dieu_chinh":"..."}],"danh_gia":"...","phoi_hop":"..."}}`;
+{"muc_tieu_kien_thuc":["..."],"nang_luc_chung":[{"ten":"...","bieu_hien":"..."}],"nang_luc_dac_thu":[{"ten":"...","bieu_hien":"..."}],"pham_chat":[{"ten":"...","bieu_hien":"..."}],"phan_bo":[{"tiet":"1-2","noi_dung":"..."}],"hoat_dong":[{"key":"hd_mo_dau","ten":"...","tiet":"1","muc_tieu":"...","tinh_huong":"...","dung":[],"san_pham":"...","b1":"...","b2":"...","b3":"...","b4":"..."}],"nls_trong_hoat_dong":[{"key":"...","ma":"...","tex":"..."}],"nang_luc_ai":[{"key":"...","ma":"...","tex":"..."}],"ca_nhan_hoa":{"thong_tin":"...","muc_tieu_hoa_nhap":["..."],"muc_tieu":"...","chuan_bi":"...","hoat_dong":[{"key":"...","dieu_chinh":"..."}],"danh_gia":"...","phoi_hop":"..."}}`;
 
 const L = d.lesson || {};
 const user = {
@@ -163,4 +184,4 @@ const ai_body = {
   ]
 };
 
-return [{ json: { ...d, can_ai, viec, ai_body, nls_map: NLS, soan_moi: soanMoi, ppct: pp } }];
+return [{ json: { ...d, can_ai, giu_nguyen, viec, ai_body, nls_map: NLS, ai_map: AI_MAP, soan_moi: soanMoi, ppct: pp } }];
