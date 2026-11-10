@@ -46,6 +46,7 @@ function run(argv){
   if(argv[5]) wr(argv[5],out['09_CHUAN_BI_AI'].ai_body.messages.map(m=>m.content).join('\n\n=====\n\n'));  // xem yêu cầu gửi AI
   const r=step('11_GHEP_VA_SUA.js',JSON.parse(rd(G+(out['09_CHUAN_BI_AI'].soan_moi?'tests/fake_ai_soan.json':'tests/fake_ai.json'))));
   if(argv[3]) wr(argv[3],r.binary.data._s);
+  if(argv[5]) wr(argv[5]+'.word.json',JSON.stringify(r.json.them_word,null,1));   // danh sách chèn vào Word gốc
   return 'BINARY: '+r.json.ds_binary+' | zip: '+r.json.zip_name+'\n'+r.json.caption+"\n\nVIỆC GỬI AI: "+JSON.stringify(out['09_CHUAN_BI_AI'].viec).slice(0,600);
  }catch(e){return 'LỖI: '+e+' dòng '+e.line;}
 }

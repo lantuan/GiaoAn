@@ -151,6 +151,33 @@ if (req.lesson_number && !laChuyenDe) {
     yccd: rows.map(x => ({ id: x.id, MucDo: x.MucDo, content: x.content, scope: x.scope })) } }];
 }
 
+// ===== D. Tên bài trong PPCT nằm NGUYÊN VĂN trong chú thích / tên file ("Ôn tập chuyên đề 1", "ON TAP CHUYEN DE 1") =====
+{
+  const khongDau = x => norm(x).normalize("NFD").replace(/[\u0300-\u036f]/g, "").replace(/đ/g, "d");
+  const nguon = " " + khongDau(`${req.original_text || ""} ${req.file_base || ""}`) + " ";
+  let hit = [];
+  for (const g of lopThu) {
+    const theoTen = {};
+    (await taiPPCT(g)).forEach(r => { (theoTen[r.ten] = theoTen[r.ten] || []).push(r); });
+    for (const [ten, rows] of Object.entries(theoTen)) {
+      const t = khongDau(ten);
+      if (t.split(" ").length >= 3 && nguon.includes(" " + t + " ")) hit.push({ g, ten, rows, dai: t.length });
+    }
+  }
+  if (hit.length) {
+    const max = Math.max(...hit.map(h => h.dai));
+    hit = hit.filter(h => h.dai === max);
+    if (hit.length > 1 && new Set(hit.map(h => h.g)).size > 1) return fail(`"${hit[0].ten}" có ở lớp ${hit.map(h => h.g).join(", ")}. Bạn ghi rõ lớp giúp mình.`);
+    const { g, ten, rows } = hit[0];
+    const pp = gomPPCT(rows);
+    return [{ json: { ...d, request: { ...req, grade: g }, ok: true, error_message: null,
+      lesson: { bai_so: rows[0].bai_so ?? null, bai: ten, chuong: null, loai: pp.loai, hoc_ky: pp.hoc_ky,
+                tiet_ppct: pp.tiet, so_tiet: req.duration ? parseInt(req.duration) : pp.so_tiet },
+      ppct: pp,
+      yccd: pp.yccd_ppct.map((c, i) => ({ id: `PPCT-${i + 1}`, MucDo: "", content: c, scope: "ppct" })) } }];
+  }
+}
+
 // ===== B. Không có số bài → tìm theo tên trong PPCT =====
 const BO = new Set(["chuyên","đề","nâng","cao","sâu","bài","giáo","án","lớp","toán","chuyển","cho","soạn","chỉnh",
   "sửa","theo","từ","tài","liệu","kế","hoạch","dạy","học","cơ","bản","equation","extest","và","các","của","một","số","về",

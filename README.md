@@ -125,3 +125,12 @@ Node 08 kiểm tra: cấu trúc CV 5512 (nhận cả "1. HOẠT ĐỘNG 1: MỞ 
 - Thiếu → chỉ bổ sung phần thiếu (mã NLS vào Mục tiêu + hoạt động; năng lực AI 1–2 mã hợp bài; thiết bị PPCT vào mục II).
 - `data/nang_luc_ai/qd2422_yccd_10_12.json`: 71 YCCĐ lớp 10–12 của Phụ lục QĐ 2422/QĐ-BGDĐT (mã `10.C3.2`, `.MR` = mở rộng).
 - Node 04 nhận mã chuyên đề học tập từ tên file/chú thích: "CD 2-B4", "CĐ2.B4", "chuyên đề 2 bài 4" → dòng PPCT `CĐ2.B4`.
+
+### Word trả về = Word GỐC của GV + phần chèn thêm (từ 9/11/2026)
+
+- `tools/gui_giao_an.py` lưu bản Word gốc (đã đổi MathType → Equation) vào `~/Library/Application Support/MayDichPDF/goc/<tên>.docx`.
+- Node 11 gửi `/word` kèm `ten_goc` + `them` (mã NLS, năng lực AI ở Mục tiêu; thiết bị; dòng gắn vào từng hoạt động; chữ đen).
+- Máy Mac chạy `tools/sua_word.py`: chèn đúng chỗ vào Word gốc (chữ đỏ), bỏ đầu trang/chân trang; bố cục, bảng, công thức, Ký duyệt của GV giữ nguyên.
+- Không có Word gốc (GV gửi .tex qua Telegram) hoặc có phần không chèn được (hoạt động mới, HS khuyết tật, soạn mới) → Word chuyển từ .tex (Tex2Word), cũng bỏ đầu/chân trang.
+- AI không còn tự viết thêm ý Kiến thức / bước còn thiếu (chỉ báo trong caption); chỉ bổ sung mã NLS theo PPCT, năng lực AI, thiết bị.
+- HS khuyết tật cũng chèn thẳng vào Word gốc: mục I.4 (trước II), đoạn "* Hỗ trợ HS …" (tím) cuối từng hoạt động, mục IV + bảng kế hoạch đặt TRƯỚC "V. ĐIỀU CHỈNH" (bản .tex cũng vậy). Chỉ khi GV đã viết sẵn phần hoà nhập (bot thay thế) mới chuyển Word từ .tex.

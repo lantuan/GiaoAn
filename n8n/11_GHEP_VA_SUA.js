@@ -22,6 +22,12 @@ const canh_bao = [];
 const XANH = c => `{\\color[HTML]{0070C0}\n${c}\n}`;           // phần AI viết: màu xanh để GV rà soát
 const DO = c => `\\textcolor[HTML]{EE0000}{${c}}`;            // năng lực số: màu đỏ như giáo án gốc
 const canBang = s => { let n = 0; for (const ch of s.replace(/\\[{}]/g, "")) { if (ch === "{") n++; if (ch === "}") n--; if (n < 0) return false; } return n === 0; };
+// Danh sách dòng chèn thêm → máy Mac chèn đúng vào file Word GỐC của GV (tools/sua_word.py)
+const W = { nls_muc_tieu: [], ai_muc_tieu: [], thiet_bi: "", hoat_dong: [], day_du: true };
+const tieuDe = k => String(S_[k] || "").split("\n").map(l => l
+  .replace(/\\textcolor\[HTML\]\{[0-9A-Fa-f]{6}\}/g, "").replace(/\\fontsize\{[^}]*\}\{[^}]*\}/g, "")
+  .replace(/\\[a-zA-Z]*skip\s*=\s*-?[\d.]+\s*(cm|mm|pt|em)/g, " ").replace(/\\[hv]space\*?\{[^}]*\}/g, " ")
+  .replace(/\\[a-zA-Z]+\*?/g, " ").replace(/[{}$~]/g, " ").replace(/\s+/g, " ").trim()).find(Boolean) || "";
 const chen = (sau, them) => { const i = tex.indexOf(sau); if (i < 0) return false; tex = tex.slice(0, i + sau.length) + them + tex.slice(i + sau.length); return true; };
 
 // ===== 1. Đọc kết quả AI =====
@@ -52,6 +58,7 @@ if (inp.choices) {
   if (inp.choices?.[0]?.finish_reason === "length") canh_bao.push("Câu trả lời của AI bị cắt giữa chừng (hết max_tokens ở node 09).");
 }
 const S = d.sections_tex || {};
+var S_ = S;
 const nlsDuocPhep = new Set((d.viec?.nls_can_gan || []).map(x => x.ma));
 // Chỉ nhận những việc ĐÃ GIAO cho AI (AI viết thừa thì bỏ)
 const hdMoiDuocPhep = new Set((d.viec?.hoat_dong_moi || []).map(x => x.key));
@@ -70,6 +77,7 @@ const KY_MARK = "%%==KY_DUYET==";      // khối Ký duyệt chuẩn (mục 2e)
 const aiChon = (d.viec?.nang_luc_ai || d.viec?.soan_khbd_tu_tai_lieu ? (ai?.nang_luc_ai || []) : [])
   .filter(x => x && AIM[x.ma] && typeof x.tex === "string" && x.tex.trim() && canBang(x.tex)).slice(0, 2);
 if (soanMoi) {
+  W.day_du = false;                       // Word gốc không có phần này → Word chuyển từ .tex
   const L = meta.lesson || {};
   const pp = d.ppct || meta.ppct || {};
   const K = d.khoi_tai_lieu || {};
@@ -218,7 +226,7 @@ if (ai) {
     if (x.key === "hd_mo_dau" && S.tien_trinh) ok = chen(S.tien_trinh.split("\n")[0], khoi);
     else if (cuoi && S[cuoi]) ok = chen(S[cuoi], khoi);
     else { const e = tex.lastIndexOf("\\end{document}"); if (e > 0) { tex = tex.slice(0, e) + khoi + "\n" + tex.slice(e); ok = true; } }
-    if (ok) da_sua.push(`Viết thêm ${SO[x.key].replace(/^\d\.\s*/, "")}` + (nlsMoi[x.key] ? ` (kèm ${nlsMoi[x.key].length} mã NLS)` : ""));
+    if (ok) { W.day_du = false; da_sua.push(`Viết thêm ${SO[x.key].replace(/^\d\.\s*/, "")}` + (nlsMoi[x.key] ? ` (kèm ${nlsMoi[x.key].length} mã NLS)` : "")); }
     else canh_bao.push(`Không tìm thấy vị trí để chèn ${SO[x.key]}`);
   }
   // 1b. Bổ sung phần thiếu trong hoạt động (làm SAU 1c để phần bổ sung nằm ngay cuối hoạt động, trước hoạt động mới)
@@ -232,13 +240,13 @@ if (ai) {
     if (x._da_dung) continue;
     if (!nlsDuocPhep.has(x.ma) || !S[x.key] || !x.tex || !canBang(x.tex)) { canh_bao.push(`Bỏ qua mã NLS ${x.ma || "?"} (không hợp lệ)`); continue; }
     const dong = x.tex.startsWith(x.ma) ? x.tex : `${x.ma}: ${x.tex}`;
-    if (chen(S[x.key], "\n\n" + DO(dong) + "\n")) da_sua.push(`Gắn ${x.ma} vào ${x.key}`);
+    if (chen(S[x.key], "\n\n" + DO(dong) + "\n")) { da_sua.push(`Gắn ${x.ma} vào ${x.key}`); W.hoat_dong.push({ tieu_de: tieuDe(x.key), dong }); }
   }
   // 1f. Năng lực AI (QĐ 2422) vào hoạt động
   if (!soanMoi) for (const x of aiChon) {
     const key = S[x.key] ? x.key : Object.keys(S).find(k => /^hd_/.test(k));
     const dong = `${x.ma} (năng lực AI): ${x.tex.replace(x.ma, "").replace(/^[\s:–-]+/, "")}`;
-    if (key && chen(S[key], "\n\n" + DO(dong) + "\n")) da_sua.push(`Gắn năng lực AI ${x.ma} vào ${key}`);
+    if (key && chen(S[key], "\n\n" + DO(dong) + "\n")) { da_sua.push(`Gắn năng lực AI ${x.ma} vào ${key}`); W.hoat_dong.push({ tieu_de: tieuDe(key), dong }); }
     else canh_bao.push(`Không tìm thấy hoạt động để gắn năng lực AI ${x.ma}`);
   }
 }
@@ -250,7 +258,11 @@ if (ai) {
 // AI không biết tên thật ("HS A"); tên được điền lại ở đây. AI thiếu phần nào → dùng quy tắc theo dạng khuyết tật.
 const hskt = meta.request?.hs_khuyet_tat || d.request?.hs_khuyet_tat ||
   (d.hoa_nhap?.co ? { ten: d.hoa_nhap.ten, mo_ta: d.hoa_nhap.mo_ta } : null);   // GV đã viết sẵn phần hoà nhập trong giáo án
+// chữ thường cho Word (bỏ lệnh LaTeX)
+const phang = x => String(x || "").replace(/\\textit\{([^{}]*)\}/g, "$1").replace(/\\textbf\{([^{}]*)\}/g, "$1")
+  .replace(/\\[a-zA-Z]+\*?(\[[^\]]*\])?/g, " ").replace(/[{}]/g, "").replace(/\$([^$]*)\$/g, "$1").replace(/\s+/g, " ").trim();
 if (hskt) {
+  if (d.hoa_nhap?.co) W.day_du = false;   // GV đã viết sẵn phần hoà nhập (bot thay thế) → Word chuyển từ .tex
   const tenHS = hskt.ten ? `HS ${hskt.ten}` : "HS khuyết tật";
   const thayTen = x => String(x || "").replace(/\b(HS|học sinh|Học sinh|em) A\b/g, tenHS).replace(/\bHS A\b/g, tenHS);
   const TIM = c => `{\\color[HTML]{7030A0}${c}}`;
@@ -352,7 +364,9 @@ if (hskt) {
   const conLaiHD = [];
   for (const h of dsHD) {
     const nd = aiHD[h.key] ? thayTen(aiHD[h.key]) : (soQT++, quyTacHD(S[h.key]));
-    if (S[h.key] && chen(S[h.key], "\n\n" + TIM(`\\textbf{* Hỗ trợ ${tenHS}:} ${nd}`) + "\n")) soChen++;
+    if (S[h.key] && chen(S[h.key], "\n\n" + TIM(`\\textbf{* Hỗ trợ ${tenHS}:} ${nd}`) + "\n")) {
+      soChen++; W.hoat_dong.push({ tieu_de: tieuDe(h.key), nhan: `* Hỗ trợ ${tenHS}:`, dong: phang(nd), mau: "tim" });
+    }
     else conLaiHD.push(`\\textit{${String(h.ten).replace(/[{}\\]/g, "")}:} ${nd}`);
   }
   // Câu "Lưu ý…" chung chung GV viết lặp lại ở các hoạt động → đã có đoạn hỗ trợ cụ thể, bỏ đi
@@ -381,6 +395,8 @@ if (hskt) {
     "\\begin{itemize}\n" + (mtAI.length ? mtAI : mtQT).map(x => `\\item ${TIM(x)}\n`).join("") + "\\end{itemize}\n\n";
   const iTB2 = tex.search(/\\subsubsection\*?\{[^\n]*II\.\s*THIẾT BỊ|[^\n]*II\.\s*THIẾT BỊ/);
   if (iTB2 > 0) { const dd = tex.lastIndexOf("\n", iTB2) + 1; tex = tex.slice(0, dd) + khoiI4 + tex.slice(dd); }
+  W.muc_tieu_hoa_nhap = { tieu_de: `4. Mục tiêu giáo dục hoà nhập (dành cho ${tenHS} – ${ds_qt.map(q => q.ten).join(", ")})`,
+    y: (mtAI.length ? mtAI : mtQT).map(phang) };
 
   // soạn KHBD mới: hoạt động do AI soạn, không có sẵn trong file → liệt kê ở mục IV
   if (!dsHD.length) for (const [k, v] of Object.entries(aiHD)) conLaiHD.push(`\\textit{${k.replace(/^hd_/, "").replace(/_/g, " ")}:} ${thayTen(v)}`);
@@ -419,8 +435,20 @@ if (hskt) {
     `\\textbf{3. Biện pháp hỗ trợ:}\n\n` + bangIV +
     (conLaiHD.length ? `\\textbf{4. Điều chỉnh trong các hoạt động:}\n\n\\begin{itemize}\n` + conLaiHD.map(x => `\\item ${o(x)}\n`).join("") + "\\end{itemize}\n\n" : "") +
     `\\textbf{${conLaiHD.length ? 5 : 4}. Kết quả, điều chỉnh sau tiết dạy} \\textit{(GV ghi sau giờ dạy)}:\n\n\\noindent\\dotfill\n\n\\noindent\\dotfill\n\n`;
+  W.ke_hoach_iv = {
+    tieu_de: "IV. KẾ HOẠCH HỖ TRỢ HỌC SINH KHUYẾT TẬT HỌC HOÀ NHẬP",
+    can_cu: "(Căn cứ Thông tư 03/2018/TT-BGDĐT quy định về giáo dục hoà nhập đối với người khuyết tật; đánh giá theo Điều 11 Thông tư 22/2021/TT-BGDĐT.)",
+    muc: [["Thông tin học sinh", phang(thongTin)], ["Mục tiêu điều chỉnh", phang(lay("muc_tieu", gop("muc_tieu")))]],
+    bang: hang.map(([a, b, c]) => [phang(a), phang(b), phang(c)]),
+    con_lai: conLaiHD.map(phang)
+  };
+  // Mục IV đặt TRƯỚC "V. ĐIỀU CHỈNH…" (không có thì trước Ký duyệt / phụ lục / cuối bài)
   const iPL = tex.indexOf(PL_MARK);
-  const e = iPL >= 0 ? iPL : tex.lastIndexOf("\\end{document}");
+  const iDoc0 = Math.max(0, tex.indexOf("\\begin{document}"));
+  const mV = tex.slice(iDoc0).search(/[^\n]*\bV\.\s*ĐIỀU CHỈNH|[^\n]*\bV\.\s*(RÚT KINH NGHIỆM|GÓP Ý)/);
+  const mKy = tex.slice(iDoc0).search(/[^\n]*(Ký|Kí) duyệt/);
+  const cho = [mV, mKy].filter(x => x > 0).map(x => iDoc0 + x);
+  const e = cho.length ? tex.lastIndexOf("\n", Math.min(...cho)) + 1 : (iPL >= 0 ? iPL : tex.lastIndexOf("\\end{document}"));
   if (e > 0) {
     tex = tex.slice(0, e) + khoiIV + tex.slice(e);
     da_sua.push(`Hoà nhập ${tenHS} (${dangTen}): mục tiêu I.4, hỗ trợ trong ${soChen || conLaiHD.length} hoạt động, bảng kế hoạch mục IV (TT 03/2018, Điều 11 TT 22/2021)` +
@@ -524,6 +552,7 @@ if (iMT >= 0 && iTB > iMT) {
     if (j1 > 0) mt = mt.slice(0, j1) + them.map(m => `\\item ${DO(`${m}: ${NLS[m]}`)}\n\n`).join("") + mt.slice(j1);
     else mt = mt.slice(0, pc) + "\\begin{itemize}\n" + them.map(m => `\\item ${DO(`${m}: ${NLS[m]}`)}\n`).join("") + "\\end{itemize}\n\n" + mt.slice(pc);
     da_sua.push(`Thêm vào Mục tiêu – Năng lực số các mã theo PPCT/đang dùng: ${them.join(", ")}`);
+    W.nls_muc_tieu.push(...them.map(m => `${m}: ${NLS[m]}`));
   }
   // Năng lực AI (QĐ 2422) ở Mục tiêu
   const aiMa = [...new Set(aiChon.map(x => x.ma))];
@@ -532,6 +561,7 @@ if (iMT >= 0 && iTB > iMT) {
     mt = mt.slice(0, pc) + `{\\noindent\\textcolor[HTML]{EE0000}{\\textit{\\textbf{+ Năng lực AI (QĐ 2422/QĐ-BGDĐT):}}}\\par}\n\\begin{itemize}\n` +
       aiMa.map(m => `\\item ${DO(`${m}: ${AIM[m]}`)}\n`).join("") + "\\end{itemize}\n\n" + mt.slice(pc);
     da_sua.push(`Thêm năng lực AI (QĐ 2422) vào Mục tiêu: ${aiMa.join(", ")}`);
+    W.ai_muc_tieu.push(...aiMa.map(m => `${m}: ${AIM[m]}`));
   }
   tex = tex.slice(0, iMT) + mt + tex.slice(iTB);
 }
@@ -554,6 +584,7 @@ if (!soanMoi) {
       else muc = muc.replace(/\s*$/, "") + `\n\n${dong}\n\n`;
       tex = tex.slice(0, iII) + muc + tex.slice(iIII);
       da_sua.push(`Bổ sung thiết bị theo PPCT vào mục II: ${thieu.map(t => t.ma).join(", ")}`);
+      W.thiet_bi = "Thiết bị mượn của tổ (theo PPCT): " + thieu.map(t => `${t.ten} (mã ${t.ma})`).join("; ") + ".";
     }
   }
 }
@@ -561,7 +592,8 @@ if (!soanMoi) {
 // 2e. Khối "Ký duyệt" cuối giáo án (Tổ trưởng chuyên môn – Giáo viên)
 // Khối ký có sẵn trong file Word (bảng ẩn hẹp, lệch, dòng "Ký duyệt" lọt vào danh sách…) → xoá, thay bằng khối chuẩn:
 // rộng hết trang, chia đôi hai bên, chữ ở chính giữa.
-if (!tex.includes(KY_MARK)) {
+const coKySan = /Tổ trưởng|TỔ TRƯỞNG/.test(tex.slice(Math.max(0, tex.indexOf("\\begin{document}")))) && /(Ký|Kí) duyệt|KÝ DUYỆT/.test(tex);
+if (!tex.includes(KY_MARK) && !coKySan) {      // giáo án đã có khối Ký duyệt → giữ nguyên của GV
   const iDoc = Math.max(0, tex.indexOf("\\begin{document}"));
   let than = tex.slice(iDoc), soXoaKy = 0;
   const laBangKy = b => b.length < 2000 && /Tổ trưởng|TỔ TRƯỞNG/.test(b) && /Giáo viên|GIÁO VIÊN|Người soạn|NGƯỜI SOẠN|Người duyệt/.test(b);
@@ -679,7 +711,7 @@ if (cache.pdf_url && cache.pdf_bi_mat) {
     const files = [{ ten: "giao_an.tex", b64: Buffer.from(tex, "utf8").toString("base64") },
       ...[...hinhGui, ...dsSty].map(f => ({ ten: f.ten, b64: f.b64 }))];
     const r = await this.helpers.httpRequest({
-      method: "POST", url: cache.pdf_url + "/word", body: JSON.stringify({ files }),
+      method: "POST", url: cache.pdf_url + "/word", body: JSON.stringify({ files, ten_goc: goc_ten, them: { ...W, chu_den: chuDen } }),
       headers: { "Content-Type": "application/json", "X-Bi-Mat": cache.pdf_bi_mat },
       encoding: "arraybuffer", returnFullResponse: true, ignoreHttpStatusErrors: true, timeout: 300000
     });
@@ -741,4 +773,4 @@ if (caption.length > 1000) {
   }
 }
 
-return [{ json: { chat_id: meta.chat_id, message_id: meta.message_id, caption, da_sua, canh_bao, model_dung, tra_phi: traPhi, usage: u, file_name: fileName, co_zip: co_zip2, co_word, ds_binary, zip_name }, binary }];
+return [{ json: { chat_id: meta.chat_id, message_id: meta.message_id, caption, da_sua, canh_bao, model_dung, tra_phi: traPhi, usage: u, file_name: fileName, co_zip: co_zip2, co_word, ds_binary, zip_name, them_word: { ...W, chu_den: chuDen } }, binary }];

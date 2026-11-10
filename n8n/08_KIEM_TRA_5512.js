@@ -72,6 +72,7 @@ starts.forEach((s, n) => {
 
 const van_de = [];
 for (const k of Object.keys(RX)) {
+  if (k === "hd_hinh_thanh" && /ôn tập|luyện tập|bài tập|kiểm tra/i.test(String(meta.lesson?.bai || ""))) continue;
   if (!sec[k]) van_de.push(`Thiếu mục: ${TEN[k]}`);
 }
 

@@ -53,20 +53,23 @@ const rutGon = (s, n) => { const t = plain(s); return t.length > n ? t.slice(0, 
 const viec = {};
 
 // 3a. YCCĐ chưa thể hiện trong Mục tiêu Kiến thức
+// CHỈ BÁO (không giao AI viết lại): GV yêu cầu giữ đúng nội dung giáo án gốc, chỉ bổ sung NLS, năng lực AI, thiết bị
 const yccdThieu = [...new Set((kt.yccd_doi_chieu || []).filter(y => y.do_khop < 0.5).map(y => y.content))];
-if (yccdThieu.length) viec.yccd_thieu = yccdThieu;
 
 // 3b. Hoạt động thiếu phần (a–d, Bước 1–4)
 const bs = (kt.hoat_dong || []).filter(h => h.thieu.length).map(h => ({
   key: h.key, ten: h.ten, thieu: h.thieu, noi_dung_hien_co: rutGon(d.sections_tex?.[h.key], 900)
 }));
-if (bs.length) viec.bo_sung_hoat_dong = bs;
+// (chỉ báo trong caption, không giao AI viết thêm vào hoạt động đã có)
 
 // 3c. Thiếu hẳn hoạt động
 const coKey = new Set((kt.hoat_dong || []).map(h => h.key.replace(/_\d+$/, "")));
 const thieuHD = [["hd_mo_dau", "Mở đầu"], ["hd_hinh_thanh", "Hình thành kiến thức mới"],
                  ["hd_luyen_tap", "Luyện tập"], ["hd_van_dung", "Vận dụng"]]
-  .filter(([k]) => !coKey.has(k)).map(([key, ten]) => ({ key, ten }));
+  .filter(([k]) => !coKey.has(k))
+  // tiết ôn tập / luyện tập / bài tập / kiểm tra: không có "Hình thành kiến thức mới"
+  .filter(([k]) => !(k === "hd_hinh_thanh" && /ôn tập|luyện tập|bài tập|kiểm tra/i.test(String(d.lesson?.bai || ""))))
+  .map(([key, ten]) => ({ key, ten }));
 if (thieuHD.length) viec.hoat_dong_moi = thieuHD;
 
 // 3d. Mã NLS ở Mục tiêu nhưng chưa có hoạt động nào thực hiện
@@ -177,7 +180,8 @@ const ai_body = {
   models,                               // OpenRouter tự chuyển model sau nếu model trước lỗi/hết lượt
   temperature: 0.3,
   usage: { include: true },             // OpenRouter trả kèm số token + chi phí (USD) để báo cho người dùng
-  max_tokens: soanMoi ? (hskt?.mo_ta ? 12000 : 10000) : (hskt?.mo_ta ? 5000 : 3000),
+  max_tokens: soanMoi ? (hskt?.mo_ta ? 12000 : 10000) : (hskt?.mo_ta ? 6000 : 5000),
+  reasoning: { effort: "low", exclude: true },   // model "suy nghĩ" (nemotron…) không tiêu hết max_tokens → JSON không bị cắt
   messages: [
     { role: "system", content: soanMoi ? SYSTEM_SOAN : SYSTEM },
     { role: "user", content: anTen(JSON.stringify(user)) }     // không gửi tên thật của HS cho AI

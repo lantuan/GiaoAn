@@ -9,7 +9,7 @@ const b = $input.first().json.body || {};
 if (BI_MAT.startsWith("DAN_") || typeof b.bi_mat !== "string" || b.bi_mat !== BI_MAT) {
   return [{ json: { ok: false, loi: "sai mã bí mật" } }];
 }
-if (!/^https:\/\/[a-z0-9-]+\.trycloudflare\.com$/.test(String(b.url || ""))) {
+if (!/^https:\/\/(?!api\.)[a-z0-9-]+\.trycloudflare\.com$/.test(String(b.url || ""))) {
   return [{ json: { ok: false, loi: "địa chỉ không hợp lệ" } }];
 }
 const cache = $getWorkflowStaticData("global");

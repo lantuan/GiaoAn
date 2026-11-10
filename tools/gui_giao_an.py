@@ -15,6 +15,7 @@ Cấu hình đọc từ máy dịch PDF: ~/Library/Application Support/MayDichPD
 import base64, json, os, re, shutil, subprocess, sys, tempfile, zipfile, unicodedata
 
 CFG_PATH = os.path.expanduser("~/Library/Application Support/MayDichPDF/config.json")
+GOC_DIR = os.path.expanduser("~/Library/Application Support/MayDichPDF/goc")   # Word gốc (đã đổi MathType) để trả Word đúng bản của GV
 PY = os.path.expanduser("~/Desktop/NganHangDe_Lan/Python")
 WORD2TEX = os.path.join(PY, "Word2Tex")
 HUB = os.path.join(PY, "BangDieuKhien")
@@ -62,6 +63,8 @@ def doi_mathtype(src, tmp):
 def word_sang_tex(src, tmp, stem):
     if co_mathtype(src):
         src = doi_mathtype(src, tmp)
+    os.makedirs(GOC_DIR, exist_ok=True)
+    shutil.copyfile(src, os.path.join(GOC_DIR, nfc(stem) + ".docx"))
     sys.path.insert(0, WORD2TEX)
     import word2tex
     out = os.path.join(tmp, "bai")
