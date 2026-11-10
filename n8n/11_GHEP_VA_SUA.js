@@ -23,7 +23,8 @@ const XANH = c => `{\\color[HTML]{0070C0}\n${c}\n}`;           // phần AI vi�
 const DO = c => `\\textcolor[HTML]{EE0000}{${c}}`;            // năng lực số: màu đỏ như giáo án gốc
 const canBang = s => { let n = 0; for (const ch of s.replace(/\\[{}]/g, "")) { if (ch === "{") n++; if (ch === "}") n--; if (n < 0) return false; } return n === 0; };
 // Danh sách dòng chèn thêm → máy Mac chèn đúng vào file Word GỐC của GV (tools/sua_word.py)
-const W = { nls_muc_tieu: [], ai_muc_tieu: [], thiet_bi: "", hoat_dong: [], day_du: true };
+const BAN_LUONG = "11-1011c";                 // số phiên bản node 11 (hiện cuối caption) – để biết n8n đang chạy bản nào
+const W = { nls_muc_tieu: [], ai_muc_tieu: [], thiet_bi: "", hoat_dong: [], day_du: true, ban: BAN_LUONG };
 const tieuDe = k => String(S_[k] || "").split("\n").map(l => l
   .replace(/\\textcolor\[HTML\]\{[0-9A-Fa-f]{6}\}/g, "").replace(/\\fontsize\{[^}]*\}\{[^}]*\}/g, "")
   .replace(/\\[a-zA-Z]*skip\s*=\s*-?[\d.]+\s*(cm|mm|pt|em)/g, " ").replace(/\\[hv]space\*?\{[^}]*\}/g, " ")
@@ -764,6 +765,7 @@ let caption = `<b>✅ ${soanMoi ? "Đã soạn KHBD theo CV 5512" : giuNguyen ? 
   (canh_bao.length ? `\n<b>Lưu ý:</b>\n` + canh_bao.map(s => "• " + esc(s)).join("\n") : "") +
   (co_zip2 ? `\n📦 File .zip gồm giáo án${co_word ? " (.tex + Word .docx có Equation)" : ""}${hinhGui.length ? " + " + hinhGui.length + " hình" : ""}${dsSty.length ? " + " + dsSty.map(f => f.ten).join(", ") : ""} – giải nén rồi mở file Word (.docx) hoặc .tex.` : "") +
   (giuNguyen ? "" : `\n<i>${chuDen ? "Đã chuyển hết sang chữ đen – thầy/cô rà soát kỹ phần AI viết thêm." : "Phần màu xanh do AI viết – thầy/cô rà soát trước khi dùng."}${model_dung ? " (" + esc(model_dung) + ")" : ""}</i>`);
+caption += ` <code>${BAN_LUONG}</code>`;
 if (caption.length > 1000) {
   // cắt bớt nhưng không để thẻ HTML dở dang / chưa đóng (Telegram sẽ báo lỗi)
   caption = caption.slice(0, 985).replace(/<[^>]*$/, "").replace(/&[a-z]*$/, "") + "…";

@@ -19,7 +19,7 @@ if (!cache.nls_nc1) {
 }
 const NLS = cache.nls_nc1;
 // Năng lực AI – YCCĐ lớp 10–12 của QĐ 2422/QĐ-BGDĐT (lồng ghép, không tăng YCCĐ môn Toán)
-if (!cache.ai2422) {
+if (!Array.isArray(cache.ai2422) || !cache.ai2422.length) {   // lần trước tải lỗi (lưu []) thì tải lại
   try { cache.ai2422 = await helpers.httpRequest({ url: `${GA}/nang_luc_ai/qd2422_yccd_10_12.json`, json: true }); }
   catch (e) { cache.ai2422 = []; }
 }
