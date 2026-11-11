@@ -39,7 +39,7 @@ def la_tex_chinh(p):
 def ds_file():
     out = []
     for root, dirs, fs in os.walk(GOC):
-        dirs[:] = [d for d in dirs if not d.startswith(".") and not d.endswith("_hinh")]
+        dirs[:] = [d for d in dirs if not d.startswith((".", "_")) and not d.endswith("_hinh")]   # _PPCT… không phải giáo án
         for f in fs:
             if f.startswith(("~$", ".")):
                 continue

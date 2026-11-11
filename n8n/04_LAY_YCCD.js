@@ -26,10 +26,23 @@ async function taiYCCD(g) {
   return cache[key];
 }
 async function taiPPCT(g) {   // bản chuyên = đầy đủ nhất (lớp thường = bỏ dòng chuyen_sau)
-  const key = "ppct26_toan" + g;
-  if (!cache[key]) {
-    try { cache[key] = await helpers.httpRequest({ url: `${GA}/ppct_2026_2027/toan${g}_chuyen.json`, json: true }); }
-    catch (e) { cache[key] = []; }
+  // PPCT hiện hành: máy Mac tự tạo từ file Word trong OneDrive/GiaoAn_Goc/_PPCT (đổi năm học, đổi trường chỉ cần thay file đó).
+  // Lấy từ máy Mac (đường hầm, mã bí mật); máy tắt thì lấy bản trên GitHub. Lưu đệm 30 phút.
+  const key = "ppct_hh_toan" + g;
+  if (!Array.isArray(cache[key]) || !cache[key].length || Date.now() - (cache[key + "_luc"] || 0) > 30 * 60 * 1000) {
+    let ds = null;
+    if (cache.pdf_url && cache.pdf_bi_mat) {
+      try { ds = await helpers.httpRequest({ url: `${cache.pdf_url}/ppct/toan${g}_chuyen.json`, json: true, timeout: 15000,
+        headers: { "X-Bi-Mat": cache.pdf_bi_mat } }); } catch (e) { ds = null; }
+    }
+    if (!Array.isArray(ds) || !ds.length) {
+      for (const thu of ["ppct_hien_hanh", "ppct_2026_2027"]) {
+        try { ds = await helpers.httpRequest({ url: `${GA}/${thu}/toan${g}_chuyen.json`, json: true }); } catch (e) { ds = null; }
+        if (Array.isArray(ds) && ds.length) break;
+      }
+    }
+    if (Array.isArray(ds) && ds.length) { cache[key] = ds; cache[key + "_luc"] = Date.now(); }
+    else if (!Array.isArray(cache[key])) cache[key] = [];
   }
   return cache[key];
 }
