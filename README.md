@@ -141,4 +141,4 @@ Node 08 kiểm tra: cấu trúc CV 5512 (nhận cả "1. HOẠT ĐỘNG 1: MỞ 
 2. Máy Mac (app Máy dịch PDF) 6 phút kiểm tra một lần → `tools/cap_nhat_ppct.py` tạo `data/ppct_hien_hanh/*.json`, ghi báo cáo `_PPCT/BAO_CAO_PPCT.txt`. Lỗi (thiếu dữ liệu một khối) thì giữ bản cũ.
 3. Node 04 đọc PPCT từ máy Mac (`GET <đường hầm>/ppct/toan{10,11,12}_chuyen.json`, mã bí mật), lưu đệm 30 phút; máy tắt → bản trên GitHub (`ppct_hien_hanh`, rồi `ppct_2026_2027`).
 4. Muốn GitHub cũng có bản mới: GitHub Desktop → commit + push `data/ppct_hien_hanh` (hoặc `python3 tools/cap_nhat_ppct.py --push`). Không tự push.
-- Đổi trường: danh mục mã thiết bị (CATALOG trong `scripts/ppct_2_tao_json.py`) theo trường cũ – trường mới cần sửa danh mục này.
+- Thiết bị đọc từ bảng thiết bị trong chính file PPCT (tên + bài dùng). Mã mượn: bảng có cột "Mã …" (vd "Mã thiết bị") thì lấy từ cột đó; không có thì suy theo danh mục cũ (CATALOG trong `scripts/ppct_2_tao_json.py`); không suy được thì ghi tên thiết bị theo PPCT, không kèm mã.

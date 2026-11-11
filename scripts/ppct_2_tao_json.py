@@ -58,12 +58,25 @@ for r in D['rows']:
       ghi_chu=r.get('ghi_chu') or None,thiet_bi=[]))
 # ---- map equipment
 report=[]
+TEN_PPCT={}   # thiết bị không có mã: lấy tên theo PPCT
+def ten_gon(n): return re.sub(r'\s+',' ',re.sub(r'\(.*?\)','',n)).strip(' .')
 for g,eq in D['equip'].items():
     g=int(g); G=[r for r in rows if r['lop']==g]
+    dau=[N(x) for x in (D.get('equip_dau',{}).get(str(g)) or D.get('equip_dau',{}).get(g) or [])]
+    iMa=next((i for i,x in enumerate(dau) if x.startswith('mã') or ' mã' in x),None)          # cột "Mã thiết bị" (nếu PPCT có)
+    iBai=next((i for i,x in enumerate(dau) if re.search(r'thí nghiệm|thực hành|bài dạy|tiết dạy|sử dụng cho',x)),4)
     for e in eq:
-        stt,name,sl,desc,refs=(e+['']*5)[:5]
-        codes=codes_for(name,desc)
-        if not codes: report.append(f"Lớp {g}: không nhận ra mã cho thiết bị '{name[:50]}'"); continue
+        e=e+['']*8
+        stt,name,sl,desc=e[:4]; refs=e[iBai] if iBai is not None else e[4]
+        codes=[]
+        if iMa is not None:
+            codes=re.findall(r'\b[A-Z]{2,}[A-Z0-9]*\d+[A-Z0-9]*\b',e[iMa].upper())
+            for c in codes:
+                if c not in CATALOG: CATALOG[c]=dict(ten=ten_gon(name),loai="",khoi=[g],so_luong=None)
+        if not codes: codes=codes_for(name,desc)
+        if not codes:
+            k='TB:'+ten_gon(name)[:60]; TEN_PPCT[k]=ten_gon(name); codes=[k]
+            report.append(f"Lớp {g}: thiết bị '{name[:50]}' chưa có mã – ghi tên theo PPCT, không kèm mã")
         for ref in [x.strip(' -–.') for x in refs.split('\n') if x.strip(' -–.')]:
             hit=[]; rl=N(ref)
             if 'tất cả các tiết' in rl: hit=G
@@ -89,8 +102,10 @@ for g,eq in D['equip'].items():
             if not hit: report.append(f"Lớp {g}: KHÔNG tìm thấy bài cho '{ref}' (thiết bị {codes})"); continue
             for r in hit:
                 for c in codes:
-                    if c not in [t['ma'] for t in r['thiet_bi']]: r['thiet_bi'].append(dict(ma=c,ten=CATALOG[c]['ten']))
+                    tb=dict(ma="",ten=TEN_PPCT[c]) if c.startswith('TB:') else dict(ma=c,ten=CATALOG[c]['ten'])
+                    if (tb['ma'] or tb['ten']) not in [t['ma'] or t['ten'] for t in r['thiet_bi']]: r['thiet_bi'].append(tb)
             for c in codes:
+                if c.startswith('TB:'): continue
                 k=CATALOG[c]['khoi']
                 if k and g not in k: report.append(f"Lớp {g}: dùng {c} ({CATALOG[c]['ten'][:40]}) nhưng danh mục trường ghi khối {k}")
 os.makedirs(OUT,exist_ok=True)

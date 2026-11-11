@@ -8,7 +8,7 @@ def cells(r):
         if c._tc in seen: continue
         seen.append(c._tc); out.append(c.text.strip())
     return out
-grade=None;hk=None;rows=[];equip={};chuong=None
+grade=None;hk=None;rows=[];equip={};equip_dau={};chuong=None
 for el in d.element.body.iterchildren():
     tag=el.tag.split('}')[1]
     if tag=='p':
@@ -21,7 +21,7 @@ for el in d.element.body.iterchildren():
     if tag!='tbl': continue
     tb=Table(el,d); h=[x.upper() for x in cells(tb.rows[0])]
     if h and h[0]=='STT' and 'THIẾT BỊ DẠY HỌC' in h[1]:
-        equip[grade]=[cells(r) for r in tb.rows[1:]]; continue
+        equip[grade]=[cells(r) for r in tb.rows[1:]]; equip_dau[grade]=cells(tb.rows[0]); continue
     if h and h[0]=='TUẦN':
         for r in tb.rows[1:]:
             c=cells(r)
@@ -35,4 +35,4 @@ for el in d.element.body.iterchildren():
             else: print('?? cols',len(c),c[:3]); continue
             rows.append(dict(lop=grade,hoc_ky=hk,tuan=tuan,tiet=tiet,ten=re.sub(r'\s+',' ',ten),yccd=yc,nls_raw=nls,ghi_chu=ghi,chuong_ppct=chuong))
 print(len(rows),collections.Counter((r['lop'],r['hoc_ky']) for r in rows))
-json.dump(dict(rows=rows,equip=equip),open('ppct_v2_raw.json','w'),ensure_ascii=False)
+json.dump(dict(rows=rows,equip=equip,equip_dau=equip_dau),open('ppct_v2_raw.json','w'),ensure_ascii=False)

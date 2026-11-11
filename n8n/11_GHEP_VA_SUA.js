@@ -118,7 +118,7 @@ if (soanMoi) {
         "Trách nhiệm: hoàn thành nhiệm vụ cá nhân và nhóm."]) +
     TD("II. THIẾT BỊ DẠY HỌC VÀ HỌC LIỆU") +
     ds(["\\textbf{GV:} Kế hoạch bài dạy, tài liệu chuyên đề, phiếu bài tập, máy chiếu/ti vi." +
-          ((pp.thiet_bi || []).length ? " Thiết bị mượn: " + pp.thiet_bi.map(t => `${t.ten} (mã ${t.ma})`).join("; ") + "." : ""),
+          ((pp.thiet_bi || []).length ? " Thiết bị mượn: " + pp.thiet_bi.map(t => t.ten + (t.ma ? ` (mã ${t.ma})` : "")).join("; ") + "." : ""),
         "\\textbf{HS:} Tài liệu chuyên đề, vở ghi, dụng cụ học tập."]) +
     TD("III. TIẾN TRÌNH DẠY HỌC");
 
@@ -575,17 +575,18 @@ if (!soanMoi) {
     let muc = tex.slice(iII, iIII);
     const chuII = muc.normalize("NFC").toLowerCase();
     const tuKhoa = t => String(t.ten || "").toLowerCase().replace(/\(.*?\)/g, "").split(/[\s,–-]+/).filter(w => w.length > 3);
-    const thieu = tbPP.filter(t => !chuII.includes(String(t.ma).toLowerCase()) &&
+    const thieu = tbPP.filter(t => !(t.ma && chuII.includes(String(t.ma).toLowerCase())) &&
       !(tuKhoa(t).length && tuKhoa(t).every(w => chuII.includes(w))));
+    const tenTB = t => String(t.ten).replace(/[{}\\%&$#_^~]/g, " ") + (t.ma ? ` (mã ${String(t.ma).replace(/[{}\\%&$#_^~]/g, "")})` : "");
     if (thieu.length) {
       const dong = `{\\color[HTML]{0070C0}\\textbf{Thiết bị mượn của tổ (theo PPCT):} ` +
-        thieu.map(t => `${String(t.ten).replace(/[{}\\%&$#_^~]/g, " ")} (mã ${String(t.ma).replace(/[{}\\%&$#_^~]/g, "")})`).join("; ") + ".}";
+        thieu.map(tenTB).join("; ") + ".}";
       const e1 = muc.lastIndexOf("\\end{itemize}");
       if (e1 > 0) muc = muc.slice(0, e1) + `\n\\item ${dong}\n\n` + muc.slice(e1);
       else muc = muc.replace(/\s*$/, "") + `\n\n${dong}\n\n`;
       tex = tex.slice(0, iII) + muc + tex.slice(iIII);
-      da_sua.push(`Bổ sung thiết bị theo PPCT vào mục II: ${thieu.map(t => t.ma).join(", ")}`);
-      W.thiet_bi = "Thiết bị mượn của tổ (theo PPCT): " + thieu.map(t => `${t.ten} (mã ${t.ma})`).join("; ") + ".";
+      da_sua.push(`Bổ sung thiết bị theo PPCT vào mục II: ${thieu.map(t => t.ma || t.ten).join(", ")}`);
+      W.thiet_bi = "Thiết bị mượn của tổ (theo PPCT): " + thieu.map(t => t.ten + (t.ma ? ` (mã ${t.ma})` : "")).join("; ") + ".";
     }
   }
 }

@@ -289,8 +289,11 @@ if (nls_ppct_thieu.length) van_de.push(`Chưa có mã năng lực số theo PPCT
 const AI_RX = /\b1[012]\.[A-D]\d\.(?:MR)?\d+\b/g;
 const nang_luc_ai = [...new Set(toanVan.match(AI_RX) || [])];
 if (!nang_luc_ai.length) van_de.push("Chưa có năng lực AI (QĐ 2422/QĐ-BGDĐT)");
-const tb_thieu = (pp.thiet_bi || []).filter(t => !toanVan.includes(String(t.ma)));
-if (tb_thieu.length) van_de.push(`Chưa ghi thiết bị mượn của tổ theo PPCT: ${tb_thieu.map(t => t.ma).join(", ")}`);
+// có mã → tìm mã; không có mã (PPCT trường mới chưa ghi mã) → tìm các từ chính trong tên thiết bị
+const tuChinh = t => String(t || "").toLowerCase().replace(/\(.*?\)/g, "").split(/[\s,–-]+/).filter(w => w.length > 3);
+const coTB = t => t.ma ? toanVan.includes(String(t.ma)) : (tuChinh(t.ten).length && tuChinh(t.ten).every(w => toanVan.toLowerCase().includes(w)));
+const tb_thieu = (pp.thiet_bi || []).filter(t => !coTB(t));
+if (tb_thieu.length) van_de.push(`Chưa ghi thiết bị theo PPCT: ${tb_thieu.map(t => t.ma || t.ten).join(", ")}`);
 
 // ===== 10. Báo cáo ngắn gửi Telegram (Parse Mode: HTML) =====
 const esc = s => String(s ?? "").replace(/&/g, "&amp;").replace(/</g, "&lt;").replace(/>/g, "&gt;");
